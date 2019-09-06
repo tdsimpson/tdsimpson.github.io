@@ -1,0 +1,648 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800');
+
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 10px;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  background-color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0
+}
+
+
+a,
+button {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a {
+  background-color: transparent;
+  color: #000;
+}
+
+a,
+a:hover,
+a:focus,
+button:hover,
+button:focus {
+  outline: 0 none !important;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #999;
+  /*font-weight: 400;*/
+  opacity: 1;
+}
+
+.placeholder-fix:focus::-webkit-input-placeholder {
+  color: transparent !important;
+}
+
+.placeholder-fix:focus::-moz-placeholder {
+  color: transparent !important;
+}
+
+.placeholder-fix:-moz-placeholder {
+  color: transparent !important;
+}
+
+textarea:focus,
+textArea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: none;
+  box-shadow: none !important;
+  outline: 0 none;
+  border-color: #999 !important;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+#page {
+  overflow: hidden;
+}
+
+.remove-padd {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/*navbar*/
+.navbar-default {
+  background: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+  margin-bottom: 0;
+}
+
+.navbar {
+  min-height: 70px;
+  animation: fadeIn 3s;
+}
+
+.navbar-default .navbar-nav {
+  margin-top: 29px;
+
+}
+
+.navbar-nav>li+li {
+  margin-left: 16px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #fff;
+}
+
+.nav>li>a {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.navbar-nav>li>a {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  padding-bottom: 0;
+  padding-top: 0;
+  text-transform: uppercase;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+  background-color: transparent;
+  color: #11cd86;
+  cursor: default;
+
+}
+
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
+  color: #11cd86;
+}
+
+.logo {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding-right: 30px;
+  display: inline-block;
+  height: 69px;
+  line-height: 69px;
+}
+
+.logo:focus {
+  color: #fff;
+}
+
+.logo:hover {
+  color: #fff;
+}
+
+.top-nav-collapse {
+  background-color: #000;
+}
+
+.top-nav-collapse .navbar-nav>li>a {
+  color: #fff;
+}
+
+.top-nav-collapse .navbar-nav>.active>a,
+.top-nav-collapse .navbar-nav>.active>a:focus,
+.top-nav-collapse .navbar-nav>.active>a:hover {
+  color: #11cd86;
+}
+
+.top-nav-collapse .navbar-nav>li>a:focus,
+.top-nav-collapse .navbar-nav>li>a:hover {
+  color: #11cd86;
+}
+
+.navbar-default .navbar-toggle {
+  margin-bottom: 0;
+  margin-right: 10px;
+  padding: 8px;
+  border: none;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #11cd86;
+}
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+  background-color: transparent;
+
+}
+
+.navbar-default .navbar-toggle:focus .icon-bar,
+.navbar-default .navbar-toggle:hover .icon-bar {
+  background-color: #fff;
+
+}
+
+.top-nav-collapse .navbar-toggle .icon-bar {
+  background-color: #11cd86;
+}
+
+
+/*banner image*/
+.banner-full-image {
+  background: #000;
+  height: 100vh;
+  position: relative;
+}
+
+.banner-title {
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 54%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 3s;
+}
+
+.image {
+  max-width: 100px;
+}
+
+
+/*ANIMATION*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+img.resize {
+  max-width: 50%;
+  max-height: 50%;
+}
+
+/*END OF ANIMATION*/
+
+
+.banner-title>h1 {
+  color: #11cd86;
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.banner-title>h4 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  margin-top: 15px;
+  text-transform: capitalize;
+}
+
+/*section padd*/
+.section-padding {
+  padding-top: 110px;
+}
+
+.offspace-110 {
+  margin-top: 110px;
+}
+
+.offspace-100 {
+  margin-top: 100px;
+}
+
+.offspace-80 {
+  margin-top: 80px;
+}
+
+.offspace-60 {
+  margin-top: 60px;
+}
+
+.offspace-45 {
+  margin-top: 45px;
+}
+
+.offspace-35 {
+  margin-top: 35px;
+}
+
+.offspace-20 {
+  margin-top: 20px;
+}
+
+/*projects*/
+.text-head h2 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  line-height: 0.8;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.text-subhead h4 {
+  font-size: 25px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  line-height: 0.8;
+  position: relative;
+  margin-top: 5%;
+}
+
+.desc-text {
+  font-size: 14.5px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 28px;
+  text-shadow: 0 0 0;
+}
+
+/*==========================================*/
+
+.resume {
+  border: 1px solid #11cd86;
+  border-radius: 50px;
+  color: #11cd86;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #000;
+  margin-top: 75px;
+  padding: 10px 60px 10px 60px;
+}
+
+.resume:hover {
+  color: black;
+  background-color: #11cd86;
+  transition-duration: 0.5s;
+}
+
+
+.portfolio-text {
+  margin-bottom: 50px;
+  margin-top: 10px;
+  color: #fff;
+  font-weight: thin;
+  font-size: 20px;
+}
+
+/*===================================*/
+
+.twitchUp {
+  transition: all 0.20s ease-in-out;
+}
+
+.twitchUp:hover {
+  transform: translate(0, -10px);
+  -webkit-transition: all 0.20s ease-in-out;
+  transition-timing-function: ease-in-out;
+  transition: all 0.20s ease-in-out;
+}
+
+.learn-more {
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.learn-more:hover {
+  color: #11cd86;
+}
+
+.row {
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+/* .row.active{
+  background-color: #11cd86;
+} */
+
+.container {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.project-title {
+  padding-top: 10px;
+}
+
+/*=============PILL NAVIGATION=================*/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+
+.PrimaryNav {
+  list-style: none;
+  margin: 50px auto;
+  max-width: 720px;
+  padding: 0;
+  width: 100%;
+}
+
+.Nav-item {
+  background: #F7F7F7;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 33.3333333333%;
+  text-align: center;
+  font-size: 16px;
+}
+
+.Nav-item:first-child {
+  border-radius: 3px 0 0 3px;
+}
+
+.Nav-item:last-child {
+  border-radius: 0 3px 3px 0;
+}
+
+.Nav-item.is-active a {
+  color: blue;
+}
+
+.Nav-item a {
+  color: #121212;
+  display: block;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+
+}
+
+.with-indicator {
+  position: relative;
+  z-index: 0;
+}
+
+.with-indicator .Nav-item:last-child:before,
+.with-indicator .Nav-item:last-child:after {
+  content: '';
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  transition: left 0.8s ease;
+}
+
+.with-indicator .Nav-item:last-child:after {
+  background: #11cd86;
+  top: 0px;
+  bottom: 0px;
+  left: 0;
+  width: 33.3333333333%;
+  z-index: 0;
+  position: absolute;
+  border-radius: 50px;
+}
+
+
+.buttons a {
+  font-size: 16px;
+}
+.buttons a:hover {
+  cursor:pointer; 
+  font-size: 16px;
+}
+
+
+
+
+.with-indicator .Nav-item:nth-child(1).is-active~.Nav-item:last-child:after {
+  left: 0;
+}
+
+.with-indicator .Nav-item:nth-child(1).is-active~.Nav-item:last-child:before {
+  left: 16.6666666667%;
+}
+
+.with-indicator .Nav-item:nth-child(2).is-active~.Nav-item:last-child:after {
+  left: 33.3333333333%;
+}
+
+.with-indicator .Nav-item:nth-child(2).is-active~.Nav-item:last-child:before {
+  left: 50%;
+}
+
+
+
+
+.with-indicator .Nav-item:nth-child(1).active~.Nav-item:last-child:after {
+  left: 0% !important;
+}
+
+.with-indicator .Nav-item:nth-child(1).active~.Nav-item:last-child:before {
+  left: 16.6666666667% !important;
+}
+
+.with-indicator .Nav-item:nth-child(2).active~.Nav-item:last-child:after {
+  left: 33.3333333333% !important;
+}
+
+.with-indicator .Nav-item:nth-child(2).active~.Nav-item:last-child:before {
+  left: 50% !important;
+}
+
+.with-indicator .Nav-item:last-child.active:before,
+.with-indicator .Nav-item:last-child.is-active:before {
+  left: 83.3333333333% !important;
+}
+
+.with-indicator .Nav-item:last-child.active:after,
+.with-indicator .Nav-item:last-child.is-active:after {
+  left: 66.6666666667% !important;
+}
+
+
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.PrimaryNav:before,
+.PrimaryNav:after {
+  content: " ";
+  display: table;
+}
+
+.PrimaryNav:after {
+  clear: both;
+}
+
+.toggle {
+  color: #fff;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/*====+++++++++++++==Projects HEADER==============*/
+
+.projects-header {
+  text-align: center;
+}
+
+.pill-menu {
+  margin: 0 auto;
+}
+
+/*================About block ===========*/
+
+#about{
+  background-color: #F7F7F7;
+}
+
+.about-text-head h2 {
+  font-size: 50px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  line-height: 0.8;
+  padding-top: 10px;
+  position: relative;
+}
+
+.about-twitchUp {
+  
+}
+
+#about{
+  padding-top: 10%;
+  padding-left: 10%;
+  padding-right: 10%;
+  height: 100vh;
+}
+
+
+/***=======ABOUT ICONS*********=========*/
+
+.icons{
+  width: 100%;
+  text-align: left;
+}
+
+.footerIcon{
+  width: 24px;
+  height: 24px;
+  margin-right: 32px;
+  color: #000;
+  font-size: 24px;
+}
+
+.footerIcon.invertIcon{
+  /* background-color: #ffc901; */
+  color: #000;
+}
+
+.footerIcon:hover{
+color: #6ECDA5;
+}

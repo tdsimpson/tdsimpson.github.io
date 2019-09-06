@@ -1,1 +1,538 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/icons/favicon.png" />
+    <title>Taylor Simpson</title>
+
+    <link href="css/scrolling-nav.css" rel="stylesheet" media="all">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/footer-style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/scrolling-nav.js" type="text/javascript"></script>
+    <script src="js/counterup.min.js" type="text/javascript"></script>
+    <script src="js/waypoints.min.js" type="text/javascript"></script>
+    <script src="js/jquery.inview.min.js" type="text/javascript"></script>
+    <script src="js/instafeed.min.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#myPage">
+                    <img style="max-height: 45px; margin-top: 12px" src="images/topLeftLogo.png" alt="Taylor Simpson">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#myPage">home</a></li>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#projects">projects</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!--------home block------------->
+    <div class="banner-full-image">
+        <div class="banner-title">
+            <div><img style="max-height: 225px" src="images/nameLogo2.png" alt="Taylor Simpson"></div>
+            <div>
+                <p class="portfolio-text"> - portfolio 2019 -</p>
+            </div>
+            <div><a class="resume" href="assets/Resume.pdf">RESUME</a></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+    <!--------about block------------->
+    <section id="about" class="section-padding">
+
+
+        <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 add-space-mobileview">
+            <div class="image" style="padding-bottom: 60px" ;>
+                <img src="images/myFace.png" style="max-height: 400px;" class="about-twitchUp" class="img-responsive"
+                    alt="user-image" />
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12" style="padding-left: 7%;">
+            <div class="about-text-head">
+                <h2>Hello!</h2>
+            </div>
+            <div>
+                <p class="desc-text offspace-60" style="padding-bottom: 60px; "> I'm Taylor Simpson - a recent
+                    Software Design grad passionate about the intersection of business, technology, and design.I'm
+                    Taylor Simpson - a recent
+                    Software Design grad passionate about the intersection of business, technology, and design. I'm
+                    Taylor Simpson - a recent
+                    Software Design grad passionate about the intersection of business, technology, and design. </p>
+
+
+                <div class="icons">
+                    <a href="mailto:taylor.daniel.simpson@gmail.com"><i class="fas fa-envelope footerIcon"></i></a>
+                    <a href="http://www.linkedin.com/in/td-simpson"><i class="fab fa-linkedin footerIcon"></i></a>
+                    <a href="http://www.github.com/tdsimpson"><i class="fab fa-github footerIcon"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--------proejcts block------------->
+    <section id="projects" class="section-padding">
+        <div class="container">
+
+
+            <h2 class="projects-header">Projects</h2>
+
+            <!---Pill Menu-->
+            <ul class="PrimaryNav with-indicator">
+                <li class="Nav-item active" style="border-radius: 50px 0 0 50px;"><a
+                        onclick="divVisibility('work');">Work</a></li>
+                <li class="Nav-item"><a onclick="divVisibility('personal');">Personal</a></li>
+                <li class="Nav-item" style="border-radius: 0 50px 50px 0;"><a
+                        onclick="divVisibility('hackathons');">Hackathons</a></li>
+            </ul>
+            <!--End Pill Menu-->
+
+            <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+            <script>
+                //Function to trigger the movement of the pill menu based on a mouse click
+                $(document).on('click', 'ul li', function () {
+                    $(this).addClass('active').siblings().removeClass('active')
+                })
+            </script>
+
+            <script>
+                //Function to display only certain sections when menu elements are clicked
+                let divs = ["work", "personal", "hackathons"];
+                let visibleDivId = null;
+                function divVisibility(divId) {
+                    if (visibleDivId === divId) {
+                        visibleDivId == null;
+                    } else {
+                        visibleDivId = divId;
+                    }
+                    hideNonVisibleDivs();
+                }
+                function hideNonVisibleDivs() {
+                    var i, divId, div;
+                    for (i = 0; i < divs.length; i++) {
+                        divId = divs[i];
+                        div = document.getElementById(divId);
+                        if (visibleDivId === divId) {
+                            div.style.display = "block";
+                        } else {
+                            div.style.display = "none";
+                        }
+                    }
+                }
+
+            </script>
+
+            <!--START OF INDIVIDUAL PROJECTS-->
+
+            <div id="work">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                        <div class="text-head">
+                            <h2 class="project-title">Orange Gate</h2>
+                        </div>
+                        <div class="text-subhead">
+                            <h4>Summer/Fall Intern 2018</h4>
+                        </div>
+                        <div>
+                            <p class="desc-text offspace-60" style="padding-bottom: 60px"> I was part of the Orange Gate
+                                Innovation Lab,
+                                exploring emerging technologies and rapidly prototyping applications for consumer
+                                robots, aimed to enhance
+                                customer experience in the service industry. </p>
+                        </div>
+                        <div>
+                            <a class="learn-more" href="http://orangegate.ca" target="_blank"> Learn more </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 add-space-mobileview">
+                        <div class="image">
+                            <a href="http://orangegate.ca" target="_blank">
+                                <img src="images/cards/card-orangeGate.png" style="max-height: 325px; margin-left: 50%;"
+                                    class="twitchUp" class="img-responsive" alt="user-image" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                        <div class="text-head">
+                            <h2 class="project-title">QHacks</h2>
+                        </div>
+                        <div class="text-subhead">
+                            <h4>Content Writing</h4>
+                        </div>
+                        <div>
+                            <p class="desc-text offspace-60" style="padding-bottom: 60px"> I led the content and
+                                communications for Queen’s University’s
+                                annual hackathon. Responsible for the voice and tone of the brand, I wrote the copy for
+                                our website, dashboard, handbooks,
+                                and advertisements.
+                            </p>
+                        </div>
+                        <div>
+                            <a class="learn-more" href="http://qhacks.io" target="_blank"> Learn more </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 add-space-mobileview">
+                        <div class="image">
+                            <a href="http://qhacks.io" target="_blank">
+                                <img src="images/cards/card-qhacks.png" style="max-height: 325px; margin-left: 50%;"
+                                    class="twitchUp" class="img-responsive" alt="user-image" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div id="personal" style="display: none">
+
+                <!--1: PEDAL PATROL-->
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                        <div class="text-head">
+                            <h2 class="project-title">Pedal Patrol</h2>
+                        </div>
+                        <div class="text-subhead">
+                            <h4>Android / iOS App</h4>
+                        </div>
+                        <div>
+                            <p class="desc-text offspace-60" style="padding-bottom: 60px"> A mobile application aiming
+                                to reunite cyclists with their stolen bikes through crowdsourcing. Created in
+                                association
+                                with Frontenac Cycle bikeshop in Kingston, Ontario.</p>
+                        </div>
+                        <div>
+                            <a class="learn-more" href="https://www.youtube.com/watch?v=cx0hL6pEcVk" target="_blank">
+                                Learn more </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 add-space-mobileview">
+                        <div class="image">
+                            <a href="https://www.youtube.com/watch?v=cx0hL6pEcVk" target="_blank">
+                                <img src="images/cards/card-pedalPatrol.png"
+                                    style="max-height: 325px; margin-left: 50%;" class="twitchUp" class="img-responsive"
+                                    alt="user-image" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--2: PAPER LADIES-->
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                        <div class="text-head">
+                            <h2 class="project-title">Paper Ladies</h2>
+                        </div>
+                        <div class="text-subhead">
+                            <h4>Website</h4>
+                        </div>
+                        <div>
+                            <p class="desc-text offspace-60" style="padding-bottom: 60px"> A website created for a
+                                Kingston indie-rock band, Paper Ladies. </p>
+                        </div>
+                        <div>
+                            <a class="learn-more" href="http://paperladies.ca" target="_blank"> Learn more </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 add-space-mobileview">
+                        <div class="image">
+                            <a href="http://paperladies.ca" target="_blank">
+                                <img src="images/cards/card-paperlaides.png"
+                                    style="max-height: 325px; margin-left: 50%;" class="twitchUp" class="img-responsive"
+                                    alt="user-image" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="work">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                            <div class="text-head">
+                                <h2 class="project-title">Volutime</h2>
+                            </div>
+                            <div class="text-subhead">
+                                <h4>Android App</h4>
+                            </div>
+                            <div>
+                                <p class="desc-text offspace-60" style="padding-bottom: 60px"> App that helps to prevent
+                                    hearing damage by balancing volume and listening time </p>
+                            </div>
+                            <div>
+                                <a class="learn-more"
+                                    href="https://play.google.com/store/apps/details?id=com.volutime&hl=en_CA"
+                                    target="_blank"> Learn more </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 add-space-mobileview">
+                            <div class="image">
+                                <a href="https://play.google.com/store/apps/details?id=com.volutime&hl=en_CA"
+                                    target="_blank">
+                                    <img src="images/cards/card-volutime.png"
+                                        style="max-height: 325px; margin-left: 50%;" class="twitchUp"
+                                        class="img-responsive" alt="user-image" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="work">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                            <div class="text-head">
+                                <h2 class="project-title">Toronto Trivia</h2>
+                            </div>
+                            <div class="text-subhead">
+                                <h4>Google Home Trivia Game</h4>
+                            </div>
+                            <div>
+                                <p class="desc-text offspace-60" style="padding-bottom: 60px"> A published trivia game
+                                    for the Google home with over
+                                    150 questions relating to Toronto history, pop culture, sports, politics and more!
+                                </p>
+                            </div>
+                            <div>
+                                <a class="learn-more" href="www.google.ca"> Learn more </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 add-space-mobileview">
+                            <div class="image">
+                                <a href="www.google.ca">
+                                    <img src="images/cards/card-torontoTrivia.png"
+                                        style="max-height: 325px; margin-left: 50%;" class="twitchUp"
+                                        class="img-responsive" alt="user-image" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div id="hackathons" style="display: none">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                        <div class="text-head">
+                            <h2 class="project-title">MyndJournal</h2>
+                        </div>
+                        <div class="text-subhead">
+                            <h4>Web App - Hack the 6ix</h4>
+                        </div>
+                        <div>
+                            <p class="desc-text offspace-60" style="padding-bottom: 60px">A web app that displays mental
+                                health data
+                                based on sentiment analysis from user’s journal entries. Created using IBM Watson’s NLU
+                                API . </p>
+                        </div>
+                        <div>
+                            <a class="learn-more" href="https://devpost.com/software/myndjournal-0ky6t5"
+                                target="_blank"> Learn more </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 add-space-mobileview">
+                        <div class="image">
+                            <a href="https://devpost.com/software/myndjournal-0ky6t5" target="_blank">
+                                <img src="images/cards/card-myndJournal.png"
+                                    style="max-height: 325px; margin-left: 50%;" class="twitchUp" class="img-responsive"
+                                    alt="user-image" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                        <div class="text-head">
+                            <h2 class="project-title">Stock block</h2>
+                        </div>
+                        <div class="text-subhead">
+                            <h4>DApp - Local Hack Day</h4>
+                        </div>
+                        <div>
+                            <p class="desc-text offspace-60" style="padding-bottom: 60px">A decentralized photo sharing
+                                web marketplace
+                                on the Ethereum blockchain created using solidity contracts. </p>
+                        </div>
+                        <div>
+                            <a class="learn-more" href="https://devpost.com/software/stock-block#updates
+                            " target="_blank"> Learn more </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 add-space-mobileview">
+                        <div class="image">
+                            <a href="https://devpost.com/software/stock-block#updates
+                            " target="_blank">
+                                <img src="images/cards/card-stockBlock.png" style="max-height: 325px; margin-left: 50%;"
+                                    class="twitchUp" class="img-responsive" alt="user-image" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+    <!----------End----------->
+
+
+    <!--FOOTER SECTION-->
+
+    <div class="footer-container">
+        <div class="toppane"></div>
+        <div class="leftpane">
+
+            <div class="panel-content" style="padding-left: 60%">
+                <div class="ui header jumbo">
+                    <h4 style="text-align: left; font-weight: 600">Menu</h4>
+                </div>
+
+
+                <div class="ui header jumbo"><a href="#myPage">
+                        <p style="text-align: left;">Home</p>
+                    </a>
+                </div>
+                <div class="ui header jumbo"><a href="#about">
+                        <p style="text-align: left;">About</p>
+                    </a>
+                </div>
+                <div class="ui header jumbo"><a href="#projects">
+                        <p style="text-align: left;">Projects</p>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="middlepane">
+
+            <div class="panel-3">
+                <div class="panel-content">
+                    <div class="ui header jumbo">
+                        <h4 style="text-align: left; padding-left:4% ;font-weight: 600">Contact</h4>
+                    </div>
+
+                    <div class="allLinks">
+                        <div class="contactLink">
+                            <div class="smallIcon mail"><i class="fas fa-envelope contacticon"></i></div>
+                            <a href="mailto:taylor.daniel.simpson@gmail.com"
+                                class="contact-text">taylor.daniel.simpson@gmail.com</a>
+                        </div>
+                        <div class="contactLink">
+                            <div class="smallIcon mail"><i class="fab fa-linkedin-in contacticon"></i></div>
+                            <a href="http://www.linkedin.com/in/td-simpson"
+                                class="contact-text">linkedin.com/in/td-simpson</a>
+                        </div>
+                        <div class="contactLink">
+                            <div class="smallIcon mail"><i class="fab fa-github contacticon"></i></div>
+                            <a href="http://www.github.com/tdsimpson" class="contact-text">github.com/tdsimpson</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="rightpane">
+
+
+            <div class="panel-content" style="padding-top: 22%">
+
+
+                <div class="ui header jumbo" style="padding-bottom:3%;">
+                    <h4 style="text-align: left;">Toronto, Canada Area</h4>
+                </div>
+
+                <div class="footer-resume">
+
+                    <a href="assets/Resume.pdf" target="_blank"><button class="footer-resume">RESUME</button></a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--FOOTER SECTION END-->
+
+
+    <script>
+        $(document).ready(function () {
+            // Initialize Tooltip
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        })
+    </script>
+
+</body>
+
+</html>

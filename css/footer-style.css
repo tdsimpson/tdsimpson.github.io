@@ -1,0 +1,213 @@
+button:focus {outline:0;}
+
+.link-white{
+    color: white;
+}
+
+
+
+.inline-link{
+    color: black;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.inline-link:hover{
+    color: #6ECDA5;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.center{
+    text-align: center !important;
+}
+
+.full-height{
+    height: 100vh;
+}
+
+
+.ui.header.jumbo p{
+    color: white;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    line-height: 56px;
+}
+
+.ui.header.jumbo p:hover{
+    color: #6ECDA5;
+}
+
+.ui.header.jumbo h4{
+    color: white;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    line-height: 56px;
+}
+
+.menu-link{
+    color: white;
+}
+
+
+
+#aboutMe{
+    width: 100%;
+}
+
+.landing{
+    background-image: url(landing%403x.png);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    height: 70vw;
+}
+
+.ui.footer-container.top{
+    padding-left:15%;
+    padding-right:15%;
+}
+
+.contact{
+    background-image: url(slice%403x.png);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    width:100%;
+    height: 60vw;
+}
+
+
+.panel-3{
+    width: 100%;
+    height: 100%;
+    background-color: #0E0E0E;
+    /* float: left; */
+    
+}
+
+.panel-content{
+    padding: 32px;
+}
+
+button{
+    font-weight: 700;
+    width: 150px;
+    height: 44px;
+    border-radius: 32px;
+    background-color:rgba(0, 0, 0, 0);
+    margin-top: 24px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+
+button.footer-resume{
+    border: solid 1px #fff;
+    color: #FFF;
+}
+
+button.footer-resume:hover{
+    border: solid 1px #6ECDA5;
+    background-color: #6ECDA5;
+    color: #000;
+}
+
+
+/* Contact Page */
+.allLinks{
+    margin-left: 16px;
+    margin-top: 32px;
+    display: block;
+}
+
+.smallIcon{
+    width: 24px;
+    height: 24px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: auto;
+}
+.contact-text{
+	display: inline;
+	vertical-align: top;
+	line-height: 24px;
+	font-size: 20px;
+	color: #FFF;
+}
+.ui.footer-container.contact{
+    min-height: calc(100vh - 99px);
+}
+
+.contacticon{
+    color: black;
+    font-size: 16px;
+    margin-top: 4px;
+    width: 24px;
+    text-align: center;
+}
+
+.contactLink{
+	width: fit-content;
+}
+
+.contactLink:hover > .contact-text{
+	color: #6ECDA5;
+}
+
+.contactLink:hover > .smallIcon{
+	background-color: #6ECDA5;
+}
+
+.contactLink:hover > .contacticon{
+    color: #6ECDA5;
+}
+
+
+/*======+ADDED=========*/
+
+  
+  .footer-container {
+    width: 100%;
+    height: 56%;
+  }
+
+
+.leftpane {
+    width: 33%;
+    height: 100%;
+    float: left;
+    background-color: #000;
+    border-collapse: collapse;
+}
+
+.middlepane {
+    width: 34%;
+    height: 100%;
+    float: left;
+    background-color: #000;
+    border-collapse: collapse;
+}
+
+.rightpane {
+  width: 33%;
+  height: 100%;
+  position: relative;
+  float: right;
+  background-color: #000;
+  border-collapse: collapse;
+}
+
+.toppane {
+  width: 100%;
+  height: 75px;
+  border-collapse: collapse;
+  background-color: #000;
+}
