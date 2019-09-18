@@ -8,6 +8,17 @@
     <link rel="icon" href="images/icons/favicon.png" />
     <title>Taylor Simpson</title>
 
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148221650-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148221650-1');
+</script>
+
     <link href="css/scrolling-nav.css" rel="stylesheet" media="all">
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +44,7 @@
 
 </head>
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+<body id="home" data-spy="scroll" data-target=".navbar" data-offset="50">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -42,13 +53,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#myPage">
+                <a href="#home">
                     <img style="max-height: 45px; margin-top: 12px" src="images/topLeftLogo.png" alt="Taylor Simpson">
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#myPage">home</a></li>
+                    <li class="active"><a href="#home">home</a></li>
                     <li><a href="#about">about</a></li>
                     <li><a href="#projects">projects</a></li>
                 </ul>
@@ -73,7 +84,6 @@
     <!--------about block------------->
     <section id="about" class="section-padding">
 
-
         <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 add-space-mobileview">
             <div class="image" style="padding-bottom: 60px" ;>
                 <img src="images/myFace.png" style="max-height: 400px;" class="about-twitchUp" class="img-responsive"
@@ -81,18 +91,17 @@
             </div>
         </div>
 
-        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12" style="padding-left: 7%;">
+        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12" style="display:inline-block; padding-left: 7%;">
             <div class="about-text-head">
                 <h2>Hello!</h2>
             </div>
-            <div>
+            
                 <p class="desc-text offspace-60" style="padding-bottom: 60px; "> I'm Taylor Simpson - a recent
                     Software Design grad passionate about the intersection of business, technology, and design.I'm
                     Taylor Simpson - a recent
                     Software Design grad passionate about the intersection of business, technology, and design. I'm
                     Taylor Simpson - a recent
                     Software Design grad passionate about the intersection of business, technology, and design. </p>
-
 
                 <div class="icons">
                     <a href="mailto:taylor.daniel.simpson@gmail.com"><i class="fas fa-envelope footerIcon"></i></a>
@@ -433,7 +442,7 @@
                 </div>
 
 
-                <div class="ui header jumbo"><a href="#myPage">
+                <div class="ui header jumbo"><a href="#home">
                         <p style="text-align: left;">Home</p>
                     </a>
                 </div>
@@ -510,7 +519,7 @@
             $('[data-toggle="tooltip"]').tooltip();
 
             // Add smooth scrolling to all links in navbar + footer link
-            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+            $(".navbar a, footer a[href='#home']").on('click', function (event) {
 
                 // Make sure this.hash has a value before overriding default behavior
                 if (this.hash !== "") {

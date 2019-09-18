@@ -13,20 +13,24 @@ License URI: http://www.themevault.net/license/
     .section-padding {
         padding-top: 80px;
     }
-    .text-head h2{
+
+    .text-head h2 {
         font-size: 40px;
     }
 }
+
 @media (min-width: 992px) and (max-width: 1199px) {
     .subscribe-banner label {
         font-size: 25px;
     }
 }
+
 @media (min-width: 768px) and (max-width: 991px) {
-    .navbar-nav > li + li {
+    .navbar-nav>li+li {
         margin-left: 10px;
     }
-    #portfolio .row > div:nth-child(-n+6) {
+
+    #portfolio .row>div:nth-child(-n+6) {
         margin-bottom: 30px;
     }
 }
@@ -35,103 +39,137 @@ License URI: http://www.themevault.net/license/
     .section-padding {
         padding-top: 65px;
     }
-    .offspace-100, .offspace-110, .offspace-80, footer{
+
+    .offspace-100,
+    .offspace-110,
+    .offspace-80,
+    footer {
         margin-top: 65px;
     }
+
     .text-head h2 {
         font-size: 24px;
     }
+
     .offspace-60 {
         margin-top: 30px;
     }
+
     .logo {
         font-size: 24px;
     }
-    .navbar-nav > li > a, .top-nav-collapse .navbar-nav > li > a{
+
+    .navbar-nav>li>a,
+    .top-nav-collapse .navbar-nav>li>a {
         font-size: 11.75px;
     }
-    .banner-full-image{
+
+    .banner-full-age {
         height: 550px;
     }
-    .banner-title > h1{
+
+    .banner-title>h1 {
         font-size: 40px;
     }
-    .banner-title > h4{
+
+    .banner-title>h4 {
         font-size: 24px;
         letter-spacing: 3px
     }
+
     .social-icon-top-head {
         margin-top: 30px;
     }
+
     .desc-text {
         font-size: 13px;
         letter-spacing: 1px;
         line-height: 21px;
     }
+
     .icon-block {
         margin-bottom: 35px;
     }
+
     .full-bg-image {
         padding: 50px 0;
     }
-    .information > h1::after {
+
+    .information>h1::after {
         margin: 15px auto 25px auto;
         width: 45%;
     }
-    .information > h5{
+
+    .information>h5 {
         font-size: 15px;
     }
-    .information > h1{
+
+    .information>h1 {
         font-size: 35px;
     }
+
     .subscribe-banner label {
         font-size: 22px;
         letter-spacing: 1.5px;
     }
+
     #subscribe-block .input-group-btn .btn {
         font-size: 14px;
         letter-spacing: 0.5px;
         padding: 0 10px;
     }
+
     #subscribe-block .subscribe-box::-webkit-input-placeholder {
         font-size: 14px;
         letter-spacing: 0.5px;
     }
+
     #subscribe-block .subscribe-box::-moz-placeholder {
         font-size: 14px;
         letter-spacing: 0.5px;
     }
+
     .subscribe-banner {
         padding: 75px 0;
     }
+
     .contact-form input {
         height: 40px;
     }
+
     .contact-form .form-group {
         margin-bottom: 30px;
     }
-    .contact-form input, .contact-form textarea {
+
+    .contact-form input,
+    .contact-form textarea {
         font-size: 14px;
     }
+
     footer {
         padding: 50px 0;
     }
-    .footer-details > h4 {
+
+    .footer-details>h4 {
         font-size: 16px;
         font-weight: 500;
         letter-spacing: 0.5px;
         margin-bottom: 35px;
     }
-    .footer-contact-list li, .footer-links li {
+
+    .footer-contact-list li,
+    .footer-links li {
 
         font-size: 12px;
         font-weight: 500;
         letter-spacing: 0.5px;
     }
-    #instafeed > div:nth-child(-n+4) {
+
+    #instafeed>div:nth-child(-n+4) {
         margin-bottom: 5px;
     }
-    #instafeed > div:nth-last-child(-n+3) {
+
+    #instafeed>div:nth-last-child(-n+3) {
         margin-top: 0px;
     }
 
@@ -141,177 +179,229 @@ License URI: http://www.themevault.net/license/
     .section-padding {
         padding-top: 45px;
     }
-    .offspace-100, .offspace-110, .offspace-80, footer{
+
+    .offspace-100,
+    .offspace-110,
+    .offspace-80,
+    footer {
         margin-top: 45px;
     }
+
     .text-head h2 {
         font-size: 24px;
     }
+
     .offspace-60 {
         margin-top: 30px;
     }
-    .navbar-nav > li + li {
+
+    .navbar-nav>li+li {
         margin-left: 0;
         margin-top: 10px;
     }
+
     .logo {
         padding-left: 15px;
         height: 42px;
         line-height: 42px;
         padding-right: 15px;
     }
+
     .icon-block {
         margin-bottom: 15px;
     }
+
     #myNavbar {
         background-color: #fff;
     }
+
     .navbar {
         min-height: 42px;
     }
-    .navbar-default .navbar-nav > li > a {
+
+    .navbar-default .navbar-nav>li>a {
         color: #000;
         font-weight: 500;
         letter-spacing: 0.2px;
     }
+
     .navbar-default .navbar-nav {
         margin-top: 15px;
     }
-    .navbar > .container .navbar-brand {
+
+    .navbar>.container .navbar-brand {
         margin-top: 0;
     }
 
-    .navbar-nav{
+    .navbar-nav {
         padding-left: 15px;
     }
-    .banner-full-image{
+
+    .banner-full-image {
         height: 450px;
     }
-    .banner-title > h1{
+
+    .banner-title>h1 {
         font-size: 30px;
         letter-spacing: 2px
     }
-    .banner-title > h4{
+
+    .banner-title>h4 {
         font-size: 22px;
 
     }
+
     .desc-text {
         font-size: 13px;
         line-height: 22px;
     }
-    #services .width-set50-mobile + .width-set50-mobile {
+
+    #services .width-set50-mobile+.width-set50-mobile {
         margin-top: 25px;
     }
-    #projects .row > div + div {
+
+    #projects .row>div+div {
         margin-top: 15px;
     }
+
     .middle-title {
         font-size: 15px;
     }
 
 
-    .full-bg-image{
+    .full-bg-image {
         padding: 35px 0;
     }
+
     .information {
         border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
     }
-    #professional .width-set-50 + .width-set-50 {
+
+    #professional .width-set-50+.width-set-50 {
         margin-top: 20px;
     }
-    #portfolio .row > div:nth-child(-n+7) {
+
+    #portfolio .row>div:nth-child(-n+7) {
         margin-bottom: 15px;
     }
-    .social-icon > i {
+
+    .social-icon>i {
         font-size: 26px;
     }
 
-    .social-grid li + li {
+    .social-grid li+li {
         margin-left: 15px;
     }
+
     .social-grid li a {
         font-size: 15px;
         line-height: 32px;
         min-height: 32px;
         min-width: 32px;
     }
+
     .copyright {
         font-size: 12px;
         font-weight: 600;
         letter-spacing: 1px;
     }
-    footer{
+
+    footer {
         padding: 35px 0 20px 0;
     }
-    footer .row > div + div {
+
+    footer .row>div+div {
         margin-top: 30px;
     }
-    .footer-details > h4 {
+
+    .footer-details>h4 {
         margin-bottom: 20px;
     }
-    .footer-links li + li {
+
+    .footer-links li+li {
         margin-top: 5px;
     }
-    .footer-contact-list li, .footer-links li {
+
+    .footer-contact-list li,
+    .footer-links li {
         font-size: 11px;
     }
-    .footer-contact-list li + li {
+
+    .footer-contact-list li+li {
         margin-top: 10px;
     }
+
     .offspace-35 {
         margin-top: 20px;
     }
-    .information > h5 {
+
+    .information>h5 {
         margin-bottom: 15px;
     }
+
     .subscribe-banner label {
         font-size: 20px;
         letter-spacing: 0.85px;
         margin-bottom: 15px;
     }
-    #subscribe form > div {
+
+    #subscribe form>div {
         padding-left: 0;
         padding-right: 0;
     }
+
     #subscribe-block {
         margin-left: auto;
         margin-right: auto;
         max-width: 285px;
     }
-    .subscribe-box, #subscribe-block .input-group-btn .btn {
+
+    .subscribe-box,
+    #subscribe-block .input-group-btn .btn {
         height: 30px;
     }
+
     #subscribe-block .input-group-btn .btn {
         font-size: 13px;
     }
+
     #subscribe-block .subscribe-box::-moz-placeholder {
         font-size: 13px;
     }
+
     .contact-form .form-group {
         margin-bottom: 25px;
     }
+
     .contact-form input {
         height: 30px;
         font-size: 13px;
     }
-    .action-buttons button{
+
+    .action-buttons button {
         padding: 6px 12px;
     }
 }
 
 @media (min-width: 640px) and (max-width: 767px) {
-    #portfolio .width-set-50, footer .width-set-50 {
+
+    #portfolio .width-set-50,
+    footer .width-set-50 {
         width: 50%;
     }
+
     footer .width-set-50 {
         clear: right;
     }
-    footer .row > div + div {
+
+    footer .row>div+div {
         margin-top: 0px;
     }
-    footer .container > .row > div:nth-child(-n+2) {
+
+    footer .container>.row>div:nth-child(-n+2) {
         margin-bottom: 25px;
     }
+
     .copyright {
         font-size: 14px;
         font-weight: 500;
@@ -321,64 +411,78 @@ License URI: http://www.themevault.net/license/
 
 @media (min-width: 480px) and (max-width: 767px) {
 
-    #professional .width-set-50 + .width-set-50 {
+    #professional .width-set-50+.width-set-50 {
         margin-top: 0px;
     }
+
     #services .width-set50-mobile {
         width: 33.3333%;
     }
+
     #professional .width-set-50 {
         width: 50%;
     }
-    #professional .row  >.width-set-50:nth-child(-n+2)
-    {
+
+    #professional .row>.width-set-50:nth-child(-n+2) {
         margin-bottom: 20px;
     }
+
     .middle-title {
         font-size: 13px;
         letter-spacing: 1px;
     }
-    #services .width-set50-mobile + .width-set50-mobile {
+
+    #services .width-set50-mobile+.width-set50-mobile {
         margin-top: 0px;
     }
+
     .information {
         border-bottom: none;
     }
-    .information > h1{
+
+    .information>h1 {
         font-size: 30px;
     }
-    .information > h5{
+
+    .information>h5 {
         font-size: 16px;
     }
-    .information > h1::after {
+
+    .information>h1::after {
         margin: 20px auto;
         width: 50%;
     }
 
 }
 
-@media (max-width: 500px) { 
-    .banner-full-image{
+@media (max-width: 500px) {
+    .banner-full-image {
         height: 380px;
     }
-    .banner-title > h1{
+
+    .banner-title>h1 {
         font-size: 26px;
     }
-    .banner-title > h4 {
+
+    .banner-title>h4 {
         font-size: 16px;
     }
 }
+
 @media (max-width: 400px) {
     .text-head h2 {
         font-size: 22px;
     }
-    .banner-full-image{
+
+    .banner-full-image {
         height: 320px;
     }
-    .banner-title > h1{
+
+    .banner-title>h1 {
         font-size: 22px;
     }
-    .banner-title > h4 {
+
+    .banner-title>h4 {
         font-size: 15px;
     }
 
@@ -389,9 +493,3 @@ License URI: http://www.themevault.net/license/
     }
 
 }
-
-
-
-
-
-

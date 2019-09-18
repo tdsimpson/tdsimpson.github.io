@@ -509,8 +509,9 @@ img.resize {
 .buttons a {
   font-size: 16px;
 }
+
 .buttons a:hover {
-  cursor:pointer; 
+  cursor: pointer;
   font-size: 16px;
 }
 
@@ -598,7 +599,7 @@ img.resize {
 
 /*================About block ===========*/
 
-#about{
+#about {
   background-color: #F7F7F7;
 }
 
@@ -611,11 +612,9 @@ img.resize {
   position: relative;
 }
 
-.about-twitchUp {
-  
-}
+.about-twitchUp {}
 
-#about{
+#about {
   padding-top: 10%;
   padding-left: 10%;
   padding-right: 10%;
@@ -625,12 +624,12 @@ img.resize {
 
 /***=======ABOUT ICONS*********=========*/
 
-.icons{
+.icons {
   width: 100%;
   text-align: left;
 }
 
-.footerIcon{
+.footerIcon {
   width: 24px;
   height: 24px;
   margin-right: 32px;
@@ -638,11 +637,11 @@ img.resize {
   font-size: 24px;
 }
 
-.footerIcon.invertIcon{
+.footerIcon.invertIcon {
   /* background-color: #ffc901; */
   color: #000;
 }
 
-.footerIcon:hover{
-color: #6ECDA5;
+.footerIcon:hover {
+  color: #6ECDA5;
 }
