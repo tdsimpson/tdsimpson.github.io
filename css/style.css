@@ -262,11 +262,6 @@ textarea {
   margin-right: auto;
 }
 
-.hero-photo img {
-  margin-left: 100px;
-  margin-right: 100px;
-}
-
 /*ANIMATION*/
 @keyframes fadeIn {
   from {
