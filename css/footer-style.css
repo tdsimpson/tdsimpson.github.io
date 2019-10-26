@@ -5,6 +5,8 @@ footer {
     background-color: #0B0D0D;
     position: relative;
     color: #fff;
+    height: 100vh;
+    padding-top: 10%;
 }
 
 .footer-details>h4 {
