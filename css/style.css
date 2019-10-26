@@ -129,6 +129,7 @@ textarea {
 .navbar {
   min-height: 70px;
   animation: fadeIn 3s;
+  background-color: #000;
 }
 
 .navbar-default .navbar-nav {
@@ -170,26 +171,6 @@ textarea {
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:hover {
   color: #11cd86;
-}
-
-.logo {
-  color: #fff;
-  font-size: 30px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding-right: 30px;
-  display: inline-block;
-  height: 69px;
-  line-height: 69px;
-}
-
-.logo:focus {
-  color: #fff;
-}
-
-.logo:hover {
-  color: #fff;
 }
 
 .top-nav-collapse {
@@ -237,7 +218,6 @@ textarea {
 .top-nav-collapse .navbar-toggle .icon-bar {
   background-color: #11cd86;
 }
-
 
 /*banner image*/
 .banner-full-image {
