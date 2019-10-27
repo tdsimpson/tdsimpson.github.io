@@ -242,6 +242,12 @@ textarea {
   margin-right: auto;
 }
 
+.image-size {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
 /*ANIMATION*/
 @keyframes fadeIn {
   from {
