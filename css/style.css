@@ -617,7 +617,7 @@ img.resize {
   text-align: left;
 }
 
-.footerIcon {
+.linkIcon {
   width: 24px;
   height: 24px;
   margin-right: 32px;
@@ -625,11 +625,6 @@ img.resize {
   font-size: 24px;
 }
 
-.footerIcon.invertIcon {
-  /* background-color: #ffc901; */
-  color: #000;
-}
-
-.footerIcon:hover {
+.linkIcon:hover {
   color: #6ECDA5;
 }
