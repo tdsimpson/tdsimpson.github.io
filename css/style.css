@@ -370,6 +370,10 @@ img.resize {
   transition-duration: 0.5s;
 }
 
+.resume-button {
+  padding-bottom: 5%;
+}
+
 
 .portfolio-text {
   margin-bottom: 50px;
@@ -568,7 +572,7 @@ img.resize {
 }
 
 .toggle {
-  color: #fff;
+  color: green;
   font-family: sans-serif;
   text-align: center;
 }
