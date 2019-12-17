@@ -612,6 +612,18 @@
                         </div>
                     </div>
                 </div>
+                <div style="text-align: center; font-size: 16px;">
+                    <script>
+                        const monthNames = ["January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"];
+
+                        let update = new Date(document.lastModified)
+                        let theMonth = update.getMonth() + 1
+                        let theDate = update.getDate()
+                        let theYear = update.getFullYear()
+                        document.writeln("<I>Last updated: " + monthNames[update.getMonth()] + " " + theDate + ", " + theYear + "<I>");
+                </script>
+                </div>
             </footer>
         </section>
 
