@@ -362,6 +362,7 @@ img.resize {
   background-color: #000;
   margin-top: 75px;
   padding: 10px 60px 10px 60px;
+  text-decoration: none;
 }
 
 .resume:hover {
