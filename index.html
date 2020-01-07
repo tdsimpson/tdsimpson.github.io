@@ -146,8 +146,8 @@
             <ul class="PrimaryNav with-indicator" class="col-lg-1">
                 <li class="Nav-item active" style="border-radius: 50px 0 0
                     50px;"><a
-                        onclick="divVisibility('coursework');">Coursework</a></li>
-                <li class="Nav-item"><a onclick="divVisibility('personal');">Personal</a></li>
+                        onclick="divVisibility('personal');">Personal</a></li>
+                <li class="Nav-item"><a onclick="divVisibility('coursework');">Coursework</a></li>
                 <li class="Nav-item" style="border-radius: 0 50px 50px 0;"><a
                         onclick="divVisibility('hackathons');">Hackathons</a></li>
             </ul>
@@ -162,7 +162,7 @@
             </script>
             <script>
                 //Function to display only certain sections when menu elements are clicked
-                let divs = ["coursework", "personal", "hackathons"];
+                let divs = ["personal", "coursework", "hackathons"];
                 let visibleDivId = null;
                 function divVisibility(divId) {
                     if (visibleDivId === divId) {
@@ -188,7 +188,7 @@
             </script>
             <!--START OF INDIVIDUAL PROJECTS-->
 
-            <div id="personal" style="display: none">
+            <div id="personal">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
                         <div class="text-head">
@@ -342,7 +342,7 @@
                 </div>
             </div>
 
-            <div id="coursework">
+            <div id="coursework" style="display: none">
                 <!--1: PEDAL PATROL-->
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
