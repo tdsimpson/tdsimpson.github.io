@@ -209,10 +209,8 @@ textarea {
 
 }
 
-.navbar-default .navbar-toggle:focus .icon-bar,
 .navbar-default .navbar-toggle:hover .icon-bar {
   background-color: #fff;
-
 }
 
 .top-nav-collapse .navbar-toggle .icon-bar {
