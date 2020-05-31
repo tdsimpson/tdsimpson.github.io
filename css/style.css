@@ -246,6 +246,19 @@ textarea {
   height: auto;
 }
 
+.name-logo {
+  max-height: 225px;
+}
+
+
+@media (max-width: 600px) {
+  .name-logo {
+    max-height: 150px;
+  }
+
+}
+
+
 /*ANIMATION*/
 @keyframes fadeIn {
   from {
@@ -339,6 +352,12 @@ img.resize {
   line-height: 0.8;
   position: relative;
   margin-top: 5%;
+}
+
+@media (max-width: 400px) {
+  .text-subhead h4 {
+    font-size: 15px;
+  }
 }
 
 .desc-text {
@@ -441,9 +460,15 @@ img.resize {
   float: left;
   margin: 0;
   padding: 0;
-  width: 33.3333333333%;
+  width: 33.333%;
   text-align: center;
   font-size: 16px;
+}
+
+@media only screen and (max-width: 600px) {
+  .Nav-item {
+    font-size: 10px;
+  }
 }
 
 .Nav-item:first-child {

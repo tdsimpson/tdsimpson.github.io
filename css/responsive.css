@@ -450,17 +450,12 @@
 
 }
 
+
+
+
 @media (max-width: 400px) {
     .text-head h2 {
         font-size: 22px;
-    }
-
-    .banner-full-image {
-        height: 320px;
-    }
-
-    .banner-title {
-        /* Stub */
     }
 
 
