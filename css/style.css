@@ -346,10 +346,10 @@ img.resize {
 }
 
 .text-subhead h4 {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 300;
   letter-spacing: 3px;
-  line-height: 0.8;
+  line-height: 1.5;
   position: relative;
   margin-top: 5%;
 }
@@ -467,7 +467,7 @@ img.resize {
 
 @media only screen and (max-width: 600px) {
   .Nav-item {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 
