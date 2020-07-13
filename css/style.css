@@ -511,6 +511,7 @@ img.resize {
   transition: left 0.8s ease;
 }
 
+
 .with-indicator .Nav-item:last-child:after {
   background: #11cd86;
   top: 0px;
