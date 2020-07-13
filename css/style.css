@@ -337,7 +337,7 @@ img.resize {
 
 /*projects*/
 .text-head h2 {
-  font-size: 40px;
+  font-size: 27px;
   font-weight: 700;
   letter-spacing: 3px;
   line-height: 0.8;
@@ -346,8 +346,8 @@ img.resize {
 }
 
 .text-subhead h4 {
-  font-size: 20px;
-  font-weight: 300;
+  font-size: 16.5px;
+  font-weight: 500;
   letter-spacing: 3px;
   line-height: 1.5;
   position: relative;
@@ -366,6 +366,8 @@ img.resize {
   letter-spacing: 1px;
   line-height: 28px;
   text-shadow: 0 0 0;
+  margin-top: 40px;
+  padding-bottom: 40px;
 }
 
 /*==========================================*/
@@ -415,13 +417,13 @@ img.resize {
 }
 
 .learn-more {
-  color: #000;
+  color: #11cd86;
   font-size: 16px;
   font-weight: bold;
 }
 
 .learn-more:hover {
-  color: #11cd86;
+  color: #000;
 }
 
 .row {
@@ -484,8 +486,9 @@ img.resize {
 }
 
 .Nav-item a {
-  color: #121212;
+  color: #000;
   display: block;
+  font-weight: 400;
   padding-top: 20px;
   padding-bottom: 20px;
   text-decoration: none;

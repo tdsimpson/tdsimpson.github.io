@@ -64,7 +64,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a class="scroll" href="#home">home</a></li>
                         <li><a class="scroll" href="#about">about</a></li>
-                        <li><a class="scroll" href="#projects">projects</a></li>
+                        <li><a class="scroll" href="#projects">portfolio</a></li>
                         <li><a class="scroll" href="#contact">contact</a></li>
                     </ul>
                 </div>
@@ -94,7 +94,7 @@
         <div id="about" class="section-padding">
 
             <div class="col-lg-6 add-space-mobileview">
-                <div class="image" style="padding-bottom: 60px" ;>
+                <div class="image">
                     <img src="images/myFace.png" class="img-responsive"
                         alt="user-image" />
                 </div>
@@ -106,7 +106,7 @@
                     <h2>Hello!</h2>
                 </div>
 
-                <p class="desc-text offspace-60" style="padding-bottom: 60px;">
+                <p class="desc-text offspace-60">
                     I'm Taylor Simpson - a recent Software Design grad
                     passionate about the intersection of business, technology,
                     and design. You’ll often find me hacking away at side
@@ -144,16 +144,16 @@
     <section id="projects" class="section-padding">
         <div class="container">
 
-            <h2 class="projects-header">Projects</h2>
+            <h2 class="projects-header">Portfolio</h2>
 
             <!---Pill Menu-->
             <ul class="PrimaryNav with-indicator" class="col-lg-1">
                 <li class="Nav-item active" style="border-radius: 50px 0 0
                     50px;"><a
-                        onclick="divVisibility('web');">Web</a></li>
-                <li class="Nav-item"><a onclick="divVisibility('mobile');">Mobile</a></li>
+                        onclick="divVisibility('dev');">Development</a></li>
+                <li class="Nav-item"><a onclick="divVisibility('design');">Design</a></li>
                 <li class="Nav-item" style="border-radius: 0 50px 50px 0;"><a
-                        onclick="divVisibility('hackathons');">Hackathons</a></li>
+                        onclick="divVisibility('copywriting');">Copywriting</a></li>
             </ul>
             <!--End Pill Menu-->
 
@@ -166,7 +166,7 @@
             </script>
             <script>
                 //Function to display only certain sections when menu elements are clicked
-                let divs = ["web", "mobile", "hackathons"];
+                let divs = ["dev", "design", "copywriting"];
                 let visibleDivId = null;
                 function divVisibility(divId) {
                     if (visibleDivId === divId) {
@@ -192,18 +192,53 @@
             </script>
             <!--START OF INDIVIDUAL PROJECTS-->
 
-            <div id="web">
+            <div id="dev">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
                         <div class="text-head">
-                            <h2 class="project-title"> Expense Trackr</h2>
+                            <h2 class="project-title">Pedal Patrol</h2>
+                        </div>
+                        <div class="text-subhead">
+                            <h4>React Native, Google Maps API, Firebase</h4>
+                        </div>
+                        <div>
+                            <p class="desc-text"> An iOS / Android
+                                app that reunites cyclists with their stolen
+                                bikes through crowdsourcing. Created for the
+                                local cycling community in partnership with
+                                Frontenac Cycle in Kingston, Ontario.</p>
+                        </div>
+                        <div>
+                            <a class="learn-more"
+                                href="https://www.youtube.com/watch?v=T4QwC_nw_eg"
+                                target="_blank">
+                                Learn more </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12
+                        add-space-mobileview">
+                        <div class="image">
+                            <a
+                                href="https://www.youtube.com/watch?v=T4QwC_nw_eg"
+                                target="_blank">
+                                <img src="images/cards/card-pedalPatrol.png"
+                                    class="image-size" class="twitchUp"
+                                    class="image-size"
+                                    class="img-responsive" alt="user-image" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                        <div class="text-head">
+                            <h2 class="project-title"> Expense Tracker</h2>
                         </div>
                         <div class="text-subhead">
                             <h4>React.js, Redux, Firebase</h4>
                         </div>
                         <div>
-                            <p class="desc-text offspace-60"
-                                style="padding-bottom: 60px">An online
+                            <p class="desc-text">An online
                                 budgeting tool that allows users to input and
                                 visualize their expenses in graphs and charts.
                             </p>
@@ -240,8 +275,7 @@
                             <h4>React.js, Spotify API</h4>
                         </div>
                         <div>
-                            <p class="desc-text offspace-60"
-                                style="padding-bottom: 60px">A web app that
+                            <p class="desc-text">A web app that
                                 integrates
                                 with your Spotify account, allowing users to
                                 learn more about
@@ -269,8 +303,6 @@
                     </div>
                 </div>
 
-
-
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
                         <div class="text-head">
@@ -280,8 +312,7 @@
                             <h4>HTML, CSS, JavaScript</h4>
                         </div>
                         <div>
-                            <p class="desc-text offspace-60"
-                                style="padding-bottom: 60px"> A website created
+                            <p class="desc-text"> A website created
                                 for a
                                 Kingston indie-rock band, Paper Ladies. </p>
                         </div>
@@ -307,7 +338,6 @@
                 </div>
 
 
-
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
                         <div class="text-head">
@@ -317,8 +347,7 @@
                             <h4>Dialogflow</h4>
                         </div>
                         <div>
-                            <p class="desc-text offspace-60"
-                                style="padding-bottom: 60px"> A published
+                            <p class="desc-text"> A published
                                 trivia game
                                 for the Google home with over
                                 150 questions relating to Toronto history,
@@ -347,31 +376,25 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div id="mobile" style="display: none">
-                <!--1: PEDAL PATROL-->
+
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
                         <div class="text-head">
-                            <h2 class="project-title">Pedal Patrol</h2>
+                            <h2 class="project-title">Stock Block</h2>
                         </div>
                         <div class="text-subhead">
-                            <h4>React Native, Google Maps API, Firebase</h4>
+                            <h4>Solidity, JavaScript</h4>
                         </div>
                         <div>
-                            <p class="desc-text offspace-60"
-                                style="padding-bottom: 60px"> A mobile
-                                application aiming
-                                to reunite cyclists with their stolen bikes
-                                through crowdsourcing. Created in
-                                association
-                                with Frontenac Cycle bikeshop in Kingston,
-                                Ontario.</p>
+                            <p class="desc-text">A decentralized
+                                photo sharing marketplace on the web. The DApp
+                                utilizes smart contracts on the Ethereum
+                                blockchain. </p>
                         </div>
                         <div>
                             <a class="learn-more"
-                                href="https://www.youtube.com/watch?v=T4QwC_nw_eg"
+                                href="https://devpost.com/software/stock-block#updates"
                                 target="_blank">
                                 Learn more </a>
                         </div>
@@ -380,11 +403,10 @@
                         add-space-mobileview">
                         <div class="image">
                             <a
-                                href="https://www.youtube.com/watch?v=T4QwC_nw_eg"
+                                href="https://devpost.com/software/stock-block#updates"
                                 target="_blank">
-                                <img src="images/cards/card-pedalPatrol.png"
+                                <img src="images/cards/card-stockBlock.png"
                                     class="image-size" class="twitchUp"
-                                    class="image-size"
                                     class="img-responsive"
                                     alt="user-image" />
                             </a>
@@ -392,45 +414,7 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title">Volutime</h2>
-                        </div>
-                        <div class="text-subhead">
-                            <h4>Android (Java)</h4>
-                        </div>
-                        <div>
-                            <p class="desc-text offspace-60"
-                                style="padding-bottom: 60px"> App that helps
-                                to prevent
-                                hearing damage by balancing volume and
-                                listening time </p>
-                        </div>
-                        <div>
-                            <a class="learn-more"
-                                href="https://play.google.com/store/apps/details?id=com.volutime&hl=en_CA"
-                                target="_blank"> Learn more </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12
-                        add-space-mobileview">
-                        <div class="image">
-                            <a
-                                href="https://play.google.com/store/apps/details?id=com.volutime&hl=en_CA"
-                                target="_blank">
-                                <img src="images/cards/card-volutime.png"
-                                    class="image-size"
-                                    class="twitchUp"
-                                    class="img-responsive" alt="user-image"
-                                    />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div id="hackathons" style="display: none">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
                         <div class="text-head">
@@ -440,8 +424,7 @@
                             <h4>JavaScript, IBM Watson API</h4>
                         </div>
                         <div>
-                            <p class="desc-text offspace-60"
-                                style="padding-bottom: 60px">A web app that
+                            <p class="desc-text">A web app that
                                 displays mental
                                 health data
                                 based on sentiment analysis from user’s journal
@@ -451,7 +434,8 @@
                         <div>
                             <a class="learn-more"
                                 href="https://devpost.com/software/myndjournal-0ky6t5"
-                                target="_blank"> Learn more </a>
+                                target="_blank"> Learn more
+                            </a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12
@@ -469,43 +453,194 @@
                     </div>
                 </div>
 
+
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
                         <div class="text-head">
-                            <h2 class="project-title">Stock Block</h2>
+                            <h2 class="project-title">Volutime</h2>
                         </div>
                         <div class="text-subhead">
-                            <h4>Solidity, JavaScript</h4>
+                            <h4>Android (Java)</h4>
                         </div>
                         <div>
-                            <p class="desc-text offspace-60"
-                                style="padding-bottom: 60px">A decentralized
-                                photo sharing
-                                web marketplace
-                                on the Ethereum blockchain created using
-                                solidity contracts. </p>
+                            <p class="desc-text"> App that helps
+                                to prevent
+                                hearing damage by balancing volume and
+                                listening time </p>
                         </div>
                         <div>
                             <a class="learn-more"
-                                href="https://devpost.com/software/stock-block#updates"
-                                target="_blank">
-                                Learn more </a>
+                                href="https://play.google.com/store/apps/details?id=com.volutime&hl=en_CA"
+                                target="_blank"> Learn more </a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12
                         add-space-mobileview">
                         <div class="image">
                             <a
-                                href="https://devpost.com/software/stock-block#updates"
+                                href="https://play.google.com/store/apps/details?id=com.volutime&hl=en_CA"
                                 target="_blank">
-                                <img src="images/cards/card-stockBlock.png"
-                                    class="image-size"
-                                    class="twitchUp" class="img-responsive"
+                                <img src="images/cards/card-volutime.png"
+                                    class="image-size" class="twitchUp"
+                                    class="img-responsive"
                                     alt="user-image" />
                             </a>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div id="design" style="display: none">
+                <!--1: PEDAL PATROL-->
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                        <div class="text-head">
+                            <h2 class="project-title">The Coaster's Guide</h2>
+                        </div>
+                        <div class="text-subhead">
+                            <h4>Logo and Web Design</h4>
+                        </div>
+                        <div>
+                            <p class="desc-text"> Worked with a local blog to
+                                create a new logo for their brand and help
+                                redesign their website.
+
+                            </p>
+                        </div>
+                        <div>
+                            <a class="learn-more"
+                                href="https://www.thecoastersguide.com/"
+                                target="_blank"> Learn more </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12
+                        add-space-mobileview">
+                        <div class="image">
+                            <a
+                                href="https://www.thecoastersguide.com/"
+                                target="_blank">
+                                <img
+                                    src="images/cards/card-thecoastersguide.png"
+                                    class="image-size" class="twitchUp"
+                                    class="img-responsive"
+                                    alt="user-image" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                        <div class="text-head">
+                            <h2 class="project-title">Testatic</h2>
+                        </div>
+                        <div class="text-subhead">
+                            <h4>Web Design</h4>
+                        </div>
+                        <div>
+                            <p class="desc-text"> A concept web design for a
+                                tech startup focusing on automating the testing
+                                process for agile teams. </p>
+                        </div>
+                        <div>
+                            <a class="learn-more"
+                                href="https://dribbble.com/shots/7478141-Website-Landing-Page-for-a-Tech-Startup"
+                                target="_blank"> Learn more </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12
+                        add-space-mobileview">
+                        <div class="image">
+                            <a
+                                href="https://dribbble.com/shots/7478141-Website-Landing-Page-for-a-Tech-Startup"
+                                target="_blank">
+                                <img src="images/cards/card-testatic.png"
+                                    class="image-size"
+                                    class="twitchUp"
+                                    class="img-responsive" alt="user-image"
+                                    />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                        <div class="text-head">
+                            <h2 class="project-title">Smart Shower</h2>
+                        </div>
+                        <div class="text-subhead">
+                            <h4>App Design</h4>
+                        </div>
+                        <div>
+                            <p class="desc-text"> A concecpt design for an app
+                                that allows users to view water usage statistics
+                                and set their shower preferences including
+                                temperature and pressure. </p>
+                        </div>
+                        <div>
+                            <a class="learn-more"
+                                href="https://dribbble.com/shots/11864523-Smart-Shower-Mobile-App-Design"
+                                target="_blank"> Learn more </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12
+                        add-space-mobileview">
+                        <div class="image">
+                            <a
+                                href="https://dribbble.com/shots/11864523-Smart-Shower-Mobile-App-Design"
+                                target="_blank">
+                                <img src="images/cards/card-smartshower.png"
+                                    class="image-size" class="twitchUp"
+                                    class="img-responsive"
+                                    alt="user-image" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="copywriting" style="display: none">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                        <div class="text-head">
+                            <h2 class="project-title">QHacks</h2>
+                        </div>
+                        <div class="text-subhead">
+                            <h4>Content Strategy</h4>
+                        </div>
+                        <div>
+                            <p class="desc-text">Worked on the marketing team,
+                                leading the content strategy for the 2019 event.
+                                Wrote copy for the website, dashboard, handbooks
+                                and ads attracting over 500 particpants from
+                                across North America.
+                            </p>
+                        </div>
+                        <div>
+                            <a class="learn-more"
+                                href="https://2019.qhacks.io/"
+                                target="_blank"> Learn more </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12
+                        add-space-mobileview">
+                        <div class="image">
+                            <a
+                                href="https://2019.qhacks.io/"
+                                target="_blank">
+                                <img src="images/cards/card-qhacks.png"
+                                    class="image-size" class="twitchUp"
+                                    class="img-responsive"
+                                    alt="user-image" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
 
             </div>
 
@@ -526,7 +661,7 @@
                             <ul class="list-unstyled footer-links">
                                 <li><a class="scroll" href="#home">Home</a></li>
                                 <li><a class="scroll" href="#about">About</a></li>
-                                <li><a class="scroll" href="#projects">Projects</a></li>
+                                <li><a class="scroll" href="#projects">Portfolio</a></li>
                             </ul>
                         </div>
                     </div>
