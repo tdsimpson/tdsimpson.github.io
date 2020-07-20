@@ -235,9 +235,18 @@ textarea {
   animation: fadeIn 3s;
 }
 
+
 .image img {
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  top: 0;
+  transition: top ease 0.15s;
+}
+
+/* Twitch up on hover */
+.image img:hover {
+  top: -12px;
 }
 
 .image-size {
@@ -404,17 +413,6 @@ img.resize {
 }
 
 /*===================================*/
-
-.twitchUp {
-  transition: all 0.20s ease-in-out;
-}
-
-.twitchUp:hover {
-  transform: translate(0, -10px);
-  -webkit-transition: all 0.20s ease-in-out;
-  transition-timing-function: ease-in-out;
-  transition: all 0.20s ease-in-out;
-}
 
 .learn-more {
   color: #11cd86;
