@@ -127,9 +127,9 @@ textarea {
 }
 
 .navbar {
-  min-height: 70px;
   animation: fadeIn 3s;
   background-color: #000;
+  min-height: 70px;
 }
 
 .navbar-default .navbar-nav {
@@ -381,22 +381,29 @@ img.resize {
 
 /*==========================================*/
 
+
+
 .resume {
+  background-color: #000;
   border: 1px solid #11cd86;
   border-radius: 50px;
   color: #11cd86;
   font-size: 16px;
   font-weight: bold;
-  background-color: #000;
   margin-top: 75px;
   padding: 10px 60px 10px 60px;
   text-decoration: none;
 }
 
 .resume:hover {
-  color: black;
   background-color: #11cd86;
+  color: black;
   transition-duration: 0.5s;
+}
+
+.resume:focus {
+  text-decoration: none;
+  color: #11cd86;
 }
 
 .resume-button {
@@ -405,11 +412,12 @@ img.resize {
 
 
 .portfolio-text {
-  margin-bottom: 50px;
-  margin-top: 10px;
   color: #fff;
   font-weight: thin;
   font-size: 20px;
+  margin-bottom: 50px;
+  margin-top: 10px;
+
 }
 
 /*===================================*/
@@ -425,8 +433,9 @@ img.resize {
 }
 
 .row {
-  padding-top: 75px;
   padding-bottom: 75px;
+  padding-top: 75px;
+
 }
 
 /* .row.active{
@@ -675,7 +684,7 @@ img.resize {
   display: flex;
   justify-content: center;
   margin-top: 50px;
-  scroll-behavior: smooth;
+  scroll-behavior: ease;
 }
 
 .next-button {
