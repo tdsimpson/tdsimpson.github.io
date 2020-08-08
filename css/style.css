@@ -194,7 +194,8 @@ textarea {
 
 .navbar-default .navbar-toggle {
   margin-bottom: 0;
-  margin-right: 10px;
+  margin-right: 12px;
+  margin-top: 22px;
   padding: 8px;
   border: none;
 }
@@ -376,9 +377,16 @@ img.resize {
   letter-spacing: 1px;
   line-height: 28px;
   text-shadow: 0 0 0;
-  margin-top: 40px;
-  padding-bottom: 40px;
+  margin: 40px 0 40px 0;
+  width: 100%;
 }
+
+@media screen and (min-width: 767px) and (max-width:1199px) {
+  .desc-text {
+    width: 175%;
+  }
+}
+
 
 /*==========================================*/
 
@@ -637,6 +645,13 @@ img.resize {
   position: relative;
 }
 
+@media (max-width: 1199px) {
+  .about-text-head h2 {
+    padding-top: 60px;
+  }
+}
+
+
 #about {
   padding-top: 10%;
   padding-left: 10%;
@@ -685,6 +700,12 @@ img.resize {
   justify-content: center;
   margin-top: 50px;
   scroll-behavior: ease;
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    margin-right: 30%;
+  }
 }
 
 .next-button {
