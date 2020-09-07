@@ -5,10 +5,9 @@
 
 .project-details-container {
     margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 640px;
+    max-width: 640px;
     box-sizing: content-box;
+    margin: 0 auto;
 }
 
 .project-title {
@@ -29,15 +28,13 @@
     margin: 20px 0;
     font-size: 18.5px;
     /* font-family: Metropolis-Regular; */
-
 }
 
-.video {
+/* .video {
     width: 640px;
     height: 360px;
-    margin-left: auto;
-    margin-right: auto;
-}
+    margin: 0 auto;
+} */
 
 .project-padding {
     padding-top: 110px;
@@ -46,7 +43,6 @@
 
 .details-bar {
     background-color: #F7F7F7;
-    ;
 }
 
 
@@ -183,5 +179,20 @@
 
 }
 
+
+.video-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.video-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
 
 @media (max-width: 767px) {}
