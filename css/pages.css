@@ -1,3 +1,13 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+
 .project-full-image {
     height: 100vh;
 }
@@ -195,4 +205,43 @@
     position: absolute;
 }
 
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
+    .project-full-image {
+        height: 80vh;
+    }
+
+    .con-ass {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+
+@media (max-width: 790px) {
+    .project-details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .client {
+        padding: 30px 0;
+    }
+
+    .timeline {
+        padding: 30px 0;
+    }
+
+    .type {
+        padding: 30px 0;
+    }
+
+    .tools {
+        padding: 30px 0;
+    }
+
+    .details-title {
+        color: #089986;
+    }
+
+}

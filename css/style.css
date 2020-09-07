@@ -368,7 +368,7 @@ img.resize {
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 3px;
-  line-height: 0.8;
+  line-height: 30px;
   position: relative;
   text-transform: uppercase;
   font-family: Metropolis-Bold;
@@ -486,6 +486,7 @@ img.resize {
 
 .project-title {
   padding-top: 10px;
+
 }
 
 /*=============PILL NAVIGATION=================*/
