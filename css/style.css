@@ -1,5 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800');
 
+
+@font-face {
+  font-family: Metropolis-SemiBold;
+  src: url(fonts/Metropolis-SemiBold.otf);
+
+
+  font-family: Metropolis-Bold;
+  src: url(fonts/Metropolis-Bold.otf);
+
+
+  font-family: Metropolis-Medium;
+  src: url(fonts/Metropolis-Medium.otf);
+
+  font-family: Metropolis-Regular;
+  src: url(fonts/Metropolis-Regularotf);
+}
+
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -32,7 +50,6 @@ h6,
 p {
   margin: 0
 }
-
 
 a,
 button {
@@ -127,7 +144,7 @@ textarea {
 }
 
 .navbar {
-  animation: fadeIn 3s;
+  /* animation: fadeIn 3s; */
   background-color: #000;
   min-height: 70px;
 }
@@ -348,16 +365,17 @@ img.resize {
 
 /*projects*/
 .text-head h2 {
-  font-size: 27px;
+  font-size: 24px;
   font-weight: 700;
   letter-spacing: 3px;
   line-height: 0.8;
   position: relative;
   text-transform: uppercase;
+  font-family: Metropolis-Bold;
 }
 
 .text-subhead h4 {
-  font-size: 16.5px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 3px;
   line-height: 1.5;
@@ -436,8 +454,9 @@ img.resize {
   font-size: 20px;
   margin-bottom: 50px;
   margin-top: 10px;
-
+  font-family: Metropolis-Regular;
 }
+
 
 /*===================================*/
 
@@ -634,6 +653,7 @@ img.resize {
 
 .projects-header {
   text-align: center;
+  font-family: Metropolis-SemiBold;
 }
 
 .pill-menu {
@@ -647,6 +667,7 @@ img.resize {
 }
 
 .about-text-head h2 {
+  font-family: Metropolis-SemiBold;
   font-size: 50px;
   font-weight: 500;
   letter-spacing: 3px;
