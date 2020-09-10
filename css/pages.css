@@ -24,6 +24,26 @@ body {
     font-family: Metropolis-SemiBold;
 }
 
+.link-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link {
+    color: #1159cd;
+    /* color: black; */
+    font-size: 16px;
+    margin-bottom: 50px;
+    margin-top: 10px;
+
+    border-bottom: solid 2px #1159cd;
+    ;
+
+    /* padding-bottom: 0.5px; */
+
+    font-family: Metropolis-Medium;
+}
+
 
 .project-type {
     color: #808080;
@@ -198,6 +218,15 @@ body {
 }
 
 .video-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+/* For projects that don't have a video, use and image */
+.video-responsive img {
     left: 0;
     top: 0;
     height: 100%;
