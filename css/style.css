@@ -2,19 +2,9 @@
 
 @font-face {
   font-family: "Metropolis-SemiBold";
-  src: url(fonts/Metropolis-SemiBold.otf);
-  src: url(fonts/Metropolis-SemiBold.eot);
-  src: url(fonts/Metropolis-SemiBold.woff) format("woff"),
-    url(fonts/Metropolis-SemiBold.svg) format("svg");
-
-  font-family: "Metropolis-Bold";
-  src: url(fonts/Metropolis-Bold.otf);
-
-  font-family: "Metropolis-Medium";
-  src: url(fonts/Metropolis-Medium.otf);
-
-  font-family: "Metropolis-Regular";
-  src: url(fonts/Metropolis-Regularotf);
+  src: url(fonts/Metropolis-SemiBold.woff2) format("woff2"),
+    url(fonts/Metropolis-SemiBold.woff) format("woff"),
+    url(fonts/Metropolis-SemiBold.ttf) format("truetype");
 }
 
 html {
