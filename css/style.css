@@ -352,7 +352,7 @@ img.resize {
   line-height: 30px;
   position: relative;
   text-transform: uppercase;
-  font-family: Metropolis-Bold;
+  font-family: "Metropolis-Bold", "sans-serif";
 }
 
 .text-subhead h4 {
@@ -430,7 +430,7 @@ img.resize {
   font-size: 20px;
   margin-bottom: 50px;
   margin-top: 10px;
-  font-family: Metropolis-Regular;
+  font-family: "Metropolis-Regular", "sans-serif";
 }
 
 /*===================================*/
@@ -617,7 +617,7 @@ img.resize {
 
 .projects-header {
   text-align: center;
-  font-family: Metropolis-SemiBold;
+  font-family: "Metropolis-SemiBold", "sans-serif";
 }
 
 .pill-menu {
@@ -631,7 +631,7 @@ img.resize {
 }
 
 .about-text-head h2 {
-  font-family: Metropolis-SemiBold;
+  font-family: "Metropolis-SemiBold", "sans-serif";
   font-size: 50px;
   font-weight: 500;
   letter-spacing: 3px;
