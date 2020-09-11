@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800');
-
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800");
 
 @font-face {
   font-family: Metropolis-SemiBold;
   src: url(fonts/Metropolis-SemiBold.otf);
-
+  src: url(fonts/Metropolis-SemiBold.eot);
+  src: url(fonts/Metropolis-SemiBold.woff) format("woff"),
+    url(fonts/Metropolis-SemiBold.svg) format("svg");
 
   font-family: Metropolis-Bold;
   src: url(fonts/Metropolis-Bold.otf);
-
 
   font-family: Metropolis-Medium;
   src: url(fonts/Metropolis-Medium.otf);
@@ -16,7 +16,6 @@
   font-family: Metropolis-Regular;
   src: url(fonts/Metropolis-Regularotf);
 }
-
 
 html {
   font-family: sans-serif;
@@ -31,7 +30,7 @@ html {
 body {
   margin: 0;
   color: #000;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 13px;
   background-color: #fff;
 }
@@ -48,7 +47,7 @@ h4,
 h5,
 h6,
 p {
-  margin: 0
+  margin: 0;
 }
 
 a,
@@ -151,23 +150,22 @@ textarea {
 
 .navbar-default .navbar-nav {
   margin-top: 29px;
-
 }
 
-.navbar-nav>li+li {
+.navbar-nav > li + li {
   margin-left: 16px;
 }
 
-.navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-nav > li > a {
   color: #fff;
 }
 
-.nav>li>a {
+.nav > li > a {
   padding-left: 0px;
   padding-right: 0px;
 }
 
-.navbar-nav>li>a {
+.navbar-nav > li > a {
   font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 1.1px;
@@ -176,17 +174,16 @@ textarea {
   text-transform: uppercase;
 }
 
-.navbar-default .navbar-nav>.active>a,
-.navbar-default .navbar-nav>.active>a:focus,
-.navbar-default .navbar-nav>.active>a:hover {
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
   background-color: transparent;
   color: #11cd86;
   cursor: default;
-
 }
 
-.navbar-default .navbar-nav>li>a:focus,
-.navbar-default .navbar-nav>li>a:hover {
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
   color: #11cd86;
 }
 
@@ -194,18 +191,18 @@ textarea {
   background-color: #000;
 }
 
-.top-nav-collapse .navbar-nav>li>a {
+.top-nav-collapse .navbar-nav > li > a {
   color: #fff;
 }
 
-.top-nav-collapse .navbar-nav>.active>a,
-.top-nav-collapse .navbar-nav>.active>a:focus,
-.top-nav-collapse .navbar-nav>.active>a:hover {
+.top-nav-collapse .navbar-nav > .active > a,
+.top-nav-collapse .navbar-nav > .active > a:focus,
+.top-nav-collapse .navbar-nav > .active > a:hover {
   color: #11cd86;
 }
 
-.top-nav-collapse .navbar-nav>li>a:focus,
-.top-nav-collapse .navbar-nav>li>a:hover {
+.top-nav-collapse .navbar-nav > li > a:focus,
+.top-nav-collapse .navbar-nav > li > a:hover {
   color: #11cd86;
 }
 
@@ -224,7 +221,6 @@ textarea {
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
   background-color: transparent;
-
 }
 
 .navbar-default .navbar-toggle:hover .icon-bar {
@@ -253,7 +249,6 @@ textarea {
   animation: fadeIn 3s;
 }
 
-
 .image img {
   margin-left: auto;
   margin-right: auto;
@@ -278,14 +273,11 @@ textarea {
   padding: 1rem;
 }
 
-
 @media (max-width: 600px) {
   .name-logo {
     max-height: 150px;
   }
-
 }
-
 
 /*ANIMATION*/
 @keyframes fadeIn {
@@ -312,8 +304,7 @@ img.resize {
 
 /*END OF ANIMATION*/
 
-
-.banner-title>h1 {
+.banner-title > h1 {
   color: #11cd86;
   font-size: 48px;
   font-weight: 800;
@@ -321,7 +312,7 @@ img.resize {
   text-transform: uppercase;
 }
 
-.banner-title>h4 {
+.banner-title > h4 {
   color: #fff;
   font-size: 28px;
   font-weight: 500;
@@ -398,7 +389,6 @@ img.resize {
   margin: 40px 0 40px 0;
 }
 
-
 .about-text {
   font-size: 14.5px;
   font-weight: 300;
@@ -409,16 +399,13 @@ img.resize {
   width: 100%;
 }
 
-@media screen and (min-width: 767px) and (max-width:1199px) {
+@media screen and (min-width: 767px) and (max-width: 1199px) {
   .about-text {
     width: 185%;
   }
 }
 
-
 /*==========================================*/
-
-
 
 .resume {
   background-color: #000;
@@ -447,7 +434,6 @@ img.resize {
   padding-bottom: 5%;
 }
 
-
 .portfolio-text {
   color: #fff;
   font-weight: thin;
@@ -456,7 +442,6 @@ img.resize {
   margin-top: 10px;
   font-family: Metropolis-Regular;
 }
-
 
 /*===================================*/
 
@@ -486,7 +471,6 @@ img.resize {
 
 .project-title {
   padding-top: 10px;
-
 }
 
 /*=============PILL NAVIGATION=================*/
@@ -502,7 +486,7 @@ img.resize {
 }
 
 .Nav-item {
-  background: #F7F7F7;
+  background: #f7f7f7;
   display: block;
   float: left;
   margin: 0;
@@ -539,7 +523,6 @@ img.resize {
   text-decoration: none;
   position: relative;
   z-index: 1;
-
 }
 
 .with-indicator {
@@ -549,13 +532,12 @@ img.resize {
 
 .with-indicator .Nav-item:last-child:before,
 .with-indicator .Nav-item:last-child:after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   pointer-events: none;
   transition: left 0.8s ease;
 }
-
 
 .with-indicator .Nav-item:last-child:after {
   background: #11cd86;
@@ -568,7 +550,6 @@ img.resize {
   border-radius: 50px;
 }
 
-
 .buttons a {
   font-size: 16px;
 }
@@ -578,41 +559,35 @@ img.resize {
   font-size: 16px;
 }
 
-
-
-
-.with-indicator .Nav-item:nth-child(1).is-active~.Nav-item:last-child:after {
+.with-indicator .Nav-item:nth-child(1).is-active ~ .Nav-item:last-child:after {
   left: 0;
 }
 
-.with-indicator .Nav-item:nth-child(1).is-active~.Nav-item:last-child:before {
+.with-indicator .Nav-item:nth-child(1).is-active ~ .Nav-item:last-child:before {
   left: 16.6666666667%;
 }
 
-.with-indicator .Nav-item:nth-child(2).is-active~.Nav-item:last-child:after {
+.with-indicator .Nav-item:nth-child(2).is-active ~ .Nav-item:last-child:after {
   left: 33.3333333333%;
 }
 
-.with-indicator .Nav-item:nth-child(2).is-active~.Nav-item:last-child:before {
+.with-indicator .Nav-item:nth-child(2).is-active ~ .Nav-item:last-child:before {
   left: 50%;
 }
 
-
-
-
-.with-indicator .Nav-item:nth-child(1).active~.Nav-item:last-child:after {
+.with-indicator .Nav-item:nth-child(1).active ~ .Nav-item:last-child:after {
   left: 0%;
 }
 
-.with-indicator .Nav-item:nth-child(1).active~.Nav-item:last-child:before {
+.with-indicator .Nav-item:nth-child(1).active ~ .Nav-item:last-child:before {
   left: 16.6666666667%;
 }
 
-.with-indicator .Nav-item:nth-child(2).active~.Nav-item:last-child:after {
+.with-indicator .Nav-item:nth-child(2).active ~ .Nav-item:last-child:after {
   left: 33.3333333333%;
 }
 
-.with-indicator .Nav-item:nth-child(2).active~.Nav-item:last-child:before {
+.with-indicator .Nav-item:nth-child(2).active ~ .Nav-item:last-child:before {
   left: 50%;
 }
 
@@ -625,8 +600,6 @@ img.resize {
 .with-indicator .Nav-item:last-child.is-active:after {
   left: 66.6666666667%;
 }
-
-
 
 *,
 *:before,
@@ -664,7 +637,7 @@ img.resize {
 /*================About block ===========*/
 
 #about {
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
 }
 
 .about-text-head h2 {
@@ -683,14 +656,12 @@ img.resize {
   }
 }
 
-
 #about {
   padding-top: 10%;
   padding-left: 10%;
   padding-right: 10%;
   height: 100vh;
 }
-
 
 /***=======ABOUT ICONS*********=========*/
 
@@ -705,7 +676,7 @@ img.resize {
 }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .icons {
     width: 100%;
     text-align: center;
@@ -721,11 +692,10 @@ img.resize {
 }
 
 .linkIcon:hover {
-  color: #6ECDA5;
+  color: #6ecda5;
 }
 
 /* NEXT BUTTON*/
-
 
 .wrapper {
   display: flex;
@@ -768,7 +738,6 @@ img.resize {
 
 .next-button button:hover i {
   color: white;
-
 }
 
 .next-button i {
@@ -780,9 +749,7 @@ img.resize {
   animation: slide1 1s ease-in-out infinite;
 }
 
-
 @keyframes slide1 {
-
   0%,
   100% {
     transform: translate(0, 0);
