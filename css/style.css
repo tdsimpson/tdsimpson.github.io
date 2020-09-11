@@ -1,19 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800");
 
 @font-face {
-  font-family: Metropolis-SemiBold;
+  font-family: "Metropolis-SemiBold";
   src: url(fonts/Metropolis-SemiBold.otf);
   src: url(fonts/Metropolis-SemiBold.eot);
   src: url(fonts/Metropolis-SemiBold.woff) format("woff"),
     url(fonts/Metropolis-SemiBold.svg) format("svg");
 
-  font-family: Metropolis-Bold;
+  font-family: "Metropolis-Bold";
   src: url(fonts/Metropolis-Bold.otf);
 
-  font-family: Metropolis-Medium;
+  font-family: "Metropolis-Medium";
   src: url(fonts/Metropolis-Medium.otf);
 
-  font-family: Metropolis-Regular;
+  font-family: "Metropolis-Regular";
   src: url(fonts/Metropolis-Regularotf);
 }
 
