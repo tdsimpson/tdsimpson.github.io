@@ -45,7 +45,7 @@ body {
 }
 
 .project-title {
-  font-family: Metropolis-SemiBold;
+  font-family: "metropolissemi_bold";
 }
 
 .link-container {
@@ -63,7 +63,7 @@ body {
   border-bottom: solid 2px #1159cd;
   /* padding-bottom: 0.5px; */
 
-  font-family: Metropolis-Medium;
+  font-family: "metropolismedium";
 }
 
 .project-type {
@@ -71,8 +71,7 @@ body {
   font-size: 18.5px;
   margin-bottom: 50px;
   margin-top: 10px;
-
-  font-family: Metropolis-Medium;
+  font-family: "metropolismedium";
 }
 
 .blurb {
@@ -104,13 +103,13 @@ body {
 .details-title {
   color: #808080;
   font-size: 16px;
-  font-family: Metropolis-SemiBold;
+  font-family: "metropolissemi_bold";
   padding-bottom: 10px;
 }
 
 .project-details p {
   font-size: 16px;
-  font-family: Metropolis-Medium;
+  font-family: "metropolismedium";
   margin: 5px 0px;
 }
 
@@ -124,13 +123,13 @@ body {
 
 .sec-title {
   font-size: 30px;
-  font-family: Metropolis-SemiBold;
+  font-family: "metropolissemi_bold";
   padding-bottom: 30px;
 }
 
 .sec-subtitle {
   font-size: 20px;
-  font-family: Metropolis-Medium;
+  font-family: "metropolismedium";
   padding-bottom: 10px;
 }
 
@@ -208,7 +207,7 @@ body {
 .next-project-text {
   color: #11cd86;
   font-size: 20px;
-  font-family: Metropolis-Medium;
+  font-family: "metropolismedium";
   margin-top: 60px;
   margin-bottom: 15px;
 }
@@ -216,7 +215,7 @@ body {
 .next-project-name {
   color: #fff;
   font-size: 32px;
-  font-family: Metropolis-SemiBold;
+  font-family: "metropolissemi_bold";
 }
 
 .video-responsive {
