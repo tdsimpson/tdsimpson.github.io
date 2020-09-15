@@ -1,82 +1,79 @@
 /*footer*/
 footer {
-    margin-top: 110px;
-    padding: 60px 0;
-    background-color: #0B0D0D;
-    position: relative;
-    color: #fff;
-    height: 100vh;
-    padding-top: 160px;
+  margin-top: 110px;
+  padding: 60px 0;
+  background-color: #0b0d0d;
+  position: relative;
+  color: #fff;
+  height: 100vh;
+  padding-top: 160px;
 }
 
-.footer-details>h4 {
-
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 55px;
+.footer-details > h4 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 55px;
 }
 
 .footer-contact-list li,
 .footer-links li {
-    position: relative;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-    padding-left: 35px;
+  position: relative;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  padding-left: 35px;
 }
 
 .footer-links li {
-    padding-left: 0;
-
+  padding-left: 0;
 }
 
-.footer-contact-list li+li {
-    margin-top: 25px;
+.footer-contact-list li + li {
+  margin-top: 25px;
 }
 
-.footer-links li+li {
-    margin-top: 10px;
+.footer-links li + li {
+  margin-top: 10px;
 }
 
 .footer-contact-list li i {
-    left: 0px;
-    position: absolute;
-    top: 3px;
+  left: 0px;
+  position: absolute;
+  top: 3px;
 }
 
 .footer-contact-list li a,
 .footer-links li a {
-    color: #fff;
+  color: #fff;
 }
 
 .footer-contact-list li a:hover,
 .footer-links li a:hover {
-    color: #11cd86;
+  color: #11cd86;
 }
 
 .green-text,
 .footer-contact-list li.green-text a {
-    color: #11cd86 !important;
+  color: #11cd86 !important;
 }
 
-
 .footer-resume {
-    border: 1px solid #fff;
-    border-radius: 50px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: bold;
-    background-color: #000;
-    margin-top: 25px;
-    padding: 8px 50px 8px 50px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #000;
+  margin-top: 25px;
+  padding: 8px 50px 8px 50px;
 }
 
 .footer-resume:hover {
-    color: black;
-    border: 1px solid #11cd86;
-    background-color: #11cd86;
-    transition-duration: 0.5s;
+  color: black;
+  border: 1px solid #11cd86;
+  background-color: #11cd86;
+  transition-duration: 0.5s;
 }
