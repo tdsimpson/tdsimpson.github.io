@@ -1,10 +1,27 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800");
 
 @font-face {
-  font-family: "Metropolis-SemiBold";
-  src: url(fonts/Metropolis-SemiBold.woff2) format("woff2"),
-    url(fonts/Metropolis-SemiBold.woff) format("woff"),
-    url(fonts/Metropolis-SemiBold.ttf) format("truetype");
+  font-family: "metropolissemi_bold";
+  src: url("../fonts/metropolis-semibold-webfont.woff2") format("woff2"),
+    url("../fonts/metropolis-semibold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "metropolisbold";
+  src: url("../fonts/metropolis-bold-webfont.woff2") format("woff2"),
+    url("../fonts/metropolis-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "metropolismedium";
+  src: url("../fonts/metropolis-medium-webfont.woff2") format("woff2"),
+    url("../fonts/metropolis-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 html {
@@ -352,7 +369,7 @@ img.resize {
   line-height: 30px;
   position: relative;
   text-transform: uppercase;
-  font-family: "Metropolis-Bold", "sans-serif";
+  font-family: "metropolisbold";
 }
 
 .text-subhead h4 {
@@ -430,7 +447,7 @@ img.resize {
   font-size: 20px;
   margin-bottom: 50px;
   margin-top: 10px;
-  font-family: "Metropolis-Regular", "sans-serif";
+  font-family: "metropolismedium";
 }
 
 /*===================================*/
@@ -617,7 +634,7 @@ img.resize {
 
 .projects-header {
   text-align: center;
-  font-family: "Metropolis-SemiBold", "sans-serif";
+  font-family: "metropolissemi_bold";
 }
 
 .pill-menu {
@@ -631,7 +648,7 @@ img.resize {
 }
 
 .about-text-head h2 {
-  font-family: "Metropolis-SemiBold", "sans-serif";
+  font-family: "metropolissemi_bold";
   font-size: 50px;
   font-weight: 500;
   letter-spacing: 3px;
