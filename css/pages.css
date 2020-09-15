@@ -1,63 +1,84 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800");
+
+@font-face {
+  font-family: "metropolissemi_bold";
+  src: url("../fonts/metropolis-semibold-webfont.woff2") format("woff2"),
+    url("../fonts/metropolis-semibold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "metropolisbold";
+  src: url("../fonts/metropolis-bold-webfont.woff2") format("woff2"),
+    url("../fonts/metropolis-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "metropolismedium";
+  src: url("../fonts/metropolis-medium-webfont.woff2") format("woff2"),
+    url("../fonts/metropolis-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html,
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
-
 
 .project-full-image {
-    height: 100vh;
+  height: 100vh;
 }
 
-
 .project-details-container {
-    margin-top: 20px;
-    max-width: 640px;
-    box-sizing: content-box;
-    margin: 0 auto;
+  margin-top: 20px;
+  max-width: 640px;
+  box-sizing: content-box;
+  margin: 0 auto;
 }
 
 .project-title {
-    font-family: Metropolis-SemiBold;
+  font-family: Metropolis-SemiBold;
 }
 
 .link-container {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .link {
-    color: #1159cd;
-    /* color: black; */
-    font-size: 16px;
-    margin-bottom: 50px;
-    margin-top: 10px;
+  color: #1159cd;
+  /* color: black; */
+  font-size: 16px;
+  margin-bottom: 50px;
+  margin-top: 10px;
 
-    border-bottom: solid 2px #1159cd;
-    ;
+  border-bottom: solid 2px #1159cd;
+  /* padding-bottom: 0.5px; */
 
-    /* padding-bottom: 0.5px; */
-
-    font-family: Metropolis-Medium;
+  font-family: Metropolis-Medium;
 }
 
-
 .project-type {
-    color: #808080;
-    font-size: 18.5px;
-    margin-bottom: 50px;
-    margin-top: 10px;
+  color: #808080;
+  font-size: 18.5px;
+  margin-bottom: 50px;
+  margin-top: 10px;
 
-    font-family: Metropolis-Medium;
+  font-family: Metropolis-Medium;
 }
 
 .blurb {
-    margin: 20px 0;
-    font-size: 18.5px;
-    /* font-family: Metropolis-Regular; */
+  margin: 20px 0;
+  font-size: 18.5px;
+  /* font-family: Metropolis-Regular; */
 }
 
 /* .video {
@@ -67,210 +88,195 @@ body {
 } */
 
 .project-padding {
-    padding-top: 110px;
+  padding-top: 110px;
 }
-
 
 .details-bar {
-    background-color: #F7F7F7;
+  background-color: #f7f7f7;
 }
 
-
 .project-details {
-
-    margin: 40px 0px;
-    display: flex;
-    justify-content: space-between;
+  margin: 40px 0px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .details-title {
-    color: #808080;
-    font-size: 16px;
-    font-family: Metropolis-SemiBold;
-    padding-bottom: 10px;
+  color: #808080;
+  font-size: 16px;
+  font-family: Metropolis-SemiBold;
+  padding-bottom: 10px;
 }
 
 .project-details p {
-    font-size: 16px;
-    font-family: Metropolis-Medium;
-    margin: 5px 0px;
-
+  font-size: 16px;
+  font-family: Metropolis-Medium;
+  margin: 5px 0px;
 }
 
 .product-goal {
-    background-color: #f7f7f7;
+  background-color: #f7f7f7;
 }
 
 .sec {
-    margin: 60px 0px;
+  margin: 60px 0px;
 }
 
 .sec-title {
-    font-size: 30px;
-    font-family: Metropolis-SemiBold;
-    padding-bottom: 30px;
+  font-size: 30px;
+  font-family: Metropolis-SemiBold;
+  padding-bottom: 30px;
 }
 
 .sec-subtitle {
-    font-size: 20px;
-    font-family: Metropolis-Medium;
-    padding-bottom: 10px;
+  font-size: 20px;
+  font-family: Metropolis-Medium;
+  padding-bottom: 10px;
 }
 
-
 .sec-text {
-    font-size: 16px;
-    line-height: 3rem;
-    padding-bottom: 10px;
+  font-size: 16px;
+  line-height: 3rem;
+  padding-bottom: 10px;
 }
 
 .con-ass {
-    display: flex;
-    justify-content: flex-start;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .side-by-side {
-    padding-right: 10%;
+  padding-right: 10%;
 }
-
 
 .project-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    scroll-behavior: ease;
-    padding-right: 100px;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  scroll-behavior: ease;
+  padding-right: 100px;
 }
 
-
 .product-footer {
-    height: 50vh;
-    width: 100%;
-    background-color: black;
+  height: 50vh;
+  width: 100%;
+  background-color: black;
 }
 
 .project-next-button {
-    width: 100px;
-    height: 50px;
-    margin: 10px;
-    font-size: 16.5px;
-    font-weight: 500;
-    position: relative;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  font-size: 16.5px;
+  font-weight: 500;
+  position: relative;
 }
 
 .project-next-button button {
-    border: 2px solid #000;
-    background: white;
-    width: 200%;
-    padding: 15px;
-    border-radius: 30px;
-    color: #000;
-    transition: background 0.1s ease;
+  border: 2px solid #000;
+  background: white;
+  width: 200%;
+  padding: 15px;
+  border-radius: 30px;
+  color: #000;
+  transition: background 0.1s ease;
 }
 
 .project-next-button button:hover {
-
-    background-color: #11cd86;
-    font-weight: normal;
-    cursor: pointer;
+  background-color: #11cd86;
+  font-weight: normal;
+  cursor: pointer;
 }
 
 .project-next-button button:hover i {
-    color: black;
-
+  color: black;
 }
 
 .project-next-button i {
-    color: #000;
-    margin-left: 10px;
+  color: #000;
+  margin-left: 10px;
 }
 
 .arrow1 {
-    animation: slide1 1s ease-in-out infinite;
+  animation: slide1 1s ease-in-out infinite;
 }
 
 .next-project {
-    text-align: center;
+  text-align: center;
 }
 
-
 .next-project-text {
-    color: #11cd86;
-    font-size: 20px;
-    font-family: Metropolis-Medium;
-    margin-top: 60px;
-    margin-bottom: 15px;
+  color: #11cd86;
+  font-size: 20px;
+  font-family: Metropolis-Medium;
+  margin-top: 60px;
+  margin-bottom: 15px;
 }
 
 .next-project-name {
-    color: #fff;
-    font-size: 32px;
-    font-family: Metropolis-SemiBold;
-
+  color: #fff;
+  font-size: 32px;
+  font-family: Metropolis-SemiBold;
 }
 
-
 .video-responsive {
-    overflow: hidden;
-    padding-bottom: 56.25%;
-    position: relative;
-    height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
 }
 
 .video-responsive iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 /* For projects that don't have a video, use and image */
 .video-responsive img {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 @media (max-width: 767px) {
-    .project-full-image {
-        height: 80vh;
-    }
+  .project-full-image {
+    height: 80vh;
+  }
 
-    .con-ass {
-        display: flex;
-        flex-direction: column;
-    }
-
+  .con-ass {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-
 @media (max-width: 790px) {
-    .project-details {
-        display: flex;
-        flex-direction: column;
-    }
+  .project-details {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .client {
-        padding: 30px 0;
-    }
+  .client {
+    padding: 30px 0;
+  }
 
-    .timeline {
-        padding: 30px 0;
-    }
+  .timeline {
+    padding: 30px 0;
+  }
 
-    .type {
-        padding: 30px 0;
-    }
+  .type {
+    padding: 30px 0;
+  }
 
-    .tools {
-        padding: 30px 0;
-    }
+  .tools {
+    padding: 30px 0;
+  }
 
-    .details-title {
-        color: #089986;
-    }
-
+  .details-title {
+    color: #089986;
+  }
 }
