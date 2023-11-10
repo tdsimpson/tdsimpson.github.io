@@ -24,6 +24,10 @@
   font-style: normal;
 }
 
+:root {
+  --primary-color: #5ea1f0; /* Define a root variable for primary color */
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -36,7 +40,7 @@ html {
 
 body {
   margin: 0;
-  color: #000;
+  color: #1d1d1d;
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
   background-color: #fff;
@@ -65,7 +69,7 @@ button {
 
 a {
   background-color: transparent;
-  color: #000;
+  color: #1d1d1d;
 }
 
 a,
@@ -151,7 +155,7 @@ textarea {
 
 .navbar {
   /* animation: fadeIn 3s; */
-  background-color: #000;
+  background-color: #1d1d1d;
   min-height: 70px;
 }
 
@@ -185,17 +189,17 @@ textarea {
 .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > .active > a:hover {
   background-color: transparent;
-  color: #11cd86;
+  color: var(--primary-color);
   cursor: default;
 }
 
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:hover {
-  color: #11cd86;
+  color: var(--primary-color);
 }
 
 .top-nav-collapse {
-  background-color: #000;
+  background-color: #1d1d1d;
 }
 
 .top-nav-collapse .navbar-nav > li > a {
@@ -205,12 +209,12 @@ textarea {
 .top-nav-collapse .navbar-nav > .active > a,
 .top-nav-collapse .navbar-nav > .active > a:focus,
 .top-nav-collapse .navbar-nav > .active > a:hover {
-  color: #11cd86;
+  color: var(--primary-color);
 }
 
 .top-nav-collapse .navbar-nav > li > a:focus,
 .top-nav-collapse .navbar-nav > li > a:hover {
-  color: #11cd86;
+  color: var(--primary-color);
 }
 
 .navbar-default .navbar-toggle {
@@ -222,7 +226,7 @@ textarea {
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #11cd86;
+  background-color: var(--primary-color);
 }
 
 .navbar-default .navbar-toggle:focus,
@@ -235,12 +239,12 @@ textarea {
 }
 
 .top-nav-collapse .navbar-toggle .icon-bar {
-  background-color: #11cd86;
+  background-color: var(--primary-color);
 }
 
 /*banner image*/
 .banner-full-image {
-  background: #000;
+  background: #1d1d1d;
   height: 100vh;
   /*position: relative;*/
 }
@@ -312,7 +316,7 @@ img.resize {
 /*END OF ANIMATION*/
 
 .banner-title > h1 {
-  color: #11cd86;
+  color: var(--primary-color);
   font-size: 48px;
   font-weight: 800;
   letter-spacing: 4px;
@@ -415,10 +419,10 @@ img.resize {
 /*==========================================*/
 
 .resume {
-  background-color: #000;
-  border: 1px solid #11cd86;
+  background-color: var(--primary-color);
+  border: 1px solid #1d1d1d;
   border-radius: 50px;
-  color: #11cd86;
+  color: #1d1d1d;
   font-size: 16px;
   font-weight: bold;
   margin-top: 75px;
@@ -427,14 +431,10 @@ img.resize {
 }
 
 .resume:hover {
-  background-color: #11cd86;
-  color: black;
-  transition-duration: 0.5s;
-}
-
-.resume:focus {
-  text-decoration: none;
-  color: #11cd86;
+  background-color: #1d1d1d;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  /* transition-duration: 0.4s; */
 }
 
 .resume-button {
@@ -453,13 +453,13 @@ img.resize {
 /*===================================*/
 
 .learn-more {
-  color: #11cd86;
+  color: var(--primary-color);
   font-size: 16px;
   font-weight: bold;
 }
 
 .learn-more:hover {
-  color: #000;
+  color: #1d1d1d;
 }
 
 .row {
@@ -468,7 +468,7 @@ img.resize {
 }
 
 /* .row.active{
-  background-color: #11cd86;
+  background-color: var(--primary-color);
 } */
 
 .container {
@@ -501,6 +501,7 @@ img.resize {
   width: 33.333%;
   text-align: center;
   font-size: 16px;
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 600px) {
@@ -522,9 +523,9 @@ img.resize {
 }
 
 .Nav-item a {
-  color: #000;
+  color: #1d1d1d;
   display: block;
-  font-weight: 400;
+  font-weight: 500;
   padding-top: 20px;
   padding-bottom: 20px;
   text-decoration: none;
@@ -547,7 +548,7 @@ img.resize {
 }
 
 .with-indicator .Nav-item:last-child:after {
-  background: #11cd86;
+  background: #aed0f7;
   top: 0px;
   bottom: 0px;
   left: 0;
@@ -625,7 +626,7 @@ img.resize {
 }
 
 .toggle {
-  color: green;
+  color: red;
   font-family: sans-serif;
   text-align: center;
 }
@@ -694,12 +695,12 @@ img.resize {
   width: 24px;
   height: 24px;
   margin-right: 32px;
-  color: #000;
+  color: #1d1d1d;
   font-size: 24px;
 }
 
 .linkIcon:hover {
-  color: #6ecda5;
+  color: var(--primary-color);
 }
 
 /* NEXT BUTTON*/
@@ -727,17 +728,17 @@ img.resize {
 }
 
 .next-button button {
-  border: 2px solid #000;
+  border: 2px solid #1d1d1d;
   background: white;
   width: 200%;
   padding: 15px;
   border-radius: 30px;
-  color: #000;
+  color: #1d1d1d;
   transition: background 0.5s ease;
 }
 
 .next-button button:hover {
-  background: #000;
+  background: #1d1d1d;
   color: white;
   font-weight: normal;
   cursor: pointer;
@@ -748,7 +749,7 @@ img.resize {
 }
 
 .next-button i {
-  color: #000;
+  color: #1d1d1d;
   margin-left: 10px;
 }
 

@@ -1,8 +1,12 @@
+:root {
+  --primary-color: #5ea1f0; /* Define a root variable for primary color */
+}
+
 /*footer*/
 footer {
   margin-top: 110px;
   padding: 60px 0;
-  background-color: #0b0d0d;
+  background-color: #1d1d1d;
   position: relative;
   color: #fff;
   height: 100vh;
@@ -52,12 +56,12 @@ footer {
 
 .footer-contact-list li a:hover,
 .footer-links li a:hover {
-  color: #11cd86;
+  color: var(--primary-color);
 }
 
 .green-text,
 .footer-contact-list li.green-text a {
-  color: #11cd86 !important;
+  color: var(--primary-color) !important;
 }
 
 .footer-resume {
@@ -66,14 +70,14 @@ footer {
   color: #fff;
   font-size: 14px;
   font-weight: bold;
-  background-color: #000;
+  background-color: #1d1d1d;
   margin-top: 25px;
   padding: 8px 50px 8px 50px;
 }
 
 .footer-resume:hover {
   color: black;
-  border: 1px solid #11cd86;
-  background-color: #11cd86;
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
   transition-duration: 0.5s;
 }
