@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property='og:title' content='Taylor Simpson' />
+    <meta property='og:image' content='images/previewImage.png' />
+    <meta property='og:description' content='Portfolio website' />
+    <meta property='og:url' content='taylorsimpson.ca' />
+    <link rel="icon" href="../images/icons/favicon.png" />
+    <title id="page-title">Taylor Simpson — Project</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148221650-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-148221650-1');
+    </script>
+    <link href="../css/scrolling-nav.css" rel="stylesheet" media="all">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Custom styles for this template -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/pages.css" rel="stylesheet">
+    <link href="../css/footer-style.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <script src="../js/jquery.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/scrolling-nav.js" type="text/javascript"></script>
+    <script src="../js/waypoints.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.inview.min.js" type="text/javascript"></script>
+    <script src="../js/custom.js" type="text/javascript"></script>
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+
+</head>
+
+
+
+<body id="home" data-spy="scroll" data-target=".navbar" data-offset="50">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../index.html" class="scroll">
+                    <img style="max-height: 45px; margin-top: 16px ;
+                            padding: 10px" src="../images/topLeftLogo.png" alt="Taylor
+                            Simpson">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a class="scroll" href="../index.html">home</a></li>
+                    <li><a class="scroll" href="../index.html#about">about</a></li>
+                    <li><a class="scroll" href="../index.html#projects">portfolio</a></li>
+                    <li><a class="scroll" href="../index.html#contact">contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- ------home block------------->
+    <div class="project-full-image">
+        <div class="container">
+            <div class="project-padding">
+                <div class="project-details-container">
+                    <h2 class="project-title" id="project-title"></h2>
+                    <div class="link-container">
+                        <p class="project-type" id="project-type"></p>
+                        <a id="project-link" href="#" target="_blank" style="display: none;">
+                            <p class="link" id="link-text"></p>
+                        </a>
+                    </div>
+                    <p class="blurb" id="project-blurb"></p>
+
+                    <div class="video-responsive" id="media-container">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+
+
+    <div class="details-bar">
+        <div class="container">
+            <div class="project-details">
+                <div class="client">
+                    <p class="details-title">CLIENT</p>
+                    <p id="project-client"></p>
+                </div>
+                <div class="type">
+                    <p class="details-title">TYPE</p>
+                    <div id="project-type-list"></div>
+                </div>
+
+                <div class="tools">
+                    <p class="details-title">TOOLS USED</p>
+                    <div id="project-tools-list"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container" id="content-container">
+        <!-- Content will be populated by JavaScript -->
+    </div>
+    
+    <div class="product-footer" id="product-footer" style="display: none;">
+        <div class="container">
+
+            <div class="next-project">
+                <p class="next-project-text">
+                    Next Project
+                </p>
+
+                <p class="next-project-name" id="next-project-name">
+                </p>
+            </div>
+
+            <div class="project-wrapper">
+                <div class="project-next-button">
+                    <button id="next-project-button">
+                        Next
+                        <i class="fas fa-long-arrow-alt-right arrow1"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    
+    <script src="../js/project-loader.js" type="text/javascript"></script>
+</body>
+
+</html>
+
