@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project — Taylor Simpson</title>
+    <meta name="description" content="Project detail page" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#0ea5a4">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --card: #ffffff;
+            --muted: #6b7280;
+            --text: #0f172a;
+            --accent: #0ea5a4;
+            --accent-2: #2d2d2d;
+            --glass: rgba(15, 23, 42, 0.04);
+            --radius: 12px;
+            --focus: 3px rgba(14, 165, 164, 0.16);
+        }
+
+        [data-theme="dark"] {
+            --bg: #071022;
+            --card: #071827;
+            --muted: #94a3b8;
+            --text: #e6eef3;
+            --accent: #3dd6cf;
+            --accent-2: #2d2d2d;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            min-height: 100%;
+            background: var(--bg);
+        }
+
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+                "Helvetica Neue", Arial;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 36px 20px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0 24px;
+        }
+
+        .logo {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            font-size: 18px;
+        }
+
+        .back-link {
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text);
+        }
+
+        /* Project Header */
+        .project-header {
+            margin-bottom: 48px;
+        }
+
+        .project-title {
+            font-size: 48px;
+            line-height: 1.1;
+            margin: 0 0 12px;
+            font-weight: 800;
+        }
+
+        .project-subtitle {
+            font-size: 20px;
+            color: var(--muted);
+            margin: 0 0 24px;
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .project-subtitle-link {
+            color: var(--accent);
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: opacity 0.2s ease;
+        }
+
+        .project-subtitle-link:hover {
+            opacity: 0.8;
+        }
+
+        .external-link-icon {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+        }
+
+        .project-description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0 0 32px;
+            max-width: 66ch;
+        }
+
+        /* Project Meta */
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+            padding: 24px;
+            background: #f9f9f9;
+            border: 1px solid var(--glass);
+            border-radius: 14px;
+        }
+
+        [data-theme="dark"] .project-meta {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .meta-label {
+            font-size: 13px;
+            color: var(--text);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-value {
+            font-size: 15px;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-value-item {
+            display: block;
+        }
+
+        .meta-value a {
+            color: var(--accent);
+            transition: opacity 0.2s ease;
+        }
+
+        .meta-value a:hover {
+            opacity: 0.8;
+        }
+
+        /* Project Media */
+        .project-media {
+            margin-bottom: 64px;
+        }
+
+        .project-media img,
+        .project-media video {
+            width: 100%;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(12, 15, 20, 0.08);
+        }
+
+        .project-media video {
+            background: var(--card);
+        }
+
+        .project-media iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 14px;
+            border: none;
+        }
+
+        /* Project Sections */
+        .project-section {
+            margin-bottom: 48px;
+        }
+
+        .project-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 16px;
+        }
+
+        .project-section p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+            margin: 0 0 16px;
+        }
+
+        .project-section ul {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+            margin: 0 0 16px;
+            padding-left: 24px;
+        }
+
+        .project-section li {
+            margin-bottom: 8px;
+        }
+
+        /* Constraints and Assumptions Grid */
+        .constraints-assumptions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 16px;
+        }
+
+        .constraints-assumptions-grid h2 {
+            margin-bottom: 16px;
+        }
+
+        /* Boxed Sections */
+        .boxed-section {
+            background: var(--card);
+            border: 1px solid var(--glass);
+            border-radius: 14px;
+            padding: 32px;
+        }
+
+        .boxed-section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 16px;
+            color: var(--text);
+        }
+
+        .boxed-section ul {
+            margin: 0;
+            padding-left: 24px;
+            list-style-type: disc;
+        }
+
+        .boxed-section li {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .boxed-section li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Navigation */
+        .project-navigation {
+            margin-top: 64px;
+            padding-top: 32px;
+            border-top: 1px solid var(--glass);
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .nav-left {
+            justify-self: start;
+        }
+
+        .nav-center {
+            justify-self: center;
+        }
+
+        .nav-right {
+            justify-self: end;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--glass);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            background: var(--glass);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: 0;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-2);
+            color: white;
+            box-shadow: 0 6px 18px rgba(11, 128, 121, 0.12);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(11, 128, 121, 0.16);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            border-radius: 999px;
+            padding: 8px;
+            border: 1px solid var(--glass);
+            background: transparent;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 36px;
+            }
+
+            .project-subtitle {
+                font-size: 18px;
+            }
+
+            .project-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .constraints-assumptions-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .project-navigation {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .nav-left,
+            .nav-center,
+            .nav-right {
+                justify-self: stretch;
+            }
+
+            .nav-left .btn,
+            .nav-center .btn,
+            .nav-right .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body data-theme="light">
+    <div class="container">
+        <header>
+            <a href="index.html" class="logo">Taylor Simpson</a>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <a href="index.html" class="back-link">← Back to Portfolio</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">🌓</button>
+            </div>
+        </header>
+
+        <main>
+            <article class="project-header">
+                <h1 class="project-title" id="project-title">Project Title</h1>
+                <p class="project-subtitle">
+                    <span id="project-subtitle">Project Subtitle</span>
+                    <a href="#" id="project-subtitle-link" class="project-subtitle-link" target="_blank" rel="noopener"
+                        style="display: none;">
+                        <span>View Project</span>
+                        <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </p>
+                <p class="project-description" id="project-description">Project description goes here.</p>
+
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Client</div>
+                        <div class="meta-value" id="project-client">Client Name</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Role</div>
+                        <div class="meta-value" id="project-type">Full-Stack Development</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Tools</div>
+                        <div class="meta-value" id="project-tools">React, Firebase, Figma</div>
+                    </div>
+                </div>
+            </article>
+
+            <div class="project-media">
+                <img id="project-image" src="" alt="Project screenshot" />
+            </div>
+
+            <div class="project-section">
+                <h2>Problem Definition</h2>
+                <p id="project-problem">Problem definition goes here.</p>
+            </div>
+
+            <div class="project-section">
+                <h2>Product Goal</h2>
+                <p id="project-goal">Product goal goes here.</p>
+            </div>
+
+            <div class="project-section">
+                <div class="constraints-assumptions-grid">
+                    <div>
+                        <h2>Constraints</h2>
+                        <div class="boxed-section" id="constraints-box" style="display: none;">
+                            <ul id="project-constraints-list"></ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Assumptions</h2>
+                        <div class="boxed-section" id="assumptions-box" style="display: none;">
+                            <ul id="project-assumptions-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>Conclusion</h2>
+                <p id="project-conclusion">Conclusion goes here.</p>
+            </div>
+
+            <div class="project-navigation">
+                <div class="nav-left">
+                    <a href="#" class="btn btn-outline" id="prev-project-btn" style="display: none;">← Previous</a>
+                </div>
+                <div class="nav-center">
+                    <a href="index.html" class="btn btn-outline">Back to Portfolio</a>
+                </div>
+                <div class="nav-right">
+                    <a href="#" class="btn btn-primary" id="next-project-btn">Next Project →</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Theme toggle
+        const toggle = document.getElementById('themeToggle');
+        const body = document.body;
+        function setTheme(t) { body.setAttribute('data-theme', t); localStorage.setItem('theme', t); }
+        const saved = localStorage.getItem('theme') || 'light'; setTheme(saved);
+        toggle.addEventListener('click', () => setTheme(body.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
+
+        // Load project data from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+
+        // Project data - you'll need to populate this with actual project data
+        const projects = {
+            'expense-tracker': {
+                title: 'Online Budgeting Tool',
+                subtitle: 'Web App',
+                description: 'Input expense data and visualize it across charts and graphs.',
+                client: 'Personal Project',
+                type: 'Full-Stack Development, UI Design',
+                tools: 'React.js, Redux, Firebase, Chart.js',
+                link: 'https://github.com/tdsimpson/expense-tracker',
+                image: 'images/card-expense-tracker.png',
+                video: 'https://www.youtube.com/watch?v=VPtTarety28', // Add YouTube URL here if available, e.g., 'https://www.youtube.com/watch?v=VIDEO_ID'
+                problem: 'Managing personal finances can be overwhelming without proper visualization and tracking tools.',
+                goal: 'Create an intuitive web application that allows users to easily input expenses and visualize their spending patterns through interactive charts and graphs.',
+                constraints: 'Built as a personal project with limited time and resources. Focus on core functionality first.',
+                assumptions: 'Users have basic understanding of budgeting concepts. They prefer visual data representation over spreadsheets.',
+                conclusion: 'The application successfully provides users with an easy way to track and visualize their expenses, making financial management more accessible and engaging.',
+            },
+            'pedal-patrol': {
+                title: 'Crowdsourced Bike Theft Recovery App',
+                subtitle: 'Mobile App (iOS & Android)',
+                description: 'Mobile app crowdsourcing bike recoveries for a local cycling community.',
+                client: 'Frontenac Cycle And Sport',
+                type: 'Product Mangement, Mobile Development',
+                tools: 'React Native, Maps API',
+                link: 'https://github.com/PedalPatrol/PedalPatrol',
+                image: 'images/card-pedal-patrol.png',
+                video: 'https://www.youtube.com/watch?v=T4QwC_nw_eg',
+                problem: 'Over the last few decades, bike theft in urban cities has been increasing significantly affecting over 2 million riders across North America. With less than 5% of recovered bikes being returned to their owners, riders are in desperate need for a way to recover them. In Kingston, bike thefts often involve the exchange of illicit drugs or the cash to buy them. They make for easy targets as they can often be found in public places and taken away without question by bystanders unless they are explicitly seen cutting a lock.',
+                goal: 'Frontenac Cycle wanted to develop a mobile application on iOS and Android for the Kingston community to help reunite cyclists with their stolen bikes through crowdsourcing. The product should enable community members to register their bikes, create lost bike reports, and message the owners of found bikes.',
+                constraints: 'Project must be built within a budget of $1,000. Limited to local community initially.',
+                assumptions: 'Community members are willing to participate in recovery efforts. Users have smartphones with internet access and location services enabled. Users know their own bike\'s serial number or where to find it',
+                conclusion: 'The app successfully created a community-driven solution for bike theft recovery, demonstrating the power of crowdsourcing in solving local problems. As the product manager, I led my cross functional team through the full product lifecycle from ideation to delivery. I worked actively with the client to align the product with their vision. Pedal Patrol was tranfered to a Vancouver-based organization to continue its development.',
+                // impact: 'Helped recover 15+ stolen bikes within the first 3 months. 60% recovery rate for reported thefts.'
+            },
+            'course-enrollment': {
+                title: 'Course Enrollment Prototype',
+                subtitle: 'Prototype · Figma',
+                description: 'Improved workflows for students in a prototype for Oracle\'s enrollment system.',
+                client: 'BrainStation Demo',
+                type: 'UI/UX Design, User Research',
+                tools: 'Figma',
+                link: 'https://www.figma.com/proto/JkTyz0qaw085uvEcBuZDBD/BrainStation-Final-Project?node-id=109-7014&starting-point-node-id=109%3A7014',
+                image: 'images/card-course-enrollment.png',
+                video: null,
+                problem: 'The existing course enrollment system is confusing and time-consuming for students, leading to frustration and enrollment errors.',
+                goal: 'Redesign the enrollment workflow to be more intuitive, reducing the time and effort required for students to enroll in courses.',
+                constraints: 'Must work within Oracle\'s existing system architecture. Limited to prototype phase.',
+                assumptions: 'Students prefer a streamlined, step-by-step enrollment process. Visual feedback is important for user confidence.',
+                conclusion: 'The prototype successfully demonstrates how improved UX can significantly enhance the enrollment experience, with clear pathways for implementation.',
+                //impact: 'User testing showed a 50% reduction in enrollment time. 80% decrease in user errors compared to the original system.'
+            },
+            'song-analysis': {
+                title: 'Song Analysis',
+                subtitle: 'Web App',
+                description: 'Analyzes songs and provides insights on key metrics, such as the key, BPM, and more.',
+                client: 'Personal Project',
+                type: 'Full-Stack Development, UI Design',
+                tools: 'React.js, Spotify API, Wikipedia API',
+                link: 'https://github.com/tdsimpson/Song-Analysis',
+                image: 'images/square-song-analysis.png',
+                video: 'https://www.youtube.com/watch?v=O5B2sth-wxs',
+                problem: 'As a guitarist, I often found myself googling the key of the song I was currently listening to so I could play along with it. While Spotify does have a lot of useful information for musicians through their API, these audio characteristics are not accessible through their web client or app.',
+                goal: 'Create a web application for musicians that leverages the Spotify API to display useful information about a song including its key and BPM. I wanted it to integrate with a user\'s Spotify account and update with the song in a simple colourful UI.',
+                constraints: 'Musical information from the API comes from Spotify\'s estimations, not the artist themself. The Spotify API has rate limiting to share resources equally across all users. Requires user authentication with Spotify.',
+                assumptions: 'Users have Spotify accounts and are interested in technical music analysis. The user agrees to allow "Song Analysis" to access their Spotify account through a secure token.',
+                conclusion: 'The application successfully bridges the gap between casual listening and technical music analysis, providing valuable insights to music enthusiasts including the song\'s key, BPM, date it was released and a short bio about the artist from Wikipedia.The colour of the UI also reflects the colour prominent colours in each song\'s album art!',
+                //impact: 'Gained 500+ active users in the first month. Users spending an average of 8 minutes per session exploring song analytics.'
+            },
+            'support-tracker': {
+                title: 'Customer Support Status Tracker',
+                subtitle: 'Chatbot App',
+                description: 'A chatbot that surfaces support ticket status to customers using Ada Support.',
+                client: 'Ada App Hacks',
+                type: 'Full-Stack Development',
+                tools: 'Ada SDK, JavaScript, HTML/CSS',
+                link: 'https://github.com/tdsimpson/AdaAppHacks',
+                image: 'images/square-support-ticket-status.png',
+                video: 'https://www.youtube.com/watch?v=HzC6eI-NUwM',
+                problem: 'Customers frequently contact support to check ticket status, overwhelming support teams with repetitive inquiries.',
+                goal: 'Develop a chatbot that can automatically provide ticket status updates, reducing support team workload and improving customer experience.',
+                constraints: 'Must integrate with existing support system. Limited to Ada SDK capabilities.',
+                assumptions: 'Customers prefer quick, automated responses for status checks. Most inquiries are straightforward status requests.',
+                conclusion: 'The chatbot successfully reduced support ticket volume by handling routine status inquiries, allowing support teams to focus on complex issues.',
+                //impact: 'Reduced support ticket volume by 35%. Improved average response time from 2 hours to instant for status inquiries.'
+            },
+            'myndjournal': {
+                title: 'Mental Health Journaling & Insights',
+                subtitle: 'Web App',
+                description: 'Hackathon finalist: Visualizes mental health data from sentiment analysis of journal entries.',
+                client: 'Hack the 6ix',
+                type: 'Full-Stack Development',
+                tools: 'React, Sentiment Analysis API, Data Visualization',
+                link: 'https://devpost.com/software/myndjournal-0ky6t5',
+                image: 'images/square-myndjournal.png',
+                video: null,
+                problem: 'People struggle to track and understand patterns in their mental health over time, making it difficult to identify triggers and improvements.',
+                goal: 'Create a journaling application that uses sentiment analysis to help users visualize their emotional patterns and gain insights into their mental health trends.',
+                constraints: 'Built during a hackathon with limited time. Privacy and data security are critical concerns.',
+                assumptions: 'Users are comfortable journaling digitally. Sentiment analysis can provide meaningful insights into emotional patterns.',
+                conclusion: 'The application demonstrates how technology can support mental health awareness, providing users with valuable insights into their emotional patterns while maintaining privacy.',
+                //impact: 'Won 2nd place at the hackathon. 90% of test users reported increased awareness of their emotional patterns and found the visualizations helpful.'
+            },
+            'stock-block': {
+                title: 'Decentralized Stock Photography Platform',
+                subtitle: 'Descentralized App (DApp)',
+                description: 'A decentralized platform for photographers to upload and sell their photos on the blockchain without a middleman.',
+                client: 'Local Hack Day',
+                type: 'Full-Stack Development, UI Design',
+                tools: 'JavaScript, Solidity, IPFS, Metamask',
+                link: 'https://devpost.com/software/stock-block',
+                image: 'images/square-stock-block.png',
+                video: null,
+                problem: 'Traditional stock photography platforms take significant commissions, limiting photographer earnings and control over their work.',
+                goal: 'Build a decentralized platform that allows photographers to sell their work directly to buyers using blockchain technology, eliminating middlemen and reducing fees.',
+                constraints: 'Blockchain transaction costs and scalability limitations. Requires users to have cryptocurrency wallets.',
+                assumptions: 'Photographers are interested in blockchain technology. Buyers are willing to use cryptocurrency for purchases.',
+                conclusion: 'The platform successfully demonstrates how blockchain can disrupt traditional marketplaces, though adoption challenges remain in the broader market. The project was a finalist in the Local Hack Day hackathon at Queen\'s University.',
+                impact: 'Successfully processed 200+ transactions. Photographers earning 95% of sale price (vs. 20-50% on traditional platforms).'
+            }
+        };
+
+        // Project order for navigation
+        const projectOrder = [
+            'expense-tracker',
+            'pedal-patrol',
+            'course-enrollment',
+            'song-analysis',
+            'support-tracker',
+            'myndjournal',
+            'stock-block'
+        ];
+
+        function loadProject(id) {
+            const project = projects[id];
+            if (!project) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            document.getElementById('project-title').textContent = project.title;
+            document.getElementById('project-subtitle').textContent = project.subtitle;
+            document.getElementById('project-description').textContent = project.description;
+            document.getElementById('project-client').textContent = project.client;
+
+            // Handle link next to subtitle
+            const subtitleLink = document.getElementById('project-subtitle-link');
+            if (project.link) {
+                subtitleLink.href = project.link;
+                subtitleLink.style.display = 'inline-flex';
+            } else {
+                subtitleLink.style.display = 'none';
+            }
+
+            // Handle Role - split by comma and stack vertically
+            const roleElement = document.getElementById('project-type');
+            if (project.type) {
+                const roleItems = project.type.split(',').map(item => item.trim());
+                roleElement.innerHTML = roleItems.map(item => `<span class="meta-value-item">${item}</span>`).join('');
+            }
+
+            // Handle Tools - split by comma and stack vertically
+            const toolsElement = document.getElementById('project-tools');
+            if (project.tools) {
+                const toolItems = project.tools.split(',').map(item => item.trim());
+                toolsElement.innerHTML = toolItems.map(item => `<span class="meta-value-item">${item}</span>`).join('');
+            }
+
+            // Handle video or image
+            const projectMedia = document.querySelector('.project-media');
+            if (project.video) {
+                // Convert YouTube URL to embed format
+                let embedUrl = project.video;
+                if (project.video.includes('youtube.com/watch?v=')) {
+                    const videoId = project.video.split('v=')[1].split('&')[0];
+                    embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+                } else if (project.video.includes('youtu.be/')) {
+                    const videoId = project.video.split('youtu.be/')[1].split('?')[0];
+                    embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+                } else if (project.video.includes('youtube.com/embed/')) {
+                    // Add parameters if not already present
+                    embedUrl = project.video.includes('?')
+                        ? `${project.video}&rel=0&modestbranding=1`
+                        : `${project.video}?rel=0&modestbranding=1`;
+                }
+                projectMedia.innerHTML = `<iframe src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            } else {
+                projectMedia.innerHTML = `<img id="project-image" src="${project.image}" alt="${project.title}" />`;
+            }
+
+            document.getElementById('project-problem').textContent = project.problem;
+            document.getElementById('project-goal').textContent = project.goal;
+            document.getElementById('project-conclusion').textContent = project.conclusion;
+
+            // Load constraints as bullet points
+            const constraintsBox = document.getElementById('constraints-box');
+            const constraintsList = document.getElementById('project-constraints-list');
+            if (project.constraints) {
+                const constraintsItems = project.constraints.split(/\.(?=\s|$)/).filter(item => item.trim().length > 0);
+                constraintsList.innerHTML = constraintsItems.map(item => `<li>${item.trim()}${item.trim().endsWith('.') ? '' : '.'}</li>`).join('');
+                constraintsBox.style.display = 'block';
+            } else {
+                constraintsBox.style.display = 'none';
+            }
+
+            // Load assumptions as bullet points
+            const assumptionsBox = document.getElementById('assumptions-box');
+            const assumptionsList = document.getElementById('project-assumptions-list');
+            if (project.assumptions) {
+                const assumptionsItems = project.assumptions.split(/\.(?=\s|$)/).filter(item => item.trim().length > 0);
+                assumptionsList.innerHTML = assumptionsItems.map(item => `<li>${item.trim()}${item.trim().endsWith('.') ? '' : '.'}</li>`).join('');
+                assumptionsBox.style.display = 'block';
+            } else {
+                assumptionsBox.style.display = 'none';
+            }
+
+            // Update navigation buttons
+            const currentIndex = projectOrder.indexOf(id);
+            const prevBtn = document.getElementById('prev-project-btn');
+            const nextBtn = document.getElementById('next-project-btn');
+
+            // Previous button
+            if (currentIndex > 0) {
+                const prevId = projectOrder[currentIndex - 1];
+                prevBtn.href = `project.html?id=${prevId}`;
+                prevBtn.style.display = 'inline-flex';
+            } else {
+                prevBtn.style.display = 'none';
+            }
+
+            // Next button
+            if (currentIndex < projectOrder.length - 1) {
+                const nextId = projectOrder[currentIndex + 1];
+                nextBtn.href = `project.html?id=${nextId}`;
+                nextBtn.textContent = 'Next Project →';
+            } else {
+                nextBtn.href = 'index.html';
+                nextBtn.textContent = 'Back to Portfolio →';
+            }
+
+            // Update page title
+            document.title = `${project.title} — Taylor Simpson`;
+        }
+
+        if (projectId && projects[projectId]) {
+            loadProject(projectId);
+        } else {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>

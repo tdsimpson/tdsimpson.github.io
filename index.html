@@ -1,960 +1,828 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property='og:title' content='Taylor Simpson' />
-    <meta property='og:image' content='images/previewImage.png' />
-    <meta property='og:description'
-        content='I&#39m a product designer passionate about crafting intuitive, user-centered experiences. You’ll often find me hacking away at side projects, leading workshops, or attending hackathons, meetups or tech conferences.
-    With over 5 years of experience across marketing, product, and software development, I bring a multidisciplinary lens to design – helping companies build thoughtful, impactful digital products.' />
-    <meta property='og:url' content='taylorsimpson.ca' />
-    <link rel="icon" href="images/icons/favicon.png" />
-    <title>Taylor Simpson | Product Designer</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Taylor Simpson — Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Taylor Simpson — product-focused UX designer, product manager, and writer." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#0ea5a4">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        :root {
+            --bg: #ffffff;
+            --card: #ffffff;
+            --muted: #6b7280;
+            --text: #0f172a;
+            --accent: #0ea5a4;
+            --accent-2: #2d2d2d;
+            --glass: rgba(15, 23, 42, 0.04);
+            --radius: 12px;
+            --focus: 3px rgba(14, 165, 164, 0.16);
+        }
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148221650-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+        [data-theme="dark"] {
+            --bg: #071022;
+            --card: #071827;
+            --muted: #94a3b8;
+            --text: #e6eef3;
+            --accent: #3dd6cf;
+            --accent-2: #2d2d2d;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
 
-        gtag('config', 'UA-148221650-1');
-    </script>
+        * {
+            box-sizing: border-box;
+        }
 
+        html {
+            scroll-behavior: smooth;
+            min-height: 100%;
+            background: var(--bg);
+        }
 
-    <!-- Hotjar Tracking Code for https://taylorsimpson.ca/ -->
-    <script>
-        (function (h, o, t, j, a, r) {
-            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
-            h._hjSettings = { hjid: 3731645, hjsv: 6 };
-            a = o.getElementsByTagName('head')[0];
-            r = o.createElement('script'); r.async = 1;
-            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-    </script>
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+                "Helvetica Neue", Arial;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+        }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    <link href="css/scrolling-nav.css" rel="stylesheet" media="all">
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/footer-style.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <script src="js/jquery.min.js" type="text/javascript"></script>
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="js/scrolling-nav.js" type="text/javascript"></script>
-    <script src="js/waypoints.min.js" type="text/javascript"></script>
-    <script src="js/jquery.inview.min.js" type="text/javascript"></script>
-    <script src="js/custom.js" type="text/javascript"></script>
+        /* Layout */
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 36px 20px;
+        }
 
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+        }
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        .logo {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            font-size: 18px;
+        }
 
+        nav a {
+            margin-left: 18px;
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 36px;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            line-height: 1.05;
+            margin: 0 0 12px;
+        }
+
+        .hero p {
+            margin: 0 0 20px;
+            color: var(--muted);
+            line-height: 1.6;
+            max-width: 66ch;
+        }
+
+        .cta {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 12px;
+            border: 0;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--accent-2);
+            color: white;
+            box-shadow: 0 6px 18px rgba(12, 15, 20, 0.04);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--glass);
+            color: var(--text);
+        }
+
+        /* Highlights */
+        .highlights {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+
+        .chip {
+            background: var(--glass);
+            padding: 10px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            color: var(--text);
+            font-size: 13px;
+        }
+
+        /* Projects */
+        h2.section-title {
+            margin: 64px 0 24px;
+            font-size: 20px;
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 14px;
+            box-shadow: 0 8px 30px rgba(12, 15, 20, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            display: block;
+        }
+
+        .card:focus-within,
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(12, 15, 20, 0.08);
+        }
+
+        .card-resume {
+            transition: none;
+            box-shadow: none;
+            border: 1px solid var(--glass);
+        }
+
+        .card-resume:focus-within,
+        .card-resume:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .card-contacts {
+            box-shadow: none;
+            border: 1px solid var(--glass);
+            transition: none;
+        }
+
+        .card-contacts:focus-within,
+        .card-contacts:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .card-contacts .btn-outline,
+        .card-resume .btn-outline {
+            background: var(--card);
+            border: 1px solid var(--glass);
+            box-shadow: 0 2px 8px rgba(12, 15, 20, 0.04);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+        }
+
+        .card-contacts .btn-outline:hover,
+        .card-contacts .btn-outline:focus,
+        .card-resume .btn-outline:hover,
+        .card-resume .btn-outline:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(12, 15, 20, 0.08);
+            background: var(--card);
+        }
+
+        .thumb {
+            height: 240px;
+            border-radius: 10px;
+            background: var(--accent-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            overflow: hidden;
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .tags {
+            margin: 10px 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .card h3 {
+            margin: 6px 0 0;
+            font-size: 16px;
+        }
+
+        .card p {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* Other Projects List */
+        .other-projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .project-item {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 8px 30px rgba(12, 15, 20, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            cursor: pointer;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .project-item:focus {
+            outline: none;
+            box-shadow: var(--focus);
+        }
+
+        .project-item-image {
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            border-radius: 10px;
+            background: var(--accent-2);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .project-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .project-item:focus-within,
+        .project-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 40px rgba(12, 15, 20, 0.08);
+        }
+
+        .project-content h3 {
+            margin: 0 0 6px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .project-content p {
+            margin: 0 0 10px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .project-content .tags {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* About */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            gap: 56px;
+            align-items: start;
+            margin-top: 32px;
+        }
+
+        .about p {
+            margin: 0 0 28px;
+            color: var(--muted);
+            line-height: 1.6;
+            max-width: 66ch;
+        }
+
+        .contacts-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contacts-links h3 {
+            margin: 0 0 8px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .contacts-links a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: color 0.2s ease;
+            display: block;
+        }
+
+        .contacts-links a:hover {
+            color: var(--text);
+        }
+
+        .portrait {
+            width: 270px;
+            height: 270px;
+            border-radius: 16px;
+            background: linear-gradient(180deg, #f8fafc, #eef2ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--muted);
+            font-size: 18px;
+            overflow: hidden;
+        }
+
+        .portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .superpowers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .power {
+            background: var(--glass);
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        /* Experience Section */
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-top: 18px;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .experience-list::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+        }
+
+        .experience-item {
+            position: relative;
+            padding-bottom: 24px;
+            padding-left: 24px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            z-index: 1;
+        }
+
+        .experience-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .experience-item h3 {
+            margin: 0 0 4px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .experience-item .company {
+            color: var(--muted);
+            font-size: 15px;
+            margin: 0 0 6px;
+        }
+
+        .experience-item .time-range {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* Contact / Resume */
+        .card-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            margin-top: 56px;
+            padding-top: 24px;
+            color: var(--muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer a {
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--text);
+        }
+
+        /* Accessibility focus */
+        a:focus,
+        button:focus {
+            outline: none;
+            box-shadow: var(--focus);
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .projects {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .contacts-links {
+                margin-top: 24px;
+            }
+
+            .project-item {
+                flex-direction: column;
+            }
+
+            .project-item-image {
+                display: none;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .other-projects {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                font-size: 16px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            nav a {
+                display: none;
+            }
+        }
+
+        /* Small UI extras */
+        .topbar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle {
+            border-radius: 999px;
+            padding: 8px;
+            border: 1px solid var(--glass);
+            background: transparent;
+            cursor: pointer;
+        }
+
+        /* subtle animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(8px);
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
 </head>
 
-<!-- ------Nav block------------->
-
-<body id="home" data-spy="scroll" data-target=".navbar" data-offset="50">
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="#about" class="scroll">
-                    <img style="max-height: 45px; margin-top: 16px ;
-                            padding: 10px" src="images/topLeftLogo.png" alt="Taylor Simpson">
-                </a>
+<body data-theme="light">
+    <div class="container fade-up">
+        <header>
+            <div class="logo">Taylor Simpson</div>
+            <div class="topbar">
+                <nav aria-label="Main navigation">
+                    <a href="#work">Projects</a>
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="TaylorSimpson_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+                </nav>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">🌓</button>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- <li class="active"><a class="scroll" href="#home">home</a></li> -->
-                    <li><a class="scroll" href="#about">About</a></li>
-                    <li><a class="scroll" href="#projects">Projects</a></li>
-                    <li><a class="scroll" href="#contact">Contact</a></li>
-                    <li><a class="" href="assets/TaylorSimpson_Resume.pdf" target="_blank">Resume</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        </header>
 
-    <!-- ------home block------------->
-    <!-- <div class="banner-full-image">
-        <div class="banner-title">
-
-            <div class="img-responsive">
-                <img class="name-logo" src="images/nameLogo.png" alt="Taylor Simpson">
-            </div>
-            <div class="resume-button"><a class="resume" href="assets/TaylorSimpson_Resume.pdf" target="_blank">RESUME</a>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div> -->
-
-
-    <!-- ------about block------------->
-    <div id="about" class="section-padding">
-
-        <div class="col-lg-6 add-space-mobileview">
-            <img src="images/taylor-headshot.png" class="img-responsive" alt="Taylor Simpson's Face" />
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12" style="display:inline-block; padding-left: 7%;">
-            <div class="about-text-head">
-                <h2>Hello!</h2>
-            </div>
-
-            <p class="about-text offspace-60">
-                I’m Taylor – a product designer passionate about crafting intuitive, user-centered experiences. You’ll
-                often find
-                me hacking away
-                at side projects, leading workshops, or attending hackathons, meetups or tech conferences.
-                <br><br>
-                With over 5 years of experience across marketing, product, and software development, I bring a
-                multidisciplinary lens to
-                design – helping companies build thoughtful, impactful digital products.
-
-            </p>
-
-
-            <div class="icons">
-                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=taylor.daniel.simpson@gmail.com"
-                    target="_blank"><i class="fas fa-envelope linkIcon"></i></a>
-                <a href="http://www.linkedin.com/in/td-simpson" target="_blank"><i
-                        class="fab fa-linkedin linkIcon"></i></a>
-                <a href="http://www.github.com/tdsimpson" target="_blank"><i class="fab
-                            fa-github linkIcon"></i></a>
-                <a href="https://dribbble.com/taylorsimpson" target="_blank"><i class="fab
-                            fa-dribbble linkIcon"></i></a>
-                <!-- <a href="https://medium.com/@tdsimpson23"
-                        target="_blank"><i class="fab
-                            fa-medium linkIcon"></i></a> -->
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-
-    </div>
-
-    <!-- ------proejcts block------------->
-    <section id="projects" class="section-padding">
-        <div class="container">
-
-            <h2 class="projects-header">Projects</h2>
-
-            <!---Pill Menu-->
-            <ul class="PrimaryNav with-indicator" class="col-lg-1">
-                <li id="nav-dev" class="Nav-item active" style="border-radius:
-                    50px 0 0
-                    50px;"><a onclick="divVisibility('dev');">Development</a></li>
-                <li id="nav-design" class="Nav-item"><a onclick="divVisibility('design');">Design</a></li>
-                <li id="nav-copywriting" class="Nav-item" style="border-radius:
-                    0 50px
-                    50px 0;"><a onclick="divVisibility('copywriting');">Copywriting</a></li>
-            </ul>
-            <!--End Pill Menu-->
-
-            <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-            <script>
-                //Function to trigger the movement of the pill menu based on a mouse click
-                $(document).on('click', 'ul li', function () {
-                    $(this).addClass('active').siblings().removeClass('active')
-                })
-            </script>
-            <script>
-                //Function to display only certain sections when menu elements are clicked
-                let divs = ["dev", "design", "copywriting"];
-                let visibleDivId = null;
-                function divVisibility(divId) {
-                    if (visibleDivId === divId) {
-                        visibleDivId == null;
-                    } else {
-                        visibleDivId = divId;
-                    }
-                    hideNonVisibleDivs();
-                }
-                function hideNonVisibleDivs() {
-                    var i, divId, div;
-                    for (i = 0; i < divs.length; i++) {
-                        divId = divs[i];
-                        div = document.getElementById(divId);
-                        if (visibleDivId === divId) {
-                            div.style.display = "block";
-                        } else {
-                            div.style.display = "none";
-                        }
-                    }
-                }
-
-            </script>
-            <!--START OF INDIVIDUAL PROJECTS-->
-
-            <div id="dev">
-
-
-
-
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title"> Expense Tracker</h2>
-                        </div>
-                        <div class="text-subhead">
-                            <h4>Web app</h4>
-                        </div>
-                        <div>
-                            <p class="desc-text">An online
-                                budgeting tool that allows you to
-                                input expense data and visualize it
-                                in different charts and graphs.
-                                <br /><br />
-                                <b>Tools:</b> React.js, Redux, SCSS,
-                                Firebase
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12
-                            add-space-mobileview">
-                        <div class="image">
-                            <a href="pages/expenseTracker.html">
-                                <img src="/images/cards/card-expenseTracker.png" class="image-size"
-                                    class="img-responsive" alt="Expense
-                                        Tracker
-                                        project" />
-                            </a>
-                        </div>
+        <main>
+            <section class="hero" id="home">
+                <div>
+                    <h1>I’m Taylor, a product designer focused on building intuitive digital experiences.</h1>
+                    <p>Currently, I’m working with the Social Good Fund, helping design and manage the development a
+                        mobile app that makes it
+                        easier for people to get involved in local community initiatives.
+                    </p>
+                    <p>Previously, I’ve worked across UX design, product management, mobile development, and content
+                        strategy, giving me the
+                        opportunity to think about products and their growth from multiple angles.</p>
+                    <div class="cta">
+                        <a class="btn btn-primary" href="#work">View projects</a>
                     </div>
                 </div>
 
+                <aside aria-hidden="true">
 
+                    <div class="portrait">
+                        <img src="images/portrait.png" alt="Taylor Simpson" />
+                    </div>
+                </aside>
 
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title">Pedal Patrol</h2>
+            </section>
+
+            <section id="work">
+                <h2 class="section-title">Featured Projects</h2>
+
+                <div class="projects featured-projects">
+                    <a href="project.html?id=expense-tracker" class="card" tabindex="0">
+                        <div class="thumb">
+                            <img src="images/card-expense-tracker.png" alt="Expense Tracker" />
                         </div>
-                        <div class="text-subhead">
-                            <h4>iOS / Android App</h4>
+                        <div class="tags">Web App · React · Redux · Firebase</div>
+                        <h3>Online Budgeting Tool</h3>
+                        <p>Input expense data and visualize it across charts and graphs.</p>
+                    </a>
+
+                    <a href="project.html?id=pedal-patrol" class="card" tabindex="0">
+                        <div class="thumb">
+                            <img src="images/card-pedal-patrol.png" alt="Pedal Patrol" />
                         </div>
-                        <div>
-                            <p class="desc-text"> A mobile app
-                                that reunites cyclists with their stolen
-                                bikes through crowdsourcing. Created for
-                                the
-                                local cycling community in partnership
-                                with
-                                Frontenac Cycle in Kingston, Ontario.
-                                <br /><br />
-                                <b>Tools:</b> React Native, Google Maps
-                                API,
-                                Firebase
-                            </p>
+                        <div class="tags">Mobile · React Native </div>
+                        <h3>Crowdsourced Bike Theft Recovery App</h3>
+                        <p>Mobile app crowdsourcing bike recoveries for a local cycling community.</p>
+                    </a>
+
+                    <a href="project.html?id=course-enrollment" class="card" tabindex="0">
+                        <div class="thumb">
+                            <img src="images/card-course-enrollment.png" alt="Course Enrollment Prototype" />
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12
-                            add-space-mobileview">
-                        <div class="image">
-                            <a href="pages/pedalPatrol.html">
-                                <img src="images/cards/card-pedalPatrol.png" class="image-size" class="img-responsive"
-                                    alt="Pedal Patrol project" />
-                            </a>
-                        </div>
-                    </div>
+                        <div class="tags">Prototype · Figma</div>
+                        <h3>Course Enrollment Prototype</h3>
+                        <p>Improved workflows for students in a prototype for Oracle's enrollment system.</p>
+                    </a>
                 </div>
 
-                <!-- Song Analysis-->
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title"> Song Analysis</h2>
+                <h2 class="section-title" style="margin-top:64px">Other Projects</h2>
+
+                <div class="other-projects">
+
+                    <a href="project.html?id=song-analysis" class="project-item" tabindex="0">
+                        <div class="project-item-image">
+                            <img src="images/square-song-analysis.png" alt="Song Analysis" />
                         </div>
-                        <div class="text-subhead">
-                            <h4>Web App</h4>
+                        <div class="project-content">
+                            <h3>Song Analysis</h3>
+                            <p>Analyzes songs and provides insights on key metrics, BPM, and more.</p>
+                            <div class="tags">Web App · Spotify API</div>
                         </div>
-                        <div>
-                            <p class="desc-text">A web app that integrates
-                                with your Spotify account and shows you
-                                additional info about the song you're currently
-                                listening to including its key and BPM.
-                                <br /><br />
-                                <b>Tools:</b>
-                                React.js, SCSS, Spotify API
-                            <p>
+                    </a>
+
+                    <a href="project.html?id=support-tracker" class="project-item" tabindex="0">
+                        <div class="project-item-image">
+                            <img src="images/square-support-ticket-status.png" alt="Customer support visibility" />
                         </div>
+                        <div class="project-content">
+                            <h3>Customer Support Status Tracker</h3>
+                            <p>A chatbot that surfaces support ticket status to customers using Ada Support.</p>
+                            <div class="tags">Chatbot · Ada SDK</div>
+                        </div>
+                    </a>
+
+                    <a href="project.html?id=myndjournal" class="project-item" tabindex="0">
+                        <div class="project-item-image">
+                            <img src="images/square-myndjournal.png" alt="Mental health journaling" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Mental Health Journaling & Insights</h3>
+                            <p>Hackathon finalist: Visualizes mental health data from sentiment analysis of journal
+                                entries.</p>
+                            <div class="tags">Web App · Sentiment Analysis</div>
+                        </div>
+                    </a>
+
+                    <a href="project.html?id=stock-block" class="project-item" tabindex="0">
+                        <div class="project-item-image">
+                            <img src="images/square-stock-block.png" alt="QHacks marketing" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Decentralized Stock Photography Platform</h3>
+                            <p>A platform for photographers to upload and sell their photos on the
+                                blockchain without a
+                                middleman.</p>
+                            <div class="tags">DApp · Solidity · Blockchain</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section id="about">
+                <h2 class="section-title">About</h2>
+                <div class="about">
+                    <div>
+                        <h3>I like working to create products that feel useful, clear, and genuinely helpful - the kinds
+                            of tools people can pick up
+                            and understand without effort.</h3>
+                        <p>Over the past 8 years, my path has taken me through community-driven projects, e-commerce,
+                            SaaS products, and mobile
+                            apps. I’ve helped define features, map user flows, test concepts, write in-app copy, and
+                            collaborate closely with
+                            engineers to bring ideas into the real world. Each project has taught me something different
+                            about how people think,
+                            navigate products, and make decisions.
+                        </p>
+
+                        <p>For me, design isn’t just about how something looks; it’s also about the decisions behind it
+                            and how people move through
+                            an experience. I enjoy working through problems end-to-end — understanding what people need,
+                            shaping how a feature
+                            should work, and designing the flows and interfaces that bring it to life.</p>
+                        <p>Outside of work, I love playing my guitar, cooking new recipes, and getting out on the
+                            skating rink.</p>
+
+                        <!-- <div class="superpowers">
+                            <div class="power">Design — UX & UI</div>
+                            <div class="power">Development — React, Firebase</div>
+                            <div class="power">Copywriting & Content Strategy</div>
+                            <div class="power">Prototyping & Workshops</div>
+                        </div> -->
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-5
-                                                                col-xs-12
-                                                                add-space-mobileview">
-                        <div class="image">
-                            <a href="pages/songAnalysis.html">
-                                <img src="/images/cards/card-songAnalysis.png" class="image-size" class="img-responsive"
-                                    alt="Song Analysis project" />
-                            </a>
-                            </a>
+
+                    <aside>
+                        <div class="card card-contacts" style="text-align:center">
+                            <div style="font-size:13px;color:var(--muted)">Contact Links</div>
+                            <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px">
+                                <a class="btn btn-outline" href="mailto:taylor.daniel.simpson@gmail.com">Email</a>
+                                <a class="btn btn-outline" href="https://github.com/tdsimpson" target="_blank"
+                                    rel="noopener">GitHub</a>
+                                <a class="btn btn-outline" href="https://dribbble.com/taylorsimpson" target="_blank"
+                                    rel="noopener">Dribbble</a>
+                                <a class="btn btn-outline" href="https://www.linkedin.com/in/td-simpson" target="_blank"
+                                    rel="noopener">LinkedIn</a>
+                            </div>
                         </div>
+                    </aside>
+
+
+                </div>
+            </section>
+
+            <section id="experience">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <h3>Product Designer</h3>
+                        <p class="company">Social Good Fund</p>
+                        <p class="time-range">2024 — Present</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Product Manager</h3>
+                        <p class="company">Lexir</p>
+                        <p class="time-range">2020 — 2023</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Product Manager</h3>
+                        <p class="company">Pedal Patrol</p>
+                        <p class="time-range">2018 — 2019</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Teaching Assistant</h3>
+                        <p class="company">CISC 352: Artificial Intelligence</p>
+                        <p class="time-range">2019 — 2019</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Software Developer</h3>
+                        <p class="company">Orange Gate Consulting</p>
+                        <p class="time-range">2018 — 2018</p>
                     </div>
                 </div>
+            </section>
 
-
-                <div class="row">
-                    <div class="col-lg-6 col-md-6
-                                                        col-sm-7
-                                                        col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title">Support Ticket
-                                Status</h2>
-                        </div>
-                        <div class="text-subhead">
-                            <h4>Chatbot App (Hackathon Project)</h4>
-                        </div>
-                        <div>
-                            <p class="desc-text">A chatbot app that helps
-                                brings visibility to your customer’s
-                                support tickets. Built on the <a style="text-decoration-line: underline;"
-                                    href="https://www.ada.cx/" target="_blank">Ada</a>
-                                platform.
-
-                                <br /><br />
-                                <b>Tools:</b> HTML, CSS, JavaScript, Ada
-                                SDK
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6
-                                                        col-sm-5
-                                                        col-xs-12
-                                                        add-space-mobileview">
-                        <div class="image">
-                            <a href="pages/supportTicketStatus.html">
-                                <img src="images/cards/card-supportTicketStatus.png" class="image-size"
-                                    class="img-responsive" alt="Support Ticket Status project" />
-                            </a>
-                        </div>
-                    </div>
+            <section id="resume" style="margin-top:48px">
+                <div class="card card-resume">
+                    <h3 style="margin:0">Resume</h3>
+                    <p style="color:var(--muted);margin-top:8px">View a PDF copy of my resume.</p>
+                    <div style="margin-top:12px"><a class="btn btn-outline" href="TaylorSimpson_Resume.pdf"
+                            target="_blank" rel="noopener">Resume (PDF)</a></div>
                 </div>
+            </section>
 
+        </main>
 
-                <!-- <div class="row">
-                    <div class="col-lg-6 col-md-6
-                            col-sm-7
-                            col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title">Volutime</h2>
-                        </div>
-                        <div class="text-subhead">
-                            <h4>Android App</h4>
-                        </div>
-                        <div>
-                            <p class="desc-text">
-                                A mobile app
-                                that
-                                helps prevent
-                                hearing
-                                damage by balancing
-                                volume
-                                and listening time.
-                                <br /><br />
-                                <b>Tools:</b> Android
-                                (Java),
-                                XML
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6
-                            col-md-6
-                            col-sm-5
-                            col-xs-12
-                            add-space-mobileview">
-                        <div class="image">
-                            <a href="pages/volutime.html">
-                                <img src="images/cards/card-volutime.png" class="image-size" class="img-responsive"
-                                    alt="Volutime project" />
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
-
-
-                <!-- <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-7
-                            col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title">Paper
-                                Ladies</h2>
-                        </div>
-                        <div class="text-subhead">
-                            <h4>Website</h4>
-                        </div>
-                        <div>
-                            <p class="desc-text"> A website
-                                created for the indie-rock band Paper
-                                Ladies based out of Kingston,
-                                Ontario. <br /><br />
-                                <b>Tools:</b> HTML, CSS,
-                                JavaScript
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-5
-                            col-xs-12
-                            add-space-mobileview">
-                        <div class="image">
-                            <a href="pages/paperladies.html">
-                                <img src="images/cards/card-paperlaides.png" class="image-size" class="img-responsive"
-                                    alt="Paper Ladies project" />
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
-
-
-                <!-- <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-7
-                            col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title">Toronto
-                                Trivia</h2>
-                        </div>
-                        <div class="text-subhead">
-                            <h4>Google Home App</h4>
-                        </div>
-                        <div>
-                            <p class="desc-text"> A voice-activated
-                                trivia game for the Google Home. It has
-                                over
-                                150 questions related to Toronto.
-                                Trigger it by saying "Ok Google, talk to
-                                Toronto Trivia."
-                                <br /><br />
-                                <b>Tools:</b> Dialogflow
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-5
-                            col-xs-12
-                            add-space-mobileview">
-                        <div class="image">
-                            <a href="pages/torontoTrivia.html">
-                                <img src="images/cards/card-torontoTrivia.png" class="image-size" class="img-responsive"
-                                    alt="Toronto Trivia project" />
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
-
-
-                <!-- <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-7
-                            col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title">Stock
-                                Block</h2>
-                        </div>
-                        <div class="text-subhead">
-                            <h4>DApp (Hackathon Project)</h4>
-                        </div>
-                        <div>
-                            <p class="desc-text">A
-                                decentralized web app that
-                                allows you to buy and sell stock photos.
-                                Stock Block utilizes smart
-                                contracts on the Ethereum
-                                blockchain. <br /><br />
-                                <b>Tools:</b>
-                                Solidity, JavaScript,
-                                HTML, CSS
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6
-                            col-sm-5
-                            col-xs-12
-                            add-space-mobileview">
-                        <div class="image">
-                            <a href="pages/stockBlock.html">
-                                <img src="images/cards/card-stockBlock.png" class="image-size" class="img-responsive"
-                                    alt="Stock Block project" />
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
-
-
-                <div class="row">
-                    <div class="col-lg-6 col-md-6
-                            col-sm-7
-                            col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title">MyndJournal</h2>
-                        </div>
-                        <div class="text-subhead">
-                            <h4>Web App (Hackathon Finalist)</h4>
-                        </div>
-                        <div>
-                            <p class="desc-text">A web
-                                app that
-                                displays mental health
-                                data
-                                based on sentiment
-                                analysis from user generated journal
-                                entries.
-                                <br /><br />
-                                <b>Tools: </b>IBM
-                                Watson API, EJS, ChatJS, Bulma, PostgreSQL
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6
-                            col-sm-5
-                            col-xs-12
-                            add-space-mobileview">
-                        <div class="image">
-                            <a href="pages/myndJournal.html">
-                                <img src="images/cards/card-myndJournal.png" class="image-size" class="img-responsive"
-                                    alt="Mynd Journal project" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="wrapper">
-                    <div class="next-button">
-                        <button onClick="document.getElementById('nav-design').click();
-                                document.getElementById('projects').scrollIntoView();
-                                divVisibility('design');">Design
-                            <i class="fas fa-long-arrow-alt-right
-                                    arrow1"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="design" style="display:
-                    none">
-
-
-                <div class="row">
-                    <div class="col-lg-6
-                                            col-md-6
-                                            col-sm-7
-                                            col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title">Course Enrollment Portal</h2>
-                        </div>
-                        <div class="text-subhead">
-                            <h4>Web Prototype</h4>
-                        </div>
-                        <div>
-                            <p class="desc-text">
-                                A prototype to improve Oracle's course enrollment portal used by univerities and
-                                colleges.
-                                <br /><br />
-                                <b>Tools:</b> Figma
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6
-                                            col-md-6
-                                            col-sm-5
-                                            col-xs-12
-                                            add-space-mobileview">
-                        <div class="image">
-                            <a href="https://www.figma.com/proto/JkTyz0qaw085uvEcBuZDBD/BrainStation-Final-Project?node-id=109-7014&starting-point-node-id=109%3A7014"
-                                target="_blank">
-                                <img src="images/cards/card-courseEnrollment.png" class="image-size"
-                                    class="img-responsive" alt="Course Enrollment Prototype" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6
-                            col-md-6
-                            col-sm-7
-                            col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title">Smart
-                                Shower</h2>
-                        </div>
-                        <div class="text-subhead">
-                            <h4>App Design</h4>
-                        </div>
-                        <div>
-                            <p class="desc-text">
-                                A
-                                concecpt
-                                design
-                                for
-                                an
-                                app
-                                that allows
-                                users to
-                                view
-                                water
-                                usage
-                                statistics
-                                and set their
-                                shower
-                                preferences
-                                including
-                                temperature and
-                                pressure.
-                                <br /><br />
-                                <b>Tools:</b> Adobe Illustrator
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6
-                            col-md-6
-                            col-sm-5
-                            col-xs-12
-                            add-space-mobileview">
-                        <div class="image">
-                            <a href="https://dribbble.com/shots/11864523-Smart-Shower-Mobile-App-Design"
-                                target="_blank">
-                                <img src="images/cards/card-smartshower.png" class="image-size" class="img-responsive"
-                                    alt="Smart Shower design" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6
-                            col-md-6
-                            col-sm-7
-                            col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title">Testatic</h2>
-                        </div>
-                        <div class="text-subhead">
-                            <h4>Web Design</h4>
-                        </div>
-                        <div>
-                            <p class="desc-text">
-                                A
-                                concept
-                                web
-                                design
-                                for a
-                                tech startup
-                                focusing on
-                                automating
-                                the
-                                testing
-                                process for
-                                agile teams.
-                                <br /><br />
-                                <b>Tools:</b> Adobe Illustrator
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6
-                            col-md-6
-                            col-sm-5
-                            col-xs-12
-                            add-space-mobileview">
-                        <div class="image">
-                            <a href="https://dribbble.com/shots/7478141-Website-Landing-Page-for-a-Tech-Startup"
-                                target="_blank">
-                                <img src="images/cards/card-testatic.png" class="image-size" class="img-responsive"
-                                    alt="Testatic design" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="wrapper">
-                    <div class="next-button">
-                        <button onClick="document.getElementById('nav-copywriting').click();
-                                document.getElementById('projects').scrollIntoView();
-                                divVisibility('copywriting');">Copywriting
-                            <i class="fas fa-long-arrow-alt-right
-                                    arrow1"></i>
-                        </button>
-                    </div>
-                </div>
-
-
-
-
-            </div>
-
-            <div id="copywriting" style="display: none">
-
-                <!-- <div class="row">
-                    <div class="col-lg-6
-                            col-md-6
-                            col-sm-7
-                            col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title">Lexir</h2>
-                        </div>
-                        <div class="text-subhead">
-                            <h4>Copywriting & Content Strategy</h4>
-                        </div>
-                        <div>
-                            <p class="desc-text">Working with a
-                                Paris-based consumer product marketing
-                                agency that helps emerging alcohol
-                                brands get their products out there.
-                                <br> <br>
-                                They feature and distribute products
-                                from craft distilleries around the
-                                world.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6
-                            col-md-6
-                            col-sm-5
-                            col-xs-12
-                            add-space-mobileview">
-                        <div class="image">
-                            <a href="https://www.lexir.com/" target="_blank">
-                                <img src="images/cards/card-lexir.png" class="image-size" class="img-responsive"
-                                    alt="QHacks project" />
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
-
-
-                <div class="row">
-                    <div class="col-lg-6
-                            col-md-6
-                            col-sm-7
-                            col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title">QHacks
-                                2019</h2>
-                        </div>
-                        <div class="text-subhead">
-                            <h4>Content Strategy</h4>
-                        </div>
-                        <div>
-                            <p class="desc-text">Worked
-                                on
-                                the
-                                marketing
-                                team for the largest event on
-                                campus after orientation week, attracting
-                                over
-                                500
-                                participants
-                                from
-                                across North
-                                America. <br><br> Wrote copy for
-                                the event's
-                                website,
-                                dashboard,
-                                handbooks
-                                and ads, helping attract major sponsors
-                                including Snapchat, Deloitte and
-                                Y-Combinator.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6
-                            col-md-6
-                            col-sm-5
-                            col-xs-12
-                            add-space-mobileview">
-                        <div class="image">
-                            <a href="https://2019.qhacks.io/" target="_blank">
-                                <img src="images/cards/card-qhacks.png" class="image-size" class="img-responsive"
-                                    alt="QHacks project" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6
-                            col-md-6
-                            col-sm-7
-                            col-xs-12">
-                        <div class="text-head">
-                            <h2 class="project-title">The
-                                Coaster's
-                                Guide</h2>
-                        </div>
-                        <div class="text-subhead">
-                            <h4>Brand Consulting</h4>
-                        </div>
-                        <div>
-                            <p class="desc-text">
-                                Worked
-                                with a
-                                local mixology
-                                blog
-                                to update their web
-                                copy, logo, and site
-                                design.<br /><br /> Helped double their
-                                weekly
-                                newsletter signup rate.
-
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6
-                            col-md-6
-                            col-sm-5
-                            col-xs-12
-                            add-space-mobileview">
-                        <div class="image">
-                            <a href="https://aasifcharania6.wixsite.com/mysite" target="_blank">
-                                <img src="images/cards/card-thecoastersguide.png" class="image-size"
-                                    class="img-responsive" alt="The Coaster's Guide project" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="wrapper">
-                    <div class="next-button">
-                        <button onClick="document.getElementById('nav-dev').click();
-                                document.getElementById('projects').scrollIntoView();
-                                divVisibility('dev');">Development
-                            <i class="fas fa-long-arrow-alt-right
-                                    arrow1"></i>
-                        </button>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-        </div>
-    </section>
-    <!----------End----------->
-
-    <!---footer-->
-    <section id="contact">
         <footer>
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-md-3
-                            col-sm-3
-                            col-xs-12
-                            width-set-50">
-                        <div class="footer-details">
-                            <h4>Menu</h4>
-                            <ul class="list-unstyled
-                                    footer-links">
-                                <!-- <li><a class="scroll" href="#home">Home</a></li> -->
-                                <li><a class="scroll" href="#about">About</a></li>
-                                <li><a class="scroll" href="#projects">Projects</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3
-                            col-sm-3
-                            col-xs-12
-                            width-set-50">
-                        <div class="footer-details">
-                            <h4>Contact</h4>
-                            <ul class="list-unstyled
-                                    footer-links">
-                                <li><a target="_blank"
-                                        href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=taylor.daniel@gmail.simpson.com">Email
-                                    </a></li>
-                                <li><a href="http://www.linkedin.com/in/td-simpson" target="_blank">Linkedin</a></li>
-                                <li><a href="http://www.github.com/tdsimpson" target="_blank">Github</a></li>
-                                <li><a href="http://www.dribbble.com/taylorsimpson" target="_blank">Dribbble</a></li>
-                                <!-- <li><a href="http://www.medium.com/@tdsimpson23"
-                                        target="_blank">Medium</a></li> -->
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3
-                            col-sm-3
-                            col-xs-12
-                            width-set-50">
-                    </div>
-
-
-                    <div class="col-md-3
-                            col-sm-3
-                            col-xs-12
-                            width-set-50">
-                        <div class="footer-details">
-                            <ul class="list-unstyled
-                                    footer-links">
-                                <h4>Toronto,
-                                    Canada</h4>
-                                <li><a href="assets/TaylorSimpson_Resume.pdf" target="_blank"><button
-                                            class="footer-resume">RESUME</button></a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align:
-                            center;
-                            font-size:
-                            16px;">
-                    <script>
-                        const monthNames = ["January", "February", "March", "April", "May", "June",
-                            "July", "August", "September", "October", "November", "December"];
-
-                        let update = new Date(document.lastModified)
-                        let theMonth = update.getMonth() + 1
-                        let theDate = update.getDate()
-                        let theYear = update.getFullYear()
-                        document.writeln("<I>Last updated: " + monthNames[update.getMonth()] + " " + theDate + ", " + theYear + "<I>");
-                    </script>
-                </div>
+            <div>© Taylor Simpson</div>
+            <div style="color:var(--muted);display:flex;gap:16px">
+                <a href="mailto:taylor.daniel.simpson@gmail.com"
+                    style="color:var(--muted);text-decoration:none">Email</a>
+                <a href="https://github.com/tdsimpson" target="_blank" rel="noopener"
+                    style="color:var(--muted);text-decoration:none">Github</a>
+                <a href="https://dribbble.com/taylorsimpson" target="_blank" rel="noopener"
+                    style="color:var(--muted);text-decoration:none">Dribbble</a>
+                <a href="https://www.linkedin.com/in/td-simpson" target="_blank" rel="noopener"
+                    style="color:var(--muted);text-decoration:none">LinkedIn</a>
+            </div>
         </footer>
-    </section>
-
+    </div>
 
     <script>
-        $(document).ready(function () {
+        // theme toggle
+        const toggle = document.getElementById('themeToggle');
+        const body = document.body;
+        function setTheme(t) { body.setAttribute('data-theme', t); localStorage.setItem('theme', t); }
+        const saved = localStorage.getItem('theme') || 'light'; setTheme(saved);
+        toggle.addEventListener('click', () => setTheme(body.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
 
-            var scrollLink = $('.scroll');
-
-            // Smooth scrolling
-            scrollLink.click(function (e) {
-                e.preventDefault();
-                $('body,html').animate({
-                    scrollTop: $(this.hash).offset().top
-                }, 1000);
-            });
-
-            // Active link switching
-            $(window).scroll(function () {
-                var scrollbarLocation = $(this).scrollTop();
-
-                scrollLink.each(function () {
-
-                    var sectionOffset = $(this.hash).offset().top - 20;
-
-                    if (sectionOffset <= scrollbarLocation) {
-                        $(this).parent().addClass('active');
-                        $(this).parent().siblings().removeClass('active');
-                    }
-                })
-
-            })
-
-        })
+        // Cards are now links, so keyboard navigation works natively
     </script>
 </body>
 
