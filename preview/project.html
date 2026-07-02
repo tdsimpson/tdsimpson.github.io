@@ -1,0 +1,4276 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <script>if(sessionStorage.getItem('preview-auth')!=='ok')document.documentElement.classList.add('auth-pending');</script>
+    <style>html.auth-pending body{visibility:hidden}</style>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('theme');
+                if (!theme) {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) { }
+        })();
+    </script>
+    <style>
+        html { background: #f8f8f8; color: #1a1f1c; }
+        html[data-theme="dark"] { background: #0f1412; color: #e8ede9; }
+    </style>
+    <title>Project – Taylor Simpson</title>
+    <meta name="description" content="Project detail page" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Schibsted+Grotesk:wght@400..900&display=swap"
+        rel="stylesheet">
+    <meta name="theme-color" content="#f8f8f8">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WE6GB68X32"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WE6GB68X32');
+    </script>
+
+    <!-- Hotjar Tracking Code for https://taylorsimpson.ca/ -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 3731645, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+
+    <style>
+        :root {
+            --bg: #f8f8f8;
+            --card: #ffffff;
+            --muted: #6b7b74;
+            --text: #1a1f1c;
+            --text-2: #3d4840;
+            --accent: #1a1a1a;
+            --accent-deep: #0a0a0a;
+            --accent-soft: #ebebeb;
+            --accent-2: #2d2d2d;
+            --line: #e2e8e4;
+            --line-2: #c8d5cf;
+            --glass: rgba(15, 23, 42, 0.04);
+            --radius: 16px;
+            --radius-lg: 22px;
+            --radius-pill: 100px;
+            --shadow: 0 2px 4px rgba(39, 35, 32, 0.03), 0 16px 36px -26px rgba(0, 0, 0, 0.08);
+            --focus: 3px rgba(0, 0, 0, 0.12);
+            --font-display: "Schibsted Grotesk", system-ui, sans-serif;
+            --font-body: "DM Sans", system-ui, sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f1412;
+            --card: #151c19;
+            --muted: #8a9a92;
+            --text: #e8ede9;
+            --text-2: #b8c4bc;
+            --accent: #d1d5db;
+            --accent-deep: #f3f4f6;
+            --accent-soft: rgba(255, 255, 255, 0.08);
+            --accent-2: #2d2d2d;
+            --line: rgba(255, 255, 255, 0.08);
+            --line-2: rgba(255, 255, 255, 0.12);
+            --glass: rgba(255, 255, 255, 0.03);
+            --shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            --focus: 3px rgba(255, 255, 255, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            min-height: 100%;
+            background: var(--bg);
+            color-scheme: light dark;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.35s ease, color 0.35s ease;
+        }
+
+        .logo,
+        .back-link,
+        .btn,
+        .project-title,
+        .project-section h2,
+        .boxed-section h3,
+        .case-study-heading,
+        .oracle-section-label,
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-display);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 36px 20px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0 24px;
+        }
+
+        .logo {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            font-size: 18px;
+        }
+
+        .back-link {
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text);
+        }
+
+        /* Project Header */
+        .project-header {
+            margin-bottom: 48px;
+        }
+
+        .project-title {
+            font-size: 48px;
+            line-height: 1.1;
+            margin: 0 0 12px;
+            font-weight: 800;
+        }
+
+        .project-subtitle {
+            font-size: 20px;
+            color: var(--muted);
+            margin: 0 0 24px;
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .project-subtitle-link {
+            color: var(--accent);
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: opacity 0.2s ease;
+        }
+
+        .project-subtitle-link:hover {
+            opacity: 0.8;
+        }
+
+        .external-link-icon {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+        }
+
+        .project-description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0 0 32px;
+            max-width: 66ch;
+        }
+
+        /* Project Meta */
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0;
+            margin-bottom: 48px;
+            padding: 0;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .project-meta {
+            background: var(--card);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 16px 22px;
+            border-right: 1px solid var(--line);
+        }
+
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        .meta-label {
+            font-size: 0.66rem;
+            color: var(--muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .meta-value {
+            font-size: 0.97rem;
+            color: var(--text);
+            font-family: var(--font-display);
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-value-item {
+            display: block;
+        }
+
+        .meta-value a {
+            color: var(--accent);
+            transition: opacity 0.2s ease;
+        }
+
+        .meta-value a:hover {
+            opacity: 0.8;
+        }
+
+        /* Project Media */
+        .project-media {
+            margin-bottom: 64px;
+        }
+
+        .project-media img,
+        .project-media video {
+            width: 100%;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(12, 15, 20, 0.08);
+        }
+
+        .project-media video {
+            background: var(--card);
+        }
+
+        .project-media iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 14px;
+            border: none;
+        }
+
+        /* Project Sections */
+        .project-section {
+            margin-bottom: 0;
+            padding: 48px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .project-section h2 {
+            font-size: clamp(1.5rem, 3vw, 1.85rem);
+            font-weight: 700;
+            margin: 0 0 16px;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+
+        .project-section p,
+        .project-section li {
+            color: var(--text-2);
+            line-height: 1.7;
+        }
+
+        .project-section p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+            margin: 0 0 16px;
+        }
+
+        .project-section ul {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+            margin: 0 0 16px;
+            padding-left: 24px;
+        }
+
+        .project-section li {
+            margin-bottom: 8px;
+        }
+
+        /* Boxed Sections */
+        .boxed-section {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow);
+        }
+
+        [data-theme="dark"] .boxed-section {
+            background: var(--card);
+        }
+
+        .boxed-section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 16px;
+            color: var(--text);
+        }
+
+        .boxed-section ul {
+            margin: 0;
+            padding-left: 24px;
+            list-style-type: disc;
+        }
+
+        .boxed-section li {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .boxed-section li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Research Insights Section */
+        .research-insights {
+            display: none;
+        }
+
+        .research-insights.active {
+            display: block;
+        }
+
+        /* Personas, Sketches, Wireframes Sections */
+        .personas-section,
+        .sketches-section,
+        .wireframes-section {
+            display: none;
+        }
+
+        .personas-section.active,
+        .sketches-section.active,
+        .wireframes-section.active {
+            display: block;
+        }
+
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .persona-image-wrapper {
+            position: relative;
+            cursor: pointer;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+            background: var(--card);
+            border: 1px solid var(--glass);
+        }
+
+        .persona-image-wrapper:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(12, 15, 20, 0.12);
+            opacity: 0.95;
+        }
+
+        .persona-image-wrapper::after {
+            content: '🔍';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 14px;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .persona-image-wrapper:hover::after {
+            opacity: 1;
+        }
+
+        .persona-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .sketches-grid,
+        .wireframes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .sketch-item,
+        .wireframe-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sketch-description,
+        .wireframe-description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+            margin: 0 0 16px;
+        }
+
+        .sketch-image-wrapper,
+        .wireframe-image-wrapper {
+            position: relative;
+            cursor: pointer;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+            background: var(--card);
+            border: 1px solid var(--glass);
+            margin-top: auto;
+        }
+
+        .sketch-image-wrapper:hover,
+        .wireframe-image-wrapper:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(12, 15, 20, 0.12);
+            opacity: 0.95;
+        }
+
+        .sketch-image-wrapper::after,
+        .wireframe-image-wrapper::after {
+            content: '🔍';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 14px;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .sketch-image-wrapper:hover::after,
+        .wireframe-image-wrapper:hover::after {
+            opacity: 1;
+        }
+
+        .sketch-image-wrapper img,
+        .wireframe-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Information Architecture Section */
+        .ia-section {
+            display: none;
+        }
+
+        .ia-section.active {
+            display: block;
+        }
+
+        .ia-intro {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+            margin: 0 0 24px;
+        }
+
+        .ia-image-wrapper {
+            position: relative;
+            cursor: pointer;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+            background: var(--card);
+            border: 1px solid var(--glass);
+            margin-top: 24px;
+        }
+
+        .ia-image-wrapper:hover {
+            transform: scale(1.01);
+            box-shadow: 0 8px 24px rgba(12, 15, 20, 0.12);
+            opacity: 0.95;
+        }
+
+        .ia-image-wrapper::after {
+            content: '🔍';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 14px;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .ia-image-wrapper:hover::after {
+            opacity: 1;
+        }
+
+        .ia-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* User Flows Section */
+        .user-flows-section {
+            display: none;
+        }
+
+        .user-flows-section.active {
+            display: block;
+        }
+
+        .user-flows-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .user-flow-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-flow-header {
+            margin-bottom: 16px;
+        }
+
+        .user-flow-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0 0 8px;
+        }
+
+        .user-flow-description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+            margin: 0;
+        }
+
+        .user-flow-image-wrapper {
+            position: relative;
+            cursor: pointer;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+            background: var(--card);
+            border: 1px solid var(--glass);
+            margin-top: auto;
+        }
+
+        .user-flow-image-wrapper:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(12, 15, 20, 0.12);
+            opacity: 0.95;
+        }
+
+        .user-flow-image-wrapper::after {
+            content: '🔍';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 14px;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .user-flow-image-wrapper:hover::after {
+            opacity: 1;
+        }
+
+        .user-flow-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .research-intro {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+            margin: 0 0 32px;
+        }
+
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .problem-images-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .problem-image-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .problem-image-wrapper {
+            position: relative;
+            cursor: pointer;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+            background: var(--card);
+            border: 1px solid var(--glass);
+            margin-bottom: 12px;
+        }
+
+        .problem-image-wrapper:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(12, 15, 20, 0.12);
+            opacity: 0.95;
+        }
+
+        .problem-image-wrapper::after {
+            content: '🔍';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 14px;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .problem-image-wrapper:hover::after {
+            opacity: 1;
+        }
+
+        .problem-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .problem-image-caption {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--muted);
+            margin: 0;
+            text-align: center;
+        }
+
+        .finding {
+            background: var(--card);
+            border: 1px solid var(--glass);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .finding-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 0 0 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .finding-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0 0 16px;
+            font-weight: 400;
+            flex: 1;
+        }
+
+        .finding-images {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .image-wrapper {
+            position: relative;
+            cursor: pointer;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+            background: var(--bg);
+            border: 1px solid var(--glass);
+            flex-shrink: 0;
+        }
+
+        .image-wrapper:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(12, 15, 20, 0.15);
+            opacity: 0.9;
+        }
+
+        .image-wrapper::after {
+            content: '🔍';
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .image-wrapper:hover::after {
+            opacity: 1;
+        }
+
+        .image-wrapper img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            display: block;
+            border-radius: 6px;
+        }
+
+        .image-caption {
+            display: none;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-caption {
+            margin-top: 16px;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 32px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+            z-index: 1001;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Navigation */
+        .project-navigation {
+            margin-top: 64px;
+            padding-top: 32px;
+            border-top: 1px solid var(--glass);
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .nav-left {
+            justify-self: start;
+        }
+
+        .nav-center {
+            justify-self: center;
+        }
+
+        .nav-right {
+            justify-self: end;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--glass);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            background: var(--glass);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: 0;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-2);
+            color: white;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Oracle case study layout */
+        #oracle-case-study {
+            display: none;
+        }
+
+        #oracle-case-study.active {
+            display: block;
+        }
+
+        #default-case-study-sections.hidden {
+            display: none;
+        }
+
+        .case-study-intro {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--muted);
+            margin: 0 0 28px;
+            max-width: 62ch;
+        }
+
+        #oracle-case-study .oracle-section {
+            padding-bottom: 48px;
+            margin-bottom: 0;
+            border-bottom: none;
+            border-top: 1px solid var(--line);
+            padding-top: 48px;
+        }
+
+        #oracle-case-study .oracle-section:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        #oracle-case-study .oracle-section:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        #oracle-case-study .oracle-section > h2 {
+            margin: 0 0 16px;
+        }
+
+        .oracle-section-label,
+        .editorial-eyebrow {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin: 0 0 14px;
+        }
+
+        #oracle-case-study .case-study-heading {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin: 0 0 16px;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .pain-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .pain-num {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--muted);
+            letter-spacing: 0.06em;
+            margin-bottom: 10px;
+        }
+
+        .pain-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0 0 8px;
+            line-height: 1.4;
+        }
+
+        .pain-desc {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .process-block {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--glass);
+        }
+
+        .process-block:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .process-block-header {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .process-step {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--muted);
+            letter-spacing: 0.06em;
+            min-width: 28px;
+            padding-top: 2px;
+        }
+
+        .process-block-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin: 0 0 6px;
+        }
+
+        .process-block-desc {
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--muted);
+            margin: 0;
+            max-width: 62ch;
+        }
+
+        .process-artifact-wide {
+            margin-top: 4px;
+        }
+
+        .process-artifacts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 4px;
+        }
+
+        .case-study-image-wrap {
+            position: relative;
+            cursor: pointer;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--glass);
+            background: var(--card);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .case-study-image-wrap:hover {
+            transform: scale(1.01);
+            box-shadow: 0 8px 24px rgba(12, 15, 20, 0.1);
+        }
+
+        .case-study-image-wrap::after {
+            content: '🔍';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 14px;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .case-study-image-wrap:hover::after {
+            opacity: 1;
+        }
+
+        .case-study-image-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .solution-block {
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid var(--glass);
+        }
+
+        .solution-block:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .solution-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 8px;
+            line-height: 1.35;
+        }
+
+        .solution-desc {
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--muted);
+            margin: 0 0 20px;
+            max-width: 62ch;
+        }
+
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .ba-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+        }
+
+        .ba-label.before {
+            color: var(--muted);
+        }
+
+        .ba-label.after {
+            color: var(--accent);
+        }
+
+        .ba-caption {
+            font-size: 13px;
+            line-height: 1.55;
+            color: var(--muted);
+            margin: 10px 0 0;
+        }
+
+        .before-stack-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .before-stack-single {
+            margin-bottom: 10px;
+        }
+
+        .ba-main-image {
+            margin-bottom: 0;
+        }
+
+        .external-tools-block {
+            margin-top: 18px;
+            padding: 16px 16px 14px;
+            background: #f9f9f9;
+            border: 1px solid var(--glass);
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(12, 15, 20, 0.04);
+        }
+
+        [data-theme="dark"] .external-tools-block {
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: none;
+        }
+
+        .external-tools-label {
+            display: block;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 0 0 12px;
+        }
+
+        .external-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .external-tool-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .case-study-image-wrap.external-tool-thumb {
+            aspect-ratio: 4 / 3;
+            min-height: 64px;
+            border-radius: 8px;
+        }
+
+        .case-study-image-wrap.external-tool-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .case-study-image-wrap.external-tool-thumb::after {
+            width: 22px;
+            height: 22px;
+            font-size: 11px;
+            top: 6px;
+            right: 6px;
+        }
+
+        .external-tool-thumb-static {
+            aspect-ratio: 4 / 3;
+            min-height: 64px;
+            background: #f9f9f9;
+            border: 1px solid var(--glass);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [data-theme="dark"] .external-tool-thumb-static {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .external-tool-placeholder {
+            font-size: 11px;
+            font-style: italic;
+            color: var(--muted);
+            padding: 8px;
+            text-align: center;
+            line-height: 1.35;
+        }
+
+        .external-tool-caption {
+            font-size: 11px;
+            line-height: 1.4;
+            color: var(--muted);
+            margin: 0;
+            text-align: center;
+        }
+
+        .ba-col-before-fragmented .ba-caption {
+            margin-top: 16px;
+        }
+
+        .after-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .after-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .oracle-outcome-box {
+            background: var(--accent-soft);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 28px 32px;
+            border-left: 4px solid var(--accent);
+        }
+
+        [data-theme="dark"] .oracle-outcome-box {
+            background: var(--accent-soft);
+        }
+
+        .oracle-outcome-box p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .theme-toggle {
+            border-radius: 999px;
+            padding: 8px;
+            border: 1px solid var(--glass);
+            background: var(--bg);
+            cursor: pointer;
+            flex-shrink: 0;
+            font-size: 16px;
+            line-height: 1;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body {
+                transition: none;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 36px;
+            }
+
+            .project-subtitle {
+                font-size: 18px;
+            }
+
+            .project-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .findings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-images-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .personas-grid,
+            .sketches-grid,
+            .wireframes-grid,
+            .user-flows-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lightbox-content {
+                max-width: 95vw;
+            }
+
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 24px;
+            }
+
+            .project-navigation {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .nav-left,
+            .nav-center,
+            .nav-right {
+                justify-self: stretch;
+            }
+
+            .nav-left .btn,
+            .nav-center .btn,
+            .nav-right .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .pain-grid,
+            .process-artifacts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .before-after {
+                grid-template-columns: 1fr;
+            }
+
+            .before-stack-grid,
+            .after-pair {
+                grid-template-columns: 1fr;
+            }
+
+            .external-tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-block-header {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            #oracle-case-study .case-study-heading {
+                font-size: 24px;
+                max-width: none;
+            }
+
+            .editorial-rail {
+                display: none;
+            }
+
+            .editorial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Editorial case study (SettleKit) */
+        .container.editorial-wide {
+            max-width: 1200px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        #editorial-case-study {
+            display: none;
+        }
+
+        #editorial-case-study.active {
+            display: block;
+        }
+
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 206px minmax(0, 1fr);
+            gap: 60px;
+            align-items: start;
+        }
+
+        .editorial-rail {
+            position: sticky;
+            top: 24px;
+            padding: 24px 0 60px;
+            max-height: calc(100vh - 48px);
+            overflow-y: auto;
+        }
+
+        .editorial-rail ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .editorial-rail a {
+            display: grid;
+            grid-template-columns: 26px 1fr;
+            gap: 11px;
+            align-items: center;
+            padding: 9px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.85rem;
+            color: var(--muted);
+            transition: 0.22s;
+        }
+
+        .editorial-rail a .num {
+            font-size: 0.8rem;
+            color: var(--line-2);
+            transition: 0.22s;
+        }
+
+        .editorial-rail li.active a {
+            background: var(--accent-soft);
+            color: var(--accent-deep);
+        }
+
+        .editorial-rail li.active a .num {
+            color: var(--accent);
+        }
+
+        .editorial-rail a:hover {
+            color: var(--text);
+        }
+
+        .editorial-content {
+            max-width: 730px;
+        }
+
+        .editorial-section {
+            padding: 48px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .editorial-section:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .editorial-section h2 {
+            font-size: clamp(1.75rem, 4vw, 2.35rem);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            margin: 0 0 0.55em;
+        }
+
+        .editorial-lead {
+            font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+            line-height: 1.42;
+            color: var(--text-2);
+            font-family: var(--font-display);
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin: 0 0 1.1em;
+        }
+
+        .editorial-section p {
+            margin: 0 0 1.1em;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .editorial-section strong {
+            font-weight: 600;
+            color: var(--accent-deep);
+        }
+
+        .case-pill {
+            display: inline-block;
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: var(--accent-soft);
+            color: var(--accent-deep);
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            margin-bottom: 16px;
+        }
+
+        .editorial-meta {
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--card);
+            margin: 28px 0 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .editorial-meta div {
+            flex: 1 1 150px;
+            padding: 16px 22px;
+            border-right: 1px solid var(--line);
+        }
+
+        .editorial-meta div:last-child {
+            border-right: none;
+        }
+
+        .editorial-meta dt {
+            font-size: 0.66rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .editorial-meta dd {
+            margin: 0;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.97rem;
+        }
+
+        .editorial-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin: 8px 0 24px;
+        }
+
+        .editorial-chip {
+            font-size: 0.74rem;
+            background: var(--card);
+            border: 1px solid var(--line-2);
+            color: var(--text-2);
+            padding: 7px 15px;
+            border-radius: var(--radius-pill);
+        }
+
+        .editorial-chip b {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .editorial-asset {
+            margin: 28px 0;
+            border: 1px solid var(--line-2);
+            border-radius: var(--radius-lg);
+            background: var(--card);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .editorial-asset .frame {
+            min-height: 175px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 32px 30px;
+        }
+
+        .editorial-asset.tall .frame {
+            min-height: 260px;
+        }
+
+        .editorial-asset .ftag {
+            display: inline-block;
+            align-self: flex-start;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent-deep);
+            background: var(--accent-soft);
+            padding: 5px 12px;
+            border-radius: var(--radius-pill);
+            margin-bottom: 13px;
+        }
+
+        .editorial-asset .kind {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .editorial-asset .dims {
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-bottom: 11px;
+        }
+
+        .editorial-asset .desc {
+            font-size: 0.98rem;
+            color: var(--text-2);
+            margin: 0;
+            max-width: 56ch;
+        }
+
+        .editorial-asset figcaption {
+            border-top: 1px solid var(--line);
+            padding: 12px 30px;
+            font-size: 0.7rem;
+            letter-spacing: 0.03em;
+            color: var(--muted);
+            background: var(--bg);
+        }
+
+        .editorial-asset img {
+            width: 100%;
+            display: block;
+        }
+
+        .editorial-asset .case-study-image-wrap {
+            cursor: zoom-in;
+        }
+
+        .editorial-band {
+            background: var(--accent-2);
+            color: #ece8e2;
+            border-radius: var(--radius-lg);
+            padding: 36px 38px;
+            margin: 20px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .editorial-band .editorial-eyebrow {
+            color: #9ca3af;
+        }
+
+        .editorial-band h3 {
+            color: #fff;
+            margin: 0 0 0.5em;
+            font-size: 1.3rem;
+        }
+
+        .editorial-band p {
+            color: #cdc7bf;
+            margin: 0;
+        }
+
+        .editorial-band strong {
+            color: #fff;
+        }
+
+        .editorial-ba {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 26px 0;
+        }
+
+        .editorial-ba .card {
+            border-radius: var(--radius);
+            padding: 24px;
+            border: 1px solid var(--line-2);
+        }
+
+        .editorial-ba .before {
+            background: #eae6dd;
+        }
+
+        [data-theme="dark"] .editorial-ba .before {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .editorial-ba .after {
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .editorial-ba .badge {
+            font-size: 0.65rem;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            display: inline-block;
+            padding: 5px 11px;
+            border-radius: var(--radius-pill);
+        }
+
+        .editorial-ba .before .badge {
+            background: #ddd8cd;
+            color: #857b6c;
+        }
+
+        .editorial-ba .after .badge {
+            background: var(--accent-soft);
+            color: var(--accent-deep);
+        }
+
+        .editorial-ba .before .mock-title {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #6a6557;
+        }
+
+        .editorial-ba .before ul {
+            margin: 0;
+            padding-left: 18px;
+            color: #7d776a;
+            font-size: 0.93rem;
+        }
+
+        .editorial-ba .before li {
+            margin-bottom: 5px;
+        }
+
+        .editorial-ba .before .done {
+            font-size: 0.71rem;
+            color: #9d978a;
+            margin-top: 13px;
+            display: block;
+        }
+
+        .editorial-ba .after .why {
+            font-size: 0.64rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 7px;
+        }
+
+        .editorial-ba .after h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.13rem;
+            margin: 0 0 8px;
+            line-height: 1.15;
+            color: var(--accent-deep);
+        }
+
+        .editorial-ba .after p {
+            font-size: 0.94rem;
+            margin-bottom: 13px;
+            color: var(--text-2);
+        }
+
+        .editorial-ba .after .sub {
+            font-weight: 500;
+            font-size: 0.66rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin: 0 0 5px;
+        }
+
+        .editorial-ba .after .row {
+            font-size: 0.92rem;
+            color: var(--text-2);
+            padding: 7px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .editorial-flow {
+            margin-top: 20px;
+        }
+
+        .editorial-flow-item {
+            display: grid;
+            grid-template-columns: 42px 1fr;
+            gap: 18px;
+            padding: 24px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .editorial-flow-item:first-child {
+            border-top: none;
+        }
+
+        .editorial-flow-num {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            color: var(--accent-deep);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .editorial-flow-item h3 {
+            font-size: 1.15rem;
+            margin: 0 0 0.3em;
+        }
+
+        .editorial-flow-item p {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--text-2);
+        }
+
+        .editorial-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .editorial-stat {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .editorial-stat .big {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2.1rem;
+            line-height: 1;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+        }
+
+        .editorial-stat .lbl {
+            font-size: 0.93rem;
+            color: var(--muted);
+            margin-top: 9px;
+            line-height: 1.45;
+        }
+
+        .editorial-pull {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+            line-height: 1.28;
+            letter-spacing: -0.015em;
+            color: var(--accent-deep);
+            background: var(--accent-soft);
+            border-radius: var(--radius-lg);
+            padding: 28px 32px;
+            margin: 28px 0;
+        }
+
+        .editorial-clean-list {
+            padding-left: 0;
+            list-style: none;
+            margin: 0;
+        }
+
+        .editorial-clean-list li {
+            padding-left: 26px;
+            position: relative;
+            margin-bottom: 11px;
+            line-height: 1.65;
+        }
+
+        .editorial-clean-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .editorial-annot {
+            font-size: 0.74rem;
+            color: var(--text-2);
+            background: var(--accent-soft);
+            border-left: 3px solid var(--accent);
+            padding: 11px 15px;
+            border-radius: 0 var(--radius-sm, 11px) var(--radius-sm, 11px) 0;
+            margin: 18px 0;
+        }
+
+        .editorial-hero-title {
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            font-weight: 800;
+            line-height: 0.98;
+            letter-spacing: -0.025em;
+            margin: 0.15em 0 0.3em;
+        }
+
+        .editorial-video {
+            position: relative;
+            margin: 28px 0 8px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line-2);
+            background: #111;
+        }
+
+        .editorial-video .ratio {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+        }
+
+        .editorial-video iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .editorial-photos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin: 28px 0;
+        }
+
+        .editorial-photo {
+            border: 1px solid var(--line-2);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .editorial-photo .case-study-image-wrap {
+            cursor: zoom-in;
+        }
+
+        .editorial-photo .cap {
+            padding: 10px 14px;
+            font-size: 0.66rem;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+            line-height: 1.45;
+        }
+
+        .editorial-feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .editorial-feature-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .editorial-feature-shot {
+            min-height: 180px;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.68rem;
+            color: var(--muted);
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .editorial-feature-shot img {
+            width: 100%;
+            height: 100%;
+            min-height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .editorial-feature-body {
+            padding: 20px 22px;
+        }
+
+        .editorial-feature-body .fnum {
+            font-size: 0.66rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .editorial-feature-body h3 {
+            font-size: 1.12rem;
+            margin-bottom: 0.3em;
+        }
+
+        .editorial-feature-body p {
+            font-size: 0.94rem;
+            color: var(--text-2);
+            margin: 0;
+        }
+
+        .editorial-decision {
+            margin: 32px 0;
+            padding: 28px 30px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            box-shadow: var(--shadow);
+        }
+
+        .editorial-decision .dlabel {
+            font-size: 0.64rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .editorial-decision h3 {
+            margin-bottom: 0.4em;
+        }
+
+        .editorial-decision p:last-child {
+            margin-bottom: 0;
+        }
+
+        .editorial-decision p:last-child {
+            margin-bottom: 0;
+        }
+
+        .editorial-photos-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 28px 0;
+        }
+
+        .editorial-photo-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .editorial-photos-gallery .problem-image-wrapper {
+            margin-bottom: 12px;
+        }
+
+        .editorial-insight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 26px 0;
+        }
+
+        .editorial-insight-grid.cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .editorial-insight {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 20px 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .editorial-insight .itag {
+            font-size: 0.64rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 7px;
+        }
+
+        .editorial-insight h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.25em;
+        }
+
+        .editorial-insight p {
+            font-size: 0.93rem;
+            color: var(--text-2);
+            margin: 0;
+        }
+
+        .editorial-personas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .editorial-persona {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .editorial-persona .persona-image-wrap {
+            margin-bottom: 16px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--line);
+        }
+
+        .editorial-persona .persona-image-wrap img {
+            width: 100%;
+            display: block;
+        }
+
+        .editorial-persona .pname {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .editorial-persona .ptag {
+            font-size: 0.65rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .editorial-persona .plabel {
+            font-size: 0.62rem;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 12px 0 4px;
+        }
+
+        .editorial-persona .plabel:first-of-type {
+            margin-top: 0;
+        }
+
+        .editorial-persona p {
+            font-size: 0.93rem;
+            color: var(--text-2);
+            margin: 0 0 0.4em;
+        }
+
+        .editorial-persona .pquote {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 500;
+            font-size: 0.97rem;
+            color: var(--accent-deep);
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid var(--line);
+        }
+
+        .editorial-design-decision {
+            margin: 42px 0;
+        }
+
+        .editorial-decision-head {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .editorial-decision-num {
+            font-size: 0.8rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .editorial-decision-head h3 {
+            margin: 0;
+            font-size: 1.38rem;
+            flex: 1;
+        }
+
+        .editorial-decision-tag {
+            font-size: 0.63rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: var(--accent-soft);
+            color: var(--accent-deep);
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            flex-shrink: 0;
+        }
+
+        .editorial-decision-addresses {
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 0 0 10px;
+        }
+
+        .editorial-design-decision .before-after {
+            margin-top: 20px;
+        }
+
+        .editorial-btnrow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 24px 0 8px;
+        }
+
+        .editorial-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.95rem;
+            background: var(--accent-2);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: var(--radius-pill);
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }
+
+        .editorial-btn:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .editorial-btn.ghost {
+            background: transparent;
+            color: var(--text);
+            border-color: var(--line-2);
+        }
+
+        .editorial-btn.ghost:hover {
+            border-color: var(--text);
+            background: transparent;
+        }
+
+        @media (max-width: 880px) {
+            .editorial-ba,
+            .editorial-stats,
+            .editorial-photos,
+            .editorial-photos-gallery,
+            .editorial-feature-grid,
+            .editorial-insight-grid,
+            .editorial-insight-grid.cols-3,
+            .editorial-personas {
+                grid-template-columns: 1fr;
+            }
+
+            .editorial-meta div {
+                flex: 1 1 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .editorial-meta div:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="logo">Taylor Simpson</a>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <a href="index.html" class="back-link">← Back to Portfolio</a>
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">🌓</button>
+            </div>
+        </header>
+
+        <main>
+            <article class="project-header">
+                <h1 class="project-title" id="project-title">Project Title</h1>
+                <p class="project-subtitle">
+                    <span id="project-subtitle">Project Subtitle</span>
+                    <a href="#" id="project-subtitle-link" class="project-subtitle-link" target="_blank" rel="noopener"
+                        style="display: none;">
+                        <span>View Project</span>
+                        <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </p>
+                <p class="project-description" id="project-description">Project description goes here.</p>
+
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Client</div>
+                        <div class="meta-value" id="project-client">Client Name</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Role</div>
+                        <div class="meta-value" id="project-type">Full-Stack Development</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Tools</div>
+                        <div class="meta-value" id="project-tools">React, Firebase, Figma</div>
+                    </div>
+                </div>
+            </article>
+
+            <div class="project-media">
+                <img id="project-image" src="" alt="Project screenshot" />
+            </div>
+
+            <div id="default-case-study-sections">
+            <div class="project-section" id="problem-definition-section">
+                <h2>Problem Definition</h2>
+                <p id="project-problem">Problem definition goes here.</p>
+                <div class="problem-images-grid" id="problem-images-grid" style="display: none;"></div>
+            </div>
+
+            <div class="project-section user-group-section" id="user-group-section" style="display: none;">
+                <h2>User Group</h2>
+                <div class="boxed-section">
+                    <ul id="user-group-list"></ul>
+                </div>
+                <p id="user-group-sentence" style="margin-top: 16px;"></p>
+            </div>
+
+            <div class="project-section" id="product-goal-section">
+                <h2>Product Goal</h2>
+                <p id="project-goal" style="display: none;">Product goal goes here.</p>
+                <p id="project-goal-intro" style="display: none;"></p>
+                <ul id="project-goal-list" style="display: none;"></ul>
+            </div>
+
+            <div class="project-section current-processes-section" id="current-processes-section"
+                style="display: none;">
+                <h2>Current Processes</h2>
+                <p id="current-processes-intro"></p>
+                <ul id="current-processes-list"></ul>
+            </div>
+
+            <div class="project-section research-insights" id="research-insights-section">
+                <h2>Research Insights</h2>
+                <p class="research-intro" id="research-intro"></p>
+                <div id="research-findings"></div>
+            </div>
+
+            <div class="project-section personas-section" id="personas-section">
+                <h2>Personas</h2>
+                <div class="personas-grid" id="personas-grid"></div>
+            </div>
+
+            <div class="project-section ia-section" id="ia-section">
+                <h2>Information Architecture</h2>
+                <p class="ia-intro" id="ia-intro"></p>
+                <div class="ia-image-wrapper" id="ia-image-wrapper" style="display: none;">
+                    <img id="ia-image" src="" alt="Information Architecture" />
+                </div>
+            </div>
+
+            <div class="project-section user-flows-section" id="user-flows-section">
+                <h2>User Flows</h2>
+                <div id="user-flows-container"></div>
+            </div>
+
+            <div class="project-section sketches-section" id="sketches-section">
+                <h2>Sketches</h2>
+                <div class="sketches-grid" id="sketches-grid"></div>
+            </div>
+
+            <div class="project-section wireframes-section" id="wireframes-section">
+                <h2>Wireframes</h2>
+                <div class="wireframes-grid" id="wireframes-grid"></div>
+            </div>
+
+            <div class="project-section" id="default-outcome-section">
+                <h2>Outcome</h2>
+                <p id="project-outcome">Outcome goes here.</p>
+            </div>
+            </div>
+
+            <div id="oracle-case-study" aria-hidden="true">
+                <div class="project-section oracle-section" id="oracle-problem-section">
+                    <span class="oracle-section-label">The problem</span>
+                    <h2 class="case-study-heading" id="oracle-problem-heading"></h2>
+                    <p class="case-study-intro" id="oracle-problem-intro"></p>
+                    <div class="pain-grid" id="oracle-pain-grid"></div>
+                </div>
+
+                <div class="project-section oracle-section" id="oracle-process-section">
+                    <span class="oracle-section-label">The process</span>
+                    <h2 class="case-study-heading">How I approached it</h2>
+                    <p class="case-study-intro" id="oracle-process-intro"></p>
+                    <div id="oracle-process-blocks"></div>
+                </div>
+
+                <div class="project-section oracle-section" id="oracle-solutions-section">
+                    <span class="oracle-section-label">The solution</span>
+                    <h2 class="case-study-heading" id="oracle-solutions-heading"></h2>
+                    <p class="case-study-intro" id="oracle-solutions-intro"></p>
+                    <div id="oracle-solutions-blocks"></div>
+                </div>
+
+                <div class="project-section oracle-section" id="oracle-outcome-section">
+                    <span class="oracle-section-label">Outcome</span>
+                    <h2 class="case-study-heading" id="oracle-outcome-heading"></h2>
+                    <div class="oracle-outcome-box">
+                        <p id="oracle-outcome-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="editorial-case-study" aria-hidden="true">
+                <div class="editorial-grid">
+                    <nav class="editorial-rail" aria-label="Section index">
+                        <ol id="editorial-rail-list"></ol>
+                    </nav>
+                    <div class="editorial-content" id="editorial-content"></div>
+                </div>
+            </div>
+
+            <div class="project-section future-considerations-section" id="future-considerations-section"
+                style="display: none;">
+                <h2>Future Considerations</h2>
+                <p id="future-considerations-intro"></p>
+                <ul id="future-considerations-list"></ul>
+            </div>
+
+            <div class="project-navigation">
+                <div class="nav-left">
+                    <a href="#" class="btn btn-outline" id="prev-project-btn" style="display: none;">← Previous</a>
+                </div>
+                <div class="nav-center">
+                    <a href="index.html" class="btn btn-outline">Back to Portfolio</a>
+                </div>
+                <div class="nav-right">
+                    <a href="#" class="btn btn-primary" id="next-project-btn">Next Project →</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">×</button>
+        <div class="lightbox-content">
+            <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle
+        const toggle = document.getElementById('themeToggle');
+        const root = document.documentElement;
+
+        function setTheme(t) {
+            root.setAttribute('data-theme', t);
+            localStorage.setItem('theme', t);
+        }
+
+        toggle.addEventListener('click', () => setTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
+
+        // Load project data from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+
+        // Project data - you'll need to populate this with actual project data
+        const projects = {
+            'expense-tracker': {
+                title: 'Online Budgeting Tool',
+                subtitle: 'Web App',
+                description: 'Input expense data and visualize it across charts and graphs.',
+                client: 'Personal Project',
+                type: 'Full-Stack Development, UI Design',
+                tools: 'React.js, Redux, Firebase, Chart.js',
+                link: 'https://github.com/tdsimpson/expense-tracker',
+                image: '../images/project_cards/card-expense-tracker.png',
+                video: 'https://www.youtube.com/watch?v=VPtTarety28', // Add YouTube URL here if available, e.g., 'https://www.youtube.com/watch?v=VIDEO_ID'
+                problem: 'Managing personal finances can be overwhelming without proper visualization and tracking tools.',
+                goal: 'Create an intuitive web application that allows users to easily input expenses and visualize their spending patterns through interactive charts and graphs.',
+                outcome: 'The application successfully provides users with an easy way to track and visualize their expenses, making financial management more accessible and engaging.',
+            },
+            'pedal-patrol': {
+                title: 'Pedal Patrol',
+                subtitle: 'Mobile App (iOS & Android)',
+                description: 'A crowdsourcing mobile app that reunites cyclists with stolen bikes — by turning a whole community into the search party.',
+                client: 'Frontenac Cycle & Sport',
+                type: 'Product management, Mobile development',
+                tools: 'React Native, Firebase, Maps API',
+                link: 'https://github.com/PedalPatrol/PedalPatrol',
+                image: '../images/project_cards/card-pedal-patrol.png',
+                video: 'https://www.youtube.com/watch?v=T4QwC_nw_eg',
+                editorialCaseStudy: {
+                    pill: 'Case study · Product management',
+                    lead: 'A crowdsourcing mobile app that reunites cyclists with stolen bikes — by turning a whole community into the search party.',
+                    meta: [
+                        { label: 'Client', value: 'Frontenac Cycle & Sport' },
+                        { label: 'Role', value: 'Product management · Mobile development' },
+                        { label: 'Team & timeline', value: '5-person team · 8-month capstone' },
+                        { label: 'Tools', value: 'React Native · Firebase · Maps API' }
+                    ],
+                    chips: [
+                        'Real client engagement',
+                        'iOS & Android',
+                        'Shipped & handed off'
+                    ],
+                    rail: [
+                        { id: 'overview', num: '00', label: 'Overview' },
+                        { id: 'problem', num: '01', label: 'The problem' },
+                        { id: 'role', num: '02', label: 'My role' },
+                        { id: 'users', num: '03', label: 'Users & goal' },
+                        { id: 'product', num: '04', label: 'The product' },
+                        { id: 'decisions', num: '05', label: 'Key decisions' },
+                        { id: 'outcome', num: '06', label: 'Outcome' },
+                        { id: 'reflection', num: '07', label: 'Reflection' }
+                    ],
+                    sections: [
+                        {
+                            id: 'overview',
+                            isHero: true,
+                            blocks: [
+                                {
+                                    type: 'video',
+                                    url: 'https://www.youtube.com/watch?v=T4QwC_nw_eg',
+                                    title: 'Pedal Patrol demo'
+                                }
+                            ]
+                        },
+                        {
+                            id: 'problem',
+                            eyebrow: '01 — The problem',
+                            heading: 'Most stolen bikes are never returned.',
+                            blocks: [
+                                { type: 'p', text: 'Bike theft is a growing problem across North America, affecting over two million riders. In Kingston alone, hundreds of bikes are reported stolen every year.' },
+                                { type: 'p', text: 'Police recover a portion of them — roughly 250 a year — but <strong>fewer than 5% are ultimately returned to their owners.</strong> The reason is almost always the same: missing ownership information, most commonly the bike\'s serial number. Recovered bikes sit in storage with no way to trace them back to the person they belong to.' },
+                                { type: 'p', text: 'Right now, riders cope with a patchwork: posting on social media, where the plea gets lost in the feed, or contacting police without enough proof to establish that the bike is theirs.' },
+                                {
+                                    type: 'photos',
+                                    layout: 'gallery',
+                                    items: [
+                                        { src: '../images/case_studies/pedal_patrol/bike-division-union.jpg', caption: 'Division & Union St — a note left for the thief' },
+                                        { src: '../images/case_studies/pedal_patrol/bike-division-johnson.jpg', caption: 'Division & Johnson St' },
+                                        { src: '../images/case_studies/pedal_patrol/kingston-police-photo.jpg', caption: 'Recovered bikes at Kingston Police' }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            id: 'role',
+                            eyebrow: '02 — My role',
+                            heading: 'Product lead and the client\'s main point of contact.',
+                            blocks: [
+                                { type: 'p', text: 'On a five-person team, I owned the product direction and was the primary interface with the client. I ran planning and presentations, kept the team aligned, and translated Frontenac Cycle\'s goals into scoped, buildable work — while staying the voice of the user throughout. I also contributed to the actual React Native build, so I stayed close to the product at both the planning and the implementation level.' },
+                                {
+                                    type: 'band',
+                                    eyebrow: 'What that looked like',
+                                    heading: 'Connecting a real client to a real team',
+                                    text: 'I sat between the client and the engineers — carrying requirements one way, carrying constraints and tradeoffs the other, and making sure the thing we built actually served the rider. Over eight months that meant regular check-ins, formal presentations, and continual re-scoping as we learned more.'
+                                }
+                            ]
+                        },
+                        {
+                            id: 'users',
+                            eyebrow: '03 — Users & goal',
+                            heading: 'Built for the everyday commuter.',
+                            blocks: [
+                                { type: 'p', text: 'Our core users are people who genuinely depend on their bikes — for commuting, errands, and recreation. They park in vulnerable spots like public racks, live in urban and suburban Kingston, and face a real financial hit if a bike is stolen. For many of them, a bike isn\'t a hobby; it\'s how they get to work.' },
+                                { type: 'pull', text: 'Cyclists are motivated by solutions that protect their investment and lean on community support to get their bikes back.' },
+                                { type: 'p', text: 'So the product goal was focused: give the community a single place to <strong>register their bikes</strong> with serial numbers and photos before anything happens, <strong>report a bike as lost,</strong> and <strong>message the owners of found bikes</strong> directly — closing the gap between a recovered bike and the person it belongs to.' }
+                            ]
+                        },
+                        {
+                            id: 'product',
+                            eyebrow: '04 — The product',
+                            heading: 'What we built',
+                            blocks: [
+                                { type: 'p', text: 'Everything centers on one idea: the more eyes on a stolen bike, the better the odds of getting it home. The core features turn every user into part of the search.' },
+                                {
+                                    type: 'features',
+                                    items: [
+                                        { num: '01', title: 'Register your bike', text: 'Store your bikes with serial numbers, photos, and identifying details ahead of time — so proof of ownership is ready the moment you need it.', placeholder: 'Screenshot: Register your bike' },
+                                        { num: '02', title: 'Report a lost bike', text: 'Flag your bike as stolen with a location, description, and photos — instantly pushing it to the community feed and map.', placeholder: 'Screenshot: Report a lost bike' },
+                                        { num: '03', title: 'Report a found bike', text: 'Spotted a bike that might be stolen? Report it with a location and details so its owner can be alerted.', placeholder: 'Screenshot: Report a found bike' },
+                                        { num: '04', title: 'Browse the map & feed', text: 'See reported bikes near you on a live map and scrollable feed, making the whole community part of the search.', placeholder: 'Screenshot: Map & feed' },
+                                        { num: '05', title: 'Message an owner', text: 'Connect directly with the owner of a found bike to arrange getting it back — no social-media detour required.', placeholder: 'Screenshot: Message an owner' }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            id: 'decisions',
+                            eyebrow: '05 — Key decisions',
+                            heading: 'Two decisions that shaped the product.',
+                            blocks: [
+                                {
+                                    type: 'decision',
+                                    label: 'Advocating for the user',
+                                    heading: 'Designing for the rider, not just the client',
+                                    paragraphs: [
+                                        'Frontenac Cycle wanted an iPhone app, so their own team could use it. But our research pointed the other way. Our core users are commuters who often ride precisely because a car isn\'t in the budget — which makes them more likely to be on older, cheaper phones, and those are frequently Android.',
+                                        'Building iPhone-only would have quietly designed out the very people the app was meant to serve. So I made the case to build <strong>cross-platform with React Native, with support for older OS versions</strong> — meeting the client\'s need without excluding the actual user base.'
+                                    ]
+                                },
+                                {
+                                    type: 'decision',
+                                    label: 'Listening to the client',
+                                    heading: 'Turning feedback into features',
+                                    paragraphs: [
+                                        'We shared work with the client throughout and adjusted based on what came back. Two changes came directly out of those conversations: a <strong>built-in messaging system</strong> so owners and finders could connect without leaving the app, and <strong>favourite / bookmark notifications</strong> so a rider could be alerted the moment a matching bike surfaced.'
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            id: 'outcome',
+                            eyebrow: '06 — Outcome',
+                            heading: 'What we delivered',
+                            blocks: [
+                                { type: 'p', text: 'We delivered a functional prototype that met Frontenac Cycle\'s requirements and validated a community-driven approach to bike-theft recovery. The client was satisfied with the implemented features, and the project was <strong>handed off to a Vancouver-based organization for continued development</strong> — a real endorsement that the concept was worth carrying forward.' }
+                            ]
+                        },
+                        {
+                            id: 'reflection',
+                            eyebrow: '07 — Reflection',
+                            heading: 'Reflection',
+                            blocks: [
+                                { type: 'p', text: 'The most valuable part of this project wasn\'t any single feature — it was being the connective tissue between a client with a goal and a team that had to build it, while keeping the actual rider at the center of every decision. Balancing what the client asked for against what the research said the user needed was the whole job in miniature.' },
+                                { type: 'h3', text: 'Where it could go next' },
+                                {
+                                    type: 'ul',
+                                    items: [
+                                        'Integration with police databases to match recovered bikes automatically.',
+                                        'A fuller in-app chat system.',
+                                        'Moderation for inappropriate or false reports.',
+                                        'Bike-theft statistics to help riders park smarter.',
+                                        'Sharing to social media to widen each search.'
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            'course-enrollment': {
+                title: 'Oracle Course Enrollment Prototype',
+                subtitle: 'Figma Prototype',
+                description: 'Re-imagining a fragmented enrollment experience used by thousands of university students across North America — rebuilt around how they actually search, plan, and enroll.',
+                client: 'BrainStation UX course',
+                type: 'UX research, UI design',
+                tools: 'Figma',
+                link: 'https://www.figma.com/proto/JkTyz0qaw085uvEcBuZDBD/BrainStation-Final-Project?node-id=109-7014&starting-point-node-id=109%3A7014',
+                image: '../images/project_cards/card-course-enrollment.png',
+                video: null,
+                editorialCaseStudy: {
+                    pill: 'Case study · UX design',
+                    lead: 'Re-imagining a fragmented enrollment experience used by thousands of university students across North America — rebuilt around how they actually search, plan, and enroll.',
+                    meta: [
+                        { label: 'Role', value: 'UX research & UI design' },
+                        { label: 'Context', value: 'BrainStation UX course' },
+                        { label: 'Timeline', value: 'Early 2024 · ~2 months' },
+                        { label: 'Tools', value: 'Figma' }
+                    ],
+                    chips: [
+                        '<b>6</b> user interviews',
+                        'End-to-end UX process',
+                        'Clickable hi-fi prototype'
+                    ],
+                    rail: [
+                        { id: 'overview', num: '00', label: 'Overview' },
+                        { id: 'problem', num: '01', label: 'The problem' },
+                        { id: 'research', num: '02', label: 'Research' },
+                        { id: 'personas', num: '03', label: 'Personas' },
+                        { id: 'approach', num: '04', label: 'My approach' },
+                        { id: 'decisions', num: '05', label: 'Design decisions' },
+                        { id: 'solution', num: '06', label: 'Final design' },
+                        { id: 'reflection', num: '07', label: 'Reflection' }
+                    ],
+                    sections: [
+                        {
+                            id: 'overview',
+                            isHero: true,
+                            blocks: [
+                                {
+                                    type: 'buttons',
+                                    items: [
+                                        { label: 'View prototype →', href: 'https://www.figma.com/proto/JkTyz0qaw085uvEcBuZDBD/BrainStation-Final-Project?node-id=109-7014&starting-point-node-id=109%3A7014', external: true },
+                                        { label: 'Jump to design decisions', href: '#decisions', ghost: true }
+                                    ]
+                                },
+                                {
+                                    type: 'asset',
+                                    src: '../images/case_studies/course_enrollment/solution-1-calendar.png',
+                                    caption: 'Fig. 01 / The redesigned portal'
+                                }
+                            ]
+                        },
+                        {
+                            id: 'problem',
+                            eyebrow: '01 — The problem',
+                            heading: 'A system designed for administrators, not students.',
+                            blocks: [
+                                { type: 'p', text: 'The Oracle PeopleSoft enrollment platform prioritizes the logic of the database over the needs of the person using it — creating unnecessary friction and stress at one of the most time-sensitive moments in the academic calendar.' },
+                                {
+                                    type: 'insights',
+                                    columns: 3,
+                                    items: [
+                                        { tag: 'Pain 01', title: 'Students have to leave the system to get basic info', text: 'Program requirements, schedule visualization, course details — all lived in external tools.' },
+                                        { tag: 'Pain 02', title: 'Search assumes you already know what you want', text: 'No browsing. No course-name search. You needed the exact code before you could start.' },
+                                        { tag: 'Pain 03', title: 'No visibility into your schedule before you commit', text: 'There\'s no way to see how your week looks before enrolling, so schedule conflicts only surface after you\'ve already tried to add a course — when it\'s too late to plan around them.' }
+                                    ]
+                                },
+                                {
+                                    type: 'asset',
+                                    src: '../images/case_studies/course_enrollment/user-interviews-insights-common-complaint-3.png',
+                                    caption: 'Fig. 02 / The original Oracle system'
+                                },
+                                {
+                                    type: 'band',
+                                    eyebrow: 'My role',
+                                    heading: 'End-to-end, solo',
+                                    text: 'I ran the whole project myself — <strong>user interviews and synthesis, personas, information architecture, user flows, sketches, wireframes, UI design, and a clickable prototype.</strong> Every design decision traces back to something a real student said.'
+                                }
+                            ]
+                        },
+                        {
+                            id: 'research',
+                            eyebrow: '02 — Research',
+                            heading: 'What students told me',
+                            blocks: [
+                                { type: 'p', text: 'I interviewed six people — five with direct experience using Oracle\'s enrollment software. The questions covered their most recent registration experience, where they go for requirements and course info, their biggest frustrations, and what external tools they lean on to get through the process.' },
+                                { type: 'p', text: 'The throughline: enrollment is <strong>stressful</strong>, driven by a fear of not getting into the courses they need. The three pain points above weren\'t isolated frustrations — they were symptoms of a platform that was never designed around the student\'s journey.' },
+                                { type: 'pull', text: 'Students weren\'t failing to use the platform. They were working around it just to complete one task.' }
+                            ]
+                        },
+                        {
+                            id: 'personas',
+                            eyebrow: '03 — Who I was designing for',
+                            heading: 'Who I was designing for',
+                            blocks: [
+                                { type: 'p', text: 'The interviews pointed to two archetypes that drove the design throughout: a first-timer who\'s afraid of making a mistake, and an experienced student who just wants to get through it.' },
+                                {
+                                    type: 'personas',
+                                    items: [
+                                        {
+                                            image: '../images/case_studies/course_enrollment/persona-2-john.png',
+                                            name: 'John Williams',
+                                            tag: '1st year · Fanshawe · Business',
+                                            fields: [
+                                                { label: 'Scenario', text: 'Enrolling in college courses for the very first time, directed to the portal and unsure what to do.' },
+                                                { label: 'Goal', text: 'Don\'t miss any required courses. Share his schedule with friends.' },
+                                                { label: 'Pain point', text: 'The portal feels overwhelming and wordy, and he has no idea where to find good info on electives.' }
+                                            ],
+                                            quote: '"This is my first year enrolling, so I\'m nervous about messing something up."'
+                                        },
+                                        {
+                                            image: '../images/case_studies/course_enrollment/persona-1-maya.png',
+                                            name: 'Maya Crawford',
+                                            tag: '4th year · UofT · Health Sciences',
+                                            fields: [
+                                                { label: 'Scenario', text: 'Finishing her last year and eager to get through her remaining courses so she can move on.' },
+                                                { label: 'Goal', text: 'Enroll quickly, find electives that work around her job and budget.' },
+                                                { label: 'Pain point', text: 'Can\'t see her planned courses on a calendar before committing to enroll.' }
+                                            ],
+                                            quote: '"I just want to get my last year over with so I can focus on things I enjoy more."'
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            id: 'approach',
+                            eyebrow: '04 — How I approached it',
+                            heading: 'How I approached it',
+                            blocks: [
+                                { type: 'p', text: 'With the core problems identified, I walked through the structure before touching the interface — starting with an information architecture, then mapping two task flows, then sketching layouts, then wireframing at increasing fidelity before committing to a high-fidelity system.' },
+                                {
+                                    type: 'asset',
+                                    src: '../images/case_studies/course_enrollment/information-architecture.png',
+                                    caption: 'Fig. 04 / Restructured information architecture'
+                                },
+                                { type: 'p', text: 'I mapped out a task flow for the scenario that touches the most design decisions — a student searching for a history elective that doesn\'t conflict with her existing schedule. Tracing it end-to-end, including decision branches for conflicts and availability, surfaced several edge cases that shaped the wireframes significantly.' },
+                                {
+                                    type: 'asset',
+                                    src: '../images/case_studies/course_enrollment/user-flow-2.png',
+                                    caption: 'Fig. 05 / Task flow — finding and adding a history elective'
+                                },
+                                { type: 'p', text: 'From there, I moved to paper sketches and then mid-fidelity wireframes, working out the layout of each screen before introducing any visual design.' },
+                                {
+                                    type: 'asset',
+                                    src: '../images/case_studies/course_enrollment/task-2-sketches-add-history-elective-to-calendar.jpg',
+                                    caption: 'Fig. 06a / Paper sketches'
+                                },
+                                {
+                                    type: 'asset',
+                                    src: '../images/case_studies/course_enrollment/wireframes-add-history-elective-to-calendar.png',
+                                    caption: 'Fig. 06b / Mid-fidelity wireframes'
+                                }
+                            ]
+                        },
+                        {
+                            id: 'decisions',
+                            eyebrow: '05 — The solution',
+                            heading: 'Three problems. Three fixes.',
+                            blocks: [
+                                { type: 'p', text: 'Rather than cataloguing every screen, here are the three decisions that did the most work — and how the design changed.' },
+                                {
+                                    type: 'designDecision',
+                                    num: '01',
+                                    heading: 'Everything in one place',
+                                    tag: 'Centralization',
+                                    addresses: 'Addresses: Pain 01 — Students have to leave the system to get basic info',
+                                    paragraphs: [
+                                        'The most common failure of the old system wasn\'t any single screen — it was that students had to leave entirely to find basic information. Program requirements, course descriptions, and a visual schedule all lived somewhere else. The redesign brings all three inside the portal, so enrollment can actually happen in one place.'
+                                    ],
+                                    beforeAfter: {
+                                        before: {
+                                            caption: 'Students relied on external tools to visualize their schedule and track degree requirements — then returned to Oracle to actually enroll.',
+                                            layout: 'single-with-external',
+                                            images: [
+                                                { src: '../images/case_studies/course_enrollment/user-interviews-insights-common-complaint-3.png', caption: 'Original Oracle enrollment screen – no schedule view, no degree tracking' }
+                                            ],
+                                            externalTools: {
+                                                label: 'External tools students relied on',
+                                                tools: [
+                                                    { src: '../images/case_studies/course_enrollment/user-interviews-insights-external-resource-1.jpg', caption: 'Degree audit PDF' },
+                                                    { src: '../images/case_studies/course_enrollment/user-interviews-insights-external-resource-2.png', caption: 'External course catalog' },
+                                                    { src: '../images/case_studies/course_enrollment/user-interviews-insights-external-resource-3.png', caption: 'Third-party schedule builder' }
+                                                ]
+                                            }
+                                        },
+                                        after: {
+                                            caption: 'A built-in calendar and requirements tracker replace the need for any external tools – everything lives in one place.',
+                                            layout: 'stack',
+                                            images: [
+                                                { src: '../images/case_studies/course_enrollment/solution-1-calendar.png', caption: 'Built-in calendar view – schedule visualization inside the system' },
+                                                { src: '../images/case_studies/course_enrollment/solution-1-requirements.png', caption: 'Requirements tracker – degree progress built in' }
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    type: 'designDecision',
+                                    num: '02',
+                                    heading: 'Search that actually works',
+                                    tag: 'Discoverability',
+                                    addresses: 'Addresses: Pain 02 — Search assumes you already know what you want',
+                                    paragraphs: [
+                                        'The original search required an exact course code — no browsing, no course-name search, nothing. The redesign replaces it with a browsable faculty grid, a keyword search bar, and a rich filter set (term, level, course type, days & times, open-only) so students can find courses the way they actually think about them.'
+                                    ],
+                                    beforeAfter: {
+                                        before: {
+                                            caption: 'The original search offered no way to filter by availability, forcing students to manually cross-reference every result against their schedule.',
+                                            layout: 'stack',
+                                            images: [
+                                                { src: '../images/case_studies/course_enrollment/user-interviews-insights-common-complaint-1.png', caption: 'Original Oracle search – basic keyword only, no meaningful filters' },
+                                                { src: '../images/case_studies/course_enrollment/user-interviews-insights-common-complaint-2-detailed-search.png', caption: 'Dense results with no way to filter by day or time – students cross-reference manually' }
+                                            ]
+                                        },
+                                        after: {
+                                            caption: 'Filters for day, time range, location, and instruction mode mean students find what fits – not just what exists.',
+                                            images: [
+                                                { src: '../images/case_studies/course_enrollment/solution-2-days-time-filter.png', caption: 'Days & Time filter open – Friday unchecked, time ranges set per day' }
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    type: 'designDecision',
+                                    num: '03',
+                                    heading: 'Plan before you commit',
+                                    tag: 'Visibility & conflict detection',
+                                    addresses: 'Addresses: Pain 03 — No visibility into your schedule before you commit',
+                                    paragraphs: [
+                                        'The old system\'s two biggest blindspots were really the same problem: students had no visibility before the moment of enrollment. They couldn\'t see how their week would look, and they couldn\'t know about schedule conflicts until they\'d already tried to enroll. The redesign addresses both together — a visual calendar to plan and preview, and conflict detection that fires <em>before</em> you commit, not after.'
+                                    ],
+                                    beforeAfter: {
+                                        before: {
+                                            caption: 'Conflicts only surfaced after enrollment was attempted, causing frustration and wasted time at the worst possible moment.',
+                                            layout: 'single',
+                                            images: [
+                                                { src: '../images/case_studies/course_enrollment/user-interviews-insights-common-complaint-4.png', caption: 'Original Oracle enrollment – no conflict warning at point of decision' }
+                                            ]
+                                        },
+                                        after: {
+                                            caption: 'The warning triangle flags the conflict inline on the section card – students know before they commit, not after.',
+                                            images: [
+                                                { src: '../images/case_studies/course_enrollment/solution-3-conflict-warning.png', caption: 'HIST 101 section cards – conflict warning triangle visible before enrollment' }
+                                            ]
+                                        }
+                                    },
+                                    annot: 'This is also the decision that does the most for Maya — who just wants to see her full week before she commits — and for John, who\'s terrified of making an irreversible mistake.'
+                                }
+                            ]
+                        },
+                        {
+                            id: 'solution',
+                            eyebrow: '06 — Final design',
+                            heading: 'The result',
+                            blocks: [
+                                { type: 'p', text: 'The prototype walks through the full experience end-to-end: browsing and searching for courses, reading descriptions and checking requirements, building a visual schedule, catching conflicts early, and enrolling — all without leaving the platform once.' },
+                                {
+                                    type: 'asset',
+                                    src: '../images/case_studies/course_enrollment/solution-1-calendar.png',
+                                    caption: 'Schedule view — planned and enrolled courses'
+                                },
+                                {
+                                    type: 'asset',
+                                    src: '../images/case_studies/course_enrollment/solution-2-days-time-filter.png',
+                                    caption: 'Course search with faculty browse and filters'
+                                },
+                                {
+                                    type: 'asset',
+                                    src: '../images/case_studies/course_enrollment/solution-3-conflict-warning.png',
+                                    caption: 'Conflict warning before enrollment'
+                                },
+                                {
+                                    type: 'asset',
+                                    src: '../images/case_studies/course_enrollment/solution-1-requirements.png',
+                                    caption: 'Built-in requirements tracker'
+                                },
+                                {
+                                    type: 'buttons',
+                                    items: [
+                                        { label: 'Open the clickable prototype →', href: 'https://www.figma.com/proto/JkTyz0qaw085uvEcBuZDBD/BrainStation-Final-Project?node-id=109-7014&starting-point-node-id=109%3A7014', external: true }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            id: 'reflection',
+                            eyebrow: '07 — Reflection',
+                            heading: 'Reflection',
+                            blocks: [
+                                { type: 'h3', text: 'What I took away' },
+                                {
+                                    type: 'ul',
+                                    items: [
+                                        'A design system of reusable components saves you from rebuilding the same elements repeatedly — I felt the absence of one mid-project.',
+                                        'It\'s hard to actively listen and ask good follow-ups while also taking notes. Recording sessions or bringing someone else to note-take is worth it.',
+                                        'Testing early surfaces problems you\'d never have anticipated on your own.',
+                                        'Accessibility goes further than size, color, and alt text — for example, clickable tooltips instead of hover-only interactions.'
+                                    ]
+                                },
+                                { type: 'h3', text: 'Where I\'d take it next' },
+                                {
+                                    type: 'ul',
+                                    items: [
+                                        'Interview a wider and more varied audience.',
+                                        'Build a more defined, documented design system.',
+                                        'Test the prototype with more students and iterate on the findings.',
+                                        'Extend it to the school\'s administrative side.',
+                                        'Revisit calendar course-editing (the tooltip modal) and add an availability-icon legend.'
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            'settlekit': {
+                title: 'SettleKit',
+                subtitle: 'Product & UX',
+                description: 'A personalized guide that walks immigrants through building a life in the U.S. — banking, Social Security, housing, healthcare — tailored to exactly where they are in the journey.',
+                client: 'SettleKit',
+                type: 'Product design, UX writing',
+                tools: 'Figma, prototyping, user research, AI-in-the-loop workflow',
+                link: null,
+                image: '../images/project_cards/card-settlekit.svg',
+                video: null,
+                editorialCaseStudy: {
+                    pill: 'Featured work',
+                    lead: 'A personalized guide that walks immigrants through building a life in the U.S. — banking, Social Security, housing, healthcare — tailored to exactly where they are in the journey.',
+                    meta: [
+                        { label: 'Role', value: 'Product design & UX writing' },
+                        { label: 'Timeline', value: '2024 – present' },
+                        { label: 'Team', value: '~5 people · close to the founder' },
+                        { label: 'Status', value: 'Live & evolving' }
+                    ],
+                    chips: [
+                        '<b>0 → hundreds</b> of early users',
+                        'Bank & affiliate partnerships',
+                        'A handful of topics → many'
+                    ],
+                    rail: [
+                        { id: 'overview', num: '00', label: 'Overview' },
+                        { id: 'problem', num: '01', label: 'The problem' },
+                        { id: 'guides', num: '02', label: 'Steps → Guides' },
+                        { id: 'writing', num: '03', label: 'The writing' },
+                        { id: 'wayfinding', num: '04', label: 'Right info, right moment' },
+                        { id: 'impact', num: '05', label: 'Impact' }
+                    ],
+                    sections: [
+                        {
+                            id: 'overview',
+                            isHero: true,
+                            blocks: [
+                                {
+                                    type: 'asset',
+                                    src: '../images/case_studies/settlekit/hero-dashboard.png',
+                                    caption: 'Fig. 01 / The product as it stands today'
+                                }
+                            ]
+                        },
+                        {
+                            id: 'problem',
+                            eyebrow: '01 — The problem',
+                            heading: 'A powerful engine, wrapped in a confusing experience.',
+                            blocks: [
+                                { type: 'p', text: 'Arriving in the U.S. on a visa means facing a maze of bureaucratic setup tasks — opening a bank account, getting a Social Security number, qualifying for an apartment, navigating healthcare — each with its own rules, and each dependent on your specific situation.' },
+                                { type: 'p', text: 'SettleKit\'s underlying personalization is genuinely powerful: depending on your visa, what you\'ve already completed, and your circumstances, the tool can branch into <strong>millions of tailored paths</strong>. But when I joined, that power was trapped behind a thin experience — a basic landing page and a dashboard that surfaced one recommended action at a time, driven by a short set of unexplained questions.' },
+                                { type: 'p', text: 'There were only about five "blocks," the wording often didn\'t feel relevant, and people were dropped straight into questions with no sense of <em>why</em> they were answering them or <em>where</em> the journey was headed. The intelligence was there. The orientation wasn\'t.' },
+                                {
+                                    type: 'asset',
+                                    src: '../images/case_studies/settlekit/before-dashboard.png',
+                                    caption: 'Fig. 02 / Where it started — the original dashboard'
+                                },
+                                {
+                                    type: 'band',
+                                    eyebrow: 'My role',
+                                    heading: 'The voice of the user — at the speed of a small team',
+                                    text: 'I own the user experience and the words: research synthesis, flows, wireframes, and the spec docs that justify each decision with pros, cons, and alternatives. I work most closely with the founder, alongside engineers, sales, and marketing. To keep pace, I run an <strong>AI-in-the-loop workflow</strong> — I wireframe a screen, write an intent spec for how it should behave, generate a first pass (mostly Claude, sometimes Gemini), then test, give feedback, and help carry it into implementation.'
+                                }
+                            ]
+                        },
+                        {
+                            id: 'guides',
+                            eyebrow: '02 — The core reframe',
+                            heading: 'From rigid "steps" to living "guides."',
+                            blocks: [
+                                { type: 'lead', text: 'The biggest unlock wasn\'t a feature. It was noticing that the entire content model was fighting the way people actually learn.' },
+                                { type: 'p', text: 'Everything in SettleKit had been forced into a strict, one-to-one <strong>step</strong> format, where users had to mark each item "done." That works for a physical action — <em>open the account</em> — but it broke down completely for informational tasks. Asking someone to check off "understand how U.S. healthcare works" left them genuinely confused: <em>Did I finish that? Does "done" mean I understand it now, or just that I read it?</em>' },
+                                { type: 'p', text: 'I recognized that not everything is an action. Sometimes the real task is simply to <strong>learn, absorb, and understand</strong> — so I shifted the core philosophy from steps toward <strong>guides</strong>: living resources people can return to and reference as they move through their journey, rather than a checklist to mindlessly click through.' },
+                                { type: 'p', text: 'Crucially, this didn\'t change SettleKit\'s promise. It\'s still the personalized hub tailored to each individual — just with the breathing room people need to actually digest what they\'re reading. And because it was mostly a <strong>framing</strong> change rather than a backend rebuild, it gave us far more freedom in how we deliver information without compromising structure. That leverage — a small shift in framing unlocking a big change in experience — is the heart of what I bring as a UX writer.' },
+                                {
+                                    type: 'asset',
+                                    tag: 'Fig. 03 — add asset',
+                                    kind: 'Before / after — a "step" vs. the same content as a "guide"',
+                                    dims: 'Suggested: two panels side by side, 1200 × 800 each',
+                                    desc: 'The clearest possible proof: the same healthcare (or similar informational) topic shown first as a forced checklist step, then re-cast as a referenceable guide. A two-panel comparison or a short before/after clip works well.',
+                                    caption: 'Fig. 03 / The reframe, made visible'
+                                }
+                            ]
+                        },
+                        {
+                            id: 'writing',
+                            eyebrow: '03 — Context-first UX writing',
+                            heading: 'Establish the "why" before the "what."',
+                            blocks: [
+                                { type: 'p', text: 'The old content jumped straight into tasks and questions with no motivation. So I moved to a <strong>context-first</strong> approach: anchor every topic in the big picture first, so it has immediate purpose — then give the actual steps a clean, skimmable structure that breaks complex actions into bite-sized pieces, so users always know exactly where they are and what to do next.' },
+                                { type: 'p', text: 'It also has to be written for the audience: clear, direct, and engaging language for immigrants to the U.S. — no jargon, no uncommon idioms, and no clickbait — that still works across many different backgrounds.' },
+                                { type: 'annot', text: '↓ Illustrative example — replace with your real before/after copy from the product.' },
+                                {
+                                    type: 'ba',
+                                    before: {
+                                        badge: 'Before — task-first',
+                                        title: 'Apply for a Social Security Number',
+                                        items: [
+                                            'Gather your documents.',
+                                            'Go to your local SSA office.',
+                                            'Submit Form SS-5.',
+                                            'Wait for your card to arrive.'
+                                        ],
+                                        done: '☐ Mark as done'
+                                    },
+                                    after: {
+                                        badge: 'After — context-first',
+                                        why: 'Why this matters',
+                                        heading: 'Your SSN is the key that unlocks almost everything.',
+                                        text: 'Before you can get paid, open most bank accounts, or rent many apartments, you\'ll need a Social Security number. It\'s a nine-digit number you\'ll keep for life — so it\'s worth getting right, early.',
+                                        rows: [
+                                            { sub: 'What you\'ll need', row: 'Passport & visa, plus proof of your U.S. address' },
+                                            { sub: 'Good to know', row: 'Most offices don\'t take appointments — go early to skip the longest lines.' }
+                                        ]
+                                    }
+                                },
+                                { type: 'p', text: 'The same task, reframed: the "after" version tells someone <em>why they\'re here</em> before <em>what to do</em>, then makes the doing easy to skim. These guidelines run at <strong>build time</strong> — they shape how every personalized path is generated for each person\'s situation, not how a single screen renders at run time.' }
+                            ]
+                        },
+                        {
+                            id: 'wayfinding',
+                            eyebrow: '04 — The right information, at the right moment',
+                            heading: 'Two kinds of people walk in the door.',
+                            blocks: [
+                                { type: 'p', text: 'Some users just want to be told what to do, in order. Others want to explore first — to get a feel for what\'s even possible. Someone might arrive determined to get a driver\'s license without realizing it depends on having insurance, which depends on an address. A lot of my work was making sure both kinds of people get <strong>enough context to understand each stage</strong> before they commit to it.' },
+                                {
+                                    type: 'flow',
+                                    items: [
+                                        { num: 'A', title: 'An Explore page for the browsers', text: 'I proposed and wireframed a way to browse what\'s available and see how things connect — so someone chasing one goal discovers the real path to it, and how it interlocks with the guided dashboard.' },
+                                        { num: 'B', title: 'A "cart, then checkout" before any questions', text: 'Clicking a block opens a sidebar preview — outcomes, a short description, dependencies — like a cart. A dedicated overview page then acts as the checkout. Nobody gets blindsided by questions; they get a primer and choose to begin.' },
+                                        { num: 'C', title: 'A table of contents you can roam', text: 'I added the ability to jump around steps to see what exists, even before completing anything. Because paths are tailored up front, the steps don\'t shift mid-journey — so freedom to look ahead never breaks the personalization.' },
+                                        { num: 'D', title: 'Mission control for hand-offs', text: 'When a guide hands off to a commercial partner — say, a banking app — I designed a place that preps people for what to expect and gives them a clear marker for "done," so they return knowing they finished it properly.' },
+                                        { num: 'E', title: 'Provider matching, in our own format', text: 'Users set preferences and get matched with the best-fit provider, with our own signals layered in (recommended, SettleKit-verified). A standardized details page gives the key bullets — eligibility, features and benefits, things to watch out for — without sending them to a sales page.' }
+                                    ]
+                                },
+                                { type: 'pull', text: '"We\'re holding their hand through the process — having them spend an afternoon with a stranger. The job is to set expectations and make sure that experience is a good one."' },
+                                {
+                                    type: 'asset',
+                                    tall: true,
+                                    tag: 'Fig. 04 — add asset',
+                                    kind: 'Wireframes / spec flows for this section',
+                                    dims: 'Suggested: 2–4 wireframes or one flow diagram, ~1200px wide',
+                                    desc: 'This is where your structural thinking shows, so feature the artifacts: the Explore-page wireframe, the sidebar→overview "cart→checkout" flow, and the provider list + details screens. Pairing a clean flow diagram with real wireframes signals product range, not just visual polish.',
+                                    caption: 'Fig. 04 / Designing for understanding at each stage'
+                                }
+                            ]
+                        },
+                        {
+                            id: 'impact',
+                            eyebrow: '05 — Impact & what I learned',
+                            heading: 'From an empty room to a real product.',
+                            blocks: [
+                                {
+                                    type: 'stats',
+                                    items: [
+                                        { big: '0 → 100s', lbl: 'Grew from essentially no users to hundreds of early visitors' },
+                                        { big: 'Banks +', lbl: 'Partnerships with banks and affiliate providers' },
+                                        { big: '5 → many', lbl: 'Expanded from a handful of topics to broad coverage' }
+                                    ]
+                                },
+                                { type: 'annot', text: 'Confirm exact figures before publishing — swap in real numbers (users, partners, topics) wherever you\'re comfortable.' },
+                                { type: 'h3', text: 'What I took away' },
+                                {
+                                    type: 'ul',
+                                    items: [
+                                        '<strong>Framing is leverage.</strong> The steps-to-guides shift changed the whole experience without a backend rebuild — the highest-impact thing I did was a content-model decision, not a visual one.',
+                                        '<strong>Design for the overwhelmed.</strong> Writing for immigrants in a stressful, unfamiliar system made clarity and reassurance the real success metric.',
+                                        '<strong>AI moves you faster only if you steer.</strong> An AI-in-the-loop workflow let a tiny team ship quickly — but the judgment about what\'s right for the user still has to be mine.'
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            'song-analysis': {
+                title: 'Spotify Song Analysis',
+                subtitle: 'Web App',
+                description: 'Analyzes songs and provides insights on key metrics, such as the key, BPM, and more.',
+                client: 'Personal Project',
+                type: 'Full-Stack Development, UI Design',
+                tools: 'React.js, Spotify API, Wikipedia API',
+                link: 'https://github.com/tdsimpson/Song-Analysis',
+                image: '../images/project_cards/square-song-analysis.png',
+                video: 'https://www.youtube.com/watch?v=O5B2sth-wxs',
+                problem: 'As a guitarist, I often found myself googling the key of the song I was currently listening to so I could play along with it. While Spotify does have a lot of useful information for musicians through their API, these audio characteristics are not accessible through their web client or app.',
+                goal: 'Create a web application for musicians that leverages the Spotify API to display useful information about a song including its key and BPM. I wanted it to integrate with a user\'s Spotify account and update with the song in a simple colourful UI.',
+                outcome: 'The application successfully bridges the gap between casual listening and technical music analysis, providing valuable insights to music enthusiasts including the song\'s key, BPM, date it was released and a short bio about the artist from Wikipedia.The colour of the UI also reflects the colour prominent colours in each song\'s album art!',
+                //impact: 'Gained 500+ active users in the first month. Users spending an average of 8 minutes per session exploring song analytics.'
+            },
+            'support-tracker': {
+                title: 'Customer Support Status Tracker',
+                subtitle: 'Chatbot App',
+                description: 'A chatbot that surfaces support ticket status to customers using Ada Support.',
+                client: 'Ada App Hacks',
+                type: 'Full-Stack Development',
+                tools: 'Ada SDK, JavaScript, HTML/CSS',
+                link: 'https://github.com/tdsimpson/AdaAppHacks',
+                image: '../images/project_cards/square-support-ticket-status.png',
+                video: 'https://www.youtube.com/watch?v=HzC6eI-NUwM',
+                problem: 'Customers frequently contact support to check ticket status, overwhelming support teams with repetitive inquiries.',
+                goal: 'Develop a chatbot that can automatically provide ticket status updates, reducing support team workload and improving customer experience.',
+                outcome: 'The chatbot successfully reduced support ticket volume by handling routine status inquiries, allowing support teams to focus on complex issues.',
+                //impact: 'Reduced support ticket volume by 35%. Improved average response time from 2 hours to instant for status inquiries.'
+            },
+            'myndjournal': {
+                title: 'Mental Health Journaling & Insights',
+                subtitle: 'Web App',
+                description: 'Hackathon finalist: Visualizes mental health data from sentiment analysis of journal entries.',
+                client: 'Hack the 6ix',
+                type: 'Full-Stack Development',
+                tools: 'React, Sentiment Analysis API, Data Visualization',
+                link: 'https://devpost.com/software/myndjournal-0ky6t5',
+                image: '../images/project_cards/square-myndjournal.png',
+                video: null,
+                problem: 'People struggle to track and understand patterns in their mental health over time, making it difficult to identify triggers and improvements.',
+                goal: 'Create a journaling application that uses sentiment analysis to help users visualize their emotional patterns and gain insights into their mental health trends.',
+                outcome: 'The application demonstrates how technology can support mental health awareness, providing users with valuable insights into their emotional patterns while maintaining privacy.',
+                //impact: 'Won 2nd place at the hackathon. 90% of test users reported increased awareness of their emotional patterns and found the visualizations helpful.'
+            },
+            'stock-block': {
+                title: 'Decentralized Stock Photography Platform',
+                subtitle: 'Descentralized App (DApp)',
+                description: 'A decentralized platform for photographers to upload and sell their photos on the blockchain without a middleman.',
+                client: 'Local Hack Day',
+                type: 'Full-Stack Development, UI Design',
+                tools: 'JavaScript, Solidity, IPFS, Metamask',
+                link: 'https://devpost.com/software/stock-block',
+                image: '../images/project_cards/square-stock-block.png',
+                video: null,
+                problem: 'Traditional stock photography platforms take significant commissions, limiting photographer earnings and control over their work.',
+                goal: 'Build a decentralized platform that allows photographers to sell their work directly to buyers using blockchain technology, eliminating middlemen and reducing fees.',
+                outcome: 'The platform successfully demonstrates how blockchain can disrupt traditional marketplaces, though adoption challenges remain in the broader market. The project was a finalist in the Local Hack Day hackathon at Queen\'s University.',
+                impact: 'Successfully processed 200+ transactions. Photographers earning 95% of sale price (vs. 20-50% on traditional platforms).'
+            }
+        };
+
+        // Project order for navigation
+        const projectOrder = [
+            'settlekit',
+            'course-enrollment',
+            'pedal-patrol',
+            'expense-tracker',
+            'song-analysis',
+            'support-tracker',
+            'myndjournal',
+            'stock-block'
+        ];
+
+        function caseStudyImageHTML(img, extraClass = '') {
+            const classes = extraClass ? `case-study-image-wrap ${extraClass}` : 'case-study-image-wrap';
+            return `
+                <div class="${classes}" data-image="${img.src}" data-caption="${img.caption}">
+                    <img src="${img.src}" alt="${img.caption}" />
+                </div>
+            `;
+        }
+
+        function bindCaseStudyLightbox(container) {
+            container.querySelectorAll('.case-study-image-wrap').forEach(wrapper => {
+                wrapper.addEventListener('click', () => {
+                    openLightbox(wrapper.getAttribute('data-image'), wrapper.getAttribute('data-caption'));
+                });
+            });
+        }
+
+        function externalToolThumbHTML(tool) {
+            const thumbInner = tool.src
+                ? caseStudyImageHTML(tool, 'external-tool-thumb')
+                : `<div class="external-tool-thumb-static"><span class="external-tool-placeholder">${tool.placeholder || 'Placeholder'}</span></div>`;
+            return `
+                <div class="external-tool-item">
+                    ${thumbInner}
+                    <p class="external-tool-caption">${tool.caption}</p>
+                </div>
+            `;
+        }
+
+        function renderBeforeColumn(before) {
+            let imagesHTML = '';
+            let colClass = 'ba-col';
+
+            if (before.layout === 'single-with-external' && before.images.length >= 1) {
+                colClass = 'ba-col ba-col-before-fragmented';
+                imagesHTML = `<div class="ba-main-image">${caseStudyImageHTML(before.images[0])}</div>`;
+                if (before.externalTools) {
+                    imagesHTML += `
+                        <div class="external-tools-block">
+                            <span class="external-tools-label">${before.externalTools.label}</span>
+                            <div class="external-tools-grid">
+                                ${before.externalTools.tools.map(tool => externalToolThumbHTML(tool)).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+            } else if (before.layout === 'stack' && before.images.length >= 2) {
+                imagesHTML = `
+                    <div class="after-stack">
+                        ${before.images.map(img => caseStudyImageHTML(img)).join('')}
+                    </div>
+                `;
+            } else if (before.layout === 'stacked' && before.images.length >= 3) {
+                imagesHTML = `
+                    <div class="before-stack-grid">
+                        ${caseStudyImageHTML(before.images[0])}
+                        ${caseStudyImageHTML(before.images[1])}
+                    </div>
+                    <div class="before-stack-single">${caseStudyImageHTML(before.images[2])}</div>
+                `;
+            } else {
+                imagesHTML = before.images.map(img => caseStudyImageHTML(img)).join('');
+            }
+            return `
+                <div class="${colClass}">
+                    <span class="ba-label before">Before</span>
+                    ${imagesHTML}
+                    <p class="ba-caption">${before.caption}</p>
+                </div>
+            `;
+        }
+
+        function renderAfterColumn(after) {
+            let imagesHTML = '';
+            if (after.layout === 'stack' && after.images.length >= 2) {
+                imagesHTML = `
+                    <div class="after-stack">
+                        ${after.images.map(img => caseStudyImageHTML(img)).join('')}
+                    </div>
+                `;
+            } else if (after.layout === 'pair' && after.images.length >= 2) {
+                imagesHTML = `
+                    <div class="after-pair">
+                        ${caseStudyImageHTML(after.images[0])}
+                        ${caseStudyImageHTML(after.images[1])}
+                    </div>
+                `;
+            } else {
+                imagesHTML = after.images.map(img => caseStudyImageHTML(img)).join('');
+            }
+            return `
+                <div class="ba-col">
+                    <span class="ba-label after">After</span>
+                    ${imagesHTML}
+                    <p class="ba-caption">${after.caption}</p>
+                </div>
+            `;
+        }
+
+        function renderOracleCaseStudy(project) {
+            const cs = project.caseStudy;
+
+            document.getElementById('oracle-problem-heading').textContent = cs.problem.heading;
+            document.getElementById('oracle-problem-intro').textContent = cs.problem.intro;
+            document.getElementById('oracle-pain-grid').innerHTML = cs.problem.painPoints.map(p => `
+                <div class="pain-card">
+                    <div class="pain-num">${p.num}</div>
+                    <div class="pain-title">${p.title}</div>
+                    <p class="pain-desc">${p.desc}</p>
+                </div>
+            `).join('');
+
+            document.getElementById('oracle-process-intro').textContent = cs.process.intro;
+            document.getElementById('oracle-process-blocks').innerHTML = cs.process.steps.map(step => {
+                let artifactHTML = '';
+                if (step.layout === 'wide' && step.image) {
+                    artifactHTML = `<div class="process-artifact-wide">${caseStudyImageHTML(step.image)}</div>`;
+                } else if (step.layout === 'grid' && step.images) {
+                    artifactHTML = `
+                        <div class="process-artifacts-grid">
+                            ${step.images.map(img => caseStudyImageHTML(img)).join('')}
+                        </div>
+                    `;
+                }
+                return `
+                    <div class="process-block">
+                        <div class="process-block-header">
+                            <span class="process-step">${step.num}</span>
+                            <div>
+                                <div class="process-block-title">${step.title}</div>
+                                <p class="process-block-desc">${step.desc}</p>
+                            </div>
+                        </div>
+                        ${artifactHTML}
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('oracle-solutions-heading').textContent = cs.solutions.heading;
+            document.getElementById('oracle-solutions-intro').textContent = cs.solutions.intro;
+            document.getElementById('oracle-solutions-blocks').innerHTML = cs.solutions.items.map(item => `
+                <div class="solution-block">
+                    <div class="solution-title">${item.title}</div>
+                    <p class="solution-desc">${item.desc}</p>
+                    <div class="before-after">
+                        ${renderBeforeColumn(item.before)}
+                        ${renderAfterColumn(item.after)}
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('oracle-outcome-heading').textContent = cs.outcome.heading;
+            document.getElementById('oracle-outcome-text').textContent = cs.outcome.text;
+
+            const oracleRoot = document.getElementById('oracle-case-study');
+            bindCaseStudyLightbox(oracleRoot);
+        }
+
+        function youtubeToEmbed(url) {
+            if (!url) return '';
+            if (url.includes('youtube.com/watch?v=')) {
+                const videoId = url.split('v=')[1].split('&')[0];
+                return `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+            }
+            if (url.includes('youtu.be/')) {
+                const videoId = url.split('youtu.be/')[1].split('?')[0];
+                return `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+            }
+            if (url.includes('youtube.com/embed/')) {
+                return url.includes('?') ? `${url}&rel=0&modestbranding=1` : `${url}?rel=0&modestbranding=1`;
+            }
+            return url;
+        }
+
+        function renderEditorialBlock(block) {
+            switch (block.type) {
+                case 'p':
+                    return `<p>${block.text}</p>`;
+                case 'lead':
+                    return `<p class="editorial-lead">${block.text}</p>`;
+                case 'h3':
+                    return `<h3>${block.text}</h3>`;
+                case 'annot':
+                    return `<div class="editorial-annot">${block.text}</div>`;
+                case 'pull':
+                    return `<div class="editorial-pull">${block.text}</div>`;
+                case 'band':
+                    return `
+                        <div class="editorial-band">
+                            <span class="editorial-eyebrow">${block.eyebrow}</span>
+                            <h3>${block.heading}</h3>
+                            <p>${block.text}</p>
+                        </div>
+                    `;
+                case 'asset':
+                    if (block.src) {
+                        return `
+                            <figure class="editorial-asset${block.tall ? ' tall' : ''}">
+                                <div class="case-study-image-wrap" data-image="${block.src}" data-caption="${block.caption || ''}">
+                                    <img src="${block.src}" alt="${block.caption || block.kind || ''}" />
+                                </div>
+                                ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ''}
+                            </figure>
+                        `;
+                    }
+                    return `
+                        <figure class="editorial-asset${block.tall ? ' tall' : ''}">
+                            <div class="frame">
+                                <span class="ftag">${block.tag}</span>
+                                <div class="kind">${block.kind}</div>
+                                <div class="dims">${block.dims}</div>
+                                <p class="desc">${block.desc}</p>
+                            </div>
+                            ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ''}
+                        </figure>
+                    `;
+                case 'ba':
+                    return `
+                        <div class="editorial-ba">
+                            <div class="card before">
+                                <span class="badge">${block.before.badge}</span>
+                                <div class="mock-title">${block.before.title}</div>
+                                <ul>${block.before.items.map(item => `<li>${item}</li>`).join('')}</ul>
+                                <span class="done">${block.before.done}</span>
+                            </div>
+                            <div class="card after">
+                                <span class="badge">${block.after.badge}</span>
+                                <div class="why">${block.after.why}</div>
+                                <h4>${block.after.heading}</h4>
+                                <p>${block.after.text}</p>
+                                ${block.after.rows.map(row => `
+                                    <div class="sub"${row.sub === 'Good to know' ? ' style="margin-top:12px"' : ''}>${row.sub}</div>
+                                    <div class="row">${row.row}</div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                case 'flow':
+                    return `
+                        <div class="editorial-flow">
+                            ${block.items.map(item => `
+                                <div class="editorial-flow-item">
+                                    <div class="editorial-flow-num">${item.num}</div>
+                                    <div>
+                                        <h3>${item.title}</h3>
+                                        <p>${item.text}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                case 'stats':
+                    return `
+                        <div class="editorial-stats">
+                            ${block.items.map(item => `
+                                <div class="editorial-stat">
+                                    <div class="big">${item.big}</div>
+                                    <div class="lbl">${item.lbl}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                case 'ul':
+                    return `<ul class="editorial-clean-list">${block.items.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                case 'video':
+                    return `
+                        <div class="editorial-video">
+                            <div class="ratio">
+                                <iframe src="${youtubeToEmbed(block.url)}" title="${block.title || 'Video'}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    `;
+                case 'photos':
+                    if (block.layout === 'gallery') {
+                        return `
+                            <div class="editorial-photos-gallery">
+                                ${block.items.map(item => `
+                                    <div class="editorial-photo-item">
+                                        <div class="problem-image-wrapper case-study-image-wrap" data-image="${item.src}" data-caption="${item.caption}">
+                                            <img src="${item.src}" alt="${item.caption}" />
+                                        </div>
+                                        <p class="problem-image-caption">${item.caption}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `;
+                    }
+                    return `
+                        <div class="editorial-photos">
+                            ${block.items.map(item => `
+                                <figure class="editorial-photo">
+                                    <div class="case-study-image-wrap" data-image="${item.src}" data-caption="${item.caption}">
+                                        <img src="${item.src}" alt="${item.caption}" />
+                                    </div>
+                                    <figcaption class="cap">${item.caption}</figcaption>
+                                </figure>
+                            `).join('')}
+                        </div>
+                    `;
+                case 'features':
+                    return `
+                        <div class="editorial-feature-grid">
+                            ${block.items.map(item => `
+                                <div class="editorial-feature-card">
+                                    <div class="editorial-feature-shot">
+                                        ${item.src
+                                            ? `<div class="case-study-image-wrap" data-image="${item.src}" data-caption="${item.title}"><img src="${item.src}" alt="${item.title}" /></div>`
+                                            : item.placeholder}
+                                    </div>
+                                    <div class="editorial-feature-body">
+                                        <div class="fnum">${item.num}</div>
+                                        <h3>${item.title}</h3>
+                                        <p>${item.text}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                case 'decision':
+                    return `
+                        <div class="editorial-decision">
+                            <div class="dlabel">${block.label}</div>
+                            <h3>${block.heading}</h3>
+                            ${block.paragraphs.map(p => `<p>${p}</p>`).join('')}
+                        </div>
+                    `;
+                case 'insights':
+                    return `
+                        <div class="editorial-insight-grid${block.columns === 3 ? ' cols-3' : ''}">
+                            ${block.items.map(item => `
+                                <div class="editorial-insight">
+                                    <div class="itag">${item.tag}</div>
+                                    <h3>${item.title}</h3>
+                                    <p>${item.text}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                case 'personas':
+                    return `
+                        <div class="editorial-personas">
+                            ${block.items.map(persona => `
+                                <div class="editorial-persona">
+                                    ${persona.image ? `
+                                        <div class="persona-image-wrap case-study-image-wrap" data-image="${persona.image}" data-caption="${persona.name}">
+                                            <img src="${persona.image}" alt="${persona.name}" />
+                                        </div>
+                                    ` : ''}
+                                    <div class="pname">${persona.name}</div>
+                                    <div class="ptag">${persona.tag}</div>
+                                    ${persona.fields.map(field => `
+                                        <div class="plabel">${field.label}</div>
+                                        <p>${field.text}</p>
+                                    `).join('')}
+                                    ${persona.quote ? `<p class="pquote">${persona.quote}</p>` : ''}
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                case 'designDecision':
+                    return `
+                        <div class="editorial-design-decision">
+                            <div class="editorial-decision-head">
+                                <span class="editorial-decision-num">${block.num}</span>
+                                <h3>${block.heading}</h3>
+                                <span class="editorial-decision-tag">${block.tag}</span>
+                            </div>
+                            ${block.addresses ? `<p class="editorial-decision-addresses">${block.addresses}</p>` : ''}
+                            ${block.paragraphs.map(p => `<p>${p}</p>`).join('')}
+                            ${block.beforeAfter ? `
+                                <div class="before-after">
+                                    ${renderBeforeColumn(block.beforeAfter.before)}
+                                    ${renderAfterColumn(block.beforeAfter.after)}
+                                </div>
+                            ` : ''}
+                            ${block.annot ? `<div class="editorial-annot">${block.annot}</div>` : ''}
+                        </div>
+                    `;
+                case 'buttons':
+                    return `
+                        <div class="editorial-btnrow">
+                            ${block.items.map(btn => `
+                                <a class="editorial-btn${btn.ghost ? ' ghost' : ''}" href="${btn.href}"${btn.external ? ' target="_blank" rel="noopener"' : ''}>${btn.label}</a>
+                            `).join('')}
+                        </div>
+                    `;
+                default:
+                    return '';
+            }
+        }
+
+        function renderEditorialCaseStudy(project) {
+            const cs = project.editorialCaseStudy;
+            const railList = document.getElementById('editorial-rail-list');
+            const content = document.getElementById('editorial-content');
+
+            railList.innerHTML = cs.rail.map(item => `
+                <li data-target="${item.id}">
+                    <a href="#${item.id}">
+                        <span class="num">${item.num}</span>
+                        <span>${item.label}</span>
+                    </a>
+                </li>
+            `).join('');
+
+            content.innerHTML = cs.sections.map(section => {
+                if (section.isHero) {
+                    return `
+                        <section class="editorial-section" id="${section.id}">
+                            <span class="case-pill">${cs.pill}</span>
+                            <h1 class="editorial-hero-title">${project.title}</h1>
+                            <p class="editorial-lead">${cs.lead}</p>
+                            <dl class="editorial-meta">
+                                ${cs.meta.map(item => `
+                                    <div>
+                                        <dt>${item.label}</dt>
+                                        <dd>${item.value}</dd>
+                                    </div>
+                                `).join('')}
+                            </dl>
+                            <div class="editorial-chips">
+                                ${cs.chips.map(chip => `<span class="editorial-chip">${chip}</span>`).join('')}
+                            </div>
+                            ${section.blocks.map(renderEditorialBlock).join('')}
+                        </section>
+                    `;
+                }
+
+                return `
+                    <section class="editorial-section" id="${section.id}">
+                        <span class="editorial-eyebrow">${section.eyebrow}</span>
+                        <h2>${section.heading}</h2>
+                        ${section.blocks.map(renderEditorialBlock).join('')}
+                    </section>
+                `;
+            }).join('');
+
+            initEditorialRail();
+            bindCaseStudyLightbox(document.getElementById('editorial-case-study'));
+        }
+
+        function initEditorialRail() {
+            const items = [...document.querySelectorAll('#editorial-rail-list li')];
+            if (!items.length) return;
+
+            const map = new Map(items.map(li => [li.dataset.target, li]));
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        items.forEach(item => item.classList.remove('active'));
+                        const activeItem = map.get(entry.target.id);
+                        if (activeItem) activeItem.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+            document.querySelectorAll('#editorial-content section[id]').forEach(section => {
+                sectionObserver.observe(section);
+            });
+        }
+
+        function applyDefaultSectionEyebrows() {
+            const labels = {
+                'problem-definition-section': 'The problem',
+                'user-group-section': 'Users',
+                'product-goal-section': 'Goals',
+                'current-processes-section': 'Current state',
+                'research-insights-section': 'Research',
+                'personas-section': 'Personas',
+                'ia-section': 'Information architecture',
+                'user-flows-section': 'User flows',
+                'sketches-section': 'Sketches',
+                'wireframes-section': 'Wireframes',
+                'default-outcome-section': 'Outcome'
+            };
+
+            Object.entries(labels).forEach(([sectionId, label]) => {
+                const section = document.getElementById(sectionId);
+                if (!section) return;
+                if (window.getComputedStyle(section).display === 'none') return;
+                if (section.querySelector('.editorial-eyebrow')) return;
+                const eyebrow = document.createElement('span');
+                eyebrow.className = 'editorial-eyebrow';
+                eyebrow.textContent = label;
+                const heading = section.querySelector('h2');
+                if (heading) section.insertBefore(eyebrow, heading);
+            });
+        }
+
+        function setCaseStudyMode({ oracle, editorial }) {
+            const oracleRoot = document.getElementById('oracle-case-study');
+            const editorialRoot = document.getElementById('editorial-case-study');
+            const defaultSections = document.getElementById('default-case-study-sections');
+            const legacySections = [
+                'research-insights-section',
+                'personas-section',
+                'ia-section',
+                'user-flows-section',
+                'sketches-section',
+                'wireframes-section'
+            ];
+            const useCustomLayout = oracle || editorial;
+
+            oracleRoot.classList.toggle('active', oracle);
+            oracleRoot.setAttribute('aria-hidden', oracle ? 'false' : 'true');
+
+            editorialRoot.classList.toggle('active', editorial);
+            editorialRoot.setAttribute('aria-hidden', editorial ? 'false' : 'true');
+
+            defaultSections.classList.toggle('hidden', useCustomLayout);
+
+            if (oracle) {
+                legacySections.forEach(sectionId => {
+                    document.getElementById(sectionId).classList.remove('active');
+                });
+            }
+        }
+
+        function setOracleCaseStudyMode(isOracle) {
+            setCaseStudyMode({ oracle: isOracle, editorial: false });
+        }
+
+        function loadProject(id) {
+            const project = projects[id];
+            if (!project) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            const isOracleCaseStudy = !!project.caseStudy && !project.editorialCaseStudy;
+            const isEditorialCaseStudy = !!project.editorialCaseStudy;
+            setCaseStudyMode({ oracle: isOracleCaseStudy, editorial: isEditorialCaseStudy });
+
+            if (isOracleCaseStudy) {
+                renderOracleCaseStudy(project);
+            }
+            if (isEditorialCaseStudy) {
+                renderEditorialCaseStudy(project);
+            }
+
+            const projectHeader = document.querySelector('.project-header');
+            const projectMedia = document.querySelector('.project-media');
+            const container = document.querySelector('.container');
+
+            if (isEditorialCaseStudy) {
+                projectHeader.style.display = 'none';
+                projectMedia.style.display = 'none';
+                container.classList.add('editorial-wide');
+            } else {
+                projectHeader.style.display = '';
+                projectMedia.style.display = '';
+                container.classList.remove('editorial-wide');
+            }
+
+            document.getElementById('project-title').textContent = project.title;
+            document.getElementById('project-subtitle').textContent = project.subtitle;
+            document.getElementById('project-description').textContent = project.description;
+            document.getElementById('project-client').textContent = project.client;
+
+            // Handle link next to subtitle
+            const subtitleLink = document.getElementById('project-subtitle-link');
+            if (project.link) {
+                subtitleLink.href = project.link;
+                subtitleLink.style.display = 'inline-flex';
+            } else {
+                subtitleLink.style.display = 'none';
+            }
+
+            // Handle Role - split by comma and stack vertically
+            const roleElement = document.getElementById('project-type');
+            if (project.type) {
+                const roleItems = project.type.split(',').map(item => item.trim());
+                roleElement.innerHTML = roleItems.map(item => `<span class="meta-value-item">${item}</span>`).join('');
+            }
+
+            // Handle Tools - split by comma and stack vertically
+            const toolsElement = document.getElementById('project-tools');
+            if (project.tools) {
+                const toolItems = project.tools.split(',').map(item => item.trim());
+                toolsElement.innerHTML = toolItems.map(item => `<span class="meta-value-item">${item}</span>`).join('');
+            }
+
+            // Handle video or image
+            const projectMediaEl = document.querySelector('.project-media');
+            if (project.video) {
+                // Convert YouTube URL to embed format
+                let embedUrl = project.video;
+                if (project.video.includes('youtube.com/watch?v=')) {
+                    const videoId = project.video.split('v=')[1].split('&')[0];
+                    embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+                } else if (project.video.includes('youtu.be/')) {
+                    const videoId = project.video.split('youtu.be/')[1].split('?')[0];
+                    embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+                } else if (project.video.includes('youtube.com/embed/')) {
+                    // Add parameters if not already present
+                    embedUrl = project.video.includes('?')
+                        ? `${project.video}&rel=0&modestbranding=1`
+                        : `${project.video}?rel=0&modestbranding=1`;
+                }
+                projectMediaEl.innerHTML = `<iframe src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            } else {
+                projectMediaEl.innerHTML = `<img id="project-image" src="${project.image}" alt="${project.title}" />`;
+            }
+
+            if (!isOracleCaseStudy && !isEditorialCaseStudy && project.problem) {
+                document.getElementById('project-problem').innerHTML = project.problem;
+            }
+
+            // Load Problem Images (only for pedal-patrol)
+            const problemImagesGrid = document.getElementById('problem-images-grid');
+            if (project.problemImages && id === 'pedal-patrol') {
+                problemImagesGrid.innerHTML = project.problemImages.map(img => `
+                    <div class="problem-image-item">
+                        <div class="problem-image-wrapper" data-image="${img.src}" data-caption="${img.caption}">
+                            <img src="${img.src}" alt="${img.caption}" />
+                        </div>
+                        <p class="problem-image-caption">${img.caption}</p>
+                    </div>
+                `).join('');
+                problemImagesGrid.style.display = 'grid';
+
+                // Add click handlers for problem images
+                problemImagesGrid.querySelectorAll('.problem-image-wrapper').forEach(wrapper => {
+                    wrapper.addEventListener('click', () => {
+                        const imgSrc = wrapper.getAttribute('data-image');
+                        const caption = wrapper.getAttribute('data-caption');
+                        openLightbox(imgSrc, caption);
+                    });
+                });
+            } else {
+                problemImagesGrid.style.display = 'none';
+            }
+
+            // Handle Product Goal - can be string, array of bullets, or object with intro and bullets
+            const goalElement = document.getElementById('project-goal');
+            const goalIntroElement = document.getElementById('project-goal-intro');
+            const goalListElement = document.getElementById('project-goal-list');
+
+            if (isOracleCaseStudy || isEditorialCaseStudy) {
+                goalElement.style.display = 'none';
+                goalIntroElement.style.display = 'none';
+                goalListElement.style.display = 'none';
+            } else if (typeof project.goal === 'object' && project.goal !== null && !Array.isArray(project.goal) && project.goal.intro) {
+                // Object with intro and bullets
+                goalElement.style.display = 'none';
+                goalIntroElement.innerHTML = project.goal.intro;
+                goalIntroElement.style.display = 'block';
+                goalListElement.innerHTML = project.goal.bullets.map(bullet => `<li>${bullet}</li>`).join('');
+                goalListElement.style.display = 'block';
+            } else if (Array.isArray(project.goal)) {
+                // Array of bullets only
+                goalElement.style.display = 'none';
+                goalIntroElement.style.display = 'none';
+                goalListElement.innerHTML = project.goal.map(bullet => `<li>${bullet}</li>`).join('');
+                goalListElement.style.display = 'block';
+            } else if (project.goal) {
+                // String (backward compatibility)
+                goalElement.innerHTML = project.goal;
+                goalElement.style.display = 'block';
+                goalIntroElement.style.display = 'none';
+                goalListElement.style.display = 'none';
+            } else {
+                goalElement.style.display = 'none';
+                goalIntroElement.style.display = 'none';
+                goalListElement.style.display = 'none';
+            }
+
+            if (!isOracleCaseStudy && !isEditorialCaseStudy && project.outcome) {
+                document.getElementById('project-outcome').innerHTML = project.outcome;
+            }
+
+            // Load Current Processes (only for pedal-patrol)
+            const currentProcessesSection = document.getElementById('current-processes-section');
+            if (project.currentProcesses && id === 'pedal-patrol') {
+                document.getElementById('current-processes-intro').textContent = project.currentProcesses.intro;
+                const processesList = document.getElementById('current-processes-list');
+                processesList.innerHTML = project.currentProcesses.bullets.map(bullet => `<li>${bullet}</li>`).join('');
+                currentProcessesSection.style.display = 'block';
+            } else {
+                currentProcessesSection.style.display = 'none';
+            }
+
+            // Load User Group (only for pedal-patrol)
+            const userGroupSection = document.getElementById('user-group-section');
+            if (project.userGroup && id === 'pedal-patrol') {
+                const userGroupList = document.getElementById('user-group-list');
+                userGroupList.innerHTML = project.userGroup.bullets.map(bullet => `<li>${bullet}</li>`).join('');
+                document.getElementById('user-group-sentence').innerHTML = project.userGroup.sentence;
+                userGroupSection.style.display = 'block';
+            } else {
+                userGroupSection.style.display = 'none';
+            }
+
+            // Load Future Considerations (only for pedal-patrol)
+            const futureConsiderationsSection = document.getElementById('future-considerations-section');
+            if (project.futureConsiderations && id === 'pedal-patrol') {
+                document.getElementById('future-considerations-intro').textContent = project.futureConsiderations.intro;
+                const futureConsiderationsList = document.getElementById('future-considerations-list');
+                futureConsiderationsList.innerHTML = project.futureConsiderations.bullets.map(bullet => `<li>${bullet}</li>`).join('');
+                futureConsiderationsSection.style.display = 'block';
+            } else {
+                futureConsiderationsSection.style.display = 'none';
+            }
+
+            // Load research insights (legacy layout)
+            const researchSection = document.getElementById('research-insights-section');
+            if (project.researchInsights && id !== 'course-enrollment') {
+                const intro = document.getElementById('research-intro');
+                const findingsContainer = document.getElementById('research-findings');
+
+                intro.textContent = project.researchInsights.intro;
+
+                findingsContainer.innerHTML = `
+                    <div class="findings-grid">
+                        ${project.researchInsights.findings.map((finding, index) => {
+                    let imagesHTML = '';
+                    if (finding.images && finding.images.length > 0) {
+                        imagesHTML = `
+                                    <div class="finding-images">
+                                        ${finding.images.map((img, imgIndex) => `
+                                            <div class="image-wrapper" data-image="${img.src}" data-caption="${img.caption}">
+                                                <img src="${img.src}" alt="${img.caption}" />
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                `;
+                    }
+
+                    const titleHTML = finding.title ? `<p class="finding-title">${finding.title}</p>` : '';
+
+                    return `
+                                <div class="finding">
+                                    ${titleHTML}
+                                    <p class="finding-text">${finding.text}</p>
+                                    ${imagesHTML}
+                                </div>
+                            `;
+                }).join('')}
+                    </div>
+                `;
+
+                researchSection.classList.add('active');
+
+                // Add click handlers for images
+                findingsContainer.querySelectorAll('.image-wrapper').forEach(wrapper => {
+                    wrapper.addEventListener('click', () => {
+                        const imgSrc = wrapper.getAttribute('data-image');
+                        const caption = wrapper.getAttribute('data-caption');
+                        openLightbox(imgSrc, caption);
+                    });
+                });
+            } else {
+                researchSection.classList.remove('active');
+            }
+
+            // Load personas (legacy layout)
+            const personasSection = document.getElementById('personas-section');
+            const personasGrid = document.getElementById('personas-grid');
+            if (project.personas && id !== 'course-enrollment') {
+                personasGrid.innerHTML = project.personas.map(persona => `
+                    <div class="persona-image-wrapper" data-image="${persona.src}" data-caption="${persona.caption}">
+                        <img src="${persona.src}" alt="${persona.caption}" />
+                    </div>
+                `).join('');
+
+                personasSection.classList.add('active');
+
+                // Add click handlers for persona images
+                personasGrid.querySelectorAll('.persona-image-wrapper').forEach(wrapper => {
+                    wrapper.addEventListener('click', () => {
+                        const imgSrc = wrapper.getAttribute('data-image');
+                        const caption = wrapper.getAttribute('data-caption');
+                        openLightbox(imgSrc, caption);
+                    });
+                });
+            } else {
+                personasSection.classList.remove('active');
+            }
+
+            // Load information architecture (legacy layout)
+            const iaSection = document.getElementById('ia-section');
+            const iaIntro = document.getElementById('ia-intro');
+            const iaImageWrapper = document.getElementById('ia-image-wrapper');
+            const iaImage = document.getElementById('ia-image');
+            if (project.informationArchitecture && id !== 'course-enrollment') {
+                iaIntro.textContent = project.informationArchitecture.intro;
+                iaImage.src = project.informationArchitecture.image.src;
+                iaImage.alt = project.informationArchitecture.image.caption;
+                iaImageWrapper.setAttribute('data-image', project.informationArchitecture.image.src);
+                iaImageWrapper.setAttribute('data-caption', project.informationArchitecture.image.caption);
+                iaImageWrapper.style.display = 'block';
+
+                iaSection.classList.add('active');
+
+                // Add click handler for IA image
+                iaImageWrapper.addEventListener('click', () => {
+                    const imgSrc = iaImageWrapper.getAttribute('data-image');
+                    const caption = iaImageWrapper.getAttribute('data-caption');
+                    openLightbox(imgSrc, caption);
+                });
+            } else {
+                iaSection.classList.remove('active');
+            }
+
+            // Load user flows (legacy layout)
+            const userFlowsSection = document.getElementById('user-flows-section');
+            const userFlowsContainer = document.getElementById('user-flows-container');
+            if (project.userFlows && id !== 'course-enrollment') {
+                userFlowsContainer.innerHTML = `
+                    <div class="user-flows-grid">
+                        ${project.userFlows.map(flow => `
+                            <div class="user-flow-item">
+                                <div class="user-flow-header">
+                                    <h3 class="user-flow-title">${flow.title}</h3>
+                                    <p class="user-flow-description">${flow.description}</p>
+                                </div>
+                                <div class="user-flow-image-wrapper" data-image="${flow.src}" data-caption="${flow.caption}">
+                                    <img src="${flow.src}" alt="${flow.caption}" />
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+
+                userFlowsSection.classList.add('active');
+
+                // Add click handlers for user flow images
+                userFlowsContainer.querySelectorAll('.user-flow-image-wrapper').forEach(wrapper => {
+                    wrapper.addEventListener('click', () => {
+                        const imgSrc = wrapper.getAttribute('data-image');
+                        const caption = wrapper.getAttribute('data-caption');
+                        openLightbox(imgSrc, caption);
+                    });
+                });
+            } else {
+                userFlowsSection.classList.remove('active');
+            }
+
+            // Load sketches (legacy layout)
+            const sketchesSection = document.getElementById('sketches-section');
+            const sketchesGrid = document.getElementById('sketches-grid');
+            if (project.sketches && id !== 'course-enrollment') {
+                sketchesGrid.innerHTML = project.sketches.map(sketch => `
+                    <div class="sketch-item">
+                        <p class="sketch-description">${sketch.description || ''}</p>
+                        <div class="sketch-image-wrapper" data-image="${sketch.src}" data-caption="${sketch.caption}">
+                            <img src="${sketch.src}" alt="${sketch.caption}" />
+                        </div>
+                    </div>
+                `).join('');
+
+                sketchesSection.classList.add('active');
+
+                // Add click handlers for sketch images
+                sketchesGrid.querySelectorAll('.sketch-image-wrapper').forEach(wrapper => {
+                    wrapper.addEventListener('click', () => {
+                        const imgSrc = wrapper.getAttribute('data-image');
+                        const caption = wrapper.getAttribute('data-caption');
+                        openLightbox(imgSrc, caption);
+                    });
+                });
+            } else {
+                sketchesSection.classList.remove('active');
+            }
+
+            // Load wireframes (legacy layout)
+            const wireframesSection = document.getElementById('wireframes-section');
+            const wireframesGrid = document.getElementById('wireframes-grid');
+            if (project.wireframes && id !== 'course-enrollment') {
+                wireframesGrid.innerHTML = project.wireframes.map(wireframe => `
+                    <div class="wireframe-item">
+                        <p class="wireframe-description">${wireframe.description || ''}</p>
+                        <div class="wireframe-image-wrapper" data-image="${wireframe.src}" data-caption="${wireframe.caption}">
+                            <img src="${wireframe.src}" alt="${wireframe.caption}" />
+                        </div>
+                    </div>
+                `).join('');
+
+                wireframesSection.classList.add('active');
+
+                // Add click handlers for wireframe images
+                wireframesGrid.querySelectorAll('.wireframe-image-wrapper').forEach(wrapper => {
+                    wrapper.addEventListener('click', () => {
+                        const imgSrc = wrapper.getAttribute('data-image');
+                        const caption = wrapper.getAttribute('data-caption');
+                        openLightbox(imgSrc, caption);
+                    });
+                });
+            } else {
+                wireframesSection.classList.remove('active');
+            }
+
+            // Update navigation buttons
+            const currentIndex = projectOrder.indexOf(id);
+            const prevBtn = document.getElementById('prev-project-btn');
+            const nextBtn = document.getElementById('next-project-btn');
+
+            // Previous button
+            if (currentIndex > 0) {
+                const prevId = projectOrder[currentIndex - 1];
+                prevBtn.href = `project.html?id=${prevId}`;
+                prevBtn.style.display = 'inline-flex';
+            } else {
+                prevBtn.style.display = 'none';
+            }
+
+            // Next button
+            if (currentIndex < projectOrder.length - 1) {
+                const nextId = projectOrder[currentIndex + 1];
+                nextBtn.href = `project.html?id=${nextId}`;
+                nextBtn.textContent = 'Next Project →';
+            } else {
+                nextBtn.href = 'index.html';
+                nextBtn.textContent = 'Back to Portfolio →';
+            }
+
+            // Update page title
+            document.title = `${project.title} – Taylor Simpson`;
+
+            if (!isOracleCaseStudy && !isEditorialCaseStudy) {
+                applyDefaultSectionEyebrows();
+            }
+        }
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        function openLightbox(src, caption) {
+            lightboxImage.src = src;
+            lightboxImage.alt = caption;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        if (projectId && projects[projectId]) {
+            loadProject(projectId);
+        } else {
+            window.location.href = 'index.html';
+        }
+    </script>
+    <script src="auth.js"></script>
+</body>
+
+</html>
