@@ -4,17 +4,34 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Taylor Simpson — Portfolio</title>
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('theme');
+                if (!theme) {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) { }
+        })();
+    </script>
+    <style>
+        html { background: #ffffff; color: #0f172a; }
+        html[data-theme="dark"] { background: #0f1412; color: #e8ede9; }
+    </style>
+    <title>Taylor Simpson – Portfolio</title>
     <meta name="description"
-        content="Portfolio of Taylor Simpson — product-focused UX designer, product manager, and writer." />
+        content="Taylor Simpson – product designer and PM. 6 years shipping UX in startups: case studies, prototypes, and web &amp; mobile products." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <meta name="theme-color" content="#0ea5a4">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Schibsted+Grotesk:wght@400..900&family=Unbounded:wght@500;700&display=swap"
+        rel="stylesheet">
+    <meta name="theme-color" content="#ffffff">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
     <!-- <link rel="stylesheet" href="styles.css"> -->
 
     <!-- Google tag (gtag.js) -->
@@ -44,21 +61,36 @@
             --card: #ffffff;
             --muted: #6b7280;
             --text: #0f172a;
-            --accent: #0ea5a4;
+            --text-2: #4b5563;
+            --accent: #1a1a1a;
+            --accent-deep: #0a0a0a;
+            --accent-soft: #ebebeb;
             --accent-2: #2d2d2d;
+            --line: rgba(0, 0, 0, 0.06);
+            --line-2: #e5e7eb;
             --glass: rgba(15, 23, 42, 0.04);
             --radius: 12px;
-            --focus: 3px rgba(14, 165, 164, 0.16);
+            --shadow: 0 8px 30px rgba(12, 15, 20, 0.04);
+            --focus: 3px rgba(0, 0, 0, 0.12);
+            --font-display: "Schibsted Grotesk", system-ui, sans-serif;
+            --font-body: "DM Sans", system-ui, sans-serif;
         }
 
         [data-theme="dark"] {
-            --bg: #071022;
-            --card: #071827;
-            --muted: #94a3b8;
-            --text: #e6eef3;
-            --accent: #3dd6cf;
+            --bg: #0f1412;
+            --card: #151c19;
+            --muted: #8a9a92;
+            --text: #e8ede9;
+            --text-2: #b8c4bc;
+            --accent: #d1d5db;
+            --accent-deep: #f3f4f6;
+            --accent-soft: rgba(255, 255, 255, 0.08);
             --accent-2: #2d2d2d;
+            --line: rgba(255, 255, 255, 0.08);
+            --line-2: rgba(255, 255, 255, 0.12);
             --glass: rgba(255, 255, 255, 0.03);
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+            --focus: 3px rgba(255, 255, 255, 0.12);
         }
 
         * {
@@ -69,17 +101,31 @@
             scroll-behavior: smooth;
             min-height: 100%;
             background: var(--bg);
+            color-scheme: light dark;
         }
 
         html,
         body {
             min-height: 100%;
             margin: 0;
-            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
-                "Helvetica Neue", Arial;
+            font-family: var(--font-body);
             background: var(--bg);
             color: var(--text);
             -webkit-font-smoothing: antialiased;
+            transition: background 0.35s ease, color 0.35s ease;
+        }
+
+        .logo,
+        nav a,
+        .btn,
+        h1,
+        h2.section-title,
+        .card h3,
+        .project-content h3,
+        .experience-item h3,
+        .contacts-links h3,
+        .card-resume h3 {
+            font-family: var(--font-display);
         }
 
         a {
@@ -127,6 +173,7 @@
             font-size: 40px;
             line-height: 1.15;
             margin: 0 0 20px;
+            color: var(--text);
         }
 
         .hero p {
@@ -164,27 +211,19 @@
             color: var(--text);
         }
 
-        /* Highlights */
-        .highlights {
-            display: flex;
-            gap: 10px;
-            margin-top: 18px;
-            flex-wrap: wrap;
-        }
-
-        .chip {
-            background: var(--glass);
-            padding: 10px 12px;
-            border-radius: 999px;
-            font-weight: 700;
-            color: var(--text);
-            font-size: 13px;
-        }
-
         /* Projects */
         h2.section-title {
             margin: 64px 0 24px;
             font-size: 20px;
+            font-weight: 700;
+        }
+
+        h2.section-title--sub {
+            margin-top: 28px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-2);
         }
 
         section {
@@ -201,8 +240,8 @@
             background: var(--card);
             border-radius: 14px;
             padding: 14px;
-            box-shadow: 0 8px 30px rgba(12, 15, 20, 0.04);
-            border: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
             transition: transform 0.18s ease, box-shadow 0.18s ease;
             display: block;
         }
@@ -279,6 +318,11 @@
             font-size: 13px;
         }
 
+        .tags .tag-brand {
+            font-weight: 600;
+            color: var(--text-2);
+        }
+
         .card h3 {
             margin: 6px 0 0;
             font-size: 16px;
@@ -301,8 +345,8 @@
             background: var(--card);
             border-radius: 14px;
             padding: 18px;
-            box-shadow: 0 8px 30px rgba(12, 15, 20, 0.04);
-            border: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
             transition: transform 0.18s ease, box-shadow 0.18s ease;
             cursor: pointer;
             display: flex;
@@ -357,6 +401,151 @@
             font-size: 13px;
         }
 
+        .side-projects-break {
+            margin-top: 64px;
+            padding-top: 28px;
+            border-top: 1px solid var(--line-2);
+            scroll-margin-top: 80px;
+        }
+
+        .also-building {
+            margin-top: 0;
+            padding: 20px 22px 22px;
+            border-radius: 16px;
+            background:
+                radial-gradient(circle at 0% 0%, rgba(167, 139, 250, 0.16), transparent 45%),
+                radial-gradient(circle at 100% 100%, rgba(251, 146, 60, 0.12), transparent 40%),
+                #f7f7f8;
+            border: 2px dashed rgba(167, 139, 250, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .also-building {
+            background:
+                radial-gradient(circle at 0% 0%, rgba(167, 139, 250, 0.1), transparent 45%),
+                radial-gradient(circle at 100% 100%, rgba(251, 146, 60, 0.08), transparent 40%),
+                rgba(255, 255, 255, 0.04);
+            border-color: rgba(167, 139, 250, 0.28);
+        }
+
+        .also-building-header h2 {
+            margin: 0;
+            font-size: 18px;
+            font-family: "Unbounded", var(--font-display);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(120deg, #8b5cf6, #f97316);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        [data-theme="dark"] .also-building-header h2 {
+            background: linear-gradient(120deg, #c4b5fd, #fdba74);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .also-building-view-all {
+            font-family: "Unbounded", var(--font-display);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .also-building-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .also-building-desc {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.55;
+            max-width: 52ch;
+        }
+
+        .also-building-view-all:hover {
+            color: var(--text);
+        }
+
+        .lab-preview {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 12px 14px;
+            border: 2px solid var(--line);
+            border-left: 4px solid var(--lab-preview-accent, #a78bfa);
+            border-radius: 10px;
+            background: var(--card);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .lab-preview:nth-child(2) {
+            --lab-preview-accent: #fb923c;
+        }
+
+        .lab-preview:hover,
+        .lab-preview:focus-within {
+            transform: translateY(-2px) rotate(0deg);
+            box-shadow: 4px 4px 0 var(--lab-preview-accent, #a78bfa);
+        }
+
+        .lab-preview-text h3 {
+            margin: 0 0 2px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.25;
+            font-family: "Unbounded", var(--font-display);
+        }
+
+        .lab-preview-text p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.4;
+            color: var(--muted);
+        }
+
+        .also-building-row {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .lab-preview-arrow {
+            flex-shrink: 0;
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--muted);
+        }
+
+        .lab-preview:hover .lab-preview-arrow,
+        .lab-preview:focus-within .lab-preview-arrow {
+            color: var(--text);
+        }
+
+        .project-item-image--placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            text-align: center;
+            font-family: var(--font-display);
+            font-size: 11px;
+            font-weight: 700;
+            line-height: 1.25;
+            color: #fff;
+        }
+
         /* About */
         .about {
             display: grid;
@@ -397,8 +586,8 @@
         }
 
         .portrait {
-            width: 270px;
-            height: 270px;
+            width: 280px;
+            height: 280px;
             border-radius: 16px;
             background: linear-gradient(180deg, #f8fafc, #eef2ff);
             display: flex;
@@ -408,6 +597,10 @@
             color: var(--muted);
             font-size: 18px;
             overflow: hidden;
+        }
+
+        [data-theme="dark"] .portrait {
+            background: linear-gradient(180deg, #1a1f1c, #151c19);
         }
 
         .portrait img {
@@ -448,7 +641,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: #e5e7eb;
+            background: var(--line-2);
         }
 
         .experience-item {
@@ -465,7 +658,7 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: #e5e7eb;
+            background: var(--line-2);
             z-index: 1;
         }
 
@@ -488,6 +681,14 @@
         .experience-item .time-range {
             color: var(--muted);
             font-size: 13px;
+        }
+
+        .experience-item .outcome {
+            margin: 10px 0 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.55;
+            max-width: 62ch;
         }
 
         /* Contact / Resume */
@@ -570,6 +771,10 @@
             nav a {
                 display: none;
             }
+
+            nav a[href="#work"] {
+                display: inline;
+            }
         }
 
         /* Small UI extras */
@@ -583,8 +788,18 @@
             border-radius: 999px;
             padding: 8px;
             border: 1px solid var(--glass);
-            background: transparent;
+            background: var(--bg);
             cursor: pointer;
+            flex-shrink: 0;
+            font-size: 16px;
+            line-height: 1;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body {
+                transition: none;
+            }
         }
 
         /* subtle animations */
@@ -603,34 +818,32 @@
     </style>
 </head>
 
-<body data-theme="light">
+<body>
     <div class="container fade-up">
         <header>
             <div class="logo">Taylor Simpson</div>
             <div class="topbar">
                 <nav aria-label="Main navigation">
-                    <a href="#work">Projects</a>
+                    <a href="#work">Case Studies</a>
                     <a href="#about">About</a>
                     <a href="#experience">Experience</a>
                     <a href="TaylorSimpson_Resume.pdf" target="_blank" rel="noopener">Resume</a>
                 </nav>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">🌓</button>
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">🌓</button>
             </div>
         </header>
 
         <main>
             <section class="hero" id="home">
                 <div>
-                    <h1>I’m Taylor – a product designer passionate about crafting intuitive digital experiences.</h1>
-                    <p>Currently, I’m working with the Social Good Fund, helping design and manage the development a
-                        mobile app that makes it
-                        easier for people to get involved in local community initiatives.
-                    </p>
-                    <p>Previously, I’ve worked across UX design, product management, mobile development, and content
-                        strategy, giving me the
-                        opportunity to think about products and their growth from multiple angles.</p>
+                    <h1>I'm Taylor — I turn messy, ambiguous problems into products (and stories) that make sense.</h1>
+                    <p>For the past 6 years, I've been designing, building, and shipping products, mostly at startups
+                        where I've had to wear a lot of hats.</p>
+                    <p>Currently I'm helping build SettleKit, a tool that guides immigrants through the practical steps
+                        of setting up a life in the US. Before that I worked across product design, product management,
+                        and software development, launching mobile apps and SaaS tools from the ground up.</p>
                     <div class="cta">
-                        <a class="btn btn-primary" href="#work">View projects</a>
+                        <a class="btn btn-primary" href="#work">View Case Studies</a>
                     </div>
                 </div>
 
@@ -644,87 +857,91 @@
             </section>
 
             <section id="work">
-                <h2 class="section-title">Featured Projects</h2>
-
+                <h2 class="section-title">Case Studies</h2>
                 <div class="projects featured-projects">
-                    <a href="project.html?id=expense-tracker" class="card" tabindex="0">
+                    <a href="project.html?id=course-enrollment" class="card" tabindex="0">
                         <div class="thumb">
-                            <img src="images/card-expense-tracker.png" alt="Expense Tracker" />
+                            <img src="images/project_cards/card-course-enrollment.png"
+                                alt="Course Enrollment Prototype" />
                         </div>
-                        <div class="tags">Web App · React · Redux · Firebase</div>
-                        <h3>Online Budgeting Tool</h3>
-                        <p>Input expense data and visualize it across charts and graphs.</p>
+                        <div class="tags"><span class="tag-brand">BrainStation UX</span> · Figma prototype</div>
+                        <h3>Oracle Course Enrollment Prototype</h3>
+                        <p>Re-imagining a fragmented enrollment experience used by thousands of university students — rebuilt around how they actually search, plan, and enroll.</p>
+                    </a>
+                    <a href="project.html?id=settlekit" class="card" tabindex="0">
+                        <div class="thumb">
+                            <img src="images/project_cards/card-settlekit.png" alt="SettleKit" />
+                        </div>
+                        <div class="tags"><span class="tag-brand">SettleKit</span> · Product design · Web app</div>
+                        <h3>Guided settlement platform for immigrants</h3>
+                        <p>Product design for a guided tool that helps immigrants with practical US setup –
+                            identification, banking, housing, healthcare, and related steps.</p>
                     </a>
 
                     <a href="project.html?id=pedal-patrol" class="card" tabindex="0">
                         <div class="thumb">
-                            <img src="images/card-pedal-patrol.png" alt="Pedal Patrol" />
+                            <img src="images/project_cards/card-pedal-patrol.png" alt="Pedal Patrol" />
                         </div>
-                        <div class="tags">Mobile · React Native </div>
-                        <h3>Crowdsourced Bike Theft Recovery App</h3>
-                        <p>Mobile app crowdsourcing bike recoveries for a local cycling community.</p>
-                    </a>
-
-                    <a href="project.html?id=course-enrollment" class="card" tabindex="0">
-                        <div class="thumb">
-                            <img src="images/card-course-enrollment.png" alt="Course Enrollment Prototype" />
-                        </div>
-                        <div class="tags">Prototype · Figma</div>
-                        <h3>Oracle Course Enrollment Prototype</h3>
-                        <p>Improved workflows for students in a prototype for Oracle's enrollment system.</p>
+                        <div class="tags"><span class="tag-brand">Pedal Patrol</span> · Product management · Client capstone</div>
+                        <h3>Crowdsourced bike recovery app</h3>
+                        <p>A crowdsourcing mobile app that reunites cyclists with stolen bikes — by turning a whole community into the search party.</p>
                     </a>
                 </div>
 
-                <h2 class="section-title" style="margin-top:64px">Other Projects</h2>
+                <h2 class="section-title section-title--sub">More Work</h2>
 
                 <div class="other-projects">
 
-                    <a href="project.html?id=song-analysis" class="project-item" tabindex="0">
+                    <a href="project.html?id=lexir" class="project-item" tabindex="0">
                         <div class="project-item-image">
-                            <img src="images/square-song-analysis.png" alt="Spotify Song Analysis" />
+                            <img src="images/project_cards/card-lexir.png" alt="Lexir storefront" />
                         </div>
                         <div class="project-content">
-                            <h3>Spotify Song Analysis</h3>
-                            <p>Analyzes songs and provides insights on key metrics, BPM, and more.</p>
-                            <div class="tags">Web App · Spotify API</div>
+                            <h3>Distribution platform for craft wine &amp; spirits</h3>
+                            <p>Product management for a B2B platform helping brands sell across Europe — from one market to six.</p>
+                            <div class="tags"><span class="tag-brand">Lexir</span> · Product management · B2B SaaS</div>
                         </div>
                     </a>
 
-                    <a href="project.html?id=support-tracker" class="project-item" tabindex="0">
+                    <a href="project.html?id=orange-gate" class="project-item" tabindex="0">
                         <div class="project-item-image">
-                            <img src="images/square-support-ticket-status.png" alt="Customer support visibility" />
+                            <img src="images/project_cards/card-orange-gate.png" alt="Orange Gate robot at BMO Elevate" />
                         </div>
                         <div class="project-content">
-                            <h3>Customer Support Status Tracker</h3>
-                            <p>A chatbot that surfaces support ticket status to customers using Ada Support.</p>
-                            <div class="tags">Chatbot · Ada SDK</div>
+                            <h3>Apps for consumer robots</h3>
+                            <p>Conversational Android apps for humanoid robots — welcome and orientation experiences for BMO and General Motors.</p>
+                            <div class="tags"><span class="tag-brand">Orange Gate</span> · Android development · UX/UI</div>
                         </div>
                     </a>
 
-                    <a href="project.html?id=myndjournal" class="project-item" tabindex="0">
-                        <div class="project-item-image">
-                            <img src="images/square-myndjournal.png" alt="Mental health journaling" />
-                        </div>
-                        <div class="project-content">
-                            <h3>Mental Health Journaling & Insights</h3>
-                            <p>Hackathon finalist: Visualizes mental health data from sentiment analysis of journal
-                                entries.</p>
-                            <div class="tags">Web App · Sentiment Analysis</div>
-                        </div>
-                    </a>
+                </div>
 
-                    <a href="project.html?id=stock-block" class="project-item" tabindex="0">
-                        <div class="project-item-image">
-                            <img src="images/square-stock-block.png" alt="QHacks marketing" />
+                <div class="side-projects-break" id="side-projects">
+                <section class="also-building" aria-labelledby="side-projects-title">
+                    <div class="also-building-header">
+                        <div>
+                            <h2 class="section-title" id="side-projects-title" style="margin:0">Side Projects</h2>
+                            <p class="also-building-desc">Small things I've built for fun or to learn something new.</p>
                         </div>
-                        <div class="project-content">
-                            <h3>Decentralized Stock Photography Platform</h3>
-                            <p>A platform for photographers to upload and sell their photos on the
-                                blockchain without a
-                                middleman.</p>
-                            <div class="tags">DApp · Solidity · Blockchain</div>
-                        </div>
-                    </a>
+                        <a href="lab/" class="also-building-view-all">View all →</a>
+                    </div>
+                    <div class="also-building-row">
+                        <a href="lab/project.html?id=expense-tracker" class="lab-preview" tabindex="0">
+                            <div class="lab-preview-text">
+                                <h3>Online Budgeting Tool</h3>
+                                <p>Personal expense tracker with charts</p>
+                            </div>
+                            <span class="lab-preview-arrow" aria-hidden="true">→</span>
+                        </a>
+                        <a href="lab/project.html?id=song-analysis" class="lab-preview" tabindex="0">
+                            <div class="lab-preview-text">
+                                <h3>Spotify Song Analysis</h3>
+                                <p>Musical details for whatever you're playing</p>
+                            </div>
+                            <span class="lab-preview-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </section>
                 </div>
             </section>
 
@@ -732,32 +949,32 @@
                 <h2 class="section-title">About</h2>
                 <div class="about">
                     <div>
-                        <h3>I like working to create products that feel useful, clear, and genuinely helpful - the kinds
-                            of tools people can pick up
-                            and understand without effort.</h3>
-                        <p>Over the past 8 years, my path has taken me through community-driven projects, e-commerce,
-                            SaaS products, and mobile
-                            apps. I’ve helped define features, map user flows, test concepts, write in-app copy, and
-                            collaborate closely with
-                            engineers to bring ideas into the real world. Each project has taught me something different
-                            about how people think,
-                            navigate products, and make decisions.
-                        </p>
 
-                        <p>For me, design isn’t just about how something looks; it’s also about the decisions behind it
-                            and how people move through
-                            an experience. I enjoy working through problems end-to-end — understanding what people need,
-                            shaping how a feature
-                            should work, and designing the flows and interfaces that bring it to life.</p>
-                        <p>Outside of work, I love playing my guitar, cooking new recipes, and getting out on the
-                            skating rink.</p>
+                        <p>I've always been drawn to building things people use. I studied computer science to give
+                            myself the tools to build, and working across product, engineering, and design, mostly at
+                            early-stage startups, has shown me how products come together from every side. What ties all
+                            of it together is the user experience itself: how people think, where they get stuck, and
+                            what would make a hard task feel easy.</p>
 
-                        <!-- <div class="superpowers">
-                            <div class="power">Design — UX & UI</div>
-                            <div class="power">Development — React, Firebase</div>
-                            <div class="power">Copywriting & Content Strategy</div>
-                            <div class="power">Prototyping & Workshops</div>
-                        </div> -->
+                        <p>Along the way I've defined features, mapped user flows, tested concepts, written in-app copy,
+                            and shipped alongside engineers, across everything from community projects to e-commerce,
+                            SaaS, and mobile apps.</p>
+
+                        <p>If there's one thing I optimize for, it's clarity. In my experience, teams often overestimate
+                            how quickly people will understand a product, so it's worth thinking carefully across every
+                            touchpoint. I tend to be the person sweating the small details, especially the wording. UX
+                            writing is a particular focus of mine, and one of the most overlooked parts of good design:
+                            the microcopy, onboarding, and in-app guidance all shape how intuitive and enjoyable a
+                            product is.</p>
+
+                        <p>Right now I'm applying these skills at SettleKit, a product that helps immigrants handle the
+                            practical parts of arriving in the US: getting an SSN, opening a bank account, finding
+                            housing, figuring out healthcare, etc. These are big decisions where a wrong turn can cost
+                            real time and money, which makes clear, trustworthy guidance even more important.</p>
+
+                        <p>Outside of work, you'll usually find me playing guitar, cooking something new, or at the
+                            rink – either playing hockey or short track speed skating.</p>
+
                     </div>
 
                     <aside>
@@ -784,28 +1001,46 @@
                 <div class="experience-list">
                     <div class="experience-item">
                         <h3>Product Designer</h3>
+                        <p class="company">SettleKit</p>
+                        <p class="time-range">2026 – Present</p>
+                        <p class="outcome">End-to-end UX for immigrants navigating US settlement – turning confusing
+                            immigration and bureaucratic steps into clear flows users can trust.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Product Designer</h3>
                         <p class="company">Social Good Fund</p>
-                        <p class="time-range">2024 — Present</p>
+                        <p class="time-range">2024 – 2026</p>
+                        <p class="outcome">Shipped design for impact-led initiatives – balancing nonprofit constraints
+                            with
+                            usable, modern product surfaces.</p>
                     </div>
                     <div class="experience-item">
                         <h3>Product Manager</h3>
                         <p class="company">Lexir</p>
-                        <p class="time-range">2020 — 2023</p>
+                        <p class="time-range">2020 – 2023</p>
+                        <p class="outcome">Owned the product and GTM for a B2B distribution platform and storefront that helps craft alcohol brands distribute their products in Europe — growing from 1 to 6 markets.</p>
                     </div>
                     <div class="experience-item">
                         <h3>Product Manager</h3>
                         <p class="company">Pedal Patrol</p>
-                        <p class="time-range">2018 — 2019</p>
+                        <p class="time-range">2018 – 2019</p>
+                        <p class="outcome">Defined requirements and delivery for a community bike-recovery app; shipped
+                            a
+                            React Native prototype the client accepted and handed off for continued development.</p>
                     </div>
                     <div class="experience-item">
                         <h3>Teaching Assistant</h3>
                         <p class="company">CISC 352: Artificial Intelligence</p>
-                        <p class="time-range">2019 — 2019</p>
+                        <p class="time-range">2019 – 2019</p>
+                        <p class="outcome">Supported students on AI coursework – assignment feedback, grading, and
+                            office
+                            hours that tightened understanding of core concepts.</p>
                     </div>
                     <div class="experience-item">
                         <h3>Software Developer</h3>
-                        <p class="company">Orange Gate Consulting</p>
-                        <p class="time-range">2018 — 2018</p>
+                        <p class="company">Orange Gate · Apps for consumer robots</p>
+                        <p class="time-range">2018 – 2018</p>
+                        <p class="outcome">Designed and built conversational Android apps for humanoid robots — welcome and orientation experiences for BMO and General Motors.</p>
                     </div>
                 </div>
             </section>
@@ -839,10 +1074,14 @@
     <script>
         // theme toggle
         const toggle = document.getElementById('themeToggle');
-        const body = document.body;
-        function setTheme(t) { body.setAttribute('data-theme', t); localStorage.setItem('theme', t); }
-        const saved = localStorage.getItem('theme') || 'light'; setTheme(saved);
-        toggle.addEventListener('click', () => setTheme(body.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
+        const root = document.documentElement;
+
+        function setTheme(t) {
+            root.setAttribute('data-theme', t);
+            localStorage.setItem('theme', t);
+        }
+
+        toggle.addEventListener('click', () => setTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
 
         // Cards are now links, so keyboard navigation works natively
     </script>

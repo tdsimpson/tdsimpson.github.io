@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Effect demos – Taylor Simpson</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="fonts/geist.css">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --card: #ffffff;
+            --muted: #6b7280;
+            --text: #0f172a;
+            --accent: #0ea5a4;
+            --accent-2: #2d2d2d;
+            --glass: rgba(15, 23, 42, 0.04);
+            --radius: 12px;
+            --focus: 3px rgba(14, 165, 164, 0.16);
+            --display: "Fraunces", Georgia, serif;
+        }
+
+        [data-theme="dark"] {
+            --bg: #071022;
+            --card: #071827;
+            --muted: #94a3b8;
+            --text: #e6eef3;
+            --accent: #3dd6cf;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Geist Sans", system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.35s ease, color 0.35s ease;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 32px 20px 80px;
+        }
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 24px;
+        }
+
+        .back:hover {
+            color: var(--text);
+        }
+
+        .intro h1 {
+            margin: 0 0 12px;
+            font-size: 32px;
+            letter-spacing: -0.02em;
+        }
+
+        .intro p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.6;
+            max-width: 60ch;
+        }
+
+        .toc {
+            margin: 28px 0 40px;
+            padding: 18px 20px;
+            border: 1px solid var(--glass);
+            border-radius: var(--radius);
+            background: var(--card);
+        }
+
+        .toc h2 {
+            margin: 0 0 12px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+        }
+
+        .toc ol {
+            margin: 0;
+            padding-left: 20px;
+            line-height: 1.9;
+        }
+
+        .toc a {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .demo {
+            margin-bottom: 56px;
+            padding-bottom: 56px;
+            border-bottom: 1px solid var(--glass);
+        }
+
+        .demo:last-child {
+            border-bottom: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .demo-label {
+            display: inline-block;
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+        }
+
+        .demo h2 {
+            margin: 0 0 8px;
+            font-size: 22px;
+        }
+
+        .demo-note {
+            margin: 0 0 20px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.55;
+            max-width: 62ch;
+        }
+
+        .demo-stage {
+            padding: 24px;
+            border-radius: 14px;
+            border: 1px solid var(--glass);
+            background: var(--card);
+        }
+
+        /* 1. Before / after slider */
+        .compare {
+            position: relative;
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 10;
+            border-radius: 10px;
+            overflow: hidden;
+            user-select: none;
+            touch-action: none;
+            box-shadow: 0 8px 30px rgba(12, 15, 20, 0.08);
+        }
+
+        .compare img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .compare-after {
+            clip-path: inset(0 0 0 50%);
+        }
+
+        .compare-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            margin-left: -1.5px;
+            background: white;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+            cursor: ew-resize;
+            z-index: 2;
+        }
+
+        .compare-handle::after {
+            content: "↔";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: white;
+            color: var(--accent-2);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+        }
+
+        .compare-labels {
+            display: flex;
+            justify-content: space-between;
+            max-width: 640px;
+            margin: 10px auto 0;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* 2. Staggered scroll reveal */
+        .reveal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .reveal-card {
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--glass);
+            background: var(--bg);
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .reveal-card.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        .reveal-card strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .reveal-card span {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* 3. Theme toggle */
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .theme-switch {
+            position: relative;
+            width: 56px;
+            height: 30px;
+            padding: 0;
+            border: 1px solid var(--glass);
+            border-radius: 999px;
+            background: var(--bg);
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .theme-switch-knob {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--accent);
+            transition: transform 0.3s cubic-bezier(0.34, 1.2, 0.64, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        [data-theme="dark"] .theme-switch-knob {
+            transform: translateX(26px);
+        }
+
+        .toggle-caption {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* 4. Portrait depth */
+        .portrait-demo {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .portrait-tilt {
+            width: 200px;
+            height: 200px;
+            border-radius: 16px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out;
+            cursor: pointer;
+        }
+
+        .portrait-tilt::before {
+            content: "";
+            position: absolute;
+            inset: -20px;
+            border-radius: 24px;
+            background: radial-gradient(circle at 30% 20%, rgba(14, 165, 164, 0.35), transparent 55%),
+                radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.2), transparent 50%);
+            filter: blur(24px);
+            z-index: 0;
+        }
+
+        .portrait-tilt img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(12, 15, 20, 0.15);
+        }
+
+        /* 5. View transition */
+        .vt-wrap {
+            max-width: 360px;
+            margin: 0 auto;
+        }
+
+        .vt-card {
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid var(--glass);
+            background: var(--bg);
+            cursor: pointer;
+            view-transition-name: demo-card;
+        }
+
+        .vt-card img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .vt-card h3 {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .vt-detail {
+            display: none;
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid var(--glass);
+            background: var(--bg);
+            view-transition-name: demo-card;
+        }
+
+        .vt-detail.open {
+            display: block;
+        }
+
+        .vt-detail img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .vt-detail h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+        }
+
+        .vt-detail p {
+            margin: 0 0 12px;
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .vt-back {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--glass);
+            background: transparent;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        /* 6. Scroll progress */
+        .scroll-demo {
+            border-radius: 10px;
+            border: 1px solid var(--glass);
+            overflow: hidden;
+        }
+
+        .scroll-progress-track {
+            height: 4px;
+            background: var(--glass);
+        }
+
+        .scroll-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--accent);
+            transition: width 0.08s linear;
+        }
+
+        .scroll-demo-body {
+            height: 220px;
+            overflow-y: auto;
+            padding: 16px 18px;
+            background: var(--bg);
+        }
+
+        .scroll-demo-body p {
+            margin: 0 0 14px;
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* 7. SettleKit hover */
+        .settlekit-card {
+            max-width: 280px;
+            margin: 0 auto;
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid var(--glass);
+            background: var(--bg);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .settlekit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(12, 15, 20, 0.1);
+        }
+
+        .settlekit-svg {
+            display: block;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .settlekit-svg .step {
+            opacity: 0.45;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        .settlekit-card:hover .settlekit-svg .step-1 {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .settlekit-card:hover .settlekit-svg .step-2 {
+            opacity: 1;
+            transition-delay: 0.08s;
+        }
+
+        .settlekit-card:hover .settlekit-svg .step-3 {
+            opacity: 1;
+            transition-delay: 0.16s;
+        }
+
+        .settlekit-card:hover .settlekit-svg .check {
+            stroke-dashoffset: 0;
+        }
+
+        .settlekit-svg .check {
+            stroke-dasharray: 24;
+            stroke-dashoffset: 24;
+            transition: stroke-dashoffset 0.35s ease 0.2s;
+        }
+
+        /* 8. Nav active state */
+        .scroll-nav-demo {
+            border-radius: 10px;
+            border: 1px solid var(--glass);
+            overflow: hidden;
+        }
+
+        .scroll-nav-bar {
+            display: flex;
+            gap: 4px;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--glass);
+            background: var(--bg);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .scroll-nav-bar a {
+            position: relative;
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--muted);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: color 0.2s ease;
+        }
+
+        .scroll-nav-bar a.active {
+            color: var(--text);
+        }
+
+        .scroll-nav-bar a.active::after {
+            content: "";
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            bottom: 2px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .scroll-nav-panels {
+            height: 200px;
+            overflow-y: auto;
+        }
+
+        .scroll-nav-panel {
+            min-height: 120px;
+            padding: 20px 16px;
+            border-bottom: 1px solid var(--glass);
+        }
+
+        .scroll-nav-panel:last-child {
+            border-bottom: 0;
+        }
+
+        .scroll-nav-panel h3 {
+            margin: 0 0 8px;
+            font-size: 15px;
+        }
+
+        .scroll-nav-panel p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* 9. Typography */
+        .type-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .type-sample {
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid var(--glass);
+            background: var(--bg);
+        }
+
+        .type-sample .tag {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .type-sample h3 {
+            margin: 0 0 8px;
+            font-size: 24px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .type-sample.display h3 {
+            font-family: var(--display);
+            font-weight: 700;
+        }
+
+        .type-sample p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 640px) {
+            .reveal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .type-compare {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal-card {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        ::view-transition-old(demo-card),
+        ::view-transition-new(demo-card) {
+            animation-duration: 0.4s;
+        }
+    </style>
+</head>
+
+<body data-theme="light">
+    <div class="page">
+        <a class="back" href="index.html">← Back to portfolio</a>
+
+        <div class="intro">
+            <h1>Effect demos</h1>
+            <p>Simple previews of interaction ideas discussed for the portfolio. Each section is isolated so you can
+                judge what feels right before building anything for real.</p>
+        </div>
+
+        <nav class="toc" aria-label="Demo sections">
+            <h2>On this page</h2>
+            <ol>
+                <li><a href="#demo-1">Before / after slider</a></li>
+                <li><a href="#demo-2">Staggered scroll reveal</a></li>
+                <li><a href="#demo-3">Theme toggle</a></li>
+                <li><a href="#demo-4">Portrait depth</a></li>
+                <li><a href="#demo-5">View transition</a></li>
+                <li><a href="#demo-6">Scroll progress</a></li>
+                <li><a href="#demo-7">SettleKit card hover</a></li>
+                <li><a href="#demo-8">Nav active state</a></li>
+                <li><a href="#demo-9">Typography contrast</a></li>
+            </ol>
+        </nav>
+
+        <!-- 1 -->
+        <section class="demo" id="demo-1">
+            <span class="demo-label">Demo 1</span>
+            <h2>Before / after slider</h2>
+            <p class="demo-note">Drag the handle (or tap and drag on mobile). Would live on Oracle case study solution
+                pairs.</p>
+            <div class="demo-stage">
+                <div class="compare" id="compare">
+                    <img src="images/case_studies/course_enrollment/user-interviews-insights-common-complaint-1.png"
+                        alt="Before: original search" />
+                    <img class="compare-after"
+                        src="images/case_studies/course_enrollment/solution-2-days-time-filter.png"
+                        alt="After: days and time filter" />
+                    <div class="compare-handle" id="compareHandle"></div>
+                </div>
+                <div class="compare-labels">
+                    <span>Before</span>
+                    <span>After</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2 -->
+        <section class="demo" id="demo-2">
+            <span class="demo-label">Demo 2</span>
+            <h2>Staggered scroll reveal</h2>
+            <p class="demo-note">Scroll this section into view — cards fade up one after another. Would apply to Featured
+                Projects on the homepage.</p>
+            <div class="demo-stage">
+                <div class="reveal-grid" id="revealGrid">
+                    <div class="reveal-card"><strong>Oracle Enrollment</strong><span>Prototype · Figma</span></div>
+                    <div class="reveal-card"><strong>SettleKit</strong><span>Product · UX</span></div>
+                    <div class="reveal-card"><strong>Pedal Patrol</strong><span>Mobile · React Native</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 -->
+        <section class="demo" id="demo-3">
+            <span class="demo-label">Demo 3</span>
+            <h2>Theme toggle</h2>
+            <p class="demo-note">Replaces the emoji button with a proper switch. Page colors transition smoothly (try it
+                on this whole page).</p>
+            <div class="demo-stage">
+                <div class="toggle-row">
+                    <button class="theme-switch" id="themeSwitch" type="button" aria-label="Toggle color theme">
+                        <span class="theme-switch-knob" id="themeKnob">☀️</span>
+                    </button>
+                    <span class="toggle-caption" id="themeCaption">Light mode</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 -->
+        <section class="demo" id="demo-4">
+            <span class="demo-label">Demo 4</span>
+            <h2>Portrait depth</h2>
+            <p class="demo-note">Move your cursor over the portrait — subtle tilt plus a soft gradient glow behind it.
+                Would sit in the homepage hero.</p>
+            <div class="demo-stage portrait-demo">
+                <div class="portrait-tilt" id="portraitTilt">
+                    <img src="images/portrait.png" alt="Taylor Simpson" />
+                </div>
+            </div>
+        </section>
+
+        <!-- 5 -->
+        <section class="demo" id="demo-5">
+            <span class="demo-label">Demo 5</span>
+            <h2>View transition</h2>
+            <p class="demo-note">Click the project card — the thumbnail morphs into a detail view (uses the browser View
+                Transitions API; works best in Chrome / Edge).</p>
+            <div class="demo-stage">
+                <div class="vt-wrap" id="vtWrap">
+                    <div class="vt-card" id="vtCard" role="button" tabindex="0">
+                        <img src="images/project_cards/card-course-enrollment.png" alt="" />
+                        <h3>Oracle Course Enrollment</h3>
+                    </div>
+                    <div class="vt-detail" id="vtDetail">
+                        <img src="images/project_cards/card-course-enrollment.png" alt="" />
+                        <h3>Oracle Course Enrollment</h3>
+                        <p>Improved workflows for students in a prototype for Oracle's enrollment system.</p>
+                        <button class="vt-back" type="button" id="vtBack">← Back</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 -->
+        <section class="demo" id="demo-6">
+            <span class="demo-label">Demo 6</span>
+            <h2>Scroll progress</h2>
+            <p class="demo-note">Thin accent bar fills as you read. Would sit at the top of long case study pages.</p>
+            <div class="demo-stage">
+                <div class="scroll-demo">
+                    <div class="scroll-progress-track">
+                        <div class="scroll-progress-fill" id="scrollFill"></div>
+                    </div>
+                    <div class="scroll-demo-body" id="scrollBody">
+                        <p>Scroll through this box to see the progress bar fill.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Students described enrollment as
+                            confusing and fragmented across multiple tools.</p>
+                        <p>Research surfaced three recurring pain points: required courses buried in the calendar,
+                            search that doesn't match mental models, and no conflict warnings until it's too late.</p>
+                        <p>The prototype focused on auto-enrolling required courses, day/time filters, and upfront
+                            conflict detection — each mapped to a specific interview insight.</p>
+                        <p>End of demo content. On a real case study this bar would track the full page scroll.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7 -->
+        <section class="demo" id="demo-7">
+            <span class="demo-label">Demo 7</span>
+            <h2>SettleKit card hover</h2>
+            <p class="demo-note">Hover the card — checklist steps light up in sequence. Would replace the static project
+                thumbnail on the homepage.</p>
+            <div class="demo-stage">
+                <div class="settlekit-card">
+                    <svg class="settlekit-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <defs>
+                            <linearGradient id="sk-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0ea5a4" />
+                                <stop offset="100%" stop-color="#0f766e" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="320" height="200" rx="10" fill="url(#sk-bg)" />
+                        <text x="160" y="36" text-anchor="middle" fill="#fff" font-family="Geist Sans, sans-serif"
+                            font-size="18" font-weight="700">SettleKit</text>
+                        <g class="step step-1" transform="translate(40, 58)">
+                            <rect width="240" height="32" rx="6" fill="rgba(255,255,255,0.15)" />
+                            <circle cx="16" cy="16" r="8" fill="rgba(255,255,255,0.3)" />
+                            <path class="check" d="M12 16 L15 19 L21 12" fill="none" stroke="#fff" stroke-width="2"
+                                stroke-linecap="round" />
+                            <text x="32" y="20" fill="#fff" font-family="Geist Sans, sans-serif" font-size="12">Get your
+                                SSN</text>
+                        </g>
+                        <g class="step step-2" transform="translate(40, 98)">
+                            <rect width="240" height="32" rx="6" fill="rgba(255,255,255,0.15)" />
+                            <circle cx="16" cy="16" r="8" fill="rgba(255,255,255,0.3)" />
+                            <text x="32" y="20" fill="#fff" font-family="Geist Sans, sans-serif" font-size="12">Open a bank
+                                account</text>
+                        </g>
+                        <g class="step step-3" transform="translate(40, 138)">
+                            <rect width="240" height="32" rx="6" fill="rgba(255,255,255,0.15)" />
+                            <circle cx="16" cy="16" r="8" fill="rgba(255,255,255,0.3)" />
+                            <text x="32" y="20" fill="#fff" font-family="Geist Sans, sans-serif" font-size="12">Find
+                                housing</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8 -->
+        <section class="demo" id="demo-8">
+            <span class="demo-label">Demo 8</span>
+            <h2>Nav active state</h2>
+            <p class="demo-note">Scroll inside the box — the nav highlights whichever section you're reading. Would
+                mirror homepage sections (Work, About, Experience).</p>
+            <div class="demo-stage">
+                <div class="scroll-nav-demo">
+                    <nav class="scroll-nav-bar" id="scrollNavBar">
+                        <a href="#sn-work" data-panel="sn-work" class="active">Work</a>
+                        <a href="#sn-about" data-panel="sn-about">About</a>
+                        <a href="#sn-exp" data-panel="sn-exp">Experience</a>
+                    </nav>
+                    <div class="scroll-nav-panels" id="scrollNavPanels">
+                        <div class="scroll-nav-panel" id="sn-work">
+                            <h3>Work</h3>
+                            <p>Featured projects and case studies would anchor here.</p>
+                        </div>
+                        <div class="scroll-nav-panel" id="sn-about">
+                            <h3>About</h3>
+                            <p>Background, approach, and contact links.</p>
+                        </div>
+                        <div class="scroll-nav-panel" id="sn-exp">
+                            <h3>Experience</h3>
+                            <p>Roles, companies, and outcome-focused summaries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9 -->
+        <section class="demo" id="demo-9">
+            <span class="demo-label">Demo 9</span>
+            <h2>Typography contrast</h2>
+            <p class="demo-note">Side by side: Geist everywhere (current) vs. a display serif for headings only.</p>
+            <div class="demo-stage">
+                <div class="type-compare">
+                    <div class="type-sample">
+                        <div class="tag">Current — Geist</div>
+                        <h3>Featured Projects</h3>
+                        <p>Clean and safe. Reads as product UI, less editorial.</p>
+                    </div>
+                    <div class="type-sample display">
+                        <div class="tag">Option — Fraunces + Geist</div>
+                        <h3>Featured Projects</h3>
+                        <p>Headlines get more personality; body stays readable.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 1. Before / after slider
+        (function () {
+            const compare = document.getElementById('compare');
+            const handle = document.getElementById('compareHandle');
+            const after = compare.querySelector('.compare-after');
+            let dragging = false;
+
+            function setPosition(clientX) {
+                const rect = compare.getBoundingClientRect();
+                let pct = ((clientX - rect.left) / rect.width) * 100;
+                pct = Math.max(8, Math.min(92, pct));
+                after.style.clipPath = `inset(0 0 0 ${pct}%)`;
+                handle.style.left = pct + '%';
+            }
+
+            function start(e) {
+                dragging = true;
+                setPosition(e.touches ? e.touches[0].clientX : e.clientX);
+            }
+
+            function move(e) {
+                if (!dragging) return;
+                e.preventDefault();
+                setPosition(e.touches ? e.touches[0].clientX : e.clientX);
+            }
+
+            function end() { dragging = false; }
+
+            handle.addEventListener('mousedown', start);
+            compare.addEventListener('mousedown', (e) => { if (e.target !== handle) start(e); });
+            window.addEventListener('mousemove', move);
+            window.addEventListener('mouseup', end);
+            handle.addEventListener('touchstart', start, { passive: true });
+            compare.addEventListener('touchstart', (e) => { if (e.target !== handle) start(e); }, { passive: true });
+            window.addEventListener('touchmove', move, { passive: false });
+            window.addEventListener('touchend', end);
+        })();
+
+        // 2. Staggered scroll reveal
+        (function () {
+            const grid = document.getElementById('revealGrid');
+            const cards = [...grid.querySelectorAll('.reveal-card')];
+            const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (reduced) {
+                cards.forEach((c) => c.classList.add('visible'));
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    cards.forEach((card, i) => {
+                        setTimeout(() => card.classList.add('visible'), i * 100);
+                    });
+                    observer.disconnect();
+                });
+            }, { threshold: 0.4 });
+            observer.observe(grid);
+        })();
+
+        // 3. Theme toggle
+        (function () {
+            const body = document.body;
+            const btn = document.getElementById('themeSwitch');
+            const knob = document.getElementById('themeKnob');
+            const caption = document.getElementById('themeCaption');
+
+            function apply(theme) {
+                body.setAttribute('data-theme', theme);
+                knob.textContent = theme === 'dark' ? '🌙' : '☀️';
+                caption.textContent = theme === 'dark' ? 'Dark mode' : 'Light mode';
+            }
+
+            apply('light');
+            btn.addEventListener('click', () => {
+                apply(body.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+            });
+        })();
+
+        // 4. Portrait tilt
+        (function () {
+            const el = document.getElementById('portraitTilt');
+            const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (reduced) return;
+
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                el.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
+            });
+
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'perspective(600px) rotateY(0) rotateX(0)';
+            });
+        })();
+
+        // 5. View transition
+        (function () {
+            const card = document.getElementById('vtCard');
+            const detail = document.getElementById('vtDetail');
+            const back = document.getElementById('vtBack');
+            let open = false;
+
+            function toggle() {
+                const update = () => {
+                    open = !open;
+                    card.style.display = open ? 'none' : 'block';
+                    detail.classList.toggle('open', open);
+                };
+                if (document.startViewTransition) {
+                    document.startViewTransition(update);
+                } else {
+                    update();
+                }
+            }
+
+            card.addEventListener('click', toggle);
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+            });
+            back.addEventListener('click', toggle);
+        })();
+
+        // 6. Scroll progress
+        (function () {
+            const body = document.getElementById('scrollBody');
+            const fill = document.getElementById('scrollFill');
+            body.addEventListener('scroll', () => {
+                const max = body.scrollHeight - body.clientHeight;
+                const pct = max > 0 ? (body.scrollTop / max) * 100 : 0;
+                fill.style.width = pct + '%';
+            });
+        })();
+
+        // 8. Nav active state
+        (function () {
+            const panels = document.getElementById('scrollNavPanels');
+            const links = [...document.querySelectorAll('#scrollNavBar a')];
+            const sections = links.map((a) => document.getElementById(a.dataset.panel));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const id = entry.target.id;
+                    links.forEach((a) => a.classList.toggle('active', a.dataset.panel === id));
+                });
+            }, { root: panels, threshold: 0.6 });
+
+            sections.forEach((s) => observer.observe(s));
+
+            links.forEach((a) => {
+                a.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.getElementById(a.dataset.panel).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>

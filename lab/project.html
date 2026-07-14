@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('theme');
+                if (!theme) {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) { }
+        })();
+    </script>
+    <style>
+        html { background: #ffffff; color: #0f172a; }
+        html[data-theme="dark"] { background: #0f1412; color: #e8ede9; }
+    </style>
+    <title>Side Project – Taylor Simpson</title>
+    <meta name="description" content="A side project by Taylor Simpson." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Schibsted+Grotesk:wght@400..900&family=Unbounded:wght@500;700&display=swap"
+        rel="stylesheet">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --card: #ffffff;
+            --muted: #6b7280;
+            --text: #0f172a;
+            --text-2: #4b5563;
+            --accent-2: #2d2d2d;
+            --line: rgba(0, 0, 0, 0.06);
+            --line-2: #e5e7eb;
+            --glass: rgba(15, 23, 42, 0.04);
+            --radius: 12px;
+            --focus: 3px rgba(0, 0, 0, 0.12);
+            --font-display: "Schibsted Grotesk", system-ui, sans-serif;
+            --font-body: "DM Sans", system-ui, sans-serif;
+            --font-lab: "Unbounded", system-ui, sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f1412;
+            --card: #151c19;
+            --muted: #8a9a92;
+            --text: #e8ede9;
+            --text-2: #b8c4bc;
+            --line: rgba(255, 255, 255, 0.08);
+            --line-2: rgba(255, 255, 255, 0.12);
+            --glass: rgba(255, 255, 255, 0.03);
+            --focus: 3px rgba(255, 255, 255, 0.12);
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            min-height: 100%;
+            margin: 0;
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.35s ease, color 0.35s ease;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 36px 20px 56px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0 28px;
+        }
+
+        .logo, nav a, .lab-project h1, .btn {
+            font-family: var(--font-display);
+        }
+
+        .logo {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            font-size: 18px;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        nav a {
+            margin-left: 18px;
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        nav a:hover { color: var(--text); }
+
+        .theme-toggle {
+            border-radius: 999px;
+            padding: 8px;
+            border: 1px solid var(--glass);
+            background: var(--bg);
+            cursor: pointer;
+            flex-shrink: 0;
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .lab-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+
+        .lab-back:hover { color: var(--text); }
+
+        .lab-intent {
+            margin: 0 0 16px;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        .lab-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px 16px;
+            margin-bottom: 24px;
+        }
+
+        .lab-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 0;
+        }
+
+        .lab-tag {
+            font-size: 0.68rem;
+            letter-spacing: 0.02em;
+            padding: 5px 10px;
+            border-radius: 100px;
+            background: color-mix(in srgb, var(--lab-accent, #8b5cf6) 12%, transparent);
+            color: var(--text);
+            border: 1.5px solid var(--lab-accent, #8b5cf6);
+            font-weight: 600;
+        }
+
+        .lab-project {
+            padding: 24px 22px 28px;
+            border-radius: 18px;
+            border: 2px dashed rgba(167, 139, 250, 0.35);
+            background:
+                radial-gradient(circle at 100% 0%, rgba(251, 146, 60, 0.1), transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(167, 139, 250, 0.1), transparent 42%),
+                var(--card);
+        }
+
+        [data-theme="dark"] .lab-project {
+            border-color: rgba(167, 139, 250, 0.22);
+        }
+
+        .lab-project h1 {
+            font-family: var(--font-lab);
+            margin: 0 0 10px;
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--lab-accent, #8b5cf6);
+        }
+
+        .lab-body {
+            margin-top: 28px;
+        }
+
+        .lab-body p {
+            margin: 0 0 18px;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        .lab-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .lab-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 0;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: var(--lab-accent, #8b5cf6);
+            color: #0f172a;
+            border: 2px solid #0f172a;
+            box-shadow: 3px 3px 0 #0f172a;
+            font-family: var(--font-lab);
+        }
+
+        [data-theme="dark"] .btn-primary {
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.45);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--line-2);
+            color: var(--text);
+        }
+
+        .lab-media {
+            margin: 0;
+        }
+
+        .lab-media + .lab-media {
+            margin-top: 16px;
+        }
+
+        .lab-video {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--accent-2);
+            border: 1px solid var(--line);
+        }
+
+        .lab-video iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .lab-screenshots {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .lab-shot {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: var(--card);
+        }
+
+        .lab-shot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .lab-shot figcaption {
+            padding: 8px 10px;
+            font-size: 12px;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            margin-top: 48px;
+            padding-top: 24px;
+            color: var(--muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 14px;
+        }
+
+        footer a:hover { color: var(--text); }
+
+        a:focus, button:focus {
+            outline: none;
+            box-shadow: var(--focus);
+        }
+
+        @media (max-width: 620px) {
+            nav a { display: none; }
+            .lab-screenshots { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="../index.html" class="logo">Taylor Simpson</a>
+            <div class="topbar">
+                <nav aria-label="Main navigation">
+                    <a href="../index.html#work">Case Studies</a>
+                    <a href="../index.html#about">About</a>
+                    <a href="../index.html#experience">Experience</a>
+                    <a href="../TaylorSimpson_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+                </nav>
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">🌓</button>
+            </div>
+        </header>
+
+        <main id="lab-project-main"></main>
+
+        <footer>
+            <div>© Taylor Simpson</div>
+            <div style="display:flex;gap:16px;flex-wrap:wrap">
+                <a href="index.html" style="color:var(--muted)">All side projects</a>
+                <a href="mailto:taylor.daniel.simpson@gmail.com" style="color:var(--muted)">Email</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const labProjects = {
+            'expense-tracker': {
+                title: 'Online Budgeting Tool',
+                accent: '#a78bfa',
+                intent: 'Built to sharpen my React and Redux skills — and replace the budgeting app I was paying for.',
+                tags: ['React', 'Redux', 'Firebase', 'Chart.js'],
+                paragraphs: [
+                    'A personal expense tracker with interactive charts — spend by category, over time, month over month — that turn raw entries into something worth acting on.',
+                    'State runs through Redux, persistence through Firebase. I use it daily; building for myself was a good reminder that fast, useful, and simple beats feature-heavy.'
+                ],
+                github: 'https://github.com/tdsimpson/expense-tracker',
+                demo: 'https://www.youtube.com/watch?v=VPtTarety28',
+                screenshots: [
+                    { src: '../images/case_studies/expense_tracker/add-edit-expense.png', label: 'Adding an expense' },
+                    { src: '../images/case_studies/expense_tracker/expense-list.png', label: 'Expense list & search' },
+                    { src: '../images/case_studies/expense_tracker/spending-over-time.png', label: 'Spending over time' },
+                    { src: '../images/case_studies/expense_tracker/spending-by-category.png', label: 'Spending by category' }
+                ]
+            },
+            'song-analysis': {
+                title: 'Spotify Song Analysis',
+                accent: '#fb923c',
+                intent: 'Built to experiment with the Spotify API — a play-along tool for whatever I\'m listening to.',
+                tags: ['React', 'Spotify API', 'Wikipedia API'],
+                paragraphs: [
+                    'Spotify knows key, tempo, and more — but doesn\'t show it. This pulls the current track, surfaces the musical details, adds an artist bio from Wikipedia, and recolors the UI to match the album art.',
+                    'A small project with a clear personal itch, and a good excuse to stitch two APIs into one screen.'
+                ],
+                github: 'https://github.com/tdsimpson/Song-Analysis',
+                demo: 'https://www.youtube.com/watch?v=O5B2sth-wxs',
+                demoNote: 'The demo has no audio — text overlays narrate the walkthrough.'
+            }
+        };
+
+        function youtubeEmbed(url) {
+            let id = '';
+            if (url.includes('youtube.com/watch?v=')) {
+                id = url.split('v=')[1].split('&')[0];
+            } else if (url.includes('youtu.be/')) {
+                id = url.split('youtu.be/')[1].split('?')[0];
+            }
+            return id ? `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1` : url;
+        }
+
+        const projectId = new URLSearchParams(window.location.search).get('id');
+        const project = projectId ? labProjects[projectId] : null;
+
+        if (!project) {
+            window.location.replace('index.html');
+        } else {
+            document.title = `${project.title} – Side Projects · Taylor Simpson`;
+
+            const screenshotsHTML = project.screenshots?.length
+                ? `<div class="lab-media"><div class="lab-screenshots">${project.screenshots.map(shot => `
+                    <figure class="lab-shot">
+                        <img src="${shot.src}" alt="${shot.label}" loading="lazy" />
+                        <figcaption>${shot.label}</figcaption>
+                    </figure>
+                `).join('')}</div></div>`
+                : '';
+
+            const videoHTML = project.demo
+                ? `<div class="lab-media">
+                    <div class="lab-video">
+                        <iframe src="${youtubeEmbed(project.demo)}" title="${project.title} demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    ${project.demoNote ? `<p style="margin:10px 0 0;font-size:13px;color:var(--muted)">${project.demoNote}</p>` : ''}
+                   </div>`
+                : '';
+
+            document.getElementById('lab-project-main').innerHTML = `
+                <article class="lab-project" style="--lab-accent: ${project.accent}">
+                    <a href="index.html" class="lab-back">← Side projects</a>
+                    <h1>${project.title}</h1>
+                    <p class="lab-intent">${project.intent}</p>
+                    <div class="lab-meta">
+                        <div class="lab-tags">
+                            ${project.tags.map(tag => `<span class="lab-tag">${tag}</span>`).join('')}
+                        </div>
+                        <div class="lab-actions">
+                            ${project.github ? `<a class="btn btn-outline" href="${project.github}" target="_blank" rel="noopener">GitHub</a>` : ''}
+                            ${project.demo ? `<a class="btn btn-primary" href="${project.demo}" target="_blank" rel="noopener">Watch demo →</a>` : ''}
+                        </div>
+                    </div>
+                    ${videoHTML}
+                    ${screenshotsHTML}
+                    <div class="lab-body">
+                        ${project.paragraphs.map(p => `<p>${p}</p>`).join('')}
+                    </div>
+                </article>
+            `;
+        }
+
+        const toggle = document.getElementById('themeToggle');
+        const root = document.documentElement;
+        toggle.addEventListener('click', () => {
+            const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+    </script>
+</body>
+
+</html>

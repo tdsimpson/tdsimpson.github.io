@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('theme');
+                if (!theme) {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) { }
+        })();
+    </script>
+    <style>
+        html { background: #ffffff; color: #0f172a; }
+        html[data-theme="dark"] { background: #0f1412; color: #e8ede9; }
+    </style>
+    <title>Side Projects – Taylor Simpson</title>
+    <meta name="description"
+        content="Personal and experimental projects by Taylor Simpson — things built for fun or to learn something new." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Schibsted+Grotesk:wght@400..900&family=Unbounded:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --card: #ffffff;
+            --muted: #6b7280;
+            --text: #0f172a;
+            --text-2: #4b5563;
+            --accent: #1a1a1a;
+            --accent-deep: #0a0a0a;
+            --accent-soft: #ebebeb;
+            --accent-2: #2d2d2d;
+            --line: rgba(0, 0, 0, 0.06);
+            --line-2: #e5e7eb;
+            --glass: rgba(15, 23, 42, 0.04);
+            --radius: 12px;
+            --shadow: 0 8px 30px rgba(12, 15, 20, 0.04);
+            --focus: 3px rgba(0, 0, 0, 0.12);
+            --font-display: "Schibsted Grotesk", system-ui, sans-serif;
+            --font-body: "DM Sans", system-ui, sans-serif;
+            --font-lab: "Unbounded", system-ui, sans-serif;
+            --lab-lime: #c8f050;
+            --lab-purple: #a78bfa;
+            --lab-coral: #fb923c;
+            --lab-sky: #7dd3fc;
+            --lab-pink: #f9a8d4;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f1412;
+            --card: #151c19;
+            --muted: #8a9a92;
+            --text: #e8ede9;
+            --text-2: #b8c4bc;
+            --accent: #d1d5db;
+            --accent-deep: #f3f4f6;
+            --accent-soft: rgba(255, 255, 255, 0.08);
+            --accent-2: #2d2d2d;
+            --line: rgba(255, 255, 255, 0.08);
+            --line-2: rgba(255, 255, 255, 0.12);
+            --glass: rgba(255, 255, 255, 0.03);
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+            --focus: 3px rgba(255, 255, 255, 0.12);
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            min-height: 100%;
+            margin: 0;
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.35s ease, color 0.35s ease;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 36px 20px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0 24px;
+        }
+
+        .logo, nav a {
+            font-family: var(--font-display);
+        }
+
+        .lab-zone {
+            position: relative;
+            margin: 0 -12px;
+            padding: 28px 20px 36px;
+            border-radius: 20px;
+            background:
+                radial-gradient(circle at 8% 12%, rgba(167, 139, 250, 0.22), transparent 42%),
+                radial-gradient(circle at 92% 18%, rgba(251, 146, 60, 0.18), transparent 38%),
+                radial-gradient(circle at 50% 100%, rgba(200, 240, 80, 0.14), transparent 45%),
+                linear-gradient(180deg, rgba(125, 211, 252, 0.08), transparent 55%);
+            border: 2px dashed rgba(167, 139, 250, 0.35);
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .lab-zone {
+            background:
+                radial-gradient(circle at 8% 12%, rgba(167, 139, 250, 0.12), transparent 42%),
+                radial-gradient(circle at 92% 18%, rgba(251, 146, 60, 0.1), transparent 38%),
+                radial-gradient(circle at 50% 100%, rgba(200, 240, 80, 0.08), transparent 45%),
+                linear-gradient(180deg, rgba(125, 211, 252, 0.05), transparent 55%);
+            border-color: rgba(167, 139, 250, 0.25);
+        }
+
+        .lab-zone::before,
+        .lab-zone::after {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .lab-zone::before {
+            width: 120px;
+            height: 120px;
+            top: -30px;
+            right: 8%;
+            background: var(--lab-lime);
+            opacity: 0.35;
+            transform: rotate(18deg);
+        }
+
+        .lab-zone::after {
+            width: 80px;
+            height: 80px;
+            bottom: 12%;
+            left: 4%;
+            background: var(--lab-pink);
+            opacity: 0.28;
+            transform: rotate(-12deg);
+        }
+
+        .lab-zone > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .lab-hero {
+            padding: 4px 0 32px;
+            border-bottom: none;
+            margin-bottom: 28px;
+        }
+
+        .lab-eyebrow {
+            display: inline-block;
+            font-family: var(--font-lab);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #0f172a;
+            background: var(--lab-lime);
+            padding: 7px 12px;
+            border-radius: 8px;
+            border: 2px solid #0f172a;
+            transform: rotate(-2deg);
+            margin-bottom: 18px;
+            box-shadow: 3px 3px 0 #0f172a;
+        }
+
+        [data-theme="dark"] .lab-eyebrow {
+            color: #0f172a;
+            box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .lab-hero h1 {
+            font-family: var(--font-lab);
+            font-size: clamp(1.85rem, 5vw, 3rem);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin: 0 0 14px;
+            background: linear-gradient(120deg, var(--lab-purple), var(--lab-coral) 55%, var(--lab-sky));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        [data-theme="dark"] .lab-hero h1 {
+            background: linear-gradient(120deg, #c4b5fd, #fdba74 55%, #7dd3fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .lab-intro {
+            margin: 0;
+            max-width: 52ch;
+            color: var(--text-2);
+            font-size: 1.02rem;
+            line-height: 1.6;
+        }
+
+        .lab-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .lab-card {
+            background: var(--card);
+            border: 3px solid var(--lab-accent, var(--lab-purple));
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 6px 6px 0 var(--lab-accent, var(--lab-purple));
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transform: rotate(var(--lab-tilt, 0deg));
+        }
+
+        .lab-card:hover {
+            transform: rotate(0deg) translateY(-4px);
+            box-shadow: 8px 10px 0 var(--lab-accent, var(--lab-purple));
+        }
+
+        .lab-card-thumb {
+            display: block;
+            aspect-ratio: 16 / 10;
+            background: color-mix(in srgb, var(--lab-accent, var(--lab-purple)) 12%, white);
+            overflow: hidden;
+            border-bottom: 3px solid var(--lab-accent, var(--lab-purple));
+        }
+
+        [data-theme="dark"] .lab-card-thumb {
+            background: color-mix(in srgb, var(--lab-accent, var(--lab-purple)) 18%, #151c19);
+        }
+
+        .lab-card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .lab-card-body {
+            padding: 18px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .lab-card h3 {
+            font-family: var(--font-lab);
+            margin: 0 0 8px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+        }
+
+        .lab-card p {
+            margin: 0 0 14px;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.55;
+            flex: 1;
+        }
+
+        .lab-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .lab-tag {
+            font-size: 0.68rem;
+            letter-spacing: 0.02em;
+            padding: 5px 10px;
+            border-radius: 100px;
+            background: color-mix(in srgb, var(--lab-accent, var(--lab-purple)) 14%, transparent);
+            color: var(--text);
+            border: 1.5px solid var(--lab-accent, var(--lab-purple));
+            font-weight: 600;
+        }
+
+        .lab-card-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 9px 14px;
+            border-radius: 10px;
+            border: 2px solid #0f172a;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-lab);
+        }
+
+        [data-theme="dark"] .btn {
+            border-color: var(--line-2);
+        }
+
+        .btn-primary {
+            background: var(--lab-accent, var(--lab-purple));
+            color: #0f172a;
+            box-shadow: 3px 3px 0 #0f172a;
+        }
+
+        [data-theme="dark"] .btn-primary {
+            color: #0f172a;
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-outline {
+            background: var(--card);
+            color: var(--text);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            transform: translate(1px, 1px);
+            box-shadow: 2px 2px 0 #0f172a;
+        }
+
+        .logo {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            font-size: 18px;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        nav a {
+            margin-left: 18px;
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        nav a:hover,
+        nav a[aria-current="page"] {
+            color: var(--text);
+        }
+
+        .theme-toggle {
+            border-radius: 999px;
+            padding: 8px;
+            border: 1px solid var(--glass);
+            background: var(--bg);
+            cursor: pointer;
+            flex-shrink: 0;
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            margin-top: 56px;
+            padding-top: 24px;
+            color: var(--muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer a:hover { color: var(--text); }
+
+        a:focus, button:focus {
+            outline: none;
+            box-shadow: var(--focus);
+        }
+
+        @media (max-width: 760px) {
+            .lab-grid { grid-template-columns: 1fr; }
+            nav a { margin-left: 12px; font-size: 13px; }
+        }
+
+        @media (max-width: 620px) {
+            nav a:not([aria-current="page"]) { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="../index.html" class="logo">Taylor Simpson</a>
+            <div class="topbar">
+                <nav aria-label="Main navigation">
+                    <a href="../index.html#work">Case Studies</a>
+                    <a href="../index.html#about">About</a>
+                    <a href="../index.html#experience">Experience</a>
+                    <a href="../TaylorSimpson_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+                </nav>
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">🌓</button>
+            </div>
+        </header>
+
+        <main class="lab-zone">
+            <section class="lab-hero">
+                <div class="lab-eyebrow">Side Projects</div>
+                <h1>Side projects &amp; experiments</h1>
+                <p class="lab-intro">Small things I've built for fun or to learn something new.</p>
+            </section>
+
+            <div class="lab-grid" id="lab-grid"></div>
+        </main>
+
+        <footer>
+            <div>© Taylor Simpson</div>
+            <div style="color:var(--muted);display:flex;gap:16px;flex-wrap:wrap">
+                <a href="mailto:taylor.daniel.simpson@gmail.com" style="color:var(--muted)">Email</a>
+                <a href="https://github.com/tdsimpson" target="_blank" rel="noopener" style="color:var(--muted)">Github</a>
+                <a href="https://www.linkedin.com/in/td-simpson" target="_blank" rel="noopener" style="color:var(--muted)">LinkedIn</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const labProjects = [
+            {
+                id: 'expense-tracker',
+                title: 'Online Budgeting Tool',
+                description: 'Built to sharpen my React and Redux skills — a personal expense tracker with charts.',
+                image: '../images/project_cards/square-expense-tracker.png',
+                tags: ['React', 'Redux', 'Firebase', 'Chart.js'],
+                accent: '#a78bfa',
+                tilt: '-0.6deg',
+                caseStudy: 'project.html?id=expense-tracker',
+                github: 'https://github.com/tdsimpson/expense-tracker'
+            },
+            {
+                id: 'song-analysis',
+                title: 'Spotify Song Analysis',
+                description: 'Built to experiment with the Spotify API — musical details for whatever you\'re playing.',
+                image: '../images/project_cards/square-song-analysis.png',
+                tags: ['React', 'Spotify API', 'Wikipedia API'],
+                accent: '#fb923c',
+                tilt: '0.7deg',
+                caseStudy: 'project.html?id=song-analysis',
+                github: 'https://github.com/tdsimpson/Song-Analysis'
+            }
+        ];
+
+        document.getElementById('lab-grid').innerHTML = labProjects.map(project => `
+            <article class="lab-card" id="${project.id}" style="--lab-accent: ${project.accent}; --lab-tilt: ${project.tilt}">
+                <a href="${project.caseStudy}" class="lab-card-thumb">
+                    <img src="${project.image}" alt="${project.title}" />
+                </a>
+                <div class="lab-card-body">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                    <div class="lab-tags">
+                        ${project.tags.map(tag => `<span class="lab-tag">${tag}</span>`).join('')}
+                    </div>
+                    <div class="lab-card-actions">
+                        <a class="btn btn-primary" href="${project.caseStudy}">Read more →</a>
+                        ${project.github ? `<a class="btn btn-outline" href="${project.github}" target="_blank" rel="noopener">GitHub</a>` : ''}
+                    </div>
+                </div>
+            </article>
+        `).join('');
+
+        const toggle = document.getElementById('themeToggle');
+        const root = document.documentElement;
+        toggle.addEventListener('click', () => {
+            const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+    </script>
+</body>
+
+</html>
