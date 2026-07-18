@@ -19,7 +19,7 @@
         html { background: #ffffff; color: #0f172a; }
         html[data-theme="dark"] { background: #0f1412; color: #e8ede9; }
     </style>
-    <title>Taylor Simpson – Portfolio</title>
+    <title>Taylor Simpson | Portfolio</title>
     <meta name="description"
         content="Taylor Simpson – product designer and PM. 6 years shipping UX in startups: case studies, prototypes, and web &amp; mobile products." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -411,57 +411,21 @@
         .also-building {
             margin-top: 0;
             padding: 20px 22px 22px;
-            border-radius: 16px;
-            background:
-                radial-gradient(circle at 0% 0%, rgba(167, 139, 250, 0.16), transparent 45%),
-                radial-gradient(circle at 100% 100%, rgba(251, 146, 60, 0.12), transparent 40%),
-                #f7f7f8;
-            border: 2px dashed rgba(167, 139, 250, 0.4);
-            position: relative;
-            overflow: hidden;
+            border-radius: var(--radius);
+            background: #f7f7f8;
+            border: 1px solid var(--line);
         }
 
         [data-theme="dark"] .also-building {
-            background:
-                radial-gradient(circle at 0% 0%, rgba(167, 139, 250, 0.1), transparent 45%),
-                radial-gradient(circle at 100% 100%, rgba(251, 146, 60, 0.08), transparent 40%),
-                rgba(255, 255, 255, 0.04);
-            border-color: rgba(167, 139, 250, 0.28);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .also-building-header {
+            margin-bottom: 16px;
         }
 
         .also-building-header h2 {
             margin: 0;
-            font-size: 18px;
-            font-family: "Unbounded", var(--font-display);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            background: linear-gradient(120deg, #8b5cf6, #f97316);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        [data-theme="dark"] .also-building-header h2 {
-            background: linear-gradient(120deg, #c4b5fd, #fdba74);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .also-building-view-all {
-            font-family: "Unbounded", var(--font-display);
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--muted);
-            white-space: nowrap;
-        }
-
-        .also-building-header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 16px;
-            margin-bottom: 16px;
         }
 
         .also-building-desc {
@@ -472,65 +436,56 @@
             max-width: 52ch;
         }
 
-        .also-building-view-all:hover {
-            color: var(--text);
+        .also-building-row {
+            display: flex;
+            align-items: stretch;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .lab-preview {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            padding: 12px 14px;
-            border: 2px solid var(--line);
-            border-left: 4px solid var(--lab-preview-accent, #a78bfa);
+            gap: 10px;
+            padding: 10px 14px 10px 10px;
+            border: 1px solid var(--line);
             border-radius: 10px;
             background: var(--card);
+            min-width: 0;
+            flex: 1 1 180px;
+            max-width: 280px;
             transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-        }
-
-        .lab-preview:nth-child(2) {
-            --lab-preview-accent: #fb923c;
         }
 
         .lab-preview:hover,
         .lab-preview:focus-within {
-            transform: translateY(-2px) rotate(0deg);
-            box-shadow: 4px 4px 0 var(--lab-preview-accent, #a78bfa);
+            transform: translateY(-1px);
+            border-color: var(--line-2);
+            box-shadow: 0 6px 16px rgba(12, 15, 20, 0.06);
         }
 
-        .lab-preview-text h3 {
-            margin: 0 0 2px;
+        .lab-preview-thumb {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--accent-2);
+        }
+
+        .lab-preview-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .lab-preview h3 {
+            margin: 0;
             font-size: 14px;
             font-weight: 700;
             line-height: 1.25;
-            font-family: "Unbounded", var(--font-display);
-        }
-
-        .lab-preview-text p {
-            margin: 0;
-            font-size: 13px;
-            line-height: 1.4;
-            color: var(--muted);
-        }
-
-        .also-building-row {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .lab-preview-arrow {
-            flex-shrink: 0;
             font-family: var(--font-display);
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--muted);
-        }
-
-        .lab-preview:hover .lab-preview-arrow,
-        .lab-preview:focus-within .lab-preview-arrow {
-            color: var(--text);
         }
 
         .project-item-image--placeholder {
@@ -836,7 +791,7 @@
         <main>
             <section class="hero" id="home">
                 <div>
-                    <h1>I'm Taylor — I turn messy, ambiguous problems into products (and stories) that make sense.</h1>
+                    <h1>I'm Taylor. I turn messy, ambiguous problems into products (and stories) that make sense.</h1>
                     <p>For the past 6 years, I've been designing, building, and shipping products, mostly at startups
                         where I've had to wear a lot of hats.</p>
                     <p>Currently I'm helping build SettleKit, a tool that guides immigrants through the practical steps
@@ -859,6 +814,15 @@
             <section id="work">
                 <h2 class="section-title">Case Studies</h2>
                 <div class="projects featured-projects">
+                    <a href="project.html?id=lexir" class="card" tabindex="0">
+                        <div class="thumb">
+                            <img src="images/project_cards/card-lexir.png" alt="Lexir storefront" />
+                        </div>
+                        <div class="tags"><span class="tag-brand">Lexir</span> · Product management · B2B SaaS</div>
+                        <h3>Distribution platform for craft wine &amp; spirits</h3>
+                        <p>Product management for a B2B platform helping brands sell across Europe, from one market to eight.</p>
+                    </a>
+
                     <a href="project.html?id=course-enrollment" class="card" tabindex="0">
                         <div class="thumb">
                             <img src="images/project_cards/card-course-enrollment.png"
@@ -867,15 +831,6 @@
                         <div class="tags"><span class="tag-brand">BrainStation UX</span> · Figma prototype</div>
                         <h3>Oracle Course Enrollment Prototype</h3>
                         <p>Re-imagining a fragmented enrollment experience used by thousands of university students — rebuilt around how they actually search, plan, and enroll.</p>
-                    </a>
-                    <a href="project.html?id=settlekit" class="card" tabindex="0">
-                        <div class="thumb">
-                            <img src="images/project_cards/card-settlekit.png" alt="SettleKit" />
-                        </div>
-                        <div class="tags"><span class="tag-brand">SettleKit</span> · Product design · Web app</div>
-                        <h3>Guided settlement platform for immigrants</h3>
-                        <p>Product design for a guided tool that helps immigrants with practical US setup –
-                            identification, banking, housing, healthcare, and related steps.</p>
                     </a>
 
                     <a href="project.html?id=pedal-patrol" class="card" tabindex="0">
@@ -888,60 +843,27 @@
                     </a>
                 </div>
 
-                <h2 class="section-title section-title--sub">More Work</h2>
-
-                <div class="other-projects">
-
-                    <a href="project.html?id=lexir" class="project-item" tabindex="0">
-                        <div class="project-item-image">
-                            <img src="images/project_cards/card-lexir.png" alt="Lexir storefront" />
-                        </div>
-                        <div class="project-content">
-                            <h3>Distribution platform for craft wine &amp; spirits</h3>
-                            <p>Product management for a B2B platform helping brands sell across Europe — from one market to six.</p>
-                            <div class="tags"><span class="tag-brand">Lexir</span> · Product management · B2B SaaS</div>
-                        </div>
-                    </a>
-
-                    <a href="project.html?id=orange-gate" class="project-item" tabindex="0">
-                        <div class="project-item-image">
-                            <img src="images/project_cards/card-orange-gate.png" alt="Orange Gate robot at BMO Elevate" />
-                        </div>
-                        <div class="project-content">
-                            <h3>Apps for consumer robots</h3>
-                            <p>Conversational Android apps for humanoid robots — welcome and orientation experiences for BMO and General Motors.</p>
-                            <div class="tags"><span class="tag-brand">Orange Gate</span> · Android development · UX/UI</div>
-                        </div>
-                    </a>
-
-                </div>
-
                 <div class="side-projects-break" id="side-projects">
-                <section class="also-building" aria-labelledby="side-projects-title">
-                    <div class="also-building-header">
-                        <div>
-                            <h2 class="section-title" id="side-projects-title" style="margin:0">Side Projects</h2>
+                    <section class="also-building" aria-labelledby="side-projects-title">
+                        <div class="also-building-header">
+                            <h2 class="section-title" id="side-projects-title">Side Projects</h2>
                             <p class="also-building-desc">Small things I've built for fun or to learn something new.</p>
                         </div>
-                        <a href="lab/" class="also-building-view-all">View all →</a>
-                    </div>
-                    <div class="also-building-row">
-                        <a href="lab/project.html?id=expense-tracker" class="lab-preview" tabindex="0">
-                            <div class="lab-preview-text">
+                        <div class="also-building-row">
+                            <a href="project.html?id=expense-tracker" class="lab-preview" tabindex="0">
+                                <div class="lab-preview-thumb">
+                                    <img src="images/project_cards/square-expense-tracker.png" alt="" />
+                                </div>
                                 <h3>Online Budgeting Tool</h3>
-                                <p>Personal expense tracker with charts</p>
-                            </div>
-                            <span class="lab-preview-arrow" aria-hidden="true">→</span>
-                        </a>
-                        <a href="lab/project.html?id=song-analysis" class="lab-preview" tabindex="0">
-                            <div class="lab-preview-text">
+                            </a>
+                            <a href="project.html?id=song-analysis" class="lab-preview" tabindex="0">
+                                <div class="lab-preview-thumb">
+                                    <img src="images/project_cards/square-song-analysis.png" alt="" />
+                                </div>
                                 <h3>Spotify Song Analysis</h3>
-                                <p>Musical details for whatever you're playing</p>
-                            </div>
-                            <span class="lab-preview-arrow" aria-hidden="true">→</span>
-                        </a>
-                    </div>
-                </section>
+                            </a>
+                        </div>
+                    </section>
                 </div>
             </section>
 
@@ -1003,14 +925,14 @@
                         <h3>Product Designer</h3>
                         <p class="company">SettleKit</p>
                         <p class="time-range">2026 – Present</p>
-                        <p class="outcome">End-to-end UX for immigrants navigating US settlement – turning confusing
+                        <p class="outcome">End-to-end UX for immigrants navigating US settlement, turning confusing
                             immigration and bureaucratic steps into clear flows users can trust.</p>
                     </div>
                     <div class="experience-item">
                         <h3>Product Designer</h3>
                         <p class="company">Social Good Fund</p>
                         <p class="time-range">2024 – 2026</p>
-                        <p class="outcome">Shipped design for impact-led initiatives – balancing nonprofit constraints
+                        <p class="outcome">Shipped design for impact-led initiatives, balancing nonprofit constraints
                             with
                             usable, modern product surfaces.</p>
                     </div>
@@ -1018,7 +940,7 @@
                         <h3>Product Manager</h3>
                         <p class="company">Lexir</p>
                         <p class="time-range">2020 – 2023</p>
-                        <p class="outcome">Owned the product and GTM for a B2B distribution platform and storefront that helps craft alcohol brands distribute their products in Europe — growing from 1 to 6 markets.</p>
+                        <p class="outcome">Owned the product and GTM for a B2B distribution platform and storefront that helps craft alcohol brands distribute their products in Europe, growing from 1 to 8 markets.</p>
                     </div>
                     <div class="experience-item">
                         <h3>Product Manager</h3>
@@ -1032,7 +954,7 @@
                         <h3>Teaching Assistant</h3>
                         <p class="company">CISC 352: Artificial Intelligence</p>
                         <p class="time-range">2019 – 2019</p>
-                        <p class="outcome">Supported students on AI coursework – assignment feedback, grading, and
+                        <p class="outcome">Supported students on AI coursework through assignment feedback, grading, and
                             office
                             hours that tightened understanding of core concepts.</p>
                     </div>
@@ -1040,7 +962,7 @@
                         <h3>Software Developer</h3>
                         <p class="company">Orange Gate · Apps for consumer robots</p>
                         <p class="time-range">2018 – 2018</p>
-                        <p class="outcome">Designed and built conversational Android apps for humanoid robots — welcome and orientation experiences for BMO and General Motors.</p>
+                        <p class="outcome">Designed and built conversational Android apps for humanoid robots, including welcome and orientation experiences for BMO and General Motors.</p>
                     </div>
                 </div>
             </section>

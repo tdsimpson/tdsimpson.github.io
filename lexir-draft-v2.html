@@ -19,7 +19,7 @@
         html { background: #ffffff; color: #0f172a; }
         html[data-theme="dark"] { background: #0f1412; color: #e8ede9; }
     </style>
-    <title>Lexir — Flagship draft · Taylor Simpson</title>
+    <title>Lexir — Flagship draft V2 (longer prose) · Taylor Simpson</title>
     <meta name="robots" content="noindex" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -443,6 +443,81 @@
             margin-bottom: 0;
         }
 
+        .compare-table-wrap {
+            margin: 24px 0 8px;
+            overflow-x: auto;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 640px;
+        }
+
+        .compare-table th,
+        .compare-table td {
+            padding: 14px 16px;
+            text-align: left;
+            vertical-align: top;
+            font-size: 14px;
+            line-height: 1.5;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .compare-table th {
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 700;
+            background: var(--glass);
+        }
+
+        .compare-table th:first-child,
+        .compare-table td:first-child {
+            width: 22%;
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.92rem;
+            text-transform: none;
+            letter-spacing: -0.01em;
+        }
+
+        .compare-table th:first-child {
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: var(--muted);
+        }
+
+        .compare-table td {
+            color: var(--text-2);
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .compare-table .col-trad {
+            width: 39%;
+        }
+
+        .compare-table .col-lexir {
+            width: 39%;
+            background: rgba(15, 23, 42, 0.015);
+        }
+
+        [data-theme="dark"] .compare-table .col-lexir {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
         .note {
             margin: 0 0 1em;
             font-size: 0.95rem;
@@ -668,26 +743,25 @@
         <header>
             <a href="index.html" class="logo">Taylor Simpson</a>
             <div class="header-links">
+                <a href="lexir-draft.html">Shorter</a>
                 <a href="lexir-draft-v3.html">Middle (V3)</a>
-                <a href="lexir-draft-v2.html">Longer (V2)</a>
                 <a href="project.html?id=lexir">Live Lexir</a>
                 <a href="index.html">Portfolio</a>
             </div>
         </header>
 
         <div class="draft-banner">
-            <strong>Draft — shorter / scannable</strong>
+            <strong>Draft V2 — longer prose</strong>
             <p>Compare:
-                <a href="lexir-draft-v3.html"><strong>V3 middle</strong></a> ·
-                <a href="lexir-draft-v2.html"><strong>V2 longer</strong></a>.
-                When ready, merge into <code>project.html?id=lexir</code>.</p>
+                <a href="lexir-draft.html"><strong>shorter</strong></a> ·
+                <a href="lexir-draft-v3.html"><strong>V3 middle</strong></a>.</p>
         </div>
 
         <div class="editorial-grid">
             <aside class="editorial-rail" aria-label="Table of contents">
                 <ol id="rail">
                     <li class="active" data-target="overview"><a href="#overview"><span class="num">00</span><span>Overview</span></a></li>
-                    <li data-target="context"><a href="#context"><span class="num">01</span><span>The need</span></a></li>
+                    <li data-target="context"><a href="#context"><span class="num">01</span><span>The model</span></a></li>
                     <li data-target="role"><a href="#role"><span class="num">02</span><span>My role</span></a></li>
                     <li data-target="product"><a href="#product"><span class="num">03</span><span>Product &amp; platform</span></a></li>
                     <li data-target="clients"><a href="#clients"><span class="num">04</span><span>What clients needed</span></a></li>
@@ -706,7 +780,7 @@
                         <div><dt>Role</dt><dd>Product Manager</dd></div>
                         <div><dt>Company</dt><dd>Lexir · B2B commerce</dd></div>
                         <div><dt>Timeline</dt><dd>2020–2023 · ~3 years</dd></div>
-                        <div><dt>Markets</dt><dd>France → 8 in Europe</dd></div>
+                        <div><dt>Markets</dt><dd>Started in France, grew to 8</dd></div>
                     </dl>
                     <div class="case-tldr">
                         <span class="case-tldr-label">If you only read one thing</span>
@@ -718,38 +792,71 @@
                     </div>
                     <figure class="figure">
                         <img src="images/case_studies/lexir/store.png" alt="Lexir customer-facing storefront" />
-                        <figcaption>The buyer storefront. Import, warehousing, analytics, and delivery sat behind it.</figcaption>
+                        <figcaption>The storefront buyers used. The wider platform also covered import, warehousing, analytics, and delivery.</figcaption>
                     </figure>
                 </section>
 
                 <section class="editorial-section" id="context">
-                    <span class="editorial-eyebrow">01 — The need</span>
-                    <h2>Why Lexir had to exist</h2>
-                    <p>Craft brands entering Europe usually faced one option: a traditional distributor. That path took a big cut, took control, and expected volume — so small brands got poor margins and no clean way to start small.</p>
-                    <p>Lexir’s bet: brands didn’t need another middleman. They needed infrastructure — import, warehouse, shop, delivery, analytics — while keeping stock, pricing, and margins.</p>
+                    <span class="editorial-eyebrow">01 — The model</span>
+                    <h2>Why craft brands needed a different path</h2>
+                    <p>Most craft brands that want to sell in a new European country go through a <strong>traditional distributor</strong>. That model wasn’t built for small, independent brands. Margins are slim, sales attention is uneven, and getting started often means high barriers and bulk expectations. If you’re testing Paris or London for the first time, you might only want to send about 100 bottles and learn. The traditional path usually wants thousands.</p>
+                    <p>The problems stack from there. Product can pass through importer, distributor, wholesaler, and retailer — each taking a cut. Onboarding a new brand can take months. Competing bottles sit in the same portfolio. Pricing is opaque. Brands get little useful performance data. And expanding usually means finding a new distributor for every market. It’s slow, expensive, and easy for a craft brand to get lost.</p>
+                    <p>Lexir was trying to offer a different path: not “we buy your stock and own the relationship,” but <strong>the infrastructure to get into a market yourself</strong> — import, warehousing, e-commerce, last-mile delivery, analytics, and connections to local salespeople — while you keep pricing, margins, and control. The tradeoff is more work on the brand’s side. The upside is you can start small and stay in charge.</p>
 
-                    <div class="compare">
-                        <div class="compare-col">
-                            <h3>Traditional distributor</h3>
-                            <p style="margin:0 0 10px;font-family:var(--font-display);font-weight:600;font-size:0.95rem;color:var(--text)">You hand over the brand relationship.</p>
-                            <ul>
-                                <li>Sell stock cheap; they set terms</li>
-                                <li>Many middlemen, each taking a cut</li>
-                                <li>Little data; hard to start small</li>
-                            </ul>
-                        </div>
-                        <div class="compare-col">
-                            <h3>Lexir</h3>
-                            <p style="margin:0 0 10px;font-family:var(--font-display);font-weight:600;font-size:0.95rem;color:var(--text)">You keep ownership. Lexir runs the rails.</p>
-                            <ul>
-                                <li>Keep stock, prices, and higher margins</li>
-                                <li>Still get import, warehouse, shop, delivery, analytics</li>
-                                <li>Start small, then add markets on one platform</li>
-                            </ul>
-                        </div>
+                    <div class="compare-table-wrap">
+                        <table class="compare-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Dimension</th>
+                                    <th scope="col" class="col-trad">Traditional distributor</th>
+                                    <th scope="col" class="col-lexir">Lexir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Barriers &amp; margins</td>
+                                    <td class="col-trad">High barrier to entry, slim margins, and uneven sales attention for small or new brands</td>
+                                    <td class="col-lexir">Lower barrier to start; brands keep pricing power and much higher margins</td>
+                                </tr>
+                                <tr>
+                                    <td>Cost structure</td>
+                                    <td class="col-trad">Long chain of middlemen (importer, distributor, wholesaler, retailer), each taking a cut</td>
+                                    <td class="col-lexir">One platform path: import, warehouse, shop, delivery, and analytics</td>
+                                </tr>
+                                <tr>
+                                    <td>Speed to launch</td>
+                                    <td class="col-trad">Onboarding is slow — often months — and processes can feel outdated</td>
+                                    <td class="col-lexir">Built to get brands live faster, including small test shipments</td>
+                                </tr>
+                                <tr>
+                                    <td>Portfolio focus</td>
+                                    <td class="col-trad">Easy to get lost among competing products in the same book</td>
+                                    <td class="col-lexir">Brand keeps ownership of stock, story, and how they’re sold</td>
+                                </tr>
+                                <tr>
+                                    <td>Buyer access</td>
+                                    <td class="col-trad">Mostly existing retail/wholesale channels; limited direct reach</td>
+                                    <td class="col-lexir">Storefront for buyers, plus room for more direct brand-to-buyer relationships</td>
+                                </tr>
+                                <tr>
+                                    <td>Scaling markets</td>
+                                    <td class="col-trad">Usually means finding a different distributor for every country</td>
+                                    <td class="col-lexir">Add markets on the same platform instead of rebuilding the whole setup</td>
+                                </tr>
+                                <tr>
+                                    <td>Pricing clarity</td>
+                                    <td class="col-trad">B2B pricing is often complex and hard to follow</td>
+                                    <td class="col-lexir">Brand sets prices; tools like the margin calculator make the economics visible</td>
+                                </tr>
+                                <tr>
+                                    <td>Data &amp; visibility</td>
+                                    <td class="col-trad">Brands are often left in the dark on how products are performing</td>
+                                    <td class="col-lexir">Dashboard analytics so brands can see what’s working</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-
-                    <p class="note">Built mainly for craft brand founders entering Europe, with buyers mostly premium cocktail bars and restaurants.</p>
+                    <p class="note">Our users on the brand side were mostly <strong>founders of craft brands</strong> (from Europe, the US, Mexico, Vietnam, and elsewhere) who were good at marketing their product but needed help with distribution. On the shop side, buyers were mostly <strong>B2B</strong>: premium cocktail bars and restaurants. There was also some B2C from craft enthusiasts who cared a lot about the story behind a bottle.</p>
                 </section>
 
                 <section class="editorial-section" id="role">
@@ -757,98 +864,82 @@
                     <h2>Owning the product end to end</h2>
                     <p>I led the development and release of the brand dashboard and e-commerce platform, owned the product roadmap, and helped shape go-to-market (positioning, channels, and how we explained Lexir) while writing specs for a remote design and engineering team of five across Europe and South America.</p>
                     <p>I ran regular client interviews to find feature gaps, usage patterns, and where prospects got stuck on the value proposition. That shaped both the roadmap and how we explained Lexir: what it actually did for a brand, and why switching was worth it. Making that value obvious mattered to our growth as much as shipping features.</p>
-                    <div class="insights">
-                        <div class="insight">
-                            <div class="tag">Mostly me</div>
-                            <h4>Product surfaces</h4>
-                            <p>Dashboard, storefront, onboarding, sales-partner landing page, catalog storytelling.</p>
-                        </div>
-                        <div class="insight">
-                            <div class="tag">Shared</div>
-                            <h4>With founders</h4>
-                            <p>Roadmap priorities. Pricing stayed in fairly strict bounds.</p>
-                        </div>
-                        <div class="insight">
-                            <div class="tag">Also</div>
-                            <h4>GTM</h4>
-                            <p>Landing copy, Instagram, outbound messaging with sales.</p>
+                    <div class="figure">
+                        <div class="placeholder">
+                            <span class="tag">Scope</span>
+                            <h4>What I owned vs shared</h4>
+                            <p><strong>Mostly me:</strong> dashboard, storefront, onboarding, sales-partner landing page (built with no-code), catalog storytelling, Instagram and outbound messaging.<br>
+                            <strong>Shared with founders:</strong> roadmap priorities and GTM direction; product pricing stayed in fairly strict bounds based on their lead and what clients would pay.<br>
+                            <strong>Throughline:</strong> help people understand Lexir, and keep the product lined up with what users needed and what the business needed.</p>
                         </div>
                     </div>
                 </section>
 
                 <section class="editorial-section" id="product">
                     <span class="editorial-eyebrow">03 — The product</span>
-                    <h2>Dashboard for brands, storefront for buyers</h2>
-                    <p>Brands managed products, markets, and analytics in the dashboard. Buyers purchased through the storefront. For craft products, story and photography mattered, so I put a lot of early energy into the catalog.</p>
-                    <p>One tool I’m proud of is the margin calculator (Figma with our designer): bottles, price, market, and ABV in; per-bottle breakdown of salesperson cut, Lexir’s cut, tax, and shipping out. That stayed custom.</p>
+                    <h2>What brands and buyers actually used</h2>
+                    <p>Brands spent most of their time in a <strong>dashboard</strong>: products, markets, orders, analytics. Buyers bought through a <strong>storefront</strong>. For craft products, the writing and photography mattered a lot. People were more willing to buy when they understood the story, the ingredients, and what made the brand different. I spent a lot of early energy on the <strong>product catalog</strong>: the copy, the photos we chose, and the layout.</p>
+                    <p>One tool I’m proud of is the <strong>margin calculator</strong> (I worked on the Figma layout with our designer). A brand could enter bottles, price, market, and alcohol percentage, and see a breakdown per bottle: what went to a salesperson, what went to Lexir, tax, and shipping. That kind of math was specific to us, so it stayed custom-built.</p>
                     <figure class="figure">
                         <img src="images/case_studies/lexir/dashboard.png" alt="Lexir brand dashboard" />
-                        <figcaption>Brand dashboard.</figcaption>
+                        <figcaption>The brand dashboard, where clients managed their presence in Europe.</figcaption>
                     </figure>
                     <div class="figure">
                         <div class="placeholder">
                             <span class="tag">Screenshots to add</span>
-                            <h4>Margin calculator · edit product</h4>
-                            <p>Blur real brand names and private data.</p>
+                            <h4>Margin calculator, edit product</h4>
+                            <p>Blur or replace real brand names and private data in any dashboard shots.</p>
                         </div>
                     </div>
                 </section>
 
                 <section class="editorial-section" id="clients">
-                    <span class="editorial-eyebrow">04 — What we learned</span>
-                    <h2>Saying yes to the model wasn’t enough</h2>
-                    <p>Even after brands liked the idea, they still asked distributor questions. The most common: <strong>“What prices will you set on my products?”</strong> We’d say: you set them. That kept happening. Tools alone weren’t enough. People needed guidance and local help.</p>
+                    <span class="editorial-eyebrow">04 — What we learned from brands</span>
+                    <h2>Agreeing with the idea wasn’t the same as knowing how to run it</h2>
+                    <p>We could convince a brand that this model was better than a traditional distributor, and they would still ask questions that belonged to the old world. The one I heard most was: <strong>“What prices will you set on my products?”</strong> We would say: you set your own prices. That kept coming up, and it told us something important. It wasn’t enough to hand someone a new set of tools. We also had to show them how to use those tools in a real market: how to think about pricing, how to label bottles for a new country, how taxes worked, and how to find people on the ground.</p>
+                    <p>We couldn’t personally answer every question for hundreds of brands in every city. One response was building toward <strong>local sales specialists</strong>: people in-market who worked with brands as guides, outside Lexir’s day-to-day support load. We also wrote guidance and built the margin calculator so brands could see the economics before they committed.</p>
                     <div class="pull">“We went from 1 market to 4 in a matter of weeks. Lexir handled all of the back end so we could focus on what matters.” — Argalla</div>
                     <div class="insights">
                         <div class="insight">
-                            <div class="tag">Hearing</div>
-                            <h4>“What should my prices be?”</h4>
-                            <p>→ pricing guidance + margin calculator</p>
+                            <div class="tag">What we kept hearing</div>
+                            <h4>Pricing</h4>
+                            <p>Brands asked us to set prices the way a distributor would. We built guidance and the margin calculator instead.</p>
                         </div>
                         <div class="insight">
-                            <div class="tag">Hearing</div>
-                            <h4>“I don’t know anyone there”</h4>
-                            <p>→ local sales specialists as in-market guides</p>
+                            <div class="tag">What we kept hearing</div>
+                            <h4>Local connections</h4>
+                            <p>Many brands didn’t know anyone in the new market. Sales partner connections became a big part of lowering the barrier.</p>
                         </div>
                         <div class="insight">
-                            <div class="tag">Also</div>
-                            <h4>Practical how-tos</h4>
-                            <p>Labeling, taxes, and how to start with a small test shipment</p>
+                            <div class="tag">Why it mattered</div>
+                            <h4>Start small</h4>
+                            <p>A brand could test with roughly 100 bottles or samples to bars, learn, then grow, without a huge bulk commitment.</p>
                         </div>
                     </div>
                 </section>
 
                 <section class="editorial-section" id="decision">
                     <span class="editorial-eyebrow">05 — A key decision</span>
-                    <h2>Stop rebuilding checkout and shop basics</h2>
-                    <p>We were custom-building a lot of the shop, including checkout. That’s a solved problem. I pushed us onto a no-code / low-code platform so we could stop recreating weaker versions of existing software.</p>
-                    <p>Founders were hesitant (we’d already started custom). I showed we could reach the same place in weeks instead of months, and free engineering for Lexir-specific work like the margin calculator.</p>
-                    <div class="compare">
-                        <div class="compare-col">
-                            <h3>Moved off custom</h3>
-                            <ul>
-                                <li>Much of the shop platform</li>
-                                <li>Checkout-style flows</li>
-                                <li>A lot of onboarding / landing</li>
-                            </ul>
-                        </div>
-                        <div class="compare-col">
-                            <h3>Stayed custom</h3>
-                            <ul>
-                                <li>Margin calculator</li>
-                                <li>Other Lexir-specific logic</li>
-                                <li>Custom embeds when we hit tool limits</li>
-                            </ul>
+                    <h2>We were spending weeks rebuilding things that already existed</h2>
+                    <p>Early on we were building a lot of the shop ourselves. I remember us building checkout, for example. Checkout is a solved problem. We could pay for a mature platform and get a solid version, or have our small team spend weeks recreating a weaker one. The same was true for large parts of the storefront and onboarding.</p>
+                    <p>I pushed us to move the platform onto a no-code / low-code tool (I won’t name it here) so we could move faster and stop rebuilding commodity features. The founders were hesitant at first. We had already invested in the custom path, and switching felt like throwing that away. I showed how quickly we could get to the same place with the new approach: work that felt like it would take months on our current pace could be done in a couple of weeks. That let engineering focus on what was actually specific to Lexir, like the margin calculator. We also pushed the no-code tool hard and wrote custom embeds when we hit its limits.</p>
+                    <div class="figure">
+                        <div class="placeholder">
+                            <span class="tag">Optional summary</span>
+                            <h4>What moved vs what stayed custom</h4>
+                            <p><strong>Moved:</strong> much of the shop platform, checkout-style flows, a lot of onboarding and landing.<br>
+                            <strong>Stayed custom:</strong> margin calculator and other Lexir-specific logic.<br>
+                            The cost savings were large. On this page I’m leading with speed and focus rather than a dramatic percentage.</p>
                         </div>
                     </div>
                 </section>
 
                 <section class="editorial-section" id="gtm">
                     <span class="editorial-eyebrow">06 — How we explained Lexir</span>
-                    <h2>We had to teach the new model</h2>
-                    <p>Most people only knew traditional distribution, so marketing had to show old way vs new way. I worked on landing pages, catalog copy, social, and the homepage explainer (script, voiceover, music/audio; a partner did animation).</p>
-                    <p>Pitch in one line: break into new markets, keep control of stock and pricing, keep higher margins, lower barrier than a traditional distributor.</p>
-                    <p>Instagram DMs outperformed cold email for us. I ran the account and iterated messaging with sales based on what got replies.</p>
+                    <h2>Marketing had to teach the new model, not just list features</h2>
+                    <p>Because most people only knew traditional distribution, we had to show the old way and the new way side by side. I worked on landing pages, catalog copy, emails, social, and the homepage explainer video (I wrote the script, did the voiceover, and produced the music and audio; a partner handled animation).</p>
+                    <p>The idea I wanted someone to leave with was simple: Lexir is the tool craft brands should use to break into new markets, because you keep control of your stock, set your own prices, keep higher margins, and face a lower barrier to entry than signing with a traditional distributor.</p>
+                    <p>On the sales side, Instagram messages worked better for us than cold email. A lot of people treat email as a chore. A DM from a brand they already find interesting is more likely to feel like a welcome conversation. I ran the Instagram account, shaped those messages with the sales team, and kept updating them based on what got replies.</p>
                     <div class="video-wrap">
                         <iframe src="https://www.youtube.com/embed/eVyj5ISX45Q?rel=0&modestbranding=1" title="Lexir homepage explainer video" allowfullscreen></iframe>
                     </div>
@@ -883,33 +974,35 @@
                     <div class="lessons">
                         <div class="lesson">
                             <div class="lesson-num">01</div>
-                            <h4>Explaining a new model is part of the product</h4>
-                            <p>Features aren’t enough if people still think like distributors.</p>
+                            <h4>If the model is new, explaining it is part of the product</h4>
+                            <p>Features alone don’t get someone to change how they distribute alcohol. You have to make the old path feel costly and the new path feel usable, including guidance after they say yes.</p>
                         </div>
                         <div class="lesson">
                             <div class="lesson-num">02</div>
                             <h4>Don’t rebuild commodity software when you’re small</h4>
-                            <p>Buy or configure the basics. Build what’s actually Lexir.</p>
+                            <p>Building our own checkout and shop pieces burned time we didn’t have. Moving that onto existing tools let us spend engineering on what only Lexir needed.</p>
                         </div>
                         <div class="lesson">
                             <div class="lesson-num">03</div>
-                            <h4>Tools aren’t the same as adoption</h4>
-                            <p>Guidance and local partners mattered as much as the dashboard.</p>
+                            <h4>Giving someone tools isn’t the same as helping them succeed</h4>
+                            <p>Brands still asked us to set their prices after they understood the pitch. Local sales partners, the margin calculator, and how-to guidance mattered as much as the dashboard.</p>
                         </div>
                         <div class="lesson">
                             <div class="lesson-num">04</div>
                             <h4>I would have focused the public story more</h4>
-                            <p>Lead harder on B2B “rails for brands,” and separate it more cleanly from B2C.</p>
+                            <p>Looking back, I would have pushed harder to lead with the B2B “help brands enter markets” story, and to separate that more cleanly from B2C. We touched a lot of surfaces. Clearer focus would have helped.</p>
                         </div>
                     </div>
+                    <p style="margin-top:28px;color:var(--muted);font-size:15px;line-height:1.65">If there’s one thing I want someone reading this to take away: I’m comfortable owning messy, end-to-end work at a startup. I care a lot about whether people understand what they’re looking at, and I try to balance that with what the business needs to ship and sell.</p>
                 </section>
 
                 <div class="checklist">
                     <h3>Still useful before merging to live</h3>
                     <ul>
+                        <li>Confirm stats: 1→8, ~70 brands, “faster / weeks not months”</li>
                         <li>Add <code>images/case_studies/lexir/catalog-preview.png</code> for the DocSend card</li>
-                        <li>Screenshots still useful: margin calculator, edit product (blur names)</li>
-                        <li>When happy with tone/length: merge into <code>project.html?id=lexir</code></li>
+                        <li>Screenshots still useful: margin calculator, dashboard with names blurred</li>
+                        <li>When happy with tone: merge into <code>project.html?id=lexir</code></li>
                     </ul>
                 </div>
             </article>

@@ -13,13 +13,17 @@
                 }
                 document.documentElement.setAttribute('data-theme', theme);
             } catch (e) { }
+            // Hide project content until JS picks the correct layout, to avoid
+            // a flash of the default template before the real case study renders.
+            document.documentElement.classList.add('js-loading');
         })();
     </script>
     <style>
         html { background: #f8f8f8; color: #1a1f1c; }
         html[data-theme="dark"] { background: #0f1412; color: #e8ede9; }
+        html.js-loading main { visibility: hidden; }
     </style>
-    <title>Project – Taylor Simpson</title>
+    <title>Project | Taylor Simpson</title>
     <meta name="description" content="Project detail page" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1680,6 +1684,47 @@
             margin: 0 0 1.1em;
         }
 
+        .case-tldr {
+            margin: 0 0 1.25em;
+            padding: 18px 20px 16px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--glass);
+        }
+
+        .case-tldr-label {
+            display: block;
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .case-tldr ul {
+            margin: 0;
+            padding: 0 0 0 1.15em;
+            list-style: disc;
+        }
+
+        .case-tldr li {
+            margin: 0 0 8px;
+            padding-left: 0.15em;
+            font-size: 0.98rem;
+            line-height: 1.45;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .case-tldr li:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-tldr li::marker {
+            color: var(--muted);
+        }
+
         .editorial-section p {
             margin: 0 0 1.1em;
             line-height: 1.7;
@@ -1737,6 +1782,232 @@
             font-family: var(--font-display);
             font-weight: 600;
             font-size: 0.97rem;
+        }
+
+        .compare-table-wrap {
+            margin: 20px 0 16px;
+            overflow-x: auto;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 560px;
+        }
+
+        .compare-table th,
+        .compare-table td {
+            padding: 14px 16px;
+            text-align: left;
+            vertical-align: top;
+            font-size: 14px;
+            line-height: 1.45;
+            border-bottom: 1px solid var(--line);
+            color: var(--text-2);
+        }
+
+        .compare-table thead tr:first-child th {
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--muted);
+            background: var(--glass);
+            border-bottom: 1px solid var(--line-2);
+        }
+
+        .compare-table thead th:first-child,
+        .compare-table tbody th {
+            width: 22%;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: var(--text);
+            letter-spacing: -0.01em;
+            text-transform: none;
+            background: transparent;
+        }
+
+        .compare-table thead tr:first-child th:first-child {
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: var(--muted);
+            background: var(--glass);
+        }
+
+        .compare-table tbody th {
+            font-size: 0.9rem;
+        }
+
+        .compare-table tbody tr:last-child th,
+        .compare-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .editorial-note {
+            margin: 0 0 1em;
+            font-size: 0.95rem;
+            color: var(--text-2);
+            line-height: 1.6;
+            max-width: 58ch;
+        }
+
+        .editorial-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 26px 0;
+        }
+
+        .editorial-compare-col {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 20px 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .editorial-compare-col h3 {
+            font-size: 1.05rem;
+            margin: 0 0 12px;
+        }
+
+        .editorial-compare-col ul {
+            margin: 0;
+            padding-left: 1.1em;
+            color: var(--text-2);
+            font-size: 0.93rem;
+            line-height: 1.55;
+        }
+
+        .editorial-compare-col li + li {
+            margin-top: 6px;
+        }
+
+        .editorial-media-pair {
+            display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+            gap: 16px;
+            align-items: start;
+            margin: 28px 0 8px;
+        }
+
+        .editorial-media-pair.is-equal {
+            grid-template-columns: 1fr 1fr;
+            align-items: stretch;
+        }
+
+        .editorial-media-pair.is-equal > div {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .editorial-media-pair.is-equal .editorial-asset {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .editorial-media-pair.is-equal .editorial-asset .case-study-image-wrap {
+            flex: 1;
+        }
+
+        .editorial-media-pair.is-equal .editorial-asset img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .editorial-video.is-local {
+            background: #111;
+        }
+
+        .editorial-video.is-local video {
+            display: block;
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+
+        .editorial-video.is-vertical {
+            max-width: 280px;
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .editorial-link-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: border-color 0.15s ease, transform 0.15s ease;
+        }
+
+        .editorial-link-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .editorial-link-card .preview {
+            aspect-ratio: 16 / 10;
+            background: var(--bg-2, #f3f1ec);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .editorial-link-card .preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .editorial-link-card .preview .hint {
+            padding: 20px;
+            font-size: 0.85rem;
+            color: var(--text-2);
+            text-align: center;
+            line-height: 1.45;
+        }
+
+        .editorial-link-card .meta {
+            padding: 18px 20px 20px;
+        }
+
+        .editorial-link-card .meta .itag {
+            font-size: 0.64rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 7px;
+        }
+
+        .editorial-link-card .meta h3 {
+            font-size: 1.05rem;
+            margin: 0 0 4px;
+        }
+
+        .editorial-link-card .meta p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-2);
         }
 
         .editorial-asset {
@@ -2088,16 +2359,65 @@
         }
 
         .editorial-pull {
-            font-family: var(--font-display);
-            font-weight: 500;
-            font-size: clamp(1.25rem, 2.5vw, 1.65rem);
-            line-height: 1.28;
-            letter-spacing: -0.015em;
-            color: var(--accent-deep);
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 1.05rem;
+            line-height: 1.55;
+            letter-spacing: -0.01em;
+            color: var(--text);
             background: var(--accent-soft);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 18px 22px;
+            margin: 24px 0;
+        }
+
+        .editorial-pull strong {
+            font-weight: 650;
+            color: var(--text);
+        }
+
+        .editorial-questions {
+            background: var(--card);
+            border: 1px solid var(--line);
             border-radius: var(--radius-lg);
-            padding: 28px 32px;
-            margin: 28px 0;
+            padding: 22px 26px;
+            margin: 24px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .editorial-questions-label {
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+
+        .editorial-questions ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .editorial-questions li {
+            font-family: var(--font-display);
+            font-size: 1.12rem;
+            font-weight: 500;
+            line-height: 1.35;
+            letter-spacing: -0.015em;
+            color: var(--text);
+            padding: 12px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .editorial-questions li:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .editorial-questions li:last-child {
+            padding-bottom: 0;
         }
 
         .editorial-clean-list {
@@ -2744,8 +3064,14 @@
             .editorial-screenshot-grid,
             .editorial-insight-grid,
             .editorial-insight-grid.cols-3,
+            .editorial-compare,
+            .editorial-media-pair,
             .editorial-personas.legacy-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .editorial-video.is-vertical {
+                max-width: none;
             }
 
             .editorial-persona-card {
@@ -2974,11 +3300,6 @@
         const urlParams = new URLSearchParams(window.location.search);
         const projectId = urlParams.get('id');
 
-        const labProjectIds = new Set(['expense-tracker', 'song-analysis']);
-        if (projectId && labProjectIds.has(projectId)) {
-            window.location.replace(`lab/project.html?id=${encodeURIComponent(projectId)}`);
-        }
-
         // Project data - you'll need to populate this with actual project data
         const projects = {
             'pedal-patrol': {
@@ -2994,6 +3315,14 @@
                 editorialCaseStudy: {
                     pill: 'Case study · Product management',
                     lead: 'A crowdsourcing mobile app that reunites cyclists with stolen bikes — by turning a whole community into the search party.',
+                    tldr: {
+                        label: 'If you only read one thing',
+                        items: [
+                            'Led product for a 5-person team as the client’s main point of contact',
+                            'Shipped cross-platform so Android riders weren’t designed out of the product',
+                            'Handed off a working prototype that a Vancouver org continued developing'
+                        ]
+                    },
                     meta: [
                         { label: 'Client', value: 'Frontenac Cycle & Sport' },
                         { label: 'Role', value: 'Product management · Mobile development' },
@@ -3206,6 +3535,14 @@
                 editorialCaseStudy: {
                     pill: 'Case study · UX design',
                     lead: 'Re-imagining a fragmented enrollment experience used by thousands of university students across North America — rebuilt around how they actually search, plan, and enroll.',
+                    tldr: {
+                        label: 'If you only read one thing',
+                        items: [
+                            'Ran the project end to end: research, IA, flows, UI, and a clickable prototype',
+                            'Brought requirements, schedules, and course details back into the enrollment flow',
+                            'Added calendar planning and conflict warnings before students commit'
+                        ]
+                    },
                     meta: [
                         { label: 'Role', value: 'UX research & UI design' },
                         { label: 'Context', value: 'BrainStation UX course' },
@@ -3486,6 +3823,14 @@
                 editorialCaseStudy: {
                     pill: 'Featured work',
                     lead: 'A personalized guide that walks immigrants through building a life in the U.S. — banking, Social Security, housing, healthcare — tailored to exactly where they are in the journey.',
+                    tldr: {
+                        label: 'If you only read one thing',
+                        items: [
+                            'Reframed the product from rigid “steps” to living “guides” without a backend rebuild',
+                            'Wrote context-first content so immigrants always know why a task matters',
+                            'Helped grow from essentially no users to hundreds of early visitors'
+                        ]
+                    },
                     meta: [
                         { label: 'Role', value: 'Product design & UX writing' },
                         { label: 'Timeline', value: '2024 – present' },
@@ -3658,6 +4003,151 @@
                 outcome: 'The application demonstrates how technology can support mental health awareness, providing users with valuable insights into their emotional patterns while maintaining privacy.',
                 //impact: 'Won 2nd place at the hackathon. 90% of test users reported increased awareness of their emotional patterns and found the visualizations helpful.'
             },
+            'expense-tracker': {
+                title: 'Online Budgeting Tool',
+                subtitle: 'Web App',
+                description: 'A personal-finance web app I designed and built to make expense tracking feel less like a chore and more like a habit.',
+                client: 'Personal Project',
+                type: 'Design & full-stack build',
+                tools: 'React, Redux, Firebase, Chart.js',
+                link: 'https://github.com/tdsimpson/expense-tracker',
+                image: 'images/project_cards/square-expense-tracker.png',
+                video: 'https://www.youtube.com/watch?v=VPtTarety28',
+                editorialCaseStudy: {
+                    compact: true,
+                    pill: 'Personal project · Web app',
+                    lead: 'A personal-finance web app I designed and built to make expense tracking feel less like a chore and more like a habit, turning raw entries into charts that actually shape behavior.',
+                    meta: [
+                        { label: 'Role', value: 'Design & full-stack build' },
+                        { label: 'Context', value: 'Personal project' },
+                        { label: 'Stack', value: 'React · Redux · Firebase · Chart.js' },
+                        { label: 'Type', value: 'Web app' }
+                    ],
+                    sections: [
+                        {
+                            id: 'overview',
+                            isHero: true,
+                            blocks: [
+                                {
+                                    type: 'buttons',
+                                    items: [
+                                        { label: 'Watch demo →', href: 'https://www.youtube.com/watch?v=VPtTarety28', external: true },
+                                        { label: 'View on GitHub', href: 'https://github.com/tdsimpson/expense-tracker', external: true, ghost: true }
+                                    ]
+                                },
+                                {
+                                    type: 'video',
+                                    url: 'https://www.youtube.com/watch?v=VPtTarety28',
+                                    title: 'Online Budgeting Tool demo'
+                                }
+                            ]
+                        },
+                        {
+                            id: 'why',
+                            eyebrow: 'Why I built it',
+                            heading: 'I wanted a budget tracker I actually owned.',
+                            blocks: [
+                                { type: 'p', text: 'I was tired of paying a subscription just to track my own spending. So I built my own, something I could shape exactly how I wanted, without worrying about a company changing the price or shutting it down. It also gave me a real project to get hands-on practice with React, Redux, and Firebase.' }
+                            ]
+                        },
+                        {
+                            id: 'what',
+                            eyebrow: 'What I made',
+                            heading: 'An expense tracker with charts built in.',
+                            blocks: [
+                                { type: 'p', text: 'At the core, it’s a straightforward expense tracker: enter what you spent, categorize it, and see it saved. On top of that sits the piece I cared about most: <strong>a set of interactive charts</strong>, powered by Chart.js, that turn a month’s data into something legible at a glance. Spend by category, spend over time, monthly comparisons, the kind of view that actually informs the next decision instead of just archiving the last one.' },
+                                { type: 'p', text: 'State management runs through Redux, persistence through Firebase, and the interface is designed to be clean and quick, pleasant enough that using it every day feels like a habit, not admin.' },
+                                {
+                                    type: 'screenshotGrid',
+                                    items: [
+                                        { src: 'images/case_studies/expense_tracker/add-edit-expense.png', label: 'Adding an expense' },
+                                        { src: 'images/case_studies/expense_tracker/expense-list.png', label: 'Expense list & search' },
+                                        { src: 'images/case_studies/expense_tracker/spending-over-time.png', label: 'Spending over time' },
+                                        { src: 'images/case_studies/expense_tracker/spending-by-category.png', label: 'Spending by category' }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            id: 'takeaway',
+                            eyebrow: 'What it taught me',
+                            blocks: [
+                                { type: 'pull', text: 'Building something for myself was a good reminder of what makes a product feel good to use: fast, useful, and simple.' }
+                            ]
+                        }
+                    ]
+                }
+            },
+            'song-analysis': {
+                title: 'Spotify Song Analysis',
+                subtitle: 'Web App',
+                description: 'A web app that shows the musical details Spotify hides, key, BPM, and more, for whatever song you’re currently playing, in a UI that changes color to match the album art.',
+                client: 'Personal Project',
+                type: 'Design & full-stack build',
+                tools: 'React, Spotify API, Wikipedia API',
+                link: 'https://github.com/tdsimpson/Song-Analysis',
+                image: 'images/project_cards/square-song-analysis.png',
+                video: 'https://www.youtube.com/watch?v=O5B2sth-wxs',
+                editorialCaseStudy: {
+                    compact: true,
+                    pill: 'Personal project · Web app',
+                    lead: 'A web app that shows the musical details Spotify hides, key, BPM, and more, for whatever song you’re currently playing, in a UI that changes color to match the album art.',
+                    meta: [
+                        { label: 'Role', value: 'Design & full-stack build' },
+                        { label: 'Context', value: 'Personal project' },
+                        { label: 'Stack', value: 'React · Spotify API · Wikipedia API' },
+                        { label: 'Type', value: 'Web app' }
+                    ],
+                    sections: [
+                        {
+                            id: 'overview',
+                            isHero: true,
+                            blocks: [
+                                {
+                                    type: 'buttons',
+                                    items: [
+                                        { label: 'Watch demo →', href: 'https://www.youtube.com/watch?v=O5B2sth-wxs', external: true },
+                                        { label: 'View on GitHub', href: 'https://github.com/tdsimpson/Song-Analysis', external: true, ghost: true }
+                                    ]
+                                },
+                                {
+                                    type: 'video',
+                                    url: 'https://www.youtube.com/watch?v=O5B2sth-wxs',
+                                    title: 'Spotify Song Analysis demo'
+                                },
+                                { type: 'annot', text: 'The demo has no audio. Text overlays narrate the walkthrough.' }
+                            ]
+                        },
+                        {
+                            id: 'why',
+                            eyebrow: 'Why I built it',
+                            heading: 'I was tired of googling song keys.',
+                            blocks: [
+                                { type: 'p', text: 'I play guitar, and I was forever googling the key of whatever song I was listening to so I could play along. Spotify actually <em>knows</em> all of this, key, tempo, and a pile of other audio characteristics live in their API, but none of it is exposed in their app or web player. So I built the missing screen for myself.' },
+                                { type: 'p', text: 'It was a small project with a clear personal itch, which made it a good one to build end to end: a real user (me), a real gap, and a clean excuse to work with a couple of APIs.' }
+                            ]
+                        },
+                        {
+                            id: 'what',
+                            eyebrow: 'What I made',
+                            heading: 'What the app actually shows.',
+                            blocks: [
+                                { type: 'p', text: 'If you have Spotify playing anywhere on your device, the app pulls the current track and builds a dedicated view for it: album art, the <strong>key and BPM</strong>, release date, and the rest of the metadata a musician actually wants, alongside a short <strong>“about the artist”</strong> bio pulled from the Wikipedia API. Two APIs stitched together into one screen that answers the question I always had.' },
+                                { type: 'p', text: 'The UI also recolors itself to match each song’s album art, so the screen’s mood shifts with whatever’s playing.' },
+                                { type: 'pull', text: 'Pulls data from two APIs into one screen, the answer I used to have to look up manually every time.' }
+                            ]
+                        },
+                        {
+                            id: 'takeaway',
+                            eyebrow: 'What it taught me',
+                            heading: 'Building for a real need I had.',
+                            blocks: [
+                                { type: 'p', text: 'The most useful things I build usually start as something I personally wanted and couldn’t find. This one also stretched a specific muscle worth showing: pulling disparate APIs together and shaping their data into a single, coherent, good-looking experience.' }
+                            ]
+                        }
+                    ]
+                }
+            },
             'lexir': {
                 title: 'Lexir',
                 subtitle: 'Product Manager · 2020–2023',
@@ -3670,19 +4160,30 @@
                 video: 'https://www.youtube.com/watch?v=eVyj5ISX45Q',
                 editorialCaseStudy: {
                     pill: 'Product Manager · 2020–2023',
-                    lead: 'Product management for a B2B commerce platform that helps craft wine and spirit brands break into the European market — where I owned the product and helped grow the business from one market to six.',
+                    lead: 'A B2B platform that helps craft wine and spirits brands launch and grow in Europe without a traditional distributor. Brands stay in control of stock and pricing, and keep much higher margins.',
+                    tldr: {
+                        label: 'If you only read one thing',
+                        items: [
+                            'Owned the dashboard, storefront, and margin calculator end to end',
+                            'Helped grow from 1→8 European markets and a handful of brands to ~70',
+                            'Moved shop and checkout off custom builds so we could ship in weeks, not months'
+                        ]
+                    },
                     meta: [
                         { label: 'Role', value: 'Product Manager' },
                         { label: 'Company', value: 'Lexir · B2B commerce SaaS' },
                         { label: 'Timeline', value: '2020–2023 · 3 years' },
-                        { label: 'Markets', value: '1 → 6 across Europe' }
+                        { label: 'Markets', value: '1 → 8 across Europe' }
                     ],
                     rail: [
                         { id: 'overview', num: '00', label: 'Overview' },
-                        { id: 'role', num: '01', label: 'The role' },
-                        { id: 'decision', num: '02', label: 'Key decision' },
-                        { id: 'gtm', num: '03', label: 'Go-to-market' },
-                        { id: 'takeaway', num: '04', label: 'What it taught me' }
+                        { id: 'need', num: '01', label: 'The need' },
+                        { id: 'role', num: '02', label: 'My role' },
+                        { id: 'product', num: '03', label: 'The product' },
+                        { id: 'decision', num: '04', label: 'Key decision' },
+                        { id: 'gtm', num: '05', label: 'Go-to-market' },
+                        { id: 'clients', num: '06', label: 'Supporting brands' },
+                        { id: 'takeaway', num: '07', label: 'Takeaways' }
                     ],
                     sections: [
                         {
@@ -3690,73 +4191,174 @@
                             isHero: true,
                             blocks: [
                                 {
-                                    type: 'stats',
-                                    items: [
-                                        { big: '1→6', lbl: 'European markets scaled to' },
-                                        { big: '8×', lbl: 'Growth in the client base' },
-                                        { big: '60%', lbl: 'Cut in implementation costs' }
-                                    ]
-                                },
-                                {
                                     type: 'asset',
                                     src: 'images/case_studies/lexir/store.png',
-                                    caption: 'The customer-facing storefront'
+                                    caption: 'The buyer storefront. Import, warehousing, analytics, and delivery sat behind it.'
                                 }
                             ]
                         },
                         {
-                            id: 'role',
-                            eyebrow: 'The role',
-                            heading: 'Owning the product end to end.',
+                            id: 'need',
+                            eyebrow: '01 — The need',
+                            heading: 'Traditional distribution doesn’t fit small craft brands',
                             blocks: [
-                                { type: 'p', text: 'Lexir gives craft wine and spirit brands a simplified way into Europe — handling importation, warehousing, e-commerce, last-mile delivery, analytics, and local sales-partner connections. I <strong>led the development and release of the brand dashboard and e-commerce platform</strong>, while owning the roadmap and go-to-market strategy and translating requirements for a remote design and dev team of five based in Europe and South America.' },
-                                { type: 'p', text: 'I ran <strong>regular client interviews</strong> to surface feature gaps, usage patterns, and where prospects were getting stuck on the value proposition. That work shaped the roadmap (dashboards, data visualizations, subscription models) and <strong>how we explained the product</strong>: what Lexir actually did for a brand, and why it was worth switching. A lot of our growth came from making that value legible, not just shipping features.' },
+                                { type: 'p', text: 'Before Lexir, a craft brand entering a new European market really only had one option, a traditional distributor. They buy stock cheap, control where it lands and how it’s priced, and only want to deal in bulk. Brands end up with slim margins, little attention, and no real way to test a market at a small scale. Lexir works the other way around. Brands keep ownership of their stock, pricing, and margin, and Lexir runs the infrastructure underneath it all.' },
+                                {
+                                    type: 'compareTable',
+                                    columns: ['Traditional', 'Lexir'],
+                                    rows: [
+                                        {
+                                            label: 'Control &amp; margins',
+                                            cells: [
+                                                'Buys stock cheap, sets the terms, keeps most of the margin',
+                                                'Brand keeps stock, sets prices, holds onto much higher margins'
+                                            ]
+                                        },
+                                        {
+                                            label: 'Cost &amp; speed',
+                                            cells: [
+                                                'Long middleman chain; onboarding can take months',
+                                                'One platform for import, warehouse, shop, and delivery — built to move faster'
+                                            ]
+                                        },
+                                        {
+                                            label: 'Focus &amp; data',
+                                            cells: [
+                                                'Easy to get lost in a big portfolio; brands get little performance data',
+                                                'Brand owns its presence — dashboard shows what’s working, backed by local sales partners on the ground'
+                                            ]
+                                        },
+                                        {
+                                            label: 'Starting &amp; scaling',
+                                            cells: [
+                                                'Often wants bulk; new distributor for every market',
+                                                'Start small (e.g. ~100 bottles), then add markets on the same rails'
+                                            ]
+                                        }
+                                    ]
+                                },
+                                { type: 'note', text: 'Built mainly for craft brand founders entering Europe, with buyers mostly premium cocktail bars and restaurants.' }
+                            ]
+                        },
+                        {
+                            id: 'role',
+                            eyebrow: '02 — My role',
+                            heading: 'Owning the product end to end',
+                            blocks: [
+                                { type: 'p', text: 'I led the development and release of the brand dashboard and e-commerce platform, owned the product roadmap, and helped shape go-to-market (positioning, channels, and how we explained Lexir) while writing specs for a remote design and engineering team of five across Europe and South America.' },
+                                { type: 'p', text: 'I ran regular client interviews to find feature gaps, usage patterns, and where prospects got stuck on the value proposition. That shaped both the roadmap and how we explained Lexir: what it actually did for a brand, and why switching was worth it. Making that value obvious mattered to our growth as much as shipping features.' }
+                            ]
+                        },
+                        {
+                            id: 'product',
+                            eyebrow: '03 — The product',
+                            heading: 'Built for brands, buyers, and sales partners',
+                            blocks: [
+                                { type: 'p', text: 'Lexir was a distribution platform with different doors for brands, buyers, and sales partners. The brand dashboard was the centre of it, where a brand managed its whole European presence in one place: products, stock by market, orders and customers, payouts, sales tools, and market resources. One standout feature was that brands could set different prices for different customers, something not possible under traditional distributors.' },
                                 {
                                     type: 'asset',
                                     src: 'images/case_studies/lexir/dashboard.png',
-                                    caption: 'The brand dashboard — the platform brands used to manage their presence'
+                                    caption: 'Brand dashboard — the core surface for running products, stock, pricing, and markets.'
+                                },
+                                { type: 'p', text: 'On the other end were the Lexir shops. Brands could sell through Lexir\'s own storefronts (B2B and B2C for each market), or connect our distribution backend to their own shop via integrations. A separate portal connected local salespeople with brands, letting them find each other and form working relationships.' },
+                                {
+                                    type: 'mediaPair',
+                                    equal: true,
+                                    items: [
+                                        {
+                                            type: 'asset',
+                                            src: 'images/case_studies/lexir/shop-products.png',
+                                            caption: 'Lexir shop — product browse for a market storefront.'
+                                        },
+                                        {
+                                            type: 'asset',
+                                            src: 'images/case_studies/lexir/sales-partners.png',
+                                            caption: 'Sales partner page — where brands and local salespeople could find each other.'
+                                        }
+                                    ]
                                 }
                             ]
                         },
                         {
                             id: 'decision',
-                            eyebrow: 'The decision I\'m proudest of',
-                            heading: 'Growing faster by building smarter.',
+                            eyebrow: '04 — Key decision',
+                            heading: 'Growing faster by building smarter',
                             blocks: [
-                                { type: 'p', text: 'Early on, we were building nearly everything custom — expensive, and slow to change. I made the case to move the right pieces onto <strong>no-code and low-code tools</strong> instead of hand-building them, which <strong>cut implementation costs by 60%</strong> and freed the team to move faster.' },
-                                { type: 'p', text: 'That efficiency was a real part of how we scaled: over three years we grew the client base <strong>8×</strong> and expanded from a single market to <strong>six across Europe</strong>.' }
+                                { type: 'p', text: 'One of the highest-impact changes I drove at Lexir was transitioning us from building everything custom to utilizing no-code/low-code tools instead. It significantly impacted the course of the company, especially as a small one where being able to move fast and test is so important.' },
+                                { type: 'p', text: 'Before I joined, they were building basically everything custom. When I came on, I helped with those builds too, but it became clear we were solving problems that already had mature solutions (cart/checkout in our shop being the clearest example). The same pattern showed up across other aspects of the business too including the brand dashboard being over-built for the stage we were at.' },
+                                { type: 'pull', text: '<strong>The rule I kept coming back to:</strong> Build custom when you’ve outgrown what existing tools can do. Until then, use those tools to validate your idea and learn what actually needs to be built differently.' },
+                                { type: 'p', text: 'Switching wasn’t an easy sell as we’d already started down the custom path, and moving away from it felt like walking away from that work. I showed we could get to the same place in weeks instead of months, and free up the engineering team for the work that mattered more for Lexir.' },
+                                { type: 'p', text: 'That efficiency was a real part of how we scaled: over three years we grew from a handful of brands to <strong>~70</strong> and expanded from a single market to <strong>eight across Europe</strong>.' }
                             ]
                         },
                         {
                             id: 'gtm',
-                            eyebrow: 'Brand & go-to-market',
-                            heading: 'How we told the story.',
+                            eyebrow: '05 — Go-to-market',
+                            heading: 'Positioning mattered as much as building',
                             blocks: [
-                                { type: 'p', text: 'The platform was the heart of the business, but not the whole of the job. I shaped Lexir\'s messaging and ran marketing across video, email, social, ads, SEO, events, and community — including the explainer that lived on the homepage. It was how we helped prospects <strong>get it</strong> before a sales call and understand a product that represented a new model in an industry built around traditional distribution. I wrote the script, recorded the voiceover, and produced the music and audio; animation was handled by a partner.' },
-                                { type: 'p', text: 'The same positioning showed up across email, social, and events — the throughline was the same: <strong>make the value obvious</strong>.' },
+                                { type: 'p', text: 'Growing a company takes more than a good product. People need to understand it too, and that mattered even more in an industry where everyone was used to doing things the old way. Early on, prospects often assumed we were just another distributor, so a real part of the work was making sure we were positioned and framed the right way before anyone got on a call with us.' },
+                                { type: 'p', text: 'A lot of what I did at Lexir was product marketing as much as it was product management for exactly that reason, working across video, email, social, ads, events, etc. to close that gap early.' },
+                                { type: 'p', text: 'One of the most important pieces of that was our promo video. I wrote the script, recorded the voiceover, produced the music, and put together the storyboard. For a lot of prospects, it was their first real taste of what Lexir was, before they ever talked to us directly.' },
                                 {
                                     type: 'video',
                                     url: 'https://www.youtube.com/watch?v=eVyj5ISX45Q',
-                                    title: 'Lexir explainer video'
+                                    title: 'Lexir homepage explainer video'
+                                },
+                                { type: 'p', text: 'I also ran our Instagram account, which became one of our biggest channels for connecting to brands. I noticed sending a DM often felt more like an invitation rather than a chore the way a cold email did to a lot of brands, so I spent time shaping posts and outreach around what got people to engage.' }
+                            ]
+                        },
+                        {
+                            id: 'clients',
+                            eyebrow: '06 — Supporting brands',
+                            heading: 'Getting them in the door wasn’t enough',
+                            blocks: [
+                                { type: 'p', text: 'While working on the product, I learned early that signing a brand wasn’t the finish line. Lexir gave brands a lot more freedom than a traditional distributor, which also meant they suddenly had to make calls a distributor used to make for them. Even when they were excited about the model, they still had a lot of questions about how to actually get started.' },
+                                {
+                                    type: 'questions',
+                                    label: 'Questions brands kept asking',
+                                    items: [
+                                        '“Which European market is the best one to get into?”',
+                                        '“What prices should I set my products at?”',
+                                        '“What bars or stores should I try to sell in?”'
+                                    ]
+                                },
+                                { type: 'p', text: 'Those were fair questions, but they weren’t business decisions we could make for them. The better move was helping brands make more informed decisions themselves. It was clear to us that handing them a dashboard on its own wasn’t enough. We needed to give them guidance on the business side so they could enter a market with more confidence.' },
+                                { type: 'p', text: 'That’s why I pushed for materials and tools that helped brands self-guide, including market resources, a margin calculator that made the economics visible, and ways to connect with sales partners and local experts they could lean on in each market.' },
+                                { type: 'p', text: 'The margin calculator is one of the pieces I’m most proud of. I designed and coded it myself from scratch so a brand could enter price, market, and ABV and see what they’d earn per bottle, with tax, shipping, and Lexir’s cut included. Paired with the market guides, it cut down how much time we spent walking people through the economics by hand.' },
+                                {
+                                    type: 'asset',
+                                    src: 'images/case_studies/lexir/margin-calculator.png',
+                                    caption: 'Margin calculator I designed and coded myself from scratch. Inputs plus the full per-bottle cost breakdown across order sizes.'
                                 }
                             ]
                         },
                         {
                             id: 'takeaway',
-                            eyebrow: 'What it taught me',
+                            eyebrow: '07 — Takeaways',
+                            heading: 'What this work taught me',
                             blocks: [
                                 {
                                     type: 'lessons',
                                     items: [
                                         {
                                             num: '1',
-                                            title: 'Explaining the shift is part of the product',
-                                            text: 'In an industry built on traditional distribution, the hardest work wasn\'t features — it was explaining why the old way breaks down and why switching is worth it. That explanation is part of the product.'
+                                            title: 'A smaller, working product is better than a big, broken one',
+                                            text: 'You can’t build the perfect platform in a vacuum and hope everyone immediately loves it. You need enough working product to prove people want it. Ship, validate, then invest in the full vision.'
                                         },
                                         {
                                             num: '2',
-                                            title: 'A smaller, working product is better than a big, broken one',
-                                            text: 'You can\'t build the perfect platform in a vacuum and hope everyone immediately loves it. You need enough working product to prove people want it — ship, validate, then invest in the full vision.'
+                                            title: 'Explaining the shift is part of the product',
+                                            text: 'When you’re asking people to adopt a new way of working, new features alone won’t get you there. You have to keep earning buy-in for the model itself. Positioning and framing have to do as much work as the product. At Lexir, that meant constantly showing why this wasn’t just another shop or distributor before anyone got on a call.'
+                                        },
+                                        {
+                                            num: '3',
+                                            title: 'Tools aren’t the same as adoption',
+                                            text: 'Getting someone through the door isn’t the end of the job. After they buy in, a new set of needs shows up, and retaining them means helping with those too. At Lexir, a signed brand still needed guidance, economics tools, and people on the ground. The dashboard alone wasn’t enough.'
+                                        },
+                                        {
+                                            num: '4',
+                                            title: 'Speak to one audience at a time',
+                                            text: 'If you appeal to multiple audiences in the same place, people get confused about what you actually are. It’s better to split the story into clearer segments so each message is easy to take in. We made that mistake on Instagram by mixing too many intents at once, and people often assumed Lexir was just another shop instead of rails for brands.'
                                         }
                                     ]
                                 }
@@ -3778,6 +4380,14 @@
                 editorialCaseStudy: {
                     pill: 'Software Developer · 2018',
                     lead: 'Building Android apps for consumer robots — conversational experiences that let a robot act as a customer service rep, product specialist, or marketing presence, for enterprise clients including BMO and General Motors.',
+                    tldr: {
+                        label: 'If you only read one thing',
+                        items: [
+                            'Designed and built Android apps for Sanbot robots used by BMO and GM',
+                            'Made the case for DialogFlow as the conversation layer behind the product',
+                            'Presented the work in person to C-suite executives in Toronto and Detroit'
+                        ]
+                    },
                     meta: [
                         { label: 'Role', value: 'Software Developer' },
                         { label: 'Company', value: 'Orange Gate Consulting' },
@@ -3867,11 +4477,9 @@
 
         // Project order for navigation (loops back to the start after the last)
         const projectOrder = [
-            'course-enrollment',
-            'settlekit',
-            'pedal-patrol',
             'lexir',
-            'orange-gate'
+            'pedal-patrol',
+            'course-enrollment'
         ];
 
         function caseStudyImageHTML(img, extraClass = '') {
@@ -4134,6 +4742,15 @@
                     `;
                 case 'pull':
                     return `<div class="editorial-pull">${block.text}</div>`;
+                case 'questions':
+                    return `
+                        <div class="editorial-questions">
+                            ${block.label ? `<div class="editorial-questions-label">${block.label}</div>` : ''}
+                            <ul>
+                                ${block.items.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
                 case 'band':
                     return `
                         <div class="editorial-band">
@@ -4223,6 +4840,29 @@
                             `).join('')}
                         </div>
                     `;
+                case 'note':
+                    return `<p class="editorial-note">${block.text}</p>`;
+                case 'compareTable':
+                    return `
+                        <div class="compare-table-wrap">
+                            <table class="compare-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        ${block.columns.map(col => `<th scope="col">${col}</th>`).join('')}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${block.rows.map(row => `
+                                        <tr>
+                                            <th scope="row">${row.label}</th>
+                                            ${row.cells.map(cell => `<td>${cell}</td>`).join('')}
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
                 case 'ul':
                     return `<ul class="editorial-clean-list">${block.items.map(item => `<li>${item}</li>`).join('')}</ul>`;
                 case 'video':
@@ -4294,6 +4934,47 @@
                                     <p>${item.text}</p>
                                 </div>
                             `).join('')}
+                        </div>
+                    `;
+                case 'compare':
+                    return `
+                        <div class="editorial-compare">
+                            ${block.columns.map(col => `
+                                <div class="editorial-compare-col">
+                                    <h3>${col.heading}</h3>
+                                    <ul>${col.items.map(item => `<li>${item}</li>`).join('')}</ul>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                case 'localVideo':
+                    return `
+                        <div class="editorial-video is-local${block.vertical ? ' is-vertical' : ''}">
+                            <video controls playsinline preload="metadata"${block.poster ? ` poster="${block.poster}"` : ''}>
+                                <source src="${block.src}" type="${block.mime || 'video/mp4'}" />
+                            </video>
+                        </div>
+                        ${block.caption ? `<p class="editorial-video-note">${block.caption}</p>` : ''}
+                    `;
+                case 'linkCard':
+                    return `
+                        <a class="editorial-link-card" href="${block.href}" target="_blank" rel="noopener noreferrer">
+                            <div class="preview">
+                                ${block.preview
+                                    ? `<img src="${block.preview}" alt="${block.title || ''}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" /><div class="hint" style="display:none">Add a cover or first-page screenshot for this catalog card.</div>`
+                                    : `<div class="hint">Add a cover preview image.</div>`}
+                            </div>
+                            <div class="meta">
+                                ${block.tag ? `<div class="itag">${block.tag}</div>` : ''}
+                                <h3>${block.title}</h3>
+                                ${block.text ? `<p>${block.text}</p>` : ''}
+                            </div>
+                        </a>
+                    `;
+                case 'mediaPair':
+                    return `
+                        <div class="editorial-media-pair${block.equal ? ' is-equal' : ''}">
+                            ${block.items.map(item => `<div>${renderEditorialBlock(item)}</div>`).join('')}
                         </div>
                     `;
                 case 'personas':
@@ -4398,7 +5079,6 @@
                 if (section.isHero) {
                     return `
                         <section class="editorial-section" id="${section.id}">
-                            <span class="case-pill">${cs.pill}</span>
                             <h1 class="editorial-hero-title">${project.title}</h1>
                             <p class="editorial-lead">${cs.lead}</p>
                             <dl class="editorial-meta">
@@ -4409,6 +5089,14 @@
                                     </div>
                                 `).join('')}
                             </dl>
+                            ${cs.tldr ? `
+                                <div class="case-tldr">
+                                    <span class="case-tldr-label">${cs.tldr.label || 'If you only read one thing'}</span>
+                                    <ul>
+                                        ${cs.tldr.items.map(item => `<li>${item}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            ` : ''}
                             ${section.blocks.map(renderEditorialBlock).join('')}
                         </section>
                     `;
@@ -4901,11 +5589,14 @@
             nextBtn.textContent = 'Next Project →';
 
             // Update page title
-            document.title = `${project.title} – Taylor Simpson`;
+            document.title = `${project.title} | Taylor Simpson`;
 
             if (!isOracleCaseStudy && !isEditorialCaseStudy) {
                 applyDefaultSectionEyebrows();
             }
+
+            // Correct layout is now in place — reveal the content.
+            document.documentElement.classList.remove('js-loading');
         }
 
         // Lightbox functionality
@@ -4945,6 +5636,11 @@
         } else {
             window.location.href = 'index.html';
         }
+
+        // Safety net: never leave the page hidden if something above failed.
+        window.addEventListener('load', () => {
+            document.documentElement.classList.remove('js-loading');
+        });
     </script>
 </body>
 

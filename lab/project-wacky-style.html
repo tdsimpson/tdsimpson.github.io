@@ -324,6 +324,9 @@
 </head>
 
 <body>
+  <div style="background:#1a1a1a;color:#f5f5f0;padding:0.75rem 1.25rem;font:500 0.875rem/1.4 system-ui,sans-serif;text-align:center;border-bottom:1px solid #333;">
+    ON ICE — Archive of the playful lab project detail style. Live detail pages now use project.html compact editorial. Links on this archived page may still work for reference.
+  </div>
     <div class="container">
         <header>
             <a href="../index.html" class="logo">Taylor Simpson</a>
@@ -395,9 +398,6 @@
         }
 
         const projectId = new URLSearchParams(window.location.search).get('id');
-        if (projectId === 'expense-tracker' || projectId === 'song-analysis') {
-            window.location.replace(`../project.html?id=${encodeURIComponent(projectId)}`);
-        }
         const project = projectId ? labProjects[projectId] : null;
 
         if (!project) {
