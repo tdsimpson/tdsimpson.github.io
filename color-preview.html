@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accent color preview – Taylor Simpson</title>
+    <link rel="stylesheet" href="fonts/geist.css">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --card: #ffffff;
+            --muted: #6b7280;
+            --text: #0f172a;
+            --glass: rgba(15, 23, 42, 0.04);
+            --accent-2: #2d2d2d;
+            --radius: 12px;
+        }
+
+        [data-theme="dark"] {
+            --bg: #071022;
+            --card: #071827;
+            --muted: #94a3b8;
+            --text: #e6eef3;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Geist Sans", system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.35s ease, color 0.35s ease;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 32px 20px 64px;
+        }
+
+        .top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 16px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            color: var(--text);
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        .intro {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.6;
+            max-width: 58ch;
+        }
+
+        .theme-toggle {
+            border-radius: 999px;
+            padding: 8px;
+            border: 1px solid var(--glass);
+            background: var(--bg);
+            cursor: pointer;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .palette {
+            --accent: #0ea5a4;
+            --accent-dark: #3dd6cf;
+            --focus: 3px rgba(14, 165, 164, 0.16);
+            border: 1px solid var(--glass);
+            border-radius: 14px;
+            background: var(--card);
+            overflow: hidden;
+            transition: background 0.35s ease, border-color 0.35s ease;
+        }
+
+        [data-theme="dark"] .palette {
+            --accent: var(--accent-dark);
+        }
+
+        .palette-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--glass);
+        }
+
+        .palette-name {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .palette-note {
+            margin: 4px 0 0;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .swatches {
+            display: flex;
+            gap: 6px;
+        }
+
+        .swatch {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            border: 1px solid var(--glass);
+        }
+
+        .palette-body {
+            padding: 18px 16px 16px;
+        }
+
+        .sample-hero {
+            margin: 0 0 14px;
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+
+        .sample-hero .accent {
+            color: var(--accent);
+        }
+
+        .sample-hero .rest {
+            color: var(--text);
+        }
+
+        .sample-hero.mono .accent {
+            color: var(--text);
+        }
+
+        .sample-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .btn-primary {
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 0;
+            background: var(--accent-2);
+            color: #fff;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: default;
+        }
+
+        .sample-link {
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .sample-label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .sample-card {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid var(--glass);
+            background: var(--bg);
+        }
+
+        .sample-thumb {
+            width: 56px;
+            height: 56px;
+            border-radius: 8px;
+            background: var(--accent-2);
+            flex-shrink: 0;
+        }
+
+        .sample-thumb.tinted {
+            background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 55%, #000));
+        }
+
+        .sample-card h3 {
+            margin: 0 0 4px;
+            font-size: 13px;
+        }
+
+        .sample-card p {
+            margin: 0;
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 1.45;
+        }
+
+        .focus-demo {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--muted);
+            box-shadow: var(--focus);
+        }
+
+        .hex {
+            margin: 12px 0 0;
+            font-size: 11px;
+            color: var(--muted);
+            font-variant-numeric: tabular-nums;
+        }
+
+        @media (max-width: 760px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body,
+            .palette {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body data-theme="light">
+    <div class="page">
+        <a class="back" href="index.html">← Back to portfolio</a>
+
+        <div class="top">
+            <div>
+                <h1>Accent color preview</h1>
+                <p class="intro">Side-by-side options for your portfolio accent. Each card uses the same layout as your
+                    site — hero highlight, link, label, project card, and focus ring. Toggle light/dark to compare.</p>
+            </div>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">🌓</button>
+        </div>
+
+        <div class="grid" id="grid"></div>
+    </div>
+
+    <script>
+        const palettes = [
+            {
+                name: 'Current — Turquoise',
+                note: 'What you have now',
+                accent: '#0ea5a4',
+                accentDark: '#3dd6cf',
+                focus: 'rgba(14, 165, 164, 0.16)',
+                tintedThumb: true
+            },
+            {
+                name: 'Monochrome',
+                note: 'No accent — text only',
+                accent: '#0f172a',
+                accentDark: '#e6eef3',
+                focus: 'rgba(15, 23, 42, 0.12)',
+                mono: true,
+                tintedThumb: false
+            },
+            {
+                name: 'Warm amber',
+                note: 'Human, approachable',
+                accent: '#b45309',
+                accentDark: '#f59e0b',
+                focus: 'rgba(180, 83, 9, 0.18)',
+                tintedThumb: false
+            },
+            {
+                name: 'Warm earth',
+                note: 'Muted, editorial',
+                accent: '#9a6b4a',
+                accentDark: '#c4a882',
+                focus: 'rgba(154, 107, 74, 0.18)',
+                tintedThumb: false
+            },
+            {
+                name: 'Deep indigo',
+                note: 'Professional, calm',
+                accent: '#3730a3',
+                accentDark: '#818cf8',
+                focus: 'rgba(55, 48, 163, 0.18)',
+                tintedThumb: false
+            },
+            {
+                name: 'Slate navy',
+                note: 'Understated, serious',
+                accent: '#2e3a59',
+                accentDark: '#94a3b8',
+                focus: 'rgba(46, 58, 89, 0.18)',
+                tintedThumb: false
+            },
+            {
+                name: 'Desaturated slate',
+                note: 'Modern neutral',
+                accent: '#475569',
+                accentDark: '#94a3b8',
+                focus: 'rgba(71, 85, 105, 0.18)',
+                tintedThumb: false
+            },
+            {
+                name: 'Refined teal',
+                note: 'Same family, less neon',
+                accent: '#0f766e',
+                accentDark: '#2dd4bf',
+                focus: 'rgba(15, 118, 110, 0.18)',
+                tintedThumb: true
+            }
+        ];
+
+        const grid = document.getElementById('grid');
+
+        palettes.forEach((p) => {
+            const card = document.createElement('article');
+            card.className = 'palette';
+            card.style.setProperty('--accent', p.accent);
+            card.style.setProperty('--accent-dark', p.accentDark);
+            card.style.setProperty('--focus', `3px ${p.focus}`);
+
+            const monoClass = p.mono ? ' mono' : '';
+            const thumbClass = p.tintedThumb ? 'sample-thumb tinted' : 'sample-thumb';
+
+            card.innerHTML = `
+                <div class="palette-head">
+                    <div>
+                        <p class="palette-name">${p.name}</p>
+                        <p class="palette-note">${p.note}</p>
+                    </div>
+                    <div class="swatches" aria-hidden="true">
+                        <span class="swatch" style="background:${p.accent}" title="Light"></span>
+                        <span class="swatch" style="background:${p.accentDark}" title="Dark"></span>
+                    </div>
+                </div>
+                <div class="palette-body">
+                    <p class="sample-hero${monoClass}">
+                        <span class="accent">I'm Taylor – a product designer</span>
+                        <span class="rest"> turning messy problems into products that make sense.</span>
+                    </p>
+                    <div class="sample-row">
+                        <span class="btn-primary">View projects</span>
+                        <a class="sample-link" href="#">Case study →</a>
+                    </div>
+                    <span class="sample-label">What I care about</span>
+                    <div class="sample-card">
+                        <div class="${thumbClass}"></div>
+                        <div>
+                            <h3>SettleKit</h3>
+                            <p>Guided tool for immigrants setting up life in the US.</p>
+                        </div>
+                    </div>
+                    <div class="sample-row" style="margin-top:12px;margin-bottom:0">
+                        <span class="focus-demo">Focus ring</span>
+                    </div>
+                    <p class="hex">Light ${p.accent} · Dark ${p.accentDark}</p>
+                </div>
+            `;
+
+            grid.appendChild(card);
+        });
+
+        const toggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        function setTheme(t) {
+            body.setAttribute('data-theme', t);
+            localStorage.setItem('theme', t);
+        }
+
+        const saved = localStorage.getItem('theme');
+        const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        setTheme(saved || preferred);
+        toggle.addEventListener('click', () => setTheme(body.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
+    </script>
+</body>
+
+</html>

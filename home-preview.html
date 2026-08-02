@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Homepage preview – Oracle style – Taylor Simpson</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Schibsted+Grotesk:wght@400..900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --paper: #f8f8f8;
+            --paper-2: #ffffff;
+            --ink: #1a1f1c;
+            --ink-2: #3d4840;
+            --muted: #6b7b74;
+            --line: #e2e8e4;
+            --line-2: #c8d5cf;
+            --accent: #2d6a4f;
+            --accent-deep: #1b4332;
+            --accent-soft: #d4e9df;
+            --r-sm: 11px;
+            --r: 16px;
+            --r-lg: 22px;
+            --r-pill: 100px;
+            --shadow: 0 2px 4px rgba(39, 35, 32, 0.03), 0 16px 36px -26px rgba(124, 51, 80, 0.3);
+            --display: "Schibsted Grotesk", system-ui, sans-serif;
+            --body: "DM Sans", system-ui, sans-serif;
+            --mono: "DM Sans", system-ui, sans-serif;
+        }
+
+        [data-bg="white"] {
+            --paper: #ffffff;
+            --shadow: 0 2px 4px rgba(39, 35, 32, 0.04), 0 12px 32px -20px rgba(39, 35, 32, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--paper);
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--body);
+            font-size: 1.06rem;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Preview chrome */
+        .preview-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 20px;
+            background: #1a1f1c;
+            color: #f8f8f8;
+            font-family: var(--display);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .preview-bar strong {
+            font-weight: 700;
+        }
+
+        .preview-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .preview-btn {
+            padding: 6px 12px;
+            border-radius: var(--r-pill);
+            border: 1px solid rgba(248, 248, 248, 0.2);
+            background: transparent;
+            color: #f8f8f8;
+            font-family: var(--display);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .preview-btn.active {
+            background: #f8f8f8;
+            color: #1a1f1c;
+            border-color: #f8f8f8;
+        }
+
+        .preview-divider {
+            width: 1px;
+            height: 20px;
+            background: rgba(248, 248, 248, 0.25);
+            margin: 0 4px;
+        }
+
+        .preview-link {
+            color: #f8f8f8;
+            font-family: var(--display);
+            font-size: 12px;
+            font-weight: 600;
+            opacity: 0.85;
+        }
+
+        .preview-link:hover {
+            opacity: 1;
+        }
+
+        .wrap {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Filing header */
+        .filing {
+            position: sticky;
+            top: 41px;
+            z-index: 20;
+            background: var(--paper);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .filing .bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 54px;
+            gap: 16px;
+        }
+
+        .mark {
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mark::before {
+            content: "";
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        nav a {
+            padding: 8px 14px;
+            border-radius: var(--r-pill);
+            font-family: var(--display);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--muted);
+            transition: color 0.2s ease, background 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--ink);
+            background: var(--accent-soft);
+        }
+
+        .role {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        /* Type */
+        .eyebrow {
+            display: block;
+            font-family: var(--mono);
+            font-size: 0.74rem;
+            font-weight: 500;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .casepill {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: var(--accent-soft);
+            color: var(--accent-deep);
+            padding: 6px 14px;
+            border-radius: var(--r-pill);
+            margin-bottom: 18px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 48px;
+            align-items: center;
+            padding: 48px 0 44px;
+        }
+
+        .hero h1 {
+            font-family: var(--display);
+            font-weight: 800;
+            font-size: clamp(2.4rem, 5vw, 3.5rem);
+            line-height: 1.02;
+            letter-spacing: -0.025em;
+            margin: 0 0 20px;
+        }
+
+        .hero-title-main {
+            color: var(--accent-deep);
+        }
+
+        .hero-title-sub {
+            color: var(--ink);
+        }
+
+        .hero .lead {
+            font-family: var(--display);
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            line-height: 1.45;
+            color: var(--ink-2);
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin: 0 0 1em;
+            max-width: 62ch;
+        }
+
+        .prose p {
+            margin: 0 0 1.1em;
+            color: var(--ink-2);
+            max-width: 66ch;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--display);
+            font-weight: 600;
+            font-size: 0.95rem;
+            background: #2d2d2d;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: var(--r-pill);
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .btn.secondary {
+            background: transparent;
+            color: var(--ink);
+            border: 1px solid var(--line-2);
+        }
+
+        .btn.secondary:hover {
+            border-color: var(--ink);
+            background: transparent;
+        }
+
+        .portrait {
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 1;
+            border-radius: var(--r-lg);
+            background: var(--paper-2);
+            overflow: hidden;
+            border: 1px solid var(--line-2);
+            box-shadow: var(--shadow);
+            margin-left: auto;
+        }
+
+        .portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .page-section {
+            padding: 56px 0;
+            border-top: 1px solid var(--line);
+            scroll-margin-top: 100px;
+        }
+
+        h2.section-title {
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: clamp(1.6rem, 3vw, 2rem);
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            margin: 0 0 24px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--paper-2);
+            border-radius: var(--r);
+            padding: 14px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px rgba(39, 35, 32, 0.04), 0 20px 40px -24px rgba(124, 51, 80, 0.35);
+        }
+
+        .thumb {
+            height: 220px;
+            border-radius: var(--r-sm);
+            background: #2d2d2d;
+            overflow: hidden;
+            border: 1px solid var(--line);
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0 8px;
+        }
+
+        .chip {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.04em;
+            background: var(--paper);
+            border: 1px solid var(--line-2);
+            color: var(--ink-2);
+            padding: 5px 12px;
+            border-radius: var(--r-pill);
+        }
+
+        .card h3 {
+            font-family: var(--display);
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .card .card-desc {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 0.94rem;
+            line-height: 1.5;
+        }
+
+        .other-projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .project-item {
+            background: var(--paper-2);
+            border-radius: var(--r);
+            padding: 18px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .project-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .project-item-image {
+            width: 72px;
+            height: 72px;
+            min-width: 72px;
+            border-radius: var(--r-sm);
+            overflow: hidden;
+            border: 1px solid var(--line);
+        }
+
+        .project-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-content h3 {
+            font-family: var(--display);
+            margin: 0 0 6px;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .project-content p {
+            margin: 0 0 10px;
+            color: var(--muted);
+            font-size: 0.94rem;
+            line-height: 1.5;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            gap: 56px;
+            align-items: start;
+        }
+
+        .about .prose p {
+            color: var(--ink-2);
+        }
+
+        .card-contacts {
+            background: var(--paper-2);
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            padding: 18px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .card-contacts .label {
+            font-family: var(--mono);
+            font-size: 0.66rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .card-contacts .links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .card-contacts .btn.secondary {
+            justify-content: center;
+            width: 100%;
+        }
+
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .experience-list::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--line);
+        }
+
+        .experience-item {
+            position: relative;
+            padding-bottom: 28px;
+            padding-left: 24px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--line);
+            z-index: 1;
+        }
+
+        .experience-item:first-child::before {
+            background: var(--accent);
+        }
+
+        .experience-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .experience-item h3 {
+            font-family: var(--display);
+            margin: 0 0 4px;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .experience-item .company {
+            font-family: var(--display);
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin: 0 0 4px;
+            font-weight: 600;
+        }
+
+        .experience-item .time-range {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.04em;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .experience-item .outcome {
+            margin: 10px 0 0;
+            color: var(--ink-2);
+            font-size: 0.98rem;
+            line-height: 1.6;
+            max-width: 62ch;
+        }
+
+        .card-resume {
+            background: var(--paper-2);
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            padding: 22px;
+            box-shadow: var(--shadow);
+            max-width: 480px;
+        }
+
+        .card-resume h3 {
+            font-family: var(--display);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .card-resume p {
+            color: var(--muted);
+            margin: 8px 0 0;
+            font-size: 0.94rem;
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 32px 0 56px;
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 0.76rem;
+            letter-spacing: 0.04em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer a {
+            color: var(--muted);
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 1000px) {
+            .projects {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .portrait {
+                margin: 0;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .project-item {
+                flex-direction: column;
+            }
+
+            .project-item-image {
+                display: none;
+            }
+
+            .role {
+                display: none;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .projects,
+            .other-projects {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: none;
+            }
+
+            .wrap {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+
+<body data-bg="paper">
+    <div class="preview-bar">
+        <span><strong>Homepage preview</strong> — matches Oracle case study tokens (not layout)</span>
+        <div class="preview-actions">
+            <button class="preview-btn active" type="button" data-bg="paper">Paper #F8F8F8</button>
+            <button class="preview-btn" type="button" data-bg="white">Pure white</button>
+            <span class="preview-divider" aria-hidden="true"></span>
+            <a class="preview-link" href="index.html">← Current site</a>
+        </div>
+    </div>
+
+    <header class="filing">
+        <div class="wrap bar">
+            <span class="mark">Taylor Simpson</span>
+            <div class="header-right">
+                <nav aria-label="Main navigation">
+                    <a href="#work">Projects</a>
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="TaylorSimpson_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+                </nav>
+                <span class="role">Product design &amp; UX</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrap">
+        <main>
+            <section class="hero" id="home">
+                <div>
+                    <span class="casepill">Portfolio</span>
+                    <h1>
+                        <span class="hero-title-main">I'm Taylor – a product designer</span>
+                        <span class="hero-title-sub"> turning messy, ambiguous problems into products that make
+                            sense.</span>
+                    </h1>
+                    <p class="lead">For the past 6 years, I've been designing, building, and shipping products, mostly
+                        at startups where I've had to wear a lot of hats.</p>
+                    <div class="prose">
+                        <p>Currently I'm helping build SettleKit, a tool that guides immigrants through the practical
+                            steps of setting up a life in the US. Before that I worked across product design, product
+                            management, and software development, launching mobile apps and SaaS tools from the ground
+                            up.</p>
+                    </div>
+                    <div style="margin-top:26px">
+                        <a class="btn" href="#work">View projects</a>
+                    </div>
+                </div>
+                <aside aria-hidden="true">
+                    <div class="portrait">
+                        <img src="images/portrait.png" alt="Taylor Simpson" />
+                    </div>
+                </aside>
+            </section>
+
+            <section class="page-section" id="work">
+                <span class="eyebrow">Work</span>
+                <h2 class="section-title">Featured projects</h2>
+                <div class="projects">
+                    <a href="project.html?id=course-enrollment" class="card">
+                        <div class="thumb">
+                            <img src="images/project_cards/card-course-enrollment.png" alt="" />
+                        </div>
+                        <div class="chips">
+                            <span class="chip">Prototype</span>
+                            <span class="chip">Figma</span>
+                        </div>
+                        <h3>Oracle Course Enrollment Prototype</h3>
+                        <p class="card-desc">Improved workflows for students in a prototype for Oracle's enrollment
+                            system.</p>
+                    </a>
+                    <a href="project.html?id=settlekit" class="card">
+                        <div class="thumb">
+                            <img src="images/project_cards/card-settlekit.svg" alt="" />
+                        </div>
+                        <div class="chips">
+                            <span class="chip">Product</span>
+                            <span class="chip">UX</span>
+                            <span class="chip">Impact</span>
+                        </div>
+                        <h3>SettleKit</h3>
+                        <p class="card-desc">Product design for a guided tool that helps immigrants with practical US
+                            setup.</p>
+                    </a>
+                    <a href="project.html?id=pedal-patrol" class="card">
+                        <div class="thumb">
+                            <img src="images/project_cards/card-pedal-patrol.png" alt="" />
+                        </div>
+                        <div class="chips">
+                            <span class="chip">Mobile</span>
+                            <span class="chip">React Native</span>
+                        </div>
+                        <h3>Crowdsourced Bike Theft Recovery App</h3>
+                        <p class="card-desc">Mobile app crowdsourcing bike recoveries for a local cycling community.
+                        </p>
+                    </a>
+                </div>
+
+                <span class="eyebrow" style="margin-top:48px">More</span>
+                <h2 class="section-title">Other projects</h2>
+                <div class="other-projects">
+                    <a href="#" class="project-item">
+                        <div class="project-item-image">
+                            <img src="images/project_cards/square-expense-tracker.png" alt="" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Online Budgeting Tool</h3>
+                            <p>Input expense data and visualize it across charts and graphs.</p>
+                            <div class="chips">
+                                <span class="chip">React</span>
+                                <span class="chip">Firebase</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="project-item">
+                        <div class="project-item-image">
+                            <img src="images/project_cards/square-song-analysis.png" alt="" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Spotify Song Analysis</h3>
+                            <p>Analyzes songs and provides insights on key metrics, BPM, and more.</p>
+                            <div class="chips">
+                                <span class="chip">Spotify API</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="page-section" id="about">
+                <span class="eyebrow">About</span>
+                <h2 class="section-title">Background</h2>
+                <div class="about">
+                    <div class="prose">
+                        <p>I've always been drawn to building things people use. I studied computer science to give
+                            myself the tools to build, and working across product, engineering, and design, mostly at
+                            early-stage startups, has shown me how products come together from every side. What ties all
+                            of it together is the user experience itself: how people think, where they get stuck, and
+                            what would make a hard task feel easy.</p>
+                        <p>Along the way I've defined features, mapped user flows, tested concepts, written in-app copy,
+                            and shipped alongside engineers, across everything from community projects to e-commerce,
+                            SaaS, and mobile apps.</p>
+                        <p>If there's one thing I optimize for, it's clarity. In my experience, teams often overestimate
+                            how quickly people will understand a product, so it's worth thinking carefully across every
+                            touchpoint.</p>
+                    </div>
+                    <aside>
+                        <div class="card-contacts">
+                            <div class="label">Contact</div>
+                            <div class="links">
+                                <a class="btn secondary" href="mailto:taylor.daniel.simpson@gmail.com">Email</a>
+                                <a class="btn secondary" href="https://github.com/tdsimpson" target="_blank"
+                                    rel="noopener">GitHub</a>
+                                <a class="btn secondary" href="https://www.linkedin.com/in/td-simpson" target="_blank"
+                                    rel="noopener">LinkedIn</a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <section class="page-section" id="experience">
+                <span class="eyebrow">Experience</span>
+                <h2 class="section-title">Where I've worked</h2>
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <h3>Product Designer</h3>
+                        <p class="company">SettleKit</p>
+                        <p class="time-range">2026 – Present</p>
+                        <p class="outcome">End-to-end UX for immigrants navigating US settlement – turning confusing
+                            steps into clear flows users can trust.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Product Designer</h3>
+                        <p class="company">Social Good Fund</p>
+                        <p class="time-range">2024 – 2026</p>
+                        <p class="outcome">Shipped design for impact-led initiatives – balancing nonprofit constraints
+                            with usable, modern product surfaces.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Product Manager</h3>
+                        <p class="company">Lexir</p>
+                        <p class="time-range">2020 – 2023</p>
+                        <p class="outcome">Owned discovery-to-launch for marketplace mobile and SaaS at startup pace.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page-section" id="resume">
+                <div class="card-resume">
+                    <h3>Resume</h3>
+                    <p>View a PDF copy of my resume.</p>
+                    <div style="margin-top:14px">
+                        <a class="btn secondary" href="TaylorSimpson_Resume.pdf" target="_blank" rel="noopener">Resume
+                            (PDF)</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div>© Taylor Simpson</div>
+            <div style="display:flex;gap:16px;flex-wrap:wrap">
+                <a href="mailto:taylor.daniel.simpson@gmail.com">Email</a>
+                <a href="https://github.com/tdsimpson" target="_blank" rel="noopener">Github</a>
+                <a href="https://www.linkedin.com/in/td-simpson" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const body = document.body;
+
+        document.querySelectorAll('.preview-btn[data-bg]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                body.setAttribute('data-bg', btn.dataset.bg);
+                document.querySelectorAll('.preview-btn[data-bg]').forEach((b) => {
+                    b.classList.toggle('active', b === btn);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

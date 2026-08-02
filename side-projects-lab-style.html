@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Side projects — lab style (on ice)</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px 24px 80px;
+            font-family: system-ui, -apple-system, sans-serif;
+            color: #1a1f1c;
+            background: #f8f8f8;
+            line-height: 1.5;
+        }
+        .wrap { max-width: 720px; margin: 0 auto; }
+        .note {
+            margin: 0 0 28px;
+            padding: 16px 18px;
+            background: #fff8e8;
+            border: 1px solid #f0e0b8;
+            border-radius: 12px;
+            font-size: 14px;
+            color: #5c4a1f;
+        }
+        .note a { color: inherit; }
+        .also-building {
+            padding: 20px 22px 22px;
+            border-radius: 16px;
+            background:
+                radial-gradient(circle at 0% 0%, rgba(167, 139, 250, 0.16), transparent 45%),
+                radial-gradient(circle at 100% 100%, rgba(251, 146, 60, 0.12), transparent 40%),
+                #f7f7f8;
+            border: 2px dashed rgba(167, 139, 250, 0.4);
+        }
+        .also-building h2 {
+            margin: 0;
+            font-size: 18px;
+            background: linear-gradient(120deg, #8b5cf6, #f97316);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .also-building p { margin: 6px 0 16px; color: #6b7280; font-size: 14px; }
+        .row { display: flex; flex-direction: column; gap: 8px; }
+        .lab-preview {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 14px;
+            border: 2px solid rgba(0,0,0,0.08);
+            border-left: 4px solid #a78bfa;
+            border-radius: 10px;
+            background: #fff;
+            text-decoration: none;
+            color: inherit;
+        }
+        .lab-preview:nth-child(2) { border-left-color: #fb923c; }
+        .lab-preview h3 { margin: 0 0 2px; font-size: 14px; }
+        .lab-preview span { font-size: 13px; color: #6b7280; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <p class="note">
+            <strong>On ice.</strong> Playful dashed “lab” treatment (not the live compact thumb+name box).
+            <a href="index.html">← Homepage</a>
+        </p>
+        <section class="also-building">
+            <h2>Side Projects</h2>
+            <p>Small things I've built for fun or to learn something new.</p>
+            <div class="row">
+                <a class="lab-preview" href="lab/project.html?id=expense-tracker">
+                    <div>
+                        <h3>Online Budgeting Tool</h3>
+                        <span>Personal expense tracker with charts</span>
+                    </div>
+                    <span>→</span>
+                </a>
+                <a class="lab-preview" href="lab/project.html?id=song-analysis">
+                    <div>
+                        <h3>Spotify Song Analysis</h3>
+                        <span>Musical details for whatever you're playing</span>
+                    </div>
+                    <span>→</span>
+                </a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
