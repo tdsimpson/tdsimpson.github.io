@@ -1333,6 +1333,10 @@
             box-shadow: none;
         }
 
+        .external-tools-block--standalone {
+            margin: 8px 0 1.25em;
+        }
+
         [data-theme="dark"] .external-tools-block {
             background: transparent;
             box-shadow: none;
@@ -2416,7 +2420,26 @@
         }
 
         .editorial-lesson p {
+            margin: 0 0 0.7em;
+        }
+
+        .editorial-lesson p:last-child {
+            margin-bottom: 0;
+        }
+
+        .editorial-lesson-example {
+            margin-top: 10px;
+            padding: 14px 16px;
+            background: var(--accent-soft);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+        }
+
+        .editorial-lesson-example p {
             margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.55;
+            color: var(--text-2);
         }
 
         .editorial-pull {
@@ -3800,8 +3823,17 @@
                                     type: 'ul',
                                     items: [
                                         'Opening a program requirements flowchart on a separate site',
-                                        'Checking a personal calendar in another tab for conflicts',
-                                        'Sometimes using a spreadsheet to cross off what they still needed to take'
+                                        'Leaving the tool to look up what a course actually is, since there\'s no real way to browse or explore courses inside enrollment',
+                                        'Checking a personal calendar or third-party schedule builder in another tab for conflicts'
+                                    ]
+                                },
+                                {
+                                    type: 'externalTools',
+                                    label: 'External tools students relied on',
+                                    tools: [
+                                        { src: 'images/case_studies/course_enrollment/user-interviews-insights-external-resource-1.jpg', caption: 'Degree audit PDF' },
+                                        { src: 'images/case_studies/course_enrollment/user-interviews-insights-external-resource-2.png', caption: 'External course catalog' },
+                                        { src: 'images/case_studies/course_enrollment/user-interviews-insights-external-resource-3.png', caption: 'Third-party schedule builder' }
                                     ]
                                 },
                                 { type: 'p', text: 'None of that work happened inside the enrollment tool itself.' }
@@ -3884,18 +3916,10 @@
                                     beforeAfter: {
                                         before: {
                                             caption: 'Students relied on external tools to visualize their schedule and track degree requirements, then returned to Oracle to actually enroll.',
-                                            layout: 'single-with-external',
+                                            layout: 'single',
                                             images: [
                                                 { src: 'images/case_studies/course_enrollment/user-interviews-insights-common-complaint-3.png', caption: 'Original Oracle enrollment screen – no schedule view, no degree tracking' }
-                                            ],
-                                            externalTools: {
-                                                label: 'External tools students relied on',
-                                                tools: [
-                                                    { src: 'images/case_studies/course_enrollment/user-interviews-insights-external-resource-1.jpg', caption: 'Degree audit PDF' },
-                                                    { src: 'images/case_studies/course_enrollment/user-interviews-insights-external-resource-2.png', caption: 'External course catalog' },
-                                                    { src: 'images/case_studies/course_enrollment/user-interviews-insights-external-resource-3.png', caption: 'Third-party schedule builder' }
-                                                ]
-                                            }
+                                            ]
                                         },
                                         after: {
                                             caption: 'A built-in calendar and requirements tracker replace the need for any external tools – everything lives in one place.',
@@ -3938,7 +3962,7 @@
                                     heading: 'Plan before you commit',
                                     addresses: 'No visibility into your schedule before you commit.',
                                     paragraphs: [
-                                        'The old system\'s two biggest blindspots were really the same problem: students had no visibility before the moment of enrollment. They couldn\'t see how their week would look, and they couldn\'t know about schedule conflicts until they\'d already tried to enroll. The redesign addresses both together: a visual calendar to plan and preview, and conflict detection that fires <em>before</em> you commit, not after.'
+                                        'The old system\'s two biggest blindspots were really the same problem: students had no visibility before the moment of enrollment. They couldn\'t see how their week would look, and they couldn\'t know about schedule conflicts until they\'d already tried to enroll. The redesign addresses both together: a visual calendar to plan and preview, and a conflict detection system (denoted with the “⚠️” tooltip) before you commit.'
                                     ],
                                     beforeAfter: {
                                         before: {
@@ -4547,22 +4571,22 @@
                                         {
                                             num: '1',
                                             title: 'A smaller, working product is better than a big, broken one',
-                                            text: 'You can’t build the perfect platform in a vacuum and hope everyone immediately loves it. You need enough working product to prove people want it. Ship, validate, then invest in the full vision.'
+                                            text: 'You can’t build the perfect platform in a vacuum and hope everyone immediately loves it. You need enough working product to prove people want it.\n\nAt Lexir, we had more success when we were able to ship, validate, and then invest in the full vision later.'
                                         },
                                         {
                                             num: '2',
                                             title: 'Explaining the shift is part of the product',
-                                            text: 'When you’re asking people to adopt a new way of working, new features alone won’t get you there. You have to keep earning buy-in for the model itself. Positioning and framing have to do as much work as the product. At Lexir, that meant constantly showing why this wasn’t just another shop or distributor before anyone got on a call.'
+                                            text: 'When you’re asking people to adopt a new way of working, new features alone won’t get you there. You have to keep earning buy-in for the model itself. Positioning and framing have to do as much work as the product.\n\nAt Lexir, that meant constantly showing why this wasn’t just another shop or distributor before anyone got on a call.'
                                         },
                                         {
                                             num: '3',
-                                            title: 'Tools aren’t the same as adoption',
-                                            text: 'Getting someone through the door isn’t the end of the job. After they buy in, a new set of needs shows up, and retaining them means helping with those too. At Lexir, a signed brand still needed guidance, economics tools, and people on the ground. The dashboard alone wasn’t enough.'
+                                            title: 'Retention needs as much attention as acquisition',
+                                            text: 'Signing someone up doesn’t mean they\'re fully bought in, or that they know what to do next. After the sale, a new set of questions shows up, and if you only chase the next customer you lose the ones you already have.\n\nAt Lexir, a signed brand still needed guidance, economics tools, and people on the ground. Supporting existing customers mattered as much as getting new ones through the door.'
                                         },
                                         {
                                             num: '4',
                                             title: 'Speak to one audience at a time',
-                                            text: 'If you appeal to multiple audiences in the same place, people get confused about what you actually are. It’s better to split the story into clearer segments so each message is easy to take in. We made that mistake on Instagram by mixing too many intents at once, and people often assumed Lexir was just another shop instead of rails for brands.'
+                                            text: 'If you appeal to multiple audiences in the same place, people get confused about what you actually are. It’s better to split the story into clearer segments so each message is easy to take in.\n\nWe made that mistake on Instagram by mixing too many intents at once, and people often assumed Lexir was just another shop instead of infrastructure for brands to grow.'
                                         }
                                     ]
                                 }
@@ -4681,8 +4705,8 @@
         // Project order for navigation (loops back to the start after the last)
         const projectOrder = [
             'lexir',
-            'pedal-patrol',
-            'course-enrollment'
+            'course-enrollment',
+            'pedal-patrol'
         ];
 
         function caseStudyImageHTML(img, extraClass = '') {
@@ -4714,6 +4738,17 @@
             `;
         }
 
+        function renderExternalToolsBlock(block) {
+            return `
+                <div class="external-tools-block external-tools-block--standalone">
+                    <span class="external-tools-label">${block.label}</span>
+                    <div class="external-tools-grid">
+                        ${block.tools.map(tool => externalToolThumbHTML(tool)).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
         function renderBeforeColumn(before) {
             let imagesHTML = '';
             let colClass = 'ba-col';
@@ -4722,14 +4757,7 @@
                 colClass = 'ba-col ba-col-before-fragmented';
                 imagesHTML = `<div class="ba-main-image">${caseStudyImageHTML(before.images[0])}</div>`;
                 if (before.externalTools) {
-                    imagesHTML += `
-                        <div class="external-tools-block">
-                            <span class="external-tools-label">${before.externalTools.label}</span>
-                            <div class="external-tools-grid">
-                                ${before.externalTools.tools.map(tool => externalToolThumbHTML(tool)).join('')}
-                            </div>
-                        </div>
-                    `;
+                    imagesHTML += renderExternalToolsBlock(before.externalTools);
                 }
             } else if (before.layout === 'stack' && before.images.length >= 2) {
                 imagesHTML = `
@@ -4930,17 +4958,29 @@
                     return `<p class="editorial-lead">${block.text}</p>`;
                 case 'h3':
                     return `<h3>${block.text}</h3>`;
+                case 'externalTools':
+                    return renderExternalToolsBlock(block);
                 case 'annot':
                     return `<div class="editorial-annot${block.variant === 'tip' ? ' is-tip' : ''}">${block.text}</div>`;
                 case 'lessons':
                     return `
                         <div class="editorial-lessons">
-                            ${block.items.map(item => `
+                            ${block.items.map(item => {
+                                const paras = item.text.split(/\n\n+/);
+                                const general = paras[0] || '';
+                                const examples = paras.slice(1);
+                                return `
                                 <div class="editorial-lesson">
                                     <h3 class="editorial-lesson-title"><span class="editorial-lesson-num">${item.num}.</span>${item.title}</h3>
-                                    <p>${item.text}</p>
+                                    ${general ? `<p>${general}</p>` : ''}
+                                    ${examples.length ? `
+                                        <div class="editorial-lesson-example">
+                                            ${examples.map(para => `<p>${para}</p>`).join('')}
+                                        </div>
+                                    ` : ''}
                                 </div>
-                            `).join('')}
+                            `;
+                            }).join('')}
                         </div>
                     `;
                 case 'pull':
