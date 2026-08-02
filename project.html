@@ -1666,6 +1666,48 @@
             padding-top: 0;
         }
 
+        .editorial-section.is-dark {
+            background: var(--accent-2);
+            color: #ece8e2;
+            border-top: none;
+            border-radius: var(--radius-lg);
+            padding: 40px 36px;
+            margin: 12px 0 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .editorial-section.is-dark + .editorial-section {
+            border-top: none;
+        }
+
+        .editorial-section.is-dark .editorial-eyebrow {
+            color: #9ca3af;
+        }
+
+        .editorial-section.is-dark h2 {
+            color: #fff;
+        }
+
+        .editorial-section.is-dark p {
+            color: #cdc7bf;
+        }
+
+        .editorial-section.is-dark .editorial-btn {
+            background: #fff;
+            color: #1a1a1a;
+        }
+
+        .editorial-section.is-dark .editorial-btn:hover {
+            background: #f0ebe3;
+            color: #000;
+        }
+
+        .editorial-section.is-dark .editorial-annot.is-tip {
+            background: rgba(255, 255, 255, 0.08);
+            border-left-color: #93c5fd;
+            color: #d4d0c8;
+        }
+
         .editorial-section h2 {
             font-size: clamp(1.75rem, 4vw, 2.35rem);
             font-weight: 700;
@@ -1750,7 +1792,7 @@
 
         .editorial-meta {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             border: 1px solid var(--line);
             border-radius: var(--radius);
             background: var(--card);
@@ -1759,13 +1801,22 @@
             overflow: hidden;
         }
 
-        .editorial-meta div {
-            flex: 1 1 150px;
-            padding: 16px 22px;
-            border-right: 1px solid var(--line);
+        .editorial-meta-items {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+            width: 100%;
         }
 
-        .editorial-meta div:last-child {
+        .editorial-meta-items div {
+            flex: 1 1 0;
+            min-width: 0;
+            padding: 16px 22px;
+            border-right: 1px solid var(--line);
+            box-sizing: border-box;
+        }
+
+        .editorial-meta-items div:last-child {
             border-right: none;
         }
 
@@ -1782,6 +1833,16 @@
             font-family: var(--font-display);
             font-weight: 600;
             font-size: 0.97rem;
+        }
+
+        .editorial-section .editorial-meta-note {
+            margin: 0;
+            padding: 12px 22px 14px;
+            border-top: 1px solid var(--line);
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.45;
+            text-align: left;
         }
 
         .compare-table-wrap {
@@ -2423,25 +2484,44 @@
         .editorial-clean-list {
             padding-left: 0;
             list-style: none;
-            margin: 0;
+            margin: 0 0 1.1rem;
         }
 
         .editorial-clean-list li {
-            padding-left: 26px;
+            padding-left: 1.1rem;
             position: relative;
-            margin-bottom: 11px;
+            margin-bottom: 8px;
             line-height: 1.65;
+        }
+
+        .editorial-clean-list li:last-child {
+            margin-bottom: 0;
         }
 
         .editorial-clean-list li::before {
             content: "";
             position: absolute;
             left: 0;
-            top: 10px;
-            width: 9px;
-            height: 9px;
+            top: 0.65em;
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
             background: var(--accent);
+        }
+
+        .editorial-numbered-list {
+            margin: 0 0 1.1rem;
+            padding-left: 1.4rem;
+        }
+
+        .editorial-numbered-list li {
+            margin-bottom: 8px;
+            line-height: 1.65;
+            padding-left: 4px;
+        }
+
+        .editorial-numbered-list li:last-child {
+            margin-bottom: 0;
         }
 
         .editorial-annot {
@@ -2734,8 +2814,53 @@
             margin-bottom: 0;
         }
 
-        .editorial-decision p:last-child {
-            margin-bottom: 0;
+        .editorial-decision-pair {
+            margin: 36px 0;
+            padding-bottom: 36px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .editorial-decision-pair:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .editorial-decision-pair > h3 {
+            margin: 0 0 18px;
+        }
+
+        .editorial-decision-row {
+            display: grid;
+            grid-template-columns: 9.5rem minmax(0, 1fr);
+            gap: 6px 20px;
+            margin-top: 14px;
+            align-items: start;
+        }
+
+        .editorial-decision-row .dlabel {
+            font-size: 0.64rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 0.35em 0 0;
+            line-height: 1.3;
+        }
+
+        .editorial-decision-row p {
+            margin: 0;
+            color: var(--text-2);
+            line-height: 1.65;
+        }
+
+        @media (max-width: 640px) {
+            .editorial-decision-row {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+
+            .editorial-decision-row .dlabel {
+                margin-top: 0;
+            }
         }
 
         .editorial-photos-gallery {
@@ -2765,12 +2890,67 @@
             grid-template-columns: repeat(3, 1fr);
         }
 
+        .editorial-insight-grid.is-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .editorial-insight-list {
+            list-style: none;
+            margin: 26px 0;
+            padding: 0;
+            border-top: 1px solid var(--line);
+            counter-reset: insight;
+        }
+
+        .editorial-insight-list > li {
+            display: grid;
+            grid-template-columns: 1.75rem 1fr;
+            gap: 4px 14px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--line);
+            counter-increment: insight;
+        }
+
+        .editorial-insight-list > li::before {
+            content: counter(insight) ".";
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.05rem;
+            line-height: 1.35;
+            color: var(--accent);
+        }
+
+        .editorial-insight-list h3 {
+            font-size: 1.05rem;
+            margin: 0 0 0.25em;
+            grid-column: 2;
+        }
+
+        .editorial-insight-list p {
+            font-size: 0.93rem;
+            color: var(--text-2);
+            margin: 0;
+            grid-column: 2;
+        }
+
         .editorial-insight {
             background: var(--card);
             border: 1px solid var(--line);
             border-radius: var(--radius);
             padding: 20px 22px;
             box-shadow: var(--shadow);
+        }
+
+        .editorial-insight-grid.is-list .editorial-insight {
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            border-bottom: 1px solid var(--line);
+            box-shadow: none;
+            padding: 20px 0;
         }
 
         .editorial-insight .itag {
@@ -2971,20 +3151,24 @@
         }
 
         .editorial-design-decision {
-            margin: 42px 0;
+            margin: 48px 0;
         }
 
         .editorial-decision-head {
             display: flex;
             align-items: baseline;
-            gap: 14px;
-            margin-bottom: 6px;
+            gap: 10px;
+            margin-bottom: 8px;
             flex-wrap: wrap;
         }
 
         .editorial-decision-num {
-            font-size: 0.8rem;
-            color: var(--accent);
+            font-family: var(--font-display);
+            font-size: 1.38rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: var(--text);
             flex-shrink: 0;
         }
 
@@ -2992,6 +3176,7 @@
             margin: 0;
             font-size: 1.38rem;
             flex: 1;
+            min-width: 12ch;
         }
 
         .editorial-decision-tag {
@@ -3003,14 +3188,6 @@
             padding: 4px 10px;
             border-radius: var(--radius-pill);
             flex-shrink: 0;
-        }
-
-        .editorial-decision-addresses {
-            font-size: 0.68rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin: 0 0 10px;
         }
 
         .editorial-design-decision .before-after {
@@ -3084,13 +3261,13 @@
                 justify-content: center;
             }
 
-            .editorial-meta div {
+            .editorial-meta-items div {
                 flex: 1 1 100%;
                 border-right: none;
                 border-bottom: 1px solid var(--line);
             }
 
-            .editorial-meta div:last-child {
+            .editorial-meta-items div:last-child {
                 border-bottom: none;
             }
         }
@@ -3305,7 +3482,7 @@
             'pedal-patrol': {
                 title: 'Pedal Patrol',
                 subtitle: 'Mobile App (iOS & Android)',
-                description: 'A crowdsourcing mobile app that reunites cyclists with stolen bikes — by turning a whole community into the search party.',
+                description: 'A mobile app that helps cyclists recover their stolen bikes through crowdsourcing. Built with Frontenac Cycle as a working prototype for the local bike community.',
                 client: 'Frontenac Cycle & Sport',
                 type: 'Product management, Mobile development',
                 tools: 'React Native, Firebase, Maps API',
@@ -3314,20 +3491,19 @@
                 video: 'https://www.youtube.com/watch?v=T4QwC_nw_eg',
                 editorialCaseStudy: {
                     pill: 'Case study · Product management',
-                    lead: 'A crowdsourcing mobile app that reunites cyclists with stolen bikes — by turning a whole community into the search party.',
+                    lead: 'A mobile app that helps cyclists recover their stolen bikes through crowdsourcing. Built with Frontenac Cycle as a working prototype for the local bike community.',
                     tldr: {
                         label: 'If you only read one thing',
                         items: [
                             'Led product for a 5-person team as the client’s main point of contact',
-                            'Shipped cross-platform so Android riders weren’t designed out of the product',
-                            'Handed off a working prototype that a Vancouver org continued developing'
+                            'Built a cross-platform app in React Native for iOS and Android',
+                            'Handed off a working prototype to a Vancouver org for continued development'
                         ]
                     },
                     meta: [
-                        { label: 'Client', value: 'Frontenac Cycle & Sport' },
                         { label: 'Role', value: 'Product management · Mobile development' },
-                        { label: 'Team & timeline', value: '5-person team · 8-month capstone' },
-                        { label: 'Tools', value: 'React Native · Firebase · Maps API' }
+                        { label: 'Client', value: 'Frontenac Cycle & Sport' },
+                        { label: 'Timeline', value: '8-month capstone' }
                     ],
                     rail: [
                         { id: 'overview', num: '00', label: 'Overview' },
@@ -3357,15 +3533,23 @@
                             heading: 'Most stolen bikes are never returned.',
                             blocks: [
                                 { type: 'p', text: 'Bike theft is a growing problem across North America, affecting over two million riders. In Kingston alone, hundreds of bikes are reported stolen every year.' },
-                                { type: 'p', text: 'Police recover a portion of them — roughly 250 a year — but <strong>fewer than 5% are ultimately returned to their owners.</strong> The reason is almost always the same: missing ownership information, most commonly the bike\'s serial number. Recovered bikes sit in storage with no way to trace them back to the person they belong to.' },
-                                { type: 'p', text: 'Right now, riders cope with a patchwork: posting on social media, where the plea gets lost in the feed, or contacting police without enough proof to establish that the bike is theirs.' },
+                                { type: 'p', text: 'Police recover a portion of them (roughly 250 a year), but <strong>fewer than 5% are ultimately returned to their owners.</strong> The reason is almost always the same: missing ownership information, most commonly the bike\'s serial number. Recovered bikes sit in storage with no way to trace them back to the person they belong to.' },
+                                { type: 'p', text: 'Currently, when a bike is stolen, riders try to:' },
+                                {
+                                    type: 'ol',
+                                    items: [
+                                        'Post on social media (but it often gets lost in the feed)',
+                                        'Contact police (but often don’t have enough proof to establish that the bike is theirs)'
+                                    ]
+                                },
                                 {
                                     type: 'photos',
                                     layout: 'gallery',
+                                    note: 'Photos I took around Kingston',
                                     items: [
-                                        { src: 'images/case_studies/pedal_patrol/bike-division-union.jpg', caption: 'Division & Union St — a note left for the thief' },
-                                        { src: 'images/case_studies/pedal_patrol/bike-division-johnson.jpg', caption: 'Division & Johnson St' },
-                                        { src: 'images/case_studies/pedal_patrol/kingston-police-photo.jpg', caption: 'Recovered bikes at Kingston Police' }
+                                        { src: 'images/case_studies/pedal_patrol/bike-division-union.jpg', caption: 'A note left for the thief (Division & Union St)' },
+                                        { src: 'images/case_studies/pedal_patrol/bike-division-johnson.jpg', caption: 'Chained up, but the wheel still got stolen (Division & Johnson St)' },
+                                        { src: 'images/case_studies/pedal_patrol/kingston-police-photo.jpg', caption: 'Recovered bikes waiting to be traced to an owner (Kingston Police)' }
                                     ]
                                 }
                             ]
@@ -3375,17 +3559,15 @@
                             eyebrow: '02 — My role',
                             heading: 'Product lead and the client\'s main point of contact.',
                             blocks: [
-                                { type: 'p', text: 'On a five-person team, I owned the product direction and was the primary interface with the client. I ran planning and presentations, kept the team aligned, and translated Frontenac Cycle\'s goals into scoped, buildable work — while staying the voice of the user throughout. I also contributed to the actual React Native build, so I stayed close to the product at both the planning and the implementation level.' },
+                                { type: 'p', text: 'Working in a team of five, I took the lead on product management and was the main point of contact with Frontenac Cycle.' },
                                 {
-                                    type: 'chips',
-                                    label: 'Tools',
-                                    items: ['React Native', 'Firebase', 'Maps API']
-                                },
-                                {
-                                    type: 'band',
-                                    eyebrow: 'What that looked like',
-                                    heading: 'Connecting a real client to a real team',
-                                    text: 'I sat between the client and the engineers — carrying requirements one way, carrying constraints and tradeoffs the other, and making sure the thing we built actually served the rider. Over eight months that meant regular check-ins, formal presentations, and continual re-scoping as we learned more.'
+                                    type: 'ul',
+                                    items: [
+                                        'Ran client check-ins and turned feedback into what we built next',
+                                        'Led UX direction across the core flows',
+                                        'Worked with the team to keep designs feasible to build',
+                                        'Built features in React Native alongside the rest of the team'
+                                    ]
                                 }
                             ]
                         },
@@ -3394,9 +3576,18 @@
                             eyebrow: '03 — Users & goal',
                             heading: 'Built for the everyday commuter.',
                             blocks: [
-                                { type: 'p', text: 'Our core users are people who genuinely depend on their bikes — for commuting, errands, and recreation. They park in vulnerable spots like public racks, live in urban and suburban Kingston, and face a real financial hit if a bike is stolen. For many of them, a bike isn\'t a hobby; it\'s how they get to work.' },
+                                { type: 'p', text: 'Our core users are people who depend on their bikes for commuting and errands. They park in vulnerable spots like public bike racks and face a real financial hit if their bike is stolen. For many of them, biking isn\'t just a hobby, but rather their primary form of transportation.' },
                                 { type: 'pull', text: 'Cyclists are motivated by solutions that protect their investment and lean on community support to get their bikes back.' },
-                                { type: 'p', text: 'So the product goal was focused: give the community a single place to <strong>register their bikes</strong> with serial numbers and photos before anything happens, <strong>report a bike as lost or found,</strong> and <strong>get notified when someone spots a bike in their area</strong> — closing the gap between a recovered bike and the person it belongs to. For an eight-month capstone with a real client, success looked like a <strong>working prototype</strong> they could demo and hand off — core flows built and tested, not a production-ready launch.' }
+                                { type: 'p', text: 'Working with Frontenac Cycle, we defined the key requirements around that audience. The product needed to give riders a single place to:' },
+                                {
+                                    type: 'ul',
+                                    items: [
+                                        'Register their bikes with serial numbers and photos before anything happens',
+                                        'Report a bike as lost or found',
+                                        'Get notified when someone spots a bike in their area'
+                                    ]
+                                },
+                                { type: 'p', text: 'For this eight-month capstone project, Frontenac Cycle wanted a working prototype they could demo and test locally as a proof of concept.' }
                             ]
                         },
                         {
@@ -3404,7 +3595,7 @@
                             eyebrow: '04 — The product',
                             heading: 'What we built',
                             blocks: [
-                                { type: 'p', text: 'Five flows carried that goal — browse the community map and feed, register a bike, report one lost, set a notification radius to watch for sightings, and let the community report a bike found.' },
+                                { type: 'p', text: 'We built an iOS and Android app in React Native and Firebase. The product is built around crowdsourcing: riders can report a bike lost or found, and the local community becomes the extra set of eyes helping get it back.' },
                                 {
                                     type: 'features',
                                     phone: true,
@@ -3412,7 +3603,7 @@
                                         {
                                             num: '01',
                                             title: 'Map & feed',
-                                            text: 'Browse lost bikes on a live map and scrollable feed — search by location, filter by when a bike was reported, and jump back to your current position. Feed items and map pins stay in sync.',
+                                            text: 'Browse lost bikes on a live map and feed. Search by location and filter by when a bike was reported.',
                                             srcs: [
                                                 {
                                                     src: 'images/case_studies/pedal_patrol/feature-map.png',
@@ -3429,14 +3620,14 @@
                                         {
                                             num: '02',
                                             title: 'Register your bike',
-                                            text: 'Add your bikes with photos, serial numbers, and identifying details ahead of time — so proof of ownership is ready the moment you need it. Riders with more than one bike can manage them all from a single list.',
+                                            text: 'Add and manage your bike(s) with photos, serial numbers, and identifying details to help tie them back to you before they go missing.',
                                             src: 'images/case_studies/pedal_patrol/feature-register.png',
                                             shotFile: 'feature-register.png'
                                         },
                                         {
                                             num: '03',
                                             title: 'Report a lost bike',
-                                            text: 'Drop a pin on the map, select your bike, and describe what happened — where you last saw it, what to look for. Once submitted, it appears on the community map and feed like any other lost bike.',
+                                            text: 'Drop a pin on the map, select your bike, and describe what happened, including where you last saw it and what to look for.',
                                             srcs: [
                                                 {
                                                     src: 'images/case_studies/pedal_patrol/feature-report-lost-1.png',
@@ -3453,14 +3644,14 @@
                                         {
                                             num: '04',
                                             title: 'Notification radius',
-                                            text: 'Place a circle anywhere on the map — not just around your current location — and get notified when a lost bike is reported inside it. Useful for watching a neighborhood, a commute route, or anywhere you want extra eyes.',
+                                            text: 'Set a circle anywhere on the map and get notified when a bike is reported lost inside it.',
                                             src: 'images/case_studies/pedal_patrol/feature-notification-radius.png',
                                             shotFile: 'feature-notification-radius.png'
                                         },
                                         {
                                             num: '05',
                                             title: 'Report a found bike',
-                                            text: 'Spotted a bike that might be stolen? Pin where you saw it and leave a short note. The owner gets notified — no in-app messaging, just a direct alert that someone reported a sighting.',
+                                            text: 'When you spot a bike that might be stolen, pin where you saw it and leave a short note that is sent to the owner.',
                                             src: 'images/case_studies/pedal_patrol/feature-report-found.png',
                                             shotFile: 'feature-report-found.png'
                                         }
@@ -3471,24 +3662,19 @@
                         {
                             id: 'decisions',
                             eyebrow: '05 — Key decisions',
-                            heading: 'Two decisions that shaped the product.',
+                            heading: 'Key decisions that shape the product.',
                             blocks: [
                                 {
                                     type: 'decision',
-                                    label: 'Advocating for the user',
-                                    heading: 'Designing for the rider, not just the client',
-                                    paragraphs: [
-                                        'Frontenac Cycle wanted an iPhone app, so their own team could use it. But our research pointed the other way. Our core users are commuters who often ride precisely because a car isn\'t in the budget — which makes them more likely to be on older, cheaper phones, and those are frequently Android.',
-                                        'Building iPhone-only would have quietly designed out the very people the app was meant to serve. So I made the case to build <strong>cross-platform with React Native, with support for older OS versions</strong> — meeting the client\'s need without excluding the actual user base.'
-                                    ]
+                                    heading: '1. Building for the user group instead of the clients themselves',
+                                    approach: 'Frontenac Cycle wanted an iPhone app, so their own team could use it.',
+                                    decision: 'Our research indicated that our core users were commuters who often rode because a car was out of their budget, with many of their phones being older, cheaper Android devices. I made the case to build cross-platform with React Native, so we could meet the client\'s needs without excluding the riders the app was actually built for.'
                                 },
                                 {
                                     type: 'decision',
-                                    label: 'Listening to the client',
-                                    heading: 'Turning feedback into features',
-                                    paragraphs: [
-                                        'We shared work with the client throughout and adjusted based on what came back. Two changes came directly out of those conversations: the ability to <strong>pin a bike to the top of your feed</strong> so you could keep watching for sightings, and a <strong>custom notification radius</strong> you could place anywhere on the map — not just centered on your location — so riders got alerted when a bike was reported in the area they cared about.'
-                                    ]
+                                    heading: '2. Positioning the app as a proactive ownership tool',
+                                    approach: 'Our first instinct was to create a reporting tool for riders to use after their bike was already gone.',
+                                    decision: 'Recovery mostly fails because owners can\'t prove ownership once a bike turns up, and by the time it\'s stolen, it\'s too late to fix that. So we repositioned the app around protecting a bike before it happens, where registration got its own “My Bikes” tab in the main navigation. Other people cannot register your bike again, so it functioned as a real record of ownership.'
                                 }
                             ]
                         },
@@ -3497,7 +3683,7 @@
                             eyebrow: '06 — Outcome',
                             heading: 'What we delivered',
                             blocks: [
-                                { type: 'p', text: 'We delivered a functional prototype that met Frontenac Cycle\'s requirements and validated a community-driven approach to bike-theft recovery. The client was satisfied with the implemented features, and the project was <strong>handed off to a Vancouver-based organization for continued development</strong> — a real endorsement that the concept was worth carrying forward.' }
+                                { type: 'p', text: 'We delivered a functional prototype that met Frontenac Cycle\'s requirements and validated a community-driven approach to bike-theft recovery. The client was satisfied with the implemented features, and the project was <strong>handed off to a Vancouver-based organization for continued development</strong>.' }
                             ]
                         },
                         {
@@ -3505,7 +3691,15 @@
                             eyebrow: '07 — Reflection',
                             heading: 'Reflection',
                             blocks: [
-                                { type: 'p', text: 'The most valuable part of this project wasn\'t any single feature — it was being the connective tissue between a client with a goal and a team that had to build it, while keeping the actual rider at the center of every decision. Balancing what the client asked for against what the research said the user needed was the whole job in miniature.' },
+                                { type: 'p', text: 'The easiest mistake to make on this project wasn\'t picking the wrong feature. It was spending too much time exploring features we never should have built in the first place, like a deep dive into in-app chat (attachments, formatting, threading) before realizing the core problem didn\'t need any of that.' },
+                                { type: 'h3', text: 'What I\'d do differently' },
+                                {
+                                    type: 'ul',
+                                    items: [
+                                        'Test with a real community sooner. It\'s hard to validate a theft-recovery app through a demo alone, since the app only proves itself when something bad actually happens to someone. I\'d release something smaller and more informational first, and use that to learn how riders think about registering a bike before anything happens.',
+                                        'Plan the handoff earlier by talking with the next team about their questions, conventions, and any tools or preferences they already use, so the transition is easier.'
+                                    ]
+                                },
                                 { type: 'h3', text: 'Where it could go next' },
                                 {
                                     type: 'ul',
@@ -3525,7 +3719,7 @@
             'course-enrollment': {
                 title: 'Oracle Course Enrollment Prototype',
                 subtitle: 'Figma Prototype',
-                description: 'Re-imagining a fragmented enrollment experience used by thousands of university students across North America — rebuilt around how they actually search, plan, and enroll.',
+                description: 'A redesign of Oracle’s PeopleSoft enrollment software used by thousands of university students across North America, so they can search, plan, and enroll without leaving the system.',
                 client: 'BrainStation UX course',
                 type: 'UX research, UI design',
                 tools: 'Figma',
@@ -3534,30 +3728,31 @@
                 video: null,
                 editorialCaseStudy: {
                     pill: 'Case study · UX design',
-                    lead: 'Re-imagining a fragmented enrollment experience used by thousands of university students across North America — rebuilt around how they actually search, plan, and enroll.',
+                    lead: 'A redesign of Oracle’s PeopleSoft enrollment software used by thousands of university students across North America, so they can search, plan, and enroll without leaving the system.',
                     tldr: {
                         label: 'If you only read one thing',
                         items: [
-                            'Ran the project end to end: research, IA, flows, UI, and a clickable prototype',
-                            'Brought requirements, schedules, and course details back into the enrollment flow',
-                            'Added calendar planning and conflict warnings before students commit'
+                            'BrainStation UX course project over ~2 months: audited the existing enrollment tools and interviewed students about how they actually register',
+                            'Moved through the full process: personas, IA, flows, sketches, and wireframes into a clickable Figma prototype',
+                            'Presented the work to UX designers from Amazon and EA'
                         ]
                     },
                     meta: [
                         { label: 'Role', value: 'UX research & UI design' },
                         { label: 'Context', value: 'BrainStation UX course' },
-                        { label: 'Timeline', value: 'Early 2024 · ~2 months' },
-                        { label: 'Tools', value: 'Figma' }
+                        { label: 'Timeline', value: '~2 months' }
                     ],
+                    metaNote: 'Concept project. Not commissioned by or affiliated with Oracle.',
                     rail: [
                         { id: 'overview', num: '00', label: 'Overview' },
                         { id: 'problem', num: '01', label: 'The problem' },
                         { id: 'research', num: '02', label: 'Research' },
                         { id: 'personas', num: '03', label: 'Personas' },
-                        { id: 'approach', num: '04', label: 'My approach' },
-                        { id: 'decisions', num: '05', label: 'Design decisions' },
+                        { id: 'approach', num: '04', label: 'Example flow' },
+                        { id: 'decisions', num: '05', label: 'Design improvements' },
                         { id: 'solution', num: '06', label: 'Prototype' },
-                        { id: 'reflection', num: '07', label: 'Reflection' }
+                        { id: 'feedback', num: '07', label: 'Expert feedback' },
+                        { id: 'reflection', num: '08', label: 'Reflection' }
                     ],
                     sections: [
                         {
@@ -3567,8 +3762,7 @@
                                 {
                                     type: 'buttons',
                                     items: [
-                                        { label: 'View prototype →', href: 'https://www.figma.com/proto/JkTyz0qaw085uvEcBuZDBD/BrainStation-Final-Project?node-id=109-7014&starting-point-node-id=109%3A7014', external: true },
-                                        { label: 'Jump to design decisions', href: '#decisions', ghost: true }
+                                        { label: 'View prototype →', href: 'https://www.figma.com/proto/JkTyz0qaw085uvEcBuZDBD/BrainStation-Final-Project?node-id=109-7014&starting-point-node-id=109%3A7014', external: true }
                                     ]
                                 },
                                 {
@@ -3581,23 +3775,17 @@
                         {
                             id: 'problem',
                             eyebrow: '01 — The problem',
-                            heading: 'A system designed for administrators, not students.',
+                            heading: 'Missing the context students need.',
                             blocks: [
-                                { type: 'p', text: 'The Oracle PeopleSoft enrollment platform prioritizes the logic of the database over the needs of the person using it — creating unnecessary friction and stress at one of the most time-sensitive moments in the academic calendar.' },
+                                { type: 'p', text: 'Oracle\'s enrollment platform exposes the raw logic of its database, but it\'s missing a layer of context that matches how students actually search, plan, and decide. The core enrollment mechanics are there, but little else is done to help students make sense of a course before they commit. That means they have to fill in the gaps themselves during one of the most stressful parts of the academic year.' },
                                 {
                                     type: 'insights',
-                                    columns: 3,
+                                    layout: 'list',
                                     items: [
-                                        { tag: 'Pain 01', title: 'Students have to leave the system to get basic info', text: 'Program requirements, schedule visualization, course details — all lived in external tools.' },
-                                        { tag: 'Pain 02', title: 'Search assumes you already know what you want', text: 'No browsing. No course-name search. You needed the exact code before you could start.' },
-                                        { tag: 'Pain 03', title: 'No visibility into your schedule before you commit', text: 'There\'s no way to see how your week looks before enrolling, so schedule conflicts only surface after you\'ve already tried to add a course — when it\'s too late to plan around them.' }
+                                        { title: 'Students have to leave the system to get basic info', text: 'Program requirements, schedule views, and course details all live in other tools, so students are constantly jumping out of the enrollment flow just to find what they need.' },
+                                        { title: 'Search assumes you already know what you want', text: 'You can\'t browse courses or search by name. If you don\'t already know the exact course code, you\'re stuck before you even start.' },
+                                        { title: 'No visibility into your schedule before you commit', text: 'There\'s no way to preview your schedule before committing. Conflicts only surface after you\'ve already clicked “enroll,” so fixing a mistake means undoing the whole registration.' }
                                     ]
-                                },
-                                {
-                                    type: 'band',
-                                    eyebrow: 'My role',
-                                    heading: 'End-to-end, solo',
-                                    text: 'I ran the whole project myself — <strong>user interviews and synthesis, personas, information architecture, user flows, sketches, wireframes, UI design, and a clickable prototype.</strong> Every design decision traces back to something a real student said.'
                                 }
                             ]
                         },
@@ -3606,9 +3794,17 @@
                             eyebrow: '02 — Research',
                             heading: 'What students told me',
                             blocks: [
-                                { type: 'p', text: 'I interviewed six people — five with direct experience using Oracle\'s enrollment software. The questions covered their most recent registration experience, where they go for requirements and course info, their biggest frustrations, and what external tools they lean on to get through the process.' },
-                                { type: 'p', text: 'The throughline: enrollment is <strong>stressful</strong>, driven by a fear of not getting into the courses they need. The three pain points above weren\'t isolated frustrations — they were symptoms of a platform that was never designed around the student\'s journey.' },
-                                { type: 'pull', text: 'Students weren\'t failing to use the platform. They were working around it just to complete one task.' }
+                                { type: 'p', text: 'I interviewed six people, five with direct experience using Oracle\'s enrollment software. The questions covered their most recent registration experience, where they go for requirements and course info, their biggest frustrations, and what external tools they lean on to get through the process.' },
+                                { type: 'p', text: 'Almost everyone described the same pattern. To finish enrollment, they had to leave the platform and piece things together themselves:' },
+                                {
+                                    type: 'ul',
+                                    items: [
+                                        'Opening a program requirements flowchart on a separate site',
+                                        'Checking a personal calendar in another tab for conflicts',
+                                        'Sometimes using a spreadsheet to cross off what they still needed to take'
+                                    ]
+                                },
+                                { type: 'p', text: 'None of that work happened inside the enrollment tool itself.' }
                             ]
                         },
                         {
@@ -3616,7 +3812,7 @@
                             eyebrow: '03 — Personas',
                             heading: 'Who I was designing for',
                             blocks: [
-                                { type: 'p', text: 'The interviews pointed to two archetypes that drove the design throughout: a first-timer who\'s afraid of making a mistake, and an experienced student who just wants to get through it.' },
+                                { type: 'p', text: 'The interviews pointed me toward two personas I based the design on: a first-year student who\'s anxious about getting it wrong, and an experienced student who just wants to move fast.' },
                                 {
                                     type: 'personas',
                                     layout: 'cards',
@@ -3641,52 +3837,53 @@
                         },
                         {
                             id: 'approach',
-                            eyebrow: '04 — How I approached it',
-                            heading: 'How I approached it',
+                            eyebrow: '04 — Example flow',
+                            heading: 'Example flow: Finding a history elective that fits.',
                             blocks: [
-                                { type: 'p', text: 'With the core problems identified, I walked through the structure before touching the interface — starting with an information architecture, then mapping two task flows, then sketching layouts, then wireframing at increasing fidelity before committing to a high-fidelity system.' },
-                                {
-                                    type: 'asset',
-                                    src: 'images/case_studies/course_enrollment/information-architecture.png',
-                                    caption: 'Fig. 04 / Restructured information architecture'
-                                },
-                                { type: 'p', text: 'I mapped out a task flow for the scenario that touches the most design decisions — a student searching for a history elective that doesn\'t conflict with her existing schedule. Tracing it end-to-end, including decision branches for conflicts and availability, surfaced several edge cases that shaped the wireframes significantly.' },
+                                { type: 'p', text: 'Throughout the design process, I worked through the usual stages (user flows, sketches, then wireframes) for the key paths in the product. Here\'s one example end to end: searching for a history elective, dealing with conflicts, previewing the schedule, and enrolling.' },
+                                { type: 'h3', text: 'User flow' },
+                                { type: 'p', text: 'Mapping the path end to end, including branches for conflicts and availability, surfaced edge cases that shaped the wireframes.' },
                                 {
                                     type: 'asset',
                                     src: 'images/case_studies/course_enrollment/user-flow-2.png',
-                                    caption: 'Fig. 05 / Task flow — finding and adding a history elective'
+                                    caption: 'Fig. 04 / User flow: finding and adding a history elective'
                                 },
+                                { type: 'h3', text: 'Sketches' },
                                 { type: 'p', text: 'From there, I moved to paper sketches and then mid-fidelity wireframes, working out the layout of each screen before introducing any visual design.' },
                                 {
                                     type: 'asset',
                                     src: 'images/case_studies/course_enrollment/task-2-sketches-add-history-elective-to-calendar.jpg',
-                                    caption: 'Fig. 06a / Paper sketches'
+                                    caption: 'Fig. 05a / Paper sketches'
                                 },
+                                { type: 'h3', text: 'Wireframes' },
                                 {
                                     type: 'asset',
                                     src: 'images/case_studies/course_enrollment/wireframes-add-history-elective-to-calendar.png',
-                                    caption: 'Fig. 06b / Mid-fidelity wireframes'
+                                    caption: 'Fig. 05b / Mid-fidelity wireframes'
                                 }
                             ]
                         },
                         {
                             id: 'decisions',
-                            eyebrow: '05 — The solution',
-                            heading: 'Three problems. Three fixes.',
+                            eyebrow: '05 — Design improvements',
+                            heading: 'Design improvements',
                             blocks: [
-                                { type: 'p', text: 'Rather than cataloguing every screen, here are the three decisions that did the most work — and how the design changed.' },
+                                { type: 'p', text: 'Earlier I outlined three places students got stuck. For each one below, you\'ll see the before and after, and how better UX changed those screens.' },
                                 {
                                     type: 'designDecision',
-                                    num: '01',
+                                    num: '1.',
                                     heading: 'Everything in one place',
-                                    tag: 'Centralization',
-                                    addresses: 'Addresses: Pain 01 — Students have to leave the system to get basic info',
+                                    addresses: 'Students have to leave the system to get basic info.',
                                     paragraphs: [
-                                        'The most common failure of the old system wasn\'t any single screen — it was that students had to leave entirely to find basic information. Program requirements, course descriptions, and a visual schedule all lived somewhere else. The redesign brings all three inside the portal, so enrollment can actually happen in one place.'
+                                        'Students had to leave the system entirely to find basic information. Program requirements, course descriptions, and a visual schedule all lived somewhere else. The redesign brings all three inside the portal, so enrollment can actually happen in one place.'
                                     ],
+                                    asset: {
+                                        src: 'images/case_studies/course_enrollment/information-architecture.png',
+                                        caption: 'Fig. 06 / Restructured information architecture: requirements, search, schedule, and enrollment in one portal'
+                                    },
                                     beforeAfter: {
                                         before: {
-                                            caption: 'Students relied on external tools to visualize their schedule and track degree requirements — then returned to Oracle to actually enroll.',
+                                            caption: 'Students relied on external tools to visualize their schedule and track degree requirements, then returned to Oracle to actually enroll.',
                                             layout: 'single-with-external',
                                             images: [
                                                 { src: 'images/case_studies/course_enrollment/user-interviews-insights-common-complaint-3.png', caption: 'Original Oracle enrollment screen – no schedule view, no degree tracking' }
@@ -3712,12 +3909,11 @@
                                 },
                                 {
                                     type: 'designDecision',
-                                    num: '02',
+                                    num: '2.',
                                     heading: 'Search that actually works',
-                                    tag: 'Discoverability',
-                                    addresses: 'Addresses: Pain 02 — Search assumes you already know what you want',
+                                    addresses: 'Search assumes you already know what you want.',
                                     paragraphs: [
-                                        'The original search required an exact course code — no browsing, no course-name search, nothing. The redesign replaces it with a browsable faculty grid, a keyword search bar, and a rich filter set (term, level, course type, days & times, open-only) so students can find courses the way they actually think about them.'
+                                        'The original search required an exact course code: no browsing, no course-name search, nothing. The redesign replaces it with a browsable faculty grid, a keyword search bar, and a rich filter set (term, level, course type, days & times, open-only) so students can find courses the way they actually think about them.'
                                     ],
                                     beforeAfter: {
                                         before: {
@@ -3738,12 +3934,11 @@
                                 },
                                 {
                                     type: 'designDecision',
-                                    num: '03',
+                                    num: '3.',
                                     heading: 'Plan before you commit',
-                                    tag: 'Visibility & conflict detection',
-                                    addresses: 'Addresses: Pain 03 — No visibility into your schedule before you commit',
+                                    addresses: 'No visibility into your schedule before you commit.',
                                     paragraphs: [
-                                        'The old system\'s two biggest blindspots were really the same problem: students had no visibility before the moment of enrollment. They couldn\'t see how their week would look, and they couldn\'t know about schedule conflicts until they\'d already tried to enroll. The redesign addresses both together — a visual calendar to plan and preview, and conflict detection that fires <em>before</em> you commit, not after.'
+                                        'The old system\'s two biggest blindspots were really the same problem: students had no visibility before the moment of enrollment. They couldn\'t see how their week would look, and they couldn\'t know about schedule conflicts until they\'d already tried to enroll. The redesign addresses both together: a visual calendar to plan and preview, and conflict detection that fires <em>before</em> you commit, not after.'
                                     ],
                                     beforeAfter: {
                                         before: {
@@ -3759,8 +3954,7 @@
                                                 { src: 'images/case_studies/course_enrollment/solution-3-conflict-warning.png', caption: 'HIST 101 section cards – conflict warning triangle visible before enrollment' }
                                             ]
                                         }
-                                    },
-                                    annot: 'This is also the decision that does the most for Maya — who just wants to see her full week before she commits — and for John, who\'s terrified of making an irreversible mistake.'
+                                    }
                                 }
                             ]
                         },
@@ -3768,8 +3962,9 @@
                             id: 'solution',
                             eyebrow: '06 — Prototype',
                             heading: 'Try the redesign',
+                            variant: 'dark',
                             blocks: [
-                                { type: 'p', text: 'The clickable prototype walks through the full enrollment flow end-to-end — browsing and searching for courses, checking requirements, building a visual schedule, catching conflicts early, and enrolling — all without leaving the platform.' },
+                                { type: 'p', text: 'The clickable prototype walks through the full enrollment flow end to end: browsing and searching for courses, checking requirements, building a visual schedule, catching conflicts early, and enrolling, all without leaving the platform.' },
                                 {
                                     type: 'buttons',
                                     items: [
@@ -3780,18 +3975,34 @@
                             ]
                         },
                         {
+                            id: 'feedback',
+                            eyebrow: '07 — Expert feedback',
+                            heading: 'Feedback from Amazon and EA',
+                            blocks: [
+                                { type: 'p', text: 'I presented the prototype to UX designers from Amazon and EA. The overall response was strong. The main suggestion was to pre-add required courses onto a student\'s schedule so they wouldn\'t have to add those themselves.' },
+                                { type: 'p', text: 'I personally pushed back on that because:' },
+                                {
+                                    type: 'ul',
+                                    items: [
+                                        'Required courses often have several sections, so auto-adding one means guessing which lecture or tutorial someone wants.',
+                                        'It assumes they want that course this term. Plenty of students run a lighter load, spread requirements across semesters, or skip a course on purpose.'
+                                    ]
+                                },
+                                { type: 'p', text: 'A softer suggestion or default could be worth exploring later, but forcing those courses onto the schedule felt like the wrong default to me.' }
+                            ]
+                        },
+                        {
                             id: 'reflection',
-                            eyebrow: '07 — Reflection',
+                            eyebrow: '08 — Reflection',
                             heading: 'Reflection',
                             blocks: [
                                 { type: 'h3', text: 'What I took away' },
                                 {
                                     type: 'ul',
                                     items: [
-                                        'A design system of reusable components saves you from rebuilding the same elements repeatedly — I felt the absence of one mid-project.',
-                                        'It\'s hard to actively listen and ask good follow-ups while also taking notes. Recording sessions or bringing someone else to note-take is worth it.',
-                                        'Testing early surfaces problems you\'d never have anticipated on your own.',
-                                        'Accessibility goes further than size, color, and alt text — for example, clickable tooltips instead of hover-only interactions.'
+                                        'Early interviews were harder than they needed to be. I tried to facilitate and take notes at the same time, and I missed follow-ups. Once I started recording sessions, I could stay in the conversation and pull the detail afterward.',
+                                        'Mid-project I kept rebuilding the same UI pieces because I hadn\'t set up reusable components. A light design system earlier would have saved a lot of time.',
+                                        'On accessibility, I initially treated hover tooltips as enough. Making key ones clickable mattered for anyone not using a mouse.'
                                     ]
                                 },
                                 { type: 'h3', text: 'Where I\'d take it next' },
@@ -3833,9 +4044,8 @@
                     },
                     meta: [
                         { label: 'Role', value: 'Product design & UX writing' },
-                        { label: 'Timeline', value: '2024 – present' },
-                        { label: 'Team', value: '~5 people · close to the founder' },
-                        { label: 'Status', value: 'Live & evolving' }
+                        { label: 'Company', value: 'SettleKit' },
+                        { label: 'Timeline', value: '2024 – present' }
                     ],
                     rail: [
                         { id: 'overview', num: '00', label: 'Overview' },
@@ -4019,9 +4229,7 @@
                     lead: 'A personal-finance web app I designed and built to make expense tracking feel less like a chore and more like a habit, turning raw entries into charts that actually shape behavior.',
                     meta: [
                         { label: 'Role', value: 'Design & full-stack build' },
-                        { label: 'Context', value: 'Personal project' },
-                        { label: 'Stack', value: 'React · Redux · Firebase · Chart.js' },
-                        { label: 'Type', value: 'Web app' }
+                        { label: 'Context', value: 'Personal project' }
                     ],
                     sections: [
                         {
@@ -4094,9 +4302,7 @@
                     lead: 'A web app that shows the musical details Spotify hides, key, BPM, and more, for whatever song you’re currently playing, in a UI that changes color to match the album art.',
                     meta: [
                         { label: 'Role', value: 'Design & full-stack build' },
-                        { label: 'Context', value: 'Personal project' },
-                        { label: 'Stack', value: 'React · Spotify API · Wikipedia API' },
-                        { label: 'Type', value: 'Web app' }
+                        { label: 'Context', value: 'Personal project' }
                     ],
                     sections: [
                         {
@@ -4151,7 +4357,7 @@
             'lexir': {
                 title: 'Lexir',
                 subtitle: 'Product Manager · 2020–2023',
-                description: 'Product management for a B2B commerce platform that helps craft wine and spirit brands break into the European market.',
+                description: 'A B2B platform that helps craft wine and spirits brands launch and grow in Europe without a traditional distributor. Brands stay in control of their stock, set their own prices, and keep much higher margins.',
                 client: 'Lexir · B2B commerce SaaS',
                 type: 'Product Manager',
                 tools: 'Roadmap, GTM, client interviews, team leadership',
@@ -4160,7 +4366,7 @@
                 video: 'https://www.youtube.com/watch?v=eVyj5ISX45Q',
                 editorialCaseStudy: {
                     pill: 'Product Manager · 2020–2023',
-                    lead: 'A B2B platform that helps craft wine and spirits brands launch and grow in Europe without a traditional distributor. Brands stay in control of stock and pricing, and keep much higher margins.',
+                    lead: 'A B2B platform that helps craft wine and spirits brands launch and grow in Europe without a traditional distributor. Brands stay in control of their stock, set their own prices, and keep much higher margins.',
                     tldr: {
                         label: 'If you only read one thing',
                         items: [
@@ -4171,9 +4377,8 @@
                     },
                     meta: [
                         { label: 'Role', value: 'Product Manager' },
-                        { label: 'Company', value: 'Lexir · B2B commerce SaaS' },
-                        { label: 'Timeline', value: '2020–2023 · 3 years' },
-                        { label: 'Markets', value: '1 → 8 across Europe' }
+                        { label: 'Company', value: 'Lexir' },
+                        { label: 'Timeline', value: '2020–2023' }
                     ],
                     rail: [
                         { id: 'overview', num: '00', label: 'Overview' },
@@ -4202,7 +4407,7 @@
                             eyebrow: '01 — The need',
                             heading: 'Traditional distribution doesn’t fit small craft brands',
                             blocks: [
-                                { type: 'p', text: 'Before Lexir, a craft brand entering a new European market really only had one option, a traditional distributor. They buy stock cheap, control where it lands and how it’s priced, and only want to deal in bulk. Brands end up with slim margins, little attention, and no real way to test a market at a small scale. Lexir works the other way around. Brands keep ownership of their stock, pricing, and margin, and Lexir runs the infrastructure underneath it all.' },
+                                { type: 'p', text: 'Before Lexir, if a craft brand wanted to enter the European market, they basically had one choice: a traditional distributor. They buy your stock cheap, control where it lands and how it’s priced, and usually only deal in bulk. This meant craft brands ended up with slim margins, little attention, and no real way to test a market at a small scale. Lexir created a whole new way to do business, where brands could keep ownership of their stock, pricing, and margin. It was the first tool that gave brands the infrastructure to basically DIY in a new market (with some help of course).' },
                                 {
                                     type: 'compareTable',
                                     columns: ['Traditional', 'Lexir'],
@@ -4236,8 +4441,7 @@
                                             ]
                                         }
                                     ]
-                                },
-                                { type: 'note', text: 'Built mainly for craft brand founders entering Europe, with buyers mostly premium cocktail bars and restaurants.' }
+                                }
                             ]
                         },
                         {
@@ -4254,7 +4458,7 @@
                             eyebrow: '03 — The product',
                             heading: 'Built for brands, buyers, and sales partners',
                             blocks: [
-                                { type: 'p', text: 'Lexir was a distribution platform with different doors for brands, buyers, and sales partners. The brand dashboard was the centre of it, where a brand managed its whole European presence in one place: products, stock by market, orders and customers, payouts, sales tools, and market resources. One standout feature was that brands could set different prices for different customers, something not possible under traditional distributors.' },
+                                { type: 'p', text: 'Lexir was a distribution platform with different doors for brands, buyers, and sales partners. The brand dashboard was the centre of it, where a brand managed its whole European presence in one place: products, stock by market, orders and customers, payouts, sales tools, and market resources. One standout feature was that brands could set different prices for different customers, which was not possible under traditional distributors.' },
                                 {
                                     type: 'asset',
                                     src: 'images/case_studies/lexir/dashboard.png',
@@ -4286,8 +4490,8 @@
                             blocks: [
                                 { type: 'p', text: 'One of the highest-impact changes I drove at Lexir was transitioning us from building everything custom to utilizing no-code/low-code tools instead. It significantly impacted the course of the company, especially as a small one where being able to move fast and test is so important.' },
                                 { type: 'p', text: 'Before I joined, they were building basically everything custom. When I came on, I helped with those builds too, but it became clear we were solving problems that already had mature solutions (cart/checkout in our shop being the clearest example). The same pattern showed up across other aspects of the business too including the brand dashboard being over-built for the stage we were at.' },
-                                { type: 'pull', text: '<strong>The rule I kept coming back to:</strong> Build custom when you’ve outgrown what existing tools can do. Until then, use those tools to validate your idea and learn what actually needs to be built differently.' },
-                                { type: 'p', text: 'Switching wasn’t an easy sell as we’d already started down the custom path, and moving away from it felt like walking away from that work. I showed we could get to the same place in weeks instead of months, and free up the engineering team for the work that mattered more for Lexir.' },
+                                { type: 'pull', text: '<strong>What I advocated for:</strong> Only build custom when you’ve outgrown what existing tools can do. Until then, use those tools to validate your idea and learn what actually needs to be built differently.' },
+                                { type: 'p', text: 'Switching wasn’t an easy sell as we’d already started down the custom path, and moving away from it meant facing the sunk cost of that work. I showed we could get to the same place in weeks instead of months, and free up the engineering team for the work that mattered more for Lexir.' },
                                 { type: 'p', text: 'That efficiency was a real part of how we scaled: over three years we grew from a handful of brands to <strong>~70</strong> and expanded from a single market to <strong>eight across Europe</strong>.' }
                             ]
                         },
@@ -4296,8 +4500,8 @@
                             eyebrow: '05 — Go-to-market',
                             heading: 'Positioning mattered as much as building',
                             blocks: [
-                                { type: 'p', text: 'Growing a company takes more than a good product. People need to understand it too, and that mattered even more in an industry where everyone was used to doing things the old way. Early on, prospects often assumed we were just another distributor, so a real part of the work was making sure we were positioned and framed the right way before anyone got on a call with us.' },
-                                { type: 'p', text: 'A lot of what I did at Lexir was product marketing as much as it was product management for exactly that reason, working across video, email, social, ads, events, etc. to close that gap early.' },
+                                { type: 'p', text: 'One thing that became clear to me working on Lexir was that having a good product isn’t enough to grow. A big part of the job is also to make sure people understand it, which is especially true in an industry where most people are used to doing things the old way.' },
+                                { type: 'p', text: 'Early on, prospects often assumed we were just another distributor, so a real part of the work was making sure we were positioned and framed the right way before anyone got on a call with us. A lot of what I did at Lexir was product marketing as much as it was product management for exactly that reason, working across video, email, social, ads, events, etc. to close that gap early.' },
                                 { type: 'p', text: 'One of the most important pieces of that was our promo video. I wrote the script, recorded the voiceover, produced the music, and put together the storyboard. For a lot of prospects, it was their first real taste of what Lexir was, before they ever talked to us directly.' },
                                 {
                                     type: 'video',
@@ -4312,7 +4516,7 @@
                             eyebrow: '06 — Supporting brands',
                             heading: 'Getting them in the door wasn’t enough',
                             blocks: [
-                                { type: 'p', text: 'While working on the product, I learned early that signing a brand wasn’t the finish line. Lexir gave brands a lot more freedom than a traditional distributor, which also meant they suddenly had to make calls a distributor used to make for them. Even when they were excited about the model, they still had a lot of questions about how to actually get started.' },
+                                { type: 'p', text: 'While Lexir gave brands a lot more freedom than a traditional distributor, it meant they suddenly had to make calls a traditional distributor would usually make for them. Even when they were excited about the model, they still had a lot of questions about how to actually get started.' },
                                 {
                                     type: 'questions',
                                     label: 'Questions brands kept asking',
@@ -4391,8 +4595,7 @@
                     meta: [
                         { label: 'Role', value: 'Software Developer' },
                         { label: 'Company', value: 'Orange Gate Consulting' },
-                        { label: 'Timeline', value: '2018 · ~8 months' },
-                        { label: 'Clients', value: 'BMO · General Motors' }
+                        { label: 'Timeline', value: '2018' }
                     ],
                     rail: [
                         { id: 'overview', num: '00', label: 'Overview' },
@@ -4865,6 +5068,8 @@
                     `;
                 case 'ul':
                     return `<ul class="editorial-clean-list">${block.items.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                case 'ol':
+                    return `<ol class="editorial-numbered-list">${block.items.map(item => `<li>${item}</li>`).join('')}</ol>`;
                 case 'video':
                     return `
                         ${block.note ? `<p class="editorial-video-note">${block.note}</p>` : ''}
@@ -4877,6 +5082,7 @@
                 case 'photos':
                     if (block.layout === 'gallery') {
                         return `
+                            ${block.note ? `<p class="editorial-video-note">${block.note}</p>` : ''}
                             <div class="editorial-photos-gallery">
                                 ${block.items.map(item => `
                                     <div class="editorial-photo-item">
@@ -4917,6 +5123,21 @@
                         </div>
                     `;
                 case 'decision':
+                    if (block.approach != null && block.decision != null) {
+                        return `
+                            <div class="editorial-decision-pair">
+                                <h3>${block.heading}</h3>
+                                <div class="editorial-decision-row">
+                                    <span class="dlabel">${block.approachLabel || 'Original approach'}</span>
+                                    <p>${block.approach}</p>
+                                </div>
+                                <div class="editorial-decision-row">
+                                    <span class="dlabel">${block.decisionLabel || 'Key decision'}</span>
+                                    <p>${block.decision}</p>
+                                </div>
+                            </div>
+                        `;
+                    }
                     return `
                         <div class="editorial-decision">
                             <div class="dlabel">${block.label}</div>
@@ -4925,6 +5146,18 @@
                         </div>
                     `;
                 case 'insights':
+                    if (block.layout === 'list') {
+                        return `
+                            <ol class="editorial-insight-list">
+                                ${block.items.map(item => `
+                                    <li>
+                                        <h3>${item.title}</h3>
+                                        <p>${item.text}</p>
+                                    </li>
+                                `).join('')}
+                            </ol>
+                        `;
+                    }
                     return `
                         <div class="editorial-insight-grid${block.columns === 3 ? ' cols-3' : ''}">
                             ${block.items.map(item => `
@@ -5027,10 +5260,20 @@
                             <div class="editorial-decision-head">
                                 <span class="editorial-decision-num">${block.num}</span>
                                 <h3>${block.heading}</h3>
-                                <span class="editorial-decision-tag">${block.tag}</span>
+                                ${block.tag ? `<span class="editorial-decision-tag">${block.tag}</span>` : ''}
                             </div>
-                            ${block.addresses ? `<p class="editorial-decision-addresses">${block.addresses}</p>` : ''}
+                            ${block.addresses ? `
+                                <div class="editorial-annot"><strong>Problem addressed:</strong> ${block.addresses}</div>
+                            ` : ''}
                             ${block.paragraphs.map(p => `<p>${p}</p>`).join('')}
+                            ${block.asset && block.asset.src ? `
+                                <figure class="editorial-asset">
+                                    <div class="case-study-image-wrap" data-image="${block.asset.src}" data-caption="${block.asset.caption || ''}">
+                                        <img src="${block.asset.src}" alt="${block.asset.caption || ''}" />
+                                    </div>
+                                    ${block.asset.caption ? `<figcaption>${block.asset.caption}</figcaption>` : ''}
+                                </figure>
+                            ` : ''}
                             ${block.beforeAfter ? `
                                 <div class="before-after">
                                     ${renderBeforeColumn(block.beforeAfter.before)}
@@ -5081,14 +5324,17 @@
                         <section class="editorial-section" id="${section.id}">
                             <h1 class="editorial-hero-title">${project.title}</h1>
                             <p class="editorial-lead">${cs.lead}</p>
-                            <dl class="editorial-meta">
-                                ${cs.meta.map(item => `
-                                    <div>
-                                        <dt>${item.label}</dt>
-                                        <dd>${item.value}</dd>
-                                    </div>
-                                `).join('')}
-                            </dl>
+                            <div class="editorial-meta">
+                                <dl class="editorial-meta-items">
+                                    ${cs.meta.map(item => `
+                                        <div>
+                                            <dt>${item.label}</dt>
+                                            <dd>${item.value}</dd>
+                                        </div>
+                                    `).join('')}
+                                </dl>
+                                ${cs.metaNote ? `<p class="editorial-meta-note">${cs.metaNote}</p>` : ''}
+                            </div>
                             ${cs.tldr ? `
                                 <div class="case-tldr">
                                     <span class="case-tldr-label">${cs.tldr.label || 'If you only read one thing'}</span>
@@ -5103,7 +5349,7 @@
                 }
 
                 return `
-                    <section class="editorial-section" id="${section.id}">
+                    <section class="editorial-section${section.variant === 'dark' ? ' is-dark' : ''}" id="${section.id}">
                         ${section.eyebrow ? `<span class="editorial-eyebrow">${section.eyebrow}</span>` : ''}
                         ${section.heading ? `<h2>${section.heading}</h2>` : ''}
                         ${section.blocks.map(renderEditorialBlock).join('')}
