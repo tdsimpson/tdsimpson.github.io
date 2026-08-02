@@ -1557,14 +1557,6 @@
                 font-size: 24px;
                 max-width: none;
             }
-
-            .editorial-rail {
-                display: none;
-            }
-
-            .editorial-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         /* Editorial case study (SettleKit) */
@@ -3255,6 +3247,29 @@
             background: transparent;
         }
 
+        /* Editorial responsive — must follow base editorial rules so overrides win */
+        @media (max-width: 1024px) {
+            .editorial-rail {
+                display: none;
+            }
+
+            .editorial-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .editorial-content {
+                max-width: none;
+                width: 100%;
+            }
+
+            .container.editorial-wide {
+                max-width: 840px;
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+        }
+
         @media (max-width: 880px) {
             .editorial-ba,
             .editorial-stats,
@@ -3292,6 +3307,42 @@
 
             .editorial-meta-items div:last-child {
                 border-bottom: none;
+            }
+
+            .container.editorial-wide,
+            .container.editorial-compact {
+                max-width: 100%;
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .editorial-section {
+                padding: 36px 0;
+            }
+
+            .editorial-section.is-dark {
+                padding: 28px 18px;
+            }
+
+            .editorial-hero-title {
+                font-size: clamp(1.75rem, 8vw, 2.4rem);
+            }
+
+            .editorial-asset img,
+            .editorial-screenshot-item img,
+            .case-study-image-wrap img,
+            .ba-panel img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .compare-table-wrap {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .editorial-decision {
+                padding: 22px 18px;
             }
         }
     </style>
