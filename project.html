@@ -19,12 +19,22 @@
         })();
     </script>
     <style>
-        html { background: #f8f8f8; color: #1a1f1c; }
-        html[data-theme="dark"] { background: #0f1412; color: #e8ede9; }
-        html.js-loading main { visibility: hidden; }
+        html {
+            background: #f8f8f8;
+            color: #1a1f1c;
+        }
+
+        html[data-theme="dark"] {
+            background: #0f1412;
+            color: #e8ede9;
+        }
+
+        html.js-loading main {
+            visibility: hidden;
+        }
     </style>
     <title>Project | Taylor Simpson</title>
-    <meta name="description" content="Project detail page" />
+    <meta name="description" content="Case study by Taylor Simpson — product manager and designer." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -178,7 +188,7 @@
             min-width: 0;
         }
 
-        header > .header-actions {
+        header>.header-actions {
             display: flex;
             align-items: center;
             gap: 16px;
@@ -1018,7 +1028,7 @@
             border-bottom: none;
         }
 
-        #oracle-case-study .oracle-section > h2 {
+        #oracle-case-study .oracle-section>h2 {
             margin: 0 0 16px;
         }
 
@@ -1693,7 +1703,7 @@
             box-shadow: var(--shadow);
         }
 
-        .editorial-section.is-dark + .editorial-section {
+        .editorial-section.is-dark+.editorial-section {
             border-top: none;
         }
 
@@ -1968,7 +1978,7 @@
             line-height: 1.55;
         }
 
-        .editorial-compare-col li + li {
+        .editorial-compare-col li+li {
             margin-top: 6px;
         }
 
@@ -1985,7 +1995,7 @@
             align-items: stretch;
         }
 
-        .editorial-media-pair.is-equal > div {
+        .editorial-media-pair.is-equal>div {
             display: flex;
             flex-direction: column;
             min-width: 0;
@@ -2864,7 +2874,7 @@
             padding-bottom: 0;
         }
 
-        .editorial-decision-pair > h3 {
+        .editorial-decision-pair>h3 {
             margin: 0 0 18px;
         }
 
@@ -2944,7 +2954,7 @@
             counter-reset: insight;
         }
 
-        .editorial-insight-list > li {
+        .editorial-insight-list>li {
             display: grid;
             grid-template-columns: 1.75rem 1fr;
             gap: 4px 14px;
@@ -2953,7 +2963,7 @@
             counter-increment: insight;
         }
 
-        .editorial-insight-list > li::before {
+        .editorial-insight-list>li::before {
             content: counter(insight) ".";
             font-family: var(--font-display);
             font-weight: 700;
@@ -3304,6 +3314,7 @@
         }
 
         @media (max-width: 880px) {
+
             .editorial-ba,
             .editorial-stats,
             .editorial-photos,
@@ -3319,7 +3330,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .editorial-media-pair > div {
+            .editorial-media-pair>div {
                 min-width: 0;
             }
 
@@ -3450,72 +3461,72 @@
             </div>
 
             <div id="default-case-study-sections">
-            <div class="project-section" id="problem-definition-section">
-                <h2>Problem Definition</h2>
-                <p id="project-problem">Problem definition goes here.</p>
-                <div class="problem-images-grid" id="problem-images-grid" style="display: none;"></div>
-            </div>
-
-            <div class="project-section user-group-section" id="user-group-section" style="display: none;">
-                <h2>User Group</h2>
-                <div class="boxed-section">
-                    <ul id="user-group-list"></ul>
+                <div class="project-section" id="problem-definition-section">
+                    <h2>Problem Definition</h2>
+                    <p id="project-problem">Problem definition goes here.</p>
+                    <div class="problem-images-grid" id="problem-images-grid" style="display: none;"></div>
                 </div>
-                <p id="user-group-sentence" style="margin-top: 16px;"></p>
-            </div>
 
-            <div class="project-section" id="product-goal-section">
-                <h2>Product Goal</h2>
-                <p id="project-goal" style="display: none;">Product goal goes here.</p>
-                <p id="project-goal-intro" style="display: none;"></p>
-                <ul id="project-goal-list" style="display: none;"></ul>
-            </div>
-
-            <div class="project-section current-processes-section" id="current-processes-section"
-                style="display: none;">
-                <h2>Current Processes</h2>
-                <p id="current-processes-intro"></p>
-                <ul id="current-processes-list"></ul>
-            </div>
-
-            <div class="project-section research-insights" id="research-insights-section">
-                <h2>Research Insights</h2>
-                <p class="research-intro" id="research-intro"></p>
-                <div id="research-findings"></div>
-            </div>
-
-            <div class="project-section personas-section" id="personas-section">
-                <h2>Personas</h2>
-                <div class="personas-grid" id="personas-grid"></div>
-            </div>
-
-            <div class="project-section ia-section" id="ia-section">
-                <h2>Information Architecture</h2>
-                <p class="ia-intro" id="ia-intro"></p>
-                <div class="ia-image-wrapper" id="ia-image-wrapper" style="display: none;">
-                    <img id="ia-image" src="" alt="Information Architecture" />
+                <div class="project-section user-group-section" id="user-group-section" style="display: none;">
+                    <h2>User Group</h2>
+                    <div class="boxed-section">
+                        <ul id="user-group-list"></ul>
+                    </div>
+                    <p id="user-group-sentence" style="margin-top: 16px;"></p>
                 </div>
-            </div>
 
-            <div class="project-section user-flows-section" id="user-flows-section">
-                <h2>User Flows</h2>
-                <div id="user-flows-container"></div>
-            </div>
+                <div class="project-section" id="product-goal-section">
+                    <h2>Product Goal</h2>
+                    <p id="project-goal" style="display: none;">Product goal goes here.</p>
+                    <p id="project-goal-intro" style="display: none;"></p>
+                    <ul id="project-goal-list" style="display: none;"></ul>
+                </div>
 
-            <div class="project-section sketches-section" id="sketches-section">
-                <h2>Sketches</h2>
-                <div class="sketches-grid" id="sketches-grid"></div>
-            </div>
+                <div class="project-section current-processes-section" id="current-processes-section"
+                    style="display: none;">
+                    <h2>Current Processes</h2>
+                    <p id="current-processes-intro"></p>
+                    <ul id="current-processes-list"></ul>
+                </div>
 
-            <div class="project-section wireframes-section" id="wireframes-section">
-                <h2>Wireframes</h2>
-                <div class="wireframes-grid" id="wireframes-grid"></div>
-            </div>
+                <div class="project-section research-insights" id="research-insights-section">
+                    <h2>Research Insights</h2>
+                    <p class="research-intro" id="research-intro"></p>
+                    <div id="research-findings"></div>
+                </div>
 
-            <div class="project-section" id="default-outcome-section">
-                <h2>Outcome</h2>
-                <p id="project-outcome">Outcome goes here.</p>
-            </div>
+                <div class="project-section personas-section" id="personas-section">
+                    <h2>Personas</h2>
+                    <div class="personas-grid" id="personas-grid"></div>
+                </div>
+
+                <div class="project-section ia-section" id="ia-section">
+                    <h2>Information Architecture</h2>
+                    <p class="ia-intro" id="ia-intro"></p>
+                    <div class="ia-image-wrapper" id="ia-image-wrapper" style="display: none;">
+                        <img id="ia-image" src="" alt="Information Architecture" />
+                    </div>
+                </div>
+
+                <div class="project-section user-flows-section" id="user-flows-section">
+                    <h2>User Flows</h2>
+                    <div id="user-flows-container"></div>
+                </div>
+
+                <div class="project-section sketches-section" id="sketches-section">
+                    <h2>Sketches</h2>
+                    <div class="sketches-grid" id="sketches-grid"></div>
+                </div>
+
+                <div class="project-section wireframes-section" id="wireframes-section">
+                    <h2>Wireframes</h2>
+                    <div class="wireframes-grid" id="wireframes-grid"></div>
+                </div>
+
+                <div class="project-section" id="default-outcome-section">
+                    <h2>Outcome</h2>
+                    <p id="project-outcome">Outcome goes here.</p>
+                </div>
             </div>
 
             <div id="oracle-case-study" aria-hidden="true">
@@ -4107,7 +4118,7 @@
                             eyebrow: '07 — Expert feedback',
                             heading: 'Feedback from Amazon and EA',
                             blocks: [
-                                { type: 'p', text: 'I presented the prototype to UX designers from Amazon and EA. The overall response was strong. The main suggestion was to pre-add required courses onto a student\'s schedule so they wouldn\'t have to add those themselves.' },
+                                { type: 'p', text: 'I presented the prototype to UX designers from Amazon and EA. The overall response was strong, with their main suggestion being to pre-add required courses onto a student\'s schedule so they wouldn\'t have to add those themselves.' },
                                 { type: 'p', text: 'I personally pushed back on that because:' },
                                 {
                                     type: 'ul',
@@ -4344,17 +4355,17 @@
             'expense-tracker': {
                 title: 'Online Budgeting Tool',
                 subtitle: 'Web App',
-                description: 'A personal-finance web app I designed and built to make expense tracking feel less like a chore and more like a habit.',
+                description: 'A personal-finance web app I built to make expense tracking feel less like a chore and more like a habit.',
                 client: 'Personal Project',
                 type: 'Design & full-stack build',
-                tools: 'React, Redux, Firebase, Chart.js',
+                tools: 'React, Redux, Firebase, Chart.js, SCSS',
                 link: 'https://github.com/tdsimpson/expense-tracker',
                 image: 'images/project_cards/square-expense-tracker.png',
                 video: 'https://www.youtube.com/watch?v=VPtTarety28',
                 editorialCaseStudy: {
                     compact: true,
                     pill: 'Personal project · Web app',
-                    lead: 'A personal-finance web app I designed and built to make expense tracking feel less like a chore and more like a habit, turning raw entries into charts that actually shape behavior.',
+                    lead: 'A personal-finance web app I built to make expense tracking feel less like a chore and more like a habit, turning raw entries into charts that actually shape behavior.',
                     meta: [
                         { label: 'Role', value: 'Design & full-stack build' },
                         { label: 'Context', value: 'Personal project' }
@@ -4379,20 +4390,10 @@
                             ]
                         },
                         {
-                            id: 'why',
-                            eyebrow: 'Why I built it',
-                            heading: 'I wanted a budget tracker I actually owned.',
-                            blocks: [
-                                { type: 'p', text: 'I was tired of paying a subscription just to track my own spending. So I built my own, something I could shape exactly how I wanted, without worrying about a company changing the price or shutting it down. It also gave me a real project to get hands-on practice with React, Redux, and Firebase.' }
-                            ]
-                        },
-                        {
                             id: 'what',
-                            eyebrow: 'What I made',
-                            heading: 'An expense tracker with charts built in.',
+                            heading: 'What I made',
                             blocks: [
-                                { type: 'p', text: 'At the core, it’s a straightforward expense tracker: enter what you spent, categorize it, and see it saved. On top of that sits the piece I cared about most: <strong>a set of interactive charts</strong>, powered by Chart.js, that turn a month’s data into something legible at a glance. Spend by category, spend over time, monthly comparisons, the kind of view that actually informs the next decision instead of just archiving the last one.' },
-                                { type: 'p', text: 'State management runs through Redux, persistence through Firebase, and the interface is designed to be clean and quick, pleasant enough that using it every day feels like a habit, not admin.' },
+                                { type: 'p', text: 'Expense Tracker is a straightforward web app that lets you add, edit, and delete purchase data so you can categorize and visualize your spending in charts and graphs (powered by Chart.js). It turns a month’s data into something legible at a glance. You can search or filter by category, or view a specific period of time. It’s built with React, Redux, Firebase, and SCSS for the styles.' },
                                 {
                                     type: 'screenshotGrid',
                                     items: [
@@ -4405,10 +4406,10 @@
                             ]
                         },
                         {
-                            id: 'takeaway',
-                            eyebrow: 'What it taught me',
+                            id: 'why',
+                            heading: 'Why I built it',
                             blocks: [
-                                { type: 'pull', text: 'Building something for myself was a good reminder of what makes a product feel good to use: fast, useful, and simple.' }
+                                { type: 'p', text: 'I built Expense Tracker because I wanted a simple way to visualize my spending without connecting it to my bank account. I didn’t like the charts my bank itself gave me, and I didn’t want to hand my data to a third-party app for privacy reasons. I built a version where I entered things manually so I could see my data the way I want to see it. It also gave me a real project to get hands-on practice with React, Redux, and Firebase.' }
                             ]
                         }
                     ]
@@ -4420,7 +4421,7 @@
                 description: 'A web app that shows the musical details Spotify hides, key, BPM, and more, for whatever song you’re currently playing, in a UI that changes color to match the album art.',
                 client: 'Personal Project',
                 type: 'Design & full-stack build',
-                tools: 'React, Spotify API, Wikipedia API',
+                tools: 'React, Spotify API, Wikipedia API, SCSS',
                 link: 'https://github.com/tdsimpson/Song-Analysis',
                 image: 'images/project_cards/square-song-analysis.png',
                 video: 'https://www.youtube.com/watch?v=O5B2sth-wxs',
@@ -4453,30 +4454,18 @@
                             ]
                         },
                         {
-                            id: 'why',
-                            eyebrow: 'Why I built it',
-                            heading: 'I was tired of googling song keys.',
-                            blocks: [
-                                { type: 'p', text: 'I play guitar, and I was forever googling the key of whatever song I was listening to so I could play along. Spotify actually <em>knows</em> all of this, key, tempo, and a pile of other audio characteristics live in their API, but none of it is exposed in their app or web player. So I built the missing screen for myself.' },
-                                { type: 'p', text: 'It was a small project with a clear personal itch, which made it a good one to build end to end: a real user (me), a real gap, and a clean excuse to work with a couple of APIs.' }
-                            ]
-                        },
-                        {
                             id: 'what',
-                            eyebrow: 'What I made',
-                            heading: 'What the app actually shows.',
+                            heading: 'What I made',
                             blocks: [
-                                { type: 'p', text: 'If you have Spotify playing anywhere on your device, the app pulls the current track and builds a dedicated view for it: album art, the <strong>key and BPM</strong>, release date, and the rest of the metadata a musician actually wants, alongside a short <strong>“about the artist”</strong> bio pulled from the Wikipedia API. Two APIs stitched together into one screen that answers the question I always had.' },
-                                { type: 'p', text: 'The UI also recolors itself to match each song’s album art, so the screen’s mood shifts with whatever’s playing.' },
-                                { type: 'pull', text: 'Pulls data from two APIs into one screen, the answer I used to have to look up manually every time.' }
+                                { type: 'p', text: 'I built a web app that displays additional information about the song you’re listening to on Spotify. It includes info about the song’s key, BPM, and release date, alongside a short <strong>“about the artist”</strong> bio pulled from the Wikipedia API. The UI also recolours itself to match each song’s album art.' },
+                                { type: 'p', text: 'To use it, you log in with your Spotify account. Once it’s connected, the app shows whatever you’re playing, even if the music is actually coming from your phone rather than the browser. It’s built with the Spotify API, the Wikipedia API, React, and SCSS for the styles.' }
                             ]
                         },
                         {
-                            id: 'takeaway',
-                            eyebrow: 'What it taught me',
-                            heading: 'Building for a real need I had.',
+                            id: 'why',
+                            heading: 'Why I built it',
                             blocks: [
-                                { type: 'p', text: 'The most useful things I build usually start as something I personally wanted and couldn’t find. This one also stretched a specific muscle worth showing: pulling disparate APIs together and shaping their data into a single, coherent, good-looking experience.' }
+                                { type: 'p', text: 'As someone who plays guitar, I often like to play along with songs I like on Spotify. I always wished there was a quick way to see what key the song was in without spending the first bit of the song figuring it out. Spotify actually stores this information for each song, but just doesn’t display it on its normal player. So I wanted to create a tool that could show me this, along with other info I found interesting.' }
                             ]
                         }
                     ]
@@ -4498,9 +4487,10 @@
                     tldr: {
                         label: 'If you only read one thing',
                         items: [
-                            'Owned the dashboard, storefront, and margin calculator end to end',
+                            'Owned the brand dashboard and e-commerce platform end to end',
                             'Helped grow from 1→8 European markets and a handful of brands to ~70',
-                            'Moved shop and checkout off custom builds so we could ship in weeks, not months'
+                            'Moved shop and checkout off custom builds so we could ship in weeks, not months',
+                            'Cut implementation costs ~60% by moving the right pieces to no-code / low-code'
                         ]
                     },
                     meta: [
@@ -5070,10 +5060,10 @@
                     return `
                         <div class="editorial-lessons">
                             ${block.items.map(item => {
-                                const paras = item.text.split(/\n\n+/);
-                                const general = paras[0] || '';
-                                const examples = paras.slice(1);
-                                return `
+                        const paras = item.text.split(/\n\n+/);
+                        const general = paras[0] || '';
+                        const examples = paras.slice(1);
+                        return `
                                 <div class="editorial-lesson">
                                     <h3 class="editorial-lesson-title"><span class="editorial-lesson-num">${item.num}.</span>${item.title}</h3>
                                     ${general ? `<p>${general}</p>` : ''}
@@ -5084,7 +5074,7 @@
                                     ` : ''}
                                 </div>
                             `;
-                            }).join('')}
+                    }).join('')}
                         </div>
                     `;
                 case 'pull':
@@ -5338,8 +5328,8 @@
                         <a class="editorial-link-card" href="${block.href}" target="_blank" rel="noopener noreferrer">
                             <div class="preview">
                                 ${block.preview
-                                    ? `<img src="${block.preview}" alt="${block.title || ''}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" /><div class="hint" style="display:none">Add a cover or first-page screenshot for this catalog card.</div>`
-                                    : `<div class="hint">Add a cover preview image.</div>`}
+                            ? `<img src="${block.preview}" alt="${block.title || ''}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" /><div class="hint" style="display:none">Add a cover or first-page screenshot for this catalog card.</div>`
+                            : `<div class="hint">Add a cover preview image.</div>`}
                             </div>
                             <div class="meta">
                                 ${block.tag ? `<div class="itag">${block.tag}</div>` : ''}
@@ -5978,8 +5968,12 @@
             nextBtn.href = `project.html?id=${nextId}`;
             nextBtn.textContent = 'Next Project →';
 
-            // Update page title
+            // Update page title and description
             document.title = `${project.title} | Taylor Simpson`;
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription && project.description) {
+                metaDescription.setAttribute('content', project.description);
+            }
 
             if (!isOracleCaseStudy && !isEditorialCaseStudy) {
                 applyDefaultSectionEyebrows();
