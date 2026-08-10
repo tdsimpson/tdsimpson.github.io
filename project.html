@@ -3644,14 +3644,14 @@
                         { label: 'Timeline', value: '8-month capstone' }
                     ],
                     rail: [
-                        { id: 'overview', num: '00', label: 'Overview' },
-                        { id: 'problem', num: '01', label: 'The problem' },
-                        { id: 'role', num: '02', label: 'My role' },
-                        { id: 'users', num: '03', label: 'Users & goal' },
-                        { id: 'product', num: '04', label: 'The product' },
-                        { id: 'decisions', num: '05', label: 'Key decisions' },
-                        { id: 'outcome', num: '06', label: 'Outcome' },
-                        { id: 'reflection', num: '07', label: 'Reflection' }
+                        { id: 'overview', num: '1', label: 'Overview' },
+                        { id: 'problem', num: '2', label: 'The problem' },
+                        { id: 'role', num: '3', label: 'My role' },
+                        { id: 'users', num: '4', label: 'Users & goal' },
+                        { id: 'product', num: '5', label: 'The product' },
+                        { id: 'decisions', num: '6', label: 'Key decisions' },
+                        { id: 'outcome', num: '7', label: 'Outcome' },
+                        { id: 'reflection', num: '8', label: 'Reflection' }
                     ],
                     sections: [
                         {
@@ -3667,8 +3667,8 @@
                         },
                         {
                             id: 'problem',
-                            eyebrow: '01 — The problem',
-                            heading: 'Most stolen bikes are never returned.',
+                            eyebrow: '2. The problem',
+                            heading: 'Most stolen bikes are never returned',
                             blocks: [
                                 { type: 'p', text: 'Bike theft is a growing problem across North America, affecting over two million riders. In Kingston alone, hundreds of bikes are reported stolen every year.' },
                                 { type: 'p', text: 'Police recover a portion of them (roughly 250 a year), but <strong>fewer than 5% are ultimately returned to their owners.</strong> The reason is almost always the same: missing ownership information, most commonly the bike\'s serial number. Recovered bikes sit in storage with no way to trace them back to the person they belong to.' },
@@ -3694,8 +3694,8 @@
                         },
                         {
                             id: 'role',
-                            eyebrow: '02 — My role',
-                            heading: 'Product lead and the client\'s main point of contact.',
+                            eyebrow: '3. My role',
+                            heading: 'Product lead and the client\'s main point of contact',
                             blocks: [
                                 { type: 'p', text: 'Working in a team of five, I took the lead on product management and was the main point of contact with Frontenac Cycle.' },
                                 {
@@ -3711,8 +3711,8 @@
                         },
                         {
                             id: 'users',
-                            eyebrow: '03 — Users & goal',
-                            heading: 'Built for the everyday commuter.',
+                            eyebrow: '4. Users & goal',
+                            heading: 'Built for the everyday commuter',
                             blocks: [
                                 { type: 'p', text: 'Our core users are people who depend on their bikes for commuting and errands. They park in vulnerable spots like public bike racks and face a real financial hit if their bike is stolen. For many of them, biking isn\'t just a hobby, but rather their primary form of transportation.' },
                                 { type: 'pull', text: 'Cyclists are motivated by solutions that protect their investment and lean on community support to get their bikes back.' },
@@ -3730,7 +3730,7 @@
                         },
                         {
                             id: 'product',
-                            eyebrow: '04 — The product',
+                            eyebrow: '5. The product',
                             heading: 'What we built',
                             blocks: [
                                 { type: 'p', text: 'We built an iOS and Android app in React Native and Firebase. The product is built around crowdsourcing: riders can report a bike lost or found, and the local community becomes the extra set of eyes helping get it back.' },
@@ -3739,7 +3739,7 @@
                                     phone: true,
                                     items: [
                                         {
-                                            num: '01',
+                                            num: '1',
                                             title: 'Map & feed',
                                             text: 'Browse lost bikes on a live map and feed. Search by location and filter by when a bike was reported.',
                                             srcs: [
@@ -3756,14 +3756,14 @@
                                             ]
                                         },
                                         {
-                                            num: '02',
+                                            num: '2',
                                             title: 'Register your bike',
                                             text: 'Add and manage your bike(s) with photos, serial numbers, and identifying details to help tie them back to you before they go missing.',
                                             src: 'images/case_studies/pedal_patrol/feature-register.png',
                                             shotFile: 'feature-register.png'
                                         },
                                         {
-                                            num: '03',
+                                            num: '3',
                                             title: 'Report a lost bike',
                                             text: 'Drop a pin on the map, select your bike, and describe what happened, including where you last saw it and what to look for.',
                                             srcs: [
@@ -3780,14 +3780,14 @@
                                             ]
                                         },
                                         {
-                                            num: '04',
+                                            num: '4',
                                             title: 'Notification radius',
                                             text: 'Set a circle anywhere on the map and get notified when a bike is reported lost inside it.',
                                             src: 'images/case_studies/pedal_patrol/feature-notification-radius.png',
                                             shotFile: 'feature-notification-radius.png'
                                         },
                                         {
-                                            num: '05',
+                                            num: '5',
                                             title: 'Report a found bike',
                                             text: 'When you spot a bike that might be stolen, pin where you saw it and leave a short note that is sent to the owner.',
                                             src: 'images/case_studies/pedal_patrol/feature-report-found.png',
@@ -3799,8 +3799,8 @@
                         },
                         {
                             id: 'decisions',
-                            eyebrow: '05 — Key decisions',
-                            heading: 'Key decisions that shape the product.',
+                            eyebrow: '6. Key decisions',
+                            heading: 'Key decisions that shape the product',
                             blocks: [
                                 {
                                     type: 'decision',
@@ -3818,7 +3818,7 @@
                         },
                         {
                             id: 'outcome',
-                            eyebrow: '06 — Outcome',
+                            eyebrow: '7. Outcome',
                             heading: 'What we delivered',
                             blocks: [
                                 { type: 'p', text: 'We delivered a functional prototype that met Frontenac Cycle\'s requirements and validated a community-driven approach to bike-theft recovery. The client was satisfied with the implemented features, and the project was <strong>handed off to a Vancouver-based organization for continued development</strong>.' }
@@ -3826,14 +3826,14 @@
                         },
                         {
                             id: 'reflection',
-                            eyebrow: '07 — Reflection',
+                            eyebrow: '8. Reflection',
                             heading: 'Reflection',
                             blocks: [
-                                { type: 'p', text: 'The easiest mistake to make on this project wasn\'t picking the wrong feature. It was spending too much time exploring features we never should have built in the first place, like a deep dive into in-app chat (attachments, formatting, threading) before realizing the core problem didn\'t need any of that.' },
                                 { type: 'h3', text: 'What I\'d do differently' },
                                 {
                                     type: 'ul',
                                     items: [
+                                        'I would better prioritize the core features. Partway through we went pretty deep on in-app chat, researching things related to moderation, attachments, formatting, etc. It was easy to get excited about all the things we could do, but we spent longer than we should\'ve on that. The main goal was just a proof of concept for the basic actions like adding and reporting bikes.',
                                         'Test with a real community sooner. It\'s hard to validate a theft-recovery app through a demo alone, since the app only proves itself when something bad actually happens to someone. I\'d release something smaller and more informational first, and use that to learn how riders think about registering a bike before anything happens.',
                                         'Plan the handoff earlier by talking with the next team about their questions, conventions, and any tools or preferences they already use, so the transition is easier.'
                                     ]
@@ -3882,15 +3882,15 @@
                     ],
                     metaNote: 'Concept project. Not commissioned by or affiliated with Oracle.',
                     rail: [
-                        { id: 'overview', num: '00', label: 'Overview' },
-                        { id: 'problem', num: '01', label: 'The problem' },
-                        { id: 'research', num: '02', label: 'Research' },
-                        { id: 'personas', num: '03', label: 'Personas' },
-                        { id: 'approach', num: '04', label: 'Example flow' },
-                        { id: 'decisions', num: '05', label: 'Design improvements' },
-                        { id: 'solution', num: '06', label: 'Prototype' },
-                        { id: 'feedback', num: '07', label: 'Expert feedback' },
-                        { id: 'reflection', num: '08', label: 'Reflection' }
+                        { id: 'overview', num: '1', label: 'Overview' },
+                        { id: 'problem', num: '2', label: 'The problem' },
+                        { id: 'research', num: '3', label: 'Research' },
+                        { id: 'personas', num: '4', label: 'Personas' },
+                        { id: 'approach', num: '5', label: 'Example flow' },
+                        { id: 'decisions', num: '6', label: 'Design improvements' },
+                        { id: 'solution', num: '7', label: 'Prototype' },
+                        { id: 'feedback', num: '8', label: 'Expert feedback' },
+                        { id: 'reflection', num: '9', label: 'Reflection' }
                     ],
                     sections: [
                         {
@@ -3912,8 +3912,8 @@
                         },
                         {
                             id: 'problem',
-                            eyebrow: '01 — The problem',
-                            heading: 'Missing the context students need.',
+                            eyebrow: '2. The problem',
+                            heading: 'Missing the context students need',
                             blocks: [
                                 { type: 'p', text: 'Oracle\'s enrollment platform exposes the raw logic of its database, but it\'s missing a layer of context that matches how students actually search, plan, and decide. The core enrollment mechanics are there, but little else is done to help students make sense of a course before they commit. That means they have to fill in the gaps themselves during one of the most stressful parts of the academic year.' },
                                 {
@@ -3929,7 +3929,7 @@
                         },
                         {
                             id: 'research',
-                            eyebrow: '02 — Research',
+                            eyebrow: '3. Research',
                             heading: 'What students told me',
                             blocks: [
                                 { type: 'p', text: 'I interviewed six people, five with direct experience using Oracle\'s enrollment software. The questions covered their most recent registration experience, where they go for requirements and course info, their biggest frustrations, and what external tools they lean on to get through the process.' },
@@ -3956,7 +3956,7 @@
                         },
                         {
                             id: 'personas',
-                            eyebrow: '03 — Personas',
+                            eyebrow: '4. Personas',
                             heading: 'Who I was designing for',
                             blocks: [
                                 { type: 'p', text: 'The interviews pointed me toward two personas I based the design on: a first-year student who\'s anxious about getting it wrong, and an experienced student who just wants to move fast.' },
@@ -3984,8 +3984,8 @@
                         },
                         {
                             id: 'approach',
-                            eyebrow: '04 — Example flow',
-                            heading: 'Example flow: Finding a history elective that fits.',
+                            eyebrow: '5. Example flow',
+                            heading: 'Example flow: Finding a history elective that fits',
                             blocks: [
                                 { type: 'p', text: 'Throughout the design process, I worked through the usual stages (user flows, sketches, then wireframes) for the key paths in the product. Here\'s one example end to end: searching for a history elective, dealing with conflicts, previewing the schedule, and enrolling.' },
                                 { type: 'h3', text: 'User flow' },
@@ -4012,7 +4012,7 @@
                         },
                         {
                             id: 'decisions',
-                            eyebrow: '05 — Design improvements',
+                            eyebrow: '6. Design improvements',
                             heading: 'Design improvements',
                             blocks: [
                                 { type: 'p', text: 'Earlier I outlined three places students got stuck. For each one below, you\'ll see the before and after, and how better UX changed those screens.' },
@@ -4099,7 +4099,7 @@
                         },
                         {
                             id: 'solution',
-                            eyebrow: '06 — Prototype',
+                            eyebrow: '7. Prototype',
                             heading: 'Try the redesign',
                             variant: 'dark',
                             blocks: [
@@ -4115,7 +4115,7 @@
                         },
                         {
                             id: 'feedback',
-                            eyebrow: '07 — Expert feedback',
+                            eyebrow: '8. Expert feedback',
                             heading: 'Feedback from Amazon and EA',
                             blocks: [
                                 { type: 'p', text: 'I presented the prototype to UX designers from Amazon and EA. The overall response was strong, with their main suggestion being to pre-add required courses onto a student\'s schedule so they wouldn\'t have to add those themselves.' },
@@ -4132,7 +4132,7 @@
                         },
                         {
                             id: 'reflection',
-                            eyebrow: '08 — Reflection',
+                            eyebrow: '9. Reflection',
                             heading: 'Reflection',
                             blocks: [
                                 { type: 'h3', text: 'What I took away' },
@@ -4187,12 +4187,12 @@
                         { label: 'Timeline', value: '2024 – present' }
                     ],
                     rail: [
-                        { id: 'overview', num: '00', label: 'Overview' },
-                        { id: 'problem', num: '01', label: 'The problem' },
-                        { id: 'guides', num: '02', label: 'Steps → Guides' },
-                        { id: 'writing', num: '03', label: 'The writing' },
-                        { id: 'wayfinding', num: '04', label: 'Right info, right moment' },
-                        { id: 'impact', num: '05', label: 'Impact' }
+                        { id: 'overview', num: '1', label: 'Overview' },
+                        { id: 'problem', num: '2', label: 'The problem' },
+                        { id: 'guides', num: '3', label: 'Steps → Guides' },
+                        { id: 'writing', num: '4', label: 'The writing' },
+                        { id: 'wayfinding', num: '5', label: 'Right info, right moment' },
+                        { id: 'impact', num: '6', label: 'Impact' }
                     ],
                     sections: [
                         {
@@ -4208,8 +4208,8 @@
                         },
                         {
                             id: 'problem',
-                            eyebrow: '01 — The problem',
-                            heading: 'A powerful engine, wrapped in a confusing experience.',
+                            eyebrow: '2. The problem',
+                            heading: 'A powerful engine, wrapped in a confusing experience',
                             blocks: [
                                 { type: 'p', text: 'Arriving in the U.S. on a visa means facing a maze of bureaucratic setup tasks — opening a bank account, getting a Social Security number, qualifying for an apartment, navigating healthcare — each with its own rules, and each dependent on your specific situation.' },
                                 { type: 'p', text: 'SettleKit\'s underlying personalization is genuinely powerful: depending on your visa, what you\'ve already completed, and your circumstances, the tool can branch into <strong>millions of tailored paths</strong>. But when I joined, that power was trapped behind a thin experience — a basic landing page and a dashboard that surfaced one recommended action at a time, driven by a short set of unexplained questions.' },
@@ -4229,8 +4229,8 @@
                         },
                         {
                             id: 'guides',
-                            eyebrow: '02 — The core reframe',
-                            heading: 'From rigid "steps" to living "guides."',
+                            eyebrow: '3. The core reframe',
+                            heading: 'From rigid "steps" to living "guides"',
                             blocks: [
                                 { type: 'lead', text: 'The biggest unlock wasn\'t a feature. It was noticing that the entire content model was fighting the way people actually learn.' },
                                 { type: 'p', text: 'Everything in SettleKit had been forced into a strict, one-to-one <strong>step</strong> format, where users had to mark each item "done." That works for a physical action — <em>open the account</em> — but it broke down completely for informational tasks. Asking someone to check off "understand how U.S. healthcare works" left them genuinely confused: <em>Did I finish that? Does "done" mean I understand it now, or just that I read it?</em>' },
@@ -4248,8 +4248,8 @@
                         },
                         {
                             id: 'writing',
-                            eyebrow: '03 — Context-first UX writing',
-                            heading: 'Establish the "why" before the "what."',
+                            eyebrow: '4. Context-first UX writing',
+                            heading: 'Establish the "why" before the "what"',
                             blocks: [
                                 { type: 'p', text: 'The old content jumped straight into tasks and questions with no motivation. So I moved to a <strong>context-first</strong> approach: anchor every topic in the big picture first, so it has immediate purpose — then give the actual steps a clean, skimmable structure that breaks complex actions into bite-sized pieces, so users always know exactly where they are and what to do next.' },
                                 { type: 'p', text: 'It also has to be written for the audience: clear, direct, and engaging language for immigrants to the U.S. — no jargon, no uncommon idioms, and no clickbait — that still works across many different backgrounds.' },
@@ -4283,8 +4283,8 @@
                         },
                         {
                             id: 'wayfinding',
-                            eyebrow: '04 — The right information, at the right moment',
-                            heading: 'Two kinds of people walk in the door.',
+                            eyebrow: '5. The right information, at the right moment',
+                            heading: 'Two kinds of people walk in the door',
                             blocks: [
                                 { type: 'p', text: 'Some users just want to be told what to do, in order. Others want to explore first — to get a feel for what\'s even possible. Someone might arrive determined to get a driver\'s license without realizing it depends on having insurance, which depends on an address. A lot of my work was making sure both kinds of people get <strong>enough context to understand each stage</strong> before they commit to it.' },
                                 {
@@ -4311,8 +4311,8 @@
                         },
                         {
                             id: 'impact',
-                            eyebrow: '05 — Impact & what I learned',
-                            heading: 'From an empty room to a real product.',
+                            eyebrow: '6. Impact & what I learned',
+                            heading: 'From an empty room to a real product',
                             blocks: [
                                 {
                                     type: 'stats',
@@ -4488,7 +4488,7 @@
                         label: 'If you only read one thing',
                         items: [
                             'Owned the brand dashboard and e-commerce platform end to end',
-                            'Helped grow from 1→8 European markets and a handful of brands to ~70',
+                            'Helped grow from 1 to 8 European markets and a handful of brands to ~70',
                             'Moved shop and checkout off custom builds so we could ship in weeks, not months',
                             'Cut implementation costs ~60% by moving the right pieces to no-code / low-code'
                         ]
@@ -4499,14 +4499,14 @@
                         { label: 'Timeline', value: '2020–2023' }
                     ],
                     rail: [
-                        { id: 'overview', num: '00', label: 'Overview' },
-                        { id: 'need', num: '01', label: 'The need' },
-                        { id: 'role', num: '02', label: 'My role' },
-                        { id: 'product', num: '03', label: 'The product' },
-                        { id: 'decision', num: '04', label: 'Key decision' },
-                        { id: 'gtm', num: '05', label: 'Go-to-market' },
-                        { id: 'clients', num: '06', label: 'Supporting brands' },
-                        { id: 'takeaway', num: '07', label: 'Takeaways' }
+                        { id: 'overview', num: '1', label: 'Overview' },
+                        { id: 'need', num: '2', label: 'The need' },
+                        { id: 'role', num: '3', label: 'My role' },
+                        { id: 'product', num: '4', label: 'The product' },
+                        { id: 'decision', num: '5', label: 'Key decision' },
+                        { id: 'gtm', num: '6', label: 'Go-to-market' },
+                        { id: 'clients', num: '7', label: 'Supporting brands' },
+                        { id: 'takeaway', num: '8', label: 'Takeaways' }
                     ],
                     sections: [
                         {
@@ -4522,7 +4522,7 @@
                         },
                         {
                             id: 'need',
-                            eyebrow: '01 — The need',
+                            eyebrow: '2. The need',
                             heading: 'Traditional distribution doesn’t fit small craft brands',
                             blocks: [
                                 { type: 'p', text: 'Before Lexir, if a craft brand wanted to enter the European market, they basically had one choice: a traditional distributor. They buy your stock cheap, control where it lands and how it’s priced, and usually only deal in bulk. This meant craft brands ended up with slim margins, little attention, and no real way to test a market at a small scale. Lexir created a whole new way to do business, where brands could keep ownership of their stock, pricing, and margin. It was the first tool that gave brands the infrastructure to basically DIY in a new market (with some help of course).' },
@@ -4564,7 +4564,7 @@
                         },
                         {
                             id: 'role',
-                            eyebrow: '02 — My role',
+                            eyebrow: '3. My role',
                             heading: 'Owning the product end to end',
                             blocks: [
                                 { type: 'p', text: 'I led the development and release of the brand dashboard and e-commerce platform, owned the product roadmap, and helped shape go-to-market (positioning, channels, and how we explained Lexir) while writing specs for a remote design and engineering team of five across Europe and South America.' },
@@ -4573,7 +4573,7 @@
                         },
                         {
                             id: 'product',
-                            eyebrow: '03 — The product',
+                            eyebrow: '4. The product',
                             heading: 'Built for brands, buyers, and sales partners',
                             blocks: [
                                 { type: 'p', text: 'Lexir was a distribution platform with different doors for brands, buyers, and sales partners. The brand dashboard was the centre of it, where a brand managed its whole European presence in one place: products, stock by market, orders and customers, payouts, sales tools, and market resources. One standout feature was that brands could set different prices for different customers, which was not possible under traditional distributors.' },
@@ -4603,7 +4603,7 @@
                         },
                         {
                             id: 'decision',
-                            eyebrow: '04 — Key decision',
+                            eyebrow: '5. Key decision',
                             heading: 'Growing faster by building smarter',
                             blocks: [
                                 { type: 'p', text: 'One of the highest-impact changes I drove at Lexir was transitioning us from building everything custom to utilizing no-code/low-code tools instead. It significantly impacted the course of the company, especially as a small one where being able to move fast and test is so important.' },
@@ -4615,7 +4615,7 @@
                         },
                         {
                             id: 'gtm',
-                            eyebrow: '05 — Go-to-market',
+                            eyebrow: '6. Go-to-market',
                             heading: 'Positioning mattered as much as building',
                             blocks: [
                                 { type: 'p', text: 'One thing that became clear to me working on Lexir was that having a good product isn’t enough to grow. A big part of the job is also to make sure people understand it, which is especially true in an industry where most people are used to doing things the old way.' },
@@ -4631,7 +4631,7 @@
                         },
                         {
                             id: 'clients',
-                            eyebrow: '06 — Supporting brands',
+                            eyebrow: '7. Supporting brands',
                             heading: 'Getting them in the door wasn’t enough',
                             blocks: [
                                 { type: 'p', text: 'While Lexir gave brands a lot more freedom than a traditional distributor, it meant they suddenly had to make calls a traditional distributor would usually make for them. Even when they were excited about the model, they still had a lot of questions about how to actually get started.' },
@@ -4656,7 +4656,7 @@
                         },
                         {
                             id: 'takeaway',
-                            eyebrow: '07 — Takeaways',
+                            eyebrow: '8. Takeaways',
                             heading: 'What this work taught me',
                             blocks: [
                                 {
@@ -4716,11 +4716,11 @@
                         { label: 'Timeline', value: '2018' }
                     ],
                     rail: [
-                        { id: 'overview', num: '00', label: 'Overview' },
-                        { id: 'work', num: '01', label: 'The work' },
-                        { id: 'key-decision', num: '02', label: 'Key decision' },
-                        { id: 'my-part', num: '03', label: 'My part' },
-                        { id: 'takeaway', num: '04', label: 'Takeaway' }
+                        { id: 'overview', num: '1', label: 'Overview' },
+                        { id: 'work', num: '2', label: 'The work' },
+                        { id: 'key-decision', num: '3', label: 'Key decision' },
+                        { id: 'my-part', num: '4', label: 'My part' },
+                        { id: 'takeaway', num: '5', label: 'Takeaway' }
                     ],
                     sections: [
                         {
@@ -4740,7 +4740,7 @@
                         {
                             id: 'work',
                             eyebrow: 'The work',
-                            heading: 'Apps that run on robots.',
+                            heading: 'Apps that run on robots',
                             blocks: [
                                 { type: 'p', text: 'Orange Gate is a Toronto consultancy that had mostly done motion graphics for clients like BMO. I joined as an intern on a two-person team building out their innovation lab, a new bet on humanoid robots that ended up reshaping the company\'s focus.' },
                                 { type: 'p', text: 'We built on Sanbot, a humanoid robot, designing conversational experiences that flexed depending on the client\'s need: a <strong>product specialist</strong> in a GM showroom answering questions about specific cars and pointing people toward them, a <strong>marketing presence</strong> at BMO events drawing people in simply because it was something new to interact with, or a <strong>customer service rep</strong> greeting visitors, checking them in, and connecting them to staff. Same robot, same platform — different job depending on the room it was in.' }
@@ -4758,7 +4758,7 @@
                         {
                             id: 'my-part',
                             eyebrow: 'My part',
-                            heading: 'From wireframes to a talking robot.',
+                            heading: 'From wireframes to a talking robot',
                             blocks: [
                                 { type: 'p', text: 'I designed the <strong>wireframes, user flows, and prototypes</strong>, then built the Android apps behind them (Java, Kotlin, and XML), with DialogFlow driving the conversation. Designing for an interface that talks back and moves meant learning unfamiliar technology fast, and thinking about interaction very differently than on a screen.' },
                                 { type: 'p', text: 'I also presented this work <strong>in person to C-suite executives</strong> at client sites in Toronto and Detroit, leaning most on the automotive project for General Motors. Being one of two people driving the practice meant I touched the whole thing — research, design, build, and the client room.' },
