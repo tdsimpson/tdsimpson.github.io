@@ -4160,7 +4160,7 @@
                     ]
                 }
             },
-            'settlekit': {
+            'settlekit1': {
                 title: 'SettleKit',
                 subtitle: 'Product & UX',
                 description: 'A personalized guide that walks immigrants through building a life in the U.S. — banking, Social Security, housing, healthcare — tailored to exactly where they are in the journey.',
@@ -4802,6 +4802,29 @@
             'course-enrollment',
             'pedal-patrol'
         ];
+
+        // Case studies linked from the homepage — everything else stays noindex while draft/unlisted
+        const indexedProjectIds = new Set([
+            'lexir',
+            'course-enrollment',
+            'pedal-patrol',
+            'expense-tracker',
+            'song-analysis'
+        ]);
+
+        function setRobotsNoIndex(enabled) {
+            let meta = document.querySelector('meta[name="robots"]');
+            if (enabled) {
+                if (!meta) {
+                    meta = document.createElement('meta');
+                    meta.setAttribute('name', 'robots');
+                    document.head.appendChild(meta);
+                }
+                meta.setAttribute('content', 'noindex');
+            } else if (meta) {
+                meta.remove();
+            }
+        }
 
         function caseStudyImageHTML(img, extraClass = '') {
             const classes = extraClass ? `case-study-image-wrap ${extraClass}` : 'case-study-image-wrap';
@@ -5974,6 +5997,7 @@
             if (metaDescription && project.description) {
                 metaDescription.setAttribute('content', project.description);
             }
+            setRobotsNoIndex(!indexedProjectIds.has(id));
 
             if (!isOracleCaseStudy && !isEditorialCaseStudy) {
                 applyDefaultSectionEyebrows();
