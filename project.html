@@ -3631,7 +3631,7 @@
                     pill: 'Case study · Product management',
                     lead: 'A mobile app that helps cyclists recover their stolen bikes through crowdsourcing. Built with Frontenac Cycle as a working prototype for the local bike community.',
                     tldr: {
-                        label: 'If you only read one thing',
+                        label: 'Summary',
                         items: [
                             'Led product for a 5-person team as the client’s main point of contact',
                             'Built a cross-platform app in React Native for iOS and Android',
@@ -3868,7 +3868,7 @@
                     pill: 'Case study · UX design',
                     lead: 'A redesign of Oracle’s PeopleSoft enrollment software used by thousands of university students across North America, so they can search, plan, and enroll without leaving the system.',
                     tldr: {
-                        label: 'If you only read one thing',
+                        label: 'Summary',
                         items: [
                             'BrainStation UX course project over ~2 months: audited the existing enrollment tools and interviewed students about how they actually register',
                             'Moved through the full process: personas, IA, flows, sketches, and wireframes into a clickable Figma prototype',
@@ -4174,7 +4174,7 @@
                     pill: 'Featured work',
                     lead: 'A personalized guide that walks immigrants through building a life in the U.S. — banking, Social Security, housing, healthcare — tailored to exactly where they are in the journey.',
                     tldr: {
-                        label: 'If you only read one thing',
+                        label: 'Summary',
                         items: [
                             'Reframed the product from rigid “steps” to living “guides” without a backend rebuild',
                             'Wrote context-first content so immigrants always know why a task matters',
@@ -4355,7 +4355,7 @@
             'expense-tracker': {
                 title: 'Online Budgeting Tool',
                 subtitle: 'Web App',
-                description: 'A personal-finance web app I built to make expense tracking feel less like a chore and more like a habit.',
+                description: 'A personal-finance web app I built to control how I visualize my spending data without connecting my bank account to a third-party app.',
                 client: 'Personal Project',
                 type: 'Design & full-stack build',
                 tools: 'React, Redux, Firebase, Chart.js, SCSS',
@@ -4365,7 +4365,7 @@
                 editorialCaseStudy: {
                     compact: true,
                     pill: 'Personal project · Web app',
-                    lead: 'A personal-finance web app I built to make expense tracking feel less like a chore and more like a habit, turning raw entries into charts that actually shape behavior.',
+                    lead: 'A personal-finance web app I built to control how I visualize my spending data without connecting my bank account to a third-party app.',
                     meta: [
                         { label: 'Role', value: 'Design & full-stack build' },
                         { label: 'Context', value: 'Personal project' }
@@ -4418,7 +4418,7 @@
             'song-analysis': {
                 title: 'Spotify Song Analysis',
                 subtitle: 'Web App',
-                description: 'A web app that shows the musical details Spotify hides, key, BPM, and more, for whatever song you’re currently playing, in a UI that changes color to match the album art.',
+                description: 'A web app that connects to your Spotify account to show extra metadata for whatever song you’re currently listening to.',
                 client: 'Personal Project',
                 type: 'Design & full-stack build',
                 tools: 'React, Spotify API, Wikipedia API, SCSS',
@@ -4428,7 +4428,7 @@
                 editorialCaseStudy: {
                     compact: true,
                     pill: 'Personal project · Web app',
-                    lead: 'A web app that shows the musical details Spotify hides, key, BPM, and more, for whatever song you’re currently playing, in a UI that changes color to match the album art.',
+                    lead: 'A web app that connects to your Spotify account to show extra metadata for whatever song you’re currently listening to.',
                     meta: [
                         { label: 'Role', value: 'Design & full-stack build' },
                         { label: 'Context', value: 'Personal project' }
@@ -4485,7 +4485,7 @@
                     pill: 'Product Manager · 2020–2023',
                     lead: 'A B2B platform that helps craft wine and spirits brands launch and grow in Europe without a traditional distributor. Brands stay in control of their stock, set their own prices, and keep much higher margins.',
                     tldr: {
-                        label: 'If you only read one thing',
+                        label: 'Summary',
                         items: [
                             'Owned the brand dashboard and e-commerce platform end to end',
                             'Helped grow from 1 to 8 European markets and a handful of brands to ~70',
@@ -4523,7 +4523,7 @@
                         {
                             id: 'need',
                             eyebrow: '2. The need',
-                            heading: 'Traditional distribution doesn’t fit small craft brands',
+                            heading: 'Traditional distributors don’t fit small craft brands',
                             blocks: [
                                 { type: 'p', text: 'Before Lexir, if a craft brand wanted to enter the European market, they basically had one choice: a traditional distributor. They buy your stock cheap, control where it lands and how it’s priced, and usually only deal in bulk. This meant craft brands ended up with slim margins, little attention, and no real way to test a market at a small scale. Lexir created a whole new way to do business, where brands could keep ownership of their stock, pricing, and margin. It was the first tool that gave brands the infrastructure to basically DIY in a new market (with some help of course).' },
                                 {
@@ -4703,7 +4703,7 @@
                     pill: 'Software Developer · 2018',
                     lead: 'Building Android apps for consumer robots — conversational experiences that let a robot act as a customer service rep, product specialist, or marketing presence, for enterprise clients including BMO and General Motors.',
                     tldr: {
-                        label: 'If you only read one thing',
+                        label: 'Summary',
                         items: [
                             'Designed and built Android apps for Sanbot robots used by BMO and GM',
                             'Made the case for DialogFlow as the conversation layer behind the product',
@@ -5494,7 +5494,7 @@
                             </div>
                             ${cs.tldr ? `
                                 <div class="case-tldr">
-                                    <span class="case-tldr-label">${cs.tldr.label || 'If you only read one thing'}</span>
+                                    <span class="case-tldr-label">${cs.tldr.label || 'Summary'}</span>
                                     <ul>
                                         ${cs.tldr.items.map(item => `<li>${item}</li>`).join('')}
                                     </ul>
