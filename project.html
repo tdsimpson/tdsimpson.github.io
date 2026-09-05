@@ -2019,6 +2019,16 @@
             object-position: top center;
         }
 
+        .editorial-media-pair.is-equal .editorial-video.is-vertical {
+            max-width: 100%;
+            width: min(100%, 280px);
+            margin: 0 auto;
+        }
+
+        .editorial-media-pair.is-equal .editorial-video-note {
+            text-align: center;
+        }
+
         .editorial-video.is-local {
             background: #111;
         }
@@ -2028,6 +2038,64 @@
             width: 100%;
             height: auto;
             vertical-align: top;
+        }
+
+        .editorial-video.has-center-play {
+            cursor: pointer;
+        }
+
+        .editorial-video.has-center-play video {
+            pointer-events: none;
+        }
+
+        .editorial-video-toggle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            border: 0;
+            border-radius: 999px;
+            background: rgba(15, 20, 18, 0.72);
+            color: #fff;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+            transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+            z-index: 2;
+        }
+
+        .editorial-video-toggle:hover,
+        .editorial-video-toggle:focus-visible {
+            background: rgba(15, 20, 18, 0.88);
+            transform: translate(-50%, -50%) scale(1.04);
+            outline: none;
+        }
+
+        .editorial-video-toggle svg {
+            width: 22px;
+            height: 22px;
+            display: block;
+        }
+
+        .editorial-video-toggle .icon-pause {
+            display: none;
+        }
+
+        .editorial-video.is-playing .editorial-video-toggle .icon-play {
+            display: none;
+        }
+
+        .editorial-video.is-playing .editorial-video-toggle .icon-pause {
+            display: block;
+        }
+
+        .editorial-video.is-playing:not(:hover):not(:focus-within) .editorial-video-toggle {
+            opacity: 0;
+            pointer-events: none;
         }
 
         .editorial-video.is-vertical {
@@ -2632,7 +2700,7 @@
 
         .editorial-video {
             position: relative;
-            margin: 28px 0 8px;
+            margin: 28px 0 36px;
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow);
@@ -4608,15 +4676,35 @@
                             eyebrow: '5. Go-to-market',
                             heading: 'Selling the new distribution model',
                             blocks: [
+                                { type: 'h3', text: 'Product marketing as part of the job' },
                                 { type: 'p', text: 'One thing that became clear to me working on Lexir was that having a good product isn’t enough to grow. A big part of the job is also to make sure people understand it, which is especially true in an industry where most people are used to doing things the old way.' },
                                 { type: 'p', text: 'Early on, prospects often assumed we were just another distributor, so a real part of the work was making sure we were positioned and framed the right way before anyone got on a call with us. A lot of what I did at Lexir was product marketing as much as it was product management for exactly that reason, working across video, email, social, ads, events, etc. to close that gap early.' },
-                                { type: 'p', text: 'One of the most important pieces of that was our promo video. I wrote the script, recorded the voiceover, produced the music, and put together the storyboard. For a lot of prospects, it was their first real taste of what Lexir was, before they ever talked to us directly.' },
+                                { type: 'h3', text: 'Example content I produced for Lexir' },
+                                { type: 'p', text: 'One of the most important pieces was our promo video. I wrote the script, recorded the voiceover, produced the music, and put together the storyboard. For a lot of prospects, it was their first real taste of what Lexir was, before they ever talked to us directly.' },
                                 {
                                     type: 'video',
                                     url: 'https://www.youtube.com/watch?v=eVyj5ISX45Q',
                                     title: 'Lexir homepage explainer video'
                                 },
-                                { type: 'p', text: 'I also ran our Instagram account, which became one of our biggest channels for connecting to brands. I noticed sending a DM often felt more like an invitation rather than a chore the way a cold email did to a lot of brands, so I spent time shaping posts and outreach around what got people to engage.' }
+                                { type: 'p', text: 'I also ran our Instagram account, which became one of our biggest channels for connecting to brands. I noticed sending a DM often felt more like an invitation rather than a chore the way a cold email did to a lot of brands, so I spent time shaping posts and outreach around what got people to engage.' },
+                                {
+                                    type: 'mediaPair',
+                                    equal: true,
+                                    items: [
+                                        {
+                                            type: 'asset',
+                                            src: 'images/case_studies/lexir/instagram-feed.jpg',
+                                            caption: 'Instagram feed — charts, product UI, and brand education mixed into the grid.'
+                                        },
+                                        {
+                                            type: 'localVideo',
+                                            src: 'images/case_studies/lexir/bonhomie-event-vertical.mp4',
+                                            mime: 'video/mp4',
+                                            vertical: true,
+                                            caption: 'Bonhomie event clip — vertical content we posted; the print card I designed appears in it.'
+                                        }
+                                    ]
+                                }
                             ]
                         },
                         {
@@ -5329,10 +5417,14 @@
                     `;
                 case 'localVideo':
                     return `
-                        <div class="editorial-video is-local${block.vertical ? ' is-vertical' : ''}">
-                            <video controls playsinline preload="metadata"${block.poster ? ` poster="${block.poster}"` : ''}>
+                        <div class="editorial-video is-local has-center-play${block.vertical ? ' is-vertical' : ''}">
+                            <video playsinline preload="metadata"${block.poster ? ` poster="${block.poster}"` : ''}>
                                 <source src="${block.src}" type="${block.mime || 'video/mp4'}" />
                             </video>
+                            <button type="button" class="editorial-video-toggle" aria-label="Play video">
+                                <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                                <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+                            </button>
                         </div>
                         ${block.caption ? `<p class="editorial-video-note">${block.caption}</p>` : ''}
                     `;
@@ -5505,7 +5597,40 @@
             }).join('');
 
             initEditorialRail();
+            initLocalVideoOverlays();
             bindCaseStudyLightbox(document.getElementById('editorial-case-study'));
+        }
+
+        function initLocalVideoOverlays() {
+            document.querySelectorAll('.editorial-video.has-center-play').forEach(function (wrap) {
+                const video = wrap.querySelector('video');
+                const button = wrap.querySelector('.editorial-video-toggle');
+                if (!video || !button || button.dataset.bound === 'true') return;
+                button.dataset.bound = 'true';
+
+                function sync() {
+                    const playing = !video.paused && !video.ended;
+                    wrap.classList.toggle('is-playing', playing);
+                    button.setAttribute('aria-label', playing ? 'Pause video' : 'Play video');
+                }
+
+                function toggle(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    if (video.paused || video.ended) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                }
+
+                button.addEventListener('click', toggle);
+                wrap.addEventListener('click', toggle);
+                video.addEventListener('play', sync);
+                video.addEventListener('pause', sync);
+                video.addEventListener('ended', sync);
+                sync();
+            });
         }
 
         function initEditorialRail() {
