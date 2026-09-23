@@ -682,6 +682,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 16px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .footer-brand-divider {
+            color: var(--line-2);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 16px;
+            flex-shrink: 0;
         }
 
         footer a {
@@ -733,6 +751,12 @@
 
             .other-projects {
                 grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
             }
 
             .logo {
@@ -899,7 +923,7 @@
                         <p>I've always been drawn to building things people use. I studied computer science to give
                             myself the skills to build, and working across product, engineering, and design at
                             early-stage startups has shown me how products come together from multiple sides. The thing
-                            that ties all of it together for me is the user experience itself — how people think, where
+                            that ties all of it together for me is the user experience itself, including how people think, where
                             they get stuck, and what would make a hard task feel easy.</p>
 
                         <p>Along the way I've defined features, mapped user flows, tested concepts, written in-app copy,
@@ -1006,8 +1030,12 @@
         </main>
 
         <footer>
-            <div>© Taylor Simpson</div>
-            <div style="color:var(--muted);display:flex;gap:16px">
+            <div class="footer-brand">
+                <span>© Taylor Simpson</span>
+                <span class="footer-brand-divider" aria-hidden="true">|</span>
+                <span>🇨🇦 Toronto</span>
+            </div>
+            <div class="footer-links">
                 <a href="mailto:taylor.daniel.simpson@gmail.com"
                     style="color:var(--muted);text-decoration:none">Email</a>
                 <a href="https://github.com/tdsimpson" target="_blank" rel="noopener"
