@@ -466,14 +466,14 @@
         .lab-preview {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 14px 10px 10px;
+            gap: 12px;
+            padding: 12px 16px 12px 12px;
             border: 1px solid var(--line);
             border-radius: 10px;
             background: var(--card);
             min-width: 0;
-            flex: 1 1 180px;
-            max-width: 280px;
+            flex: 1 1 240px;
+            max-width: 340px;
             transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
         }
 
@@ -485,9 +485,9 @@
         }
 
         .lab-preview-thumb {
-            width: 48px;
-            height: 48px;
-            min-width: 48px;
+            width: 56px;
+            height: 56px;
+            min-width: 56px;
             border-radius: 8px;
             overflow: hidden;
             background: var(--accent-2);
@@ -506,6 +506,19 @@
             font-weight: 700;
             line-height: 1.25;
             font-family: var(--font-display);
+        }
+
+        .lab-preview p {
+            margin: 3px 0 0;
+            font-size: 12px;
+            line-height: 1.3;
+            color: var(--muted);
+        }
+
+        @media (max-width: 640px) {
+            .lab-preview {
+                max-width: none;
+            }
         }
 
         .project-item-image--placeholder {
@@ -858,6 +871,16 @@
             <section id="work">
                 <h2 class="section-title">Case Studies</h2>
                 <div class="projects featured-projects">
+                    <a href="project.html?id=settlekit" class="card" tabindex="0">
+                        <div class="thumb">
+                            <img src="images/project_cards/card-settlekit.png" alt="SettleKit landing page" />
+                        </div>
+                        <div class="tags"><span class="tag-brand">SettleKit</span> · Product design · UX writing</div>
+                        <h3>Personalized guidance for new immigrants to the U.S.</h3>
+                        <p>An AI-powered web app that helps immigrants set up banking, an SSN, housing, and healthcare
+                            in the U.S., with guidance tailored to their situation.</p>
+                    </a>
+
                     <a href="project.html?id=lexir" class="card" tabindex="0">
                         <div class="thumb">
                             <img src="images/project_cards/card-lexir.png" alt="Lexir storefront" />
@@ -879,36 +902,32 @@
                         <p>A redesign of Oracle’s PeopleSoft enrollment software, so students can search, plan, and
                             enroll without leaving the system.</p>
                     </a>
-
-                    <a href="project.html?id=pedal-patrol" class="card" tabindex="0">
-                        <div class="thumb">
-                            <img src="images/project_cards/card-pedal-patrol.png" alt="Pedal Patrol" />
-                        </div>
-                        <div class="tags"><span class="tag-brand">Pedal Patrol</span> · Product management · Mobile app
-                        </div>
-                        <h3>Crowdsourced bike recovery app</h3>
-                        <p>A mobile app that helps cyclists recover their stolen bikes through crowdsourcing.</p>
-                    </a>
                 </div>
 
                 <div class="side-projects-break" id="side-projects">
                     <section class="also-building" aria-labelledby="side-projects-title">
                         <div class="also-building-header">
-                            <h2 class="section-title" id="side-projects-title">Side Projects</h2>
-                            <p class="also-building-desc">Small things I've built for fun or to learn something new.</p>
+                            <h2 class="section-title" id="side-projects-title">Other Projects</h2>
+                            <p class="also-building-desc">School projects and things I've built for fun or to learn something new.</p>
                         </div>
                         <div class="also-building-row">
+                            <a href="project.html?id=pedal-patrol" class="lab-preview" tabindex="0">
+                                <div class="lab-preview-thumb">
+                                    <img src="images/project_cards/card-pedal-patrol.png" alt="" />
+                                </div>
+                                <div><h3>Pedal Patrol</h3><p>Bike recovery app</p></div>
+                            </a>
                             <a href="project.html?id=expense-tracker" class="lab-preview" tabindex="0">
                                 <div class="lab-preview-thumb">
                                     <img src="images/project_cards/square-expense-tracker.png" alt="" />
                                 </div>
-                                <h3>Online Budgeting Tool</h3>
+                                <div><h3>Online Budgeting Tool</h3><p>Private spending tracker</p></div>
                             </a>
                             <a href="project.html?id=song-analysis" class="lab-preview" tabindex="0">
                                 <div class="lab-preview-thumb">
                                     <img src="images/project_cards/square-song-analysis.png" alt="" />
                                 </div>
-                                <h3>Spotify Song Analysis</h3>
+                                <div><h3>Spotify Song Analysis</h3><p>Details on what's playing</p></div>
                             </a>
                         </div>
                     </section>
