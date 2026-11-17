@@ -1672,6 +1672,162 @@
             color: var(--text);
         }
 
+        /* Annotated before/after: boxed regions with notes in the margin */
+        .editorial-ba.is-annotated {
+            gap: 28px;
+            margin: 26px 0 30px;
+        }
+
+        .editorial-ba.is-annotated .card {
+            position: relative;
+            margin-right: 210px;
+        }
+
+        .editorial-ba.is-annotated {
+            --hl: var(--muted);
+            --hl-text: var(--text-2);
+        }
+
+        .editorial-ba.is-annotated .before,
+        .ba-notes-mobile.is-before {
+            --mark: var(--ba-before-border);
+            --mark-text: var(--ba-before-pill-text);
+        }
+
+        .editorial-ba.is-annotated .after,
+        .ba-notes-mobile.is-after {
+            --mark: var(--ba-after-border);
+            --mark-text: var(--ba-after-pill-text);
+        }
+
+        .ba-hl {
+            position: relative;
+            margin: 0 -10px 12px;
+            padding: 8px 10px 2px;
+            border: 1.5px dashed var(--hl);
+            border-radius: 10px;
+        }
+
+        .ba-hl > .mock-title,
+        .ba-hl > .wall {
+            margin-bottom: 6px;
+        }
+
+        .ba-note {
+            position: absolute;
+            top: 6px;
+            left: calc(100% + 38px);
+            width: 180px;
+            font-size: 0.82rem;
+            line-height: 1.4;
+            color: var(--text-2);
+        }
+
+        .ba-note::before {
+            content: '';
+            position: absolute;
+            top: 0.7em;
+            left: -38px;
+            width: 30px;
+            border-top: 1.5px dashed var(--mark, var(--hl));
+        }
+
+        .ba-note::after {
+            content: '';
+            position: absolute;
+            top: calc(0.7em - 2.5px);
+            left: -10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--mark, var(--hl));
+        }
+
+        .editorial-ba figcaption {
+            margin-top: -12px;
+            font-size: 0.7rem;
+            letter-spacing: 0.03em;
+            color: var(--muted);
+        }
+
+        .ba-num,
+        .ba-notes-mobile {
+            display: none;
+        }
+
+        /* On narrow screens: numbered markers on the boxes, notes listed under each card */
+        @media (max-width: 880px) {
+            .editorial-ba.is-annotated .card {
+                margin-right: 0;
+            }
+
+            .ba-note {
+                display: none;
+            }
+
+            .ba-num {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                border: 1.5px solid var(--mark, var(--hl));
+                background: var(--card);
+                color: var(--mark-text, var(--text-2));
+                font-size: 0.68rem;
+                font-weight: 700;
+                line-height: 1;
+            }
+
+            .ba-hl > .ba-num {
+                position: absolute;
+                top: -11px;
+                right: -11px;
+            }
+
+            .editorial-ba.is-annotated .ba-notes-mobile {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                margin: -14px 0 4px;
+                padding: 0 4px;
+                list-style: none;
+                font-size: 0.85rem;
+                line-height: 1.4;
+                color: var(--text-2);
+            }
+
+            .ba-notes-mobile li {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .ba-notes-mobile .ba-num {
+                flex: none;
+            }
+        }
+
+        /* Inline links in case study text */
+        .editorial-content p a,
+        .editorial-content li a {
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+            text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+            transition: text-decoration-color 0.15s ease;
+        }
+
+        .editorial-content p a:hover,
+        .editorial-content li a:hover,
+        .editorial-content p a:focus-visible,
+        .editorial-content li a:focus-visible {
+            text-decoration-color: currentColor;
+            text-decoration-thickness: 2px;
+        }
+
         .editorial-content {
             max-width: 730px;
             min-width: 0;
@@ -2008,6 +2164,21 @@
             margin: 0;
         }
 
+        .editorial-media-pair.is-equal>.has-note .editorial-asset {
+            flex: none;
+        }
+
+        .editorial-pair-note {
+            margin: 12px 2px 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text-2);
+        }
+
+        .editorial-pair-note strong {
+            color: var(--text);
+        }
+
         .editorial-media-pair.is-equal .editorial-asset .case-study-image-wrap {
             flex: 1;
         }
@@ -2178,6 +2349,155 @@
             box-shadow: var(--shadow);
         }
 
+        /* Writing rules (rule cards with avoid / use examples) */
+        .editorial-rules {
+            margin: 28px 0 36px;
+        }
+
+        .editorial-rules-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .editorial-rule {
+            display: flex;
+            flex-direction: column;
+            padding: 22px 22px 20px;
+            border: 1px solid var(--line-2);
+            border-radius: var(--radius-lg);
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .editorial-rule-where {
+            align-self: flex-start;
+            margin-bottom: 10px;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .editorial-rule h4 {
+            margin: 0 0 8px;
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            line-height: 1.3;
+        }
+
+        .editorial-rule p {
+            margin: 0 0 16px;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--text-2);
+        }
+
+        .editorial-rule-pair {
+            margin-top: auto;
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            column-gap: 12px;
+            row-gap: 8px;
+            align-items: baseline;
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: var(--bg);
+        }
+
+        .editorial-rule-pair .lbl {
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .editorial-rule-pair .lbl.avoid {
+            color: var(--ba-before-pill-text);
+        }
+
+        .editorial-rule-pair .lbl.use {
+            color: var(--ba-after-pill-text);
+        }
+
+        .editorial-rule-pair .txt.avoid {
+            color: var(--muted);
+        }
+
+        .editorial-rule-pair .txt {
+            font-size: 0.88rem;
+            line-height: 1.45;
+        }
+
+        .editorial-rule-pair .txt.use {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .editorial-rules figcaption {
+            margin-top: 12px;
+            font-size: 0.7rem;
+            letter-spacing: 0.03em;
+            color: var(--muted);
+        }
+
+        @media (max-width: 640px) {
+            .editorial-rules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .editorial-asset.has-badge {
+            position: relative;
+        }
+
+        /* Neutral Before / After tag in the corner of a figure */
+        .editorial-asset-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 2;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            padding: 5px 11px;
+            border-radius: var(--radius-pill);
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--line-2);
+            box-shadow: 0 2px 8px rgba(12, 15, 20, 0.08);
+            pointer-events: none;
+        }
+
+        /* Before / After outlines for side-by-side comparisons */
+        .editorial-asset.tone-before {
+            border: 2px solid var(--ba-before-pill-text);
+        }
+
+        .editorial-asset.tone-after {
+            border: 2px solid var(--ba-after-pill-text);
+        }
+
+        .editorial-asset.tone-before .editorial-asset-badge {
+            color: var(--ba-before-pill-text);
+            border-color: var(--ba-before-pill-text);
+        }
+
+        .editorial-asset.tone-after .editorial-asset-badge {
+            color: var(--ba-after-pill-text);
+            border-color: var(--ba-after-pill-text);
+        }
+
+        .editorial-asset-badge.is-inline {
+            position: static;
+            align-self: flex-start;
+            margin-bottom: 10px;
+            box-shadow: none;
+        }
+
         .editorial-asset .frame {
             min-height: 175px;
             display: flex;
@@ -2308,7 +2628,7 @@
 
         .editorial-ba {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 16px;
             margin: 26px 0;
         }
@@ -2320,16 +2640,13 @@
         }
 
         .editorial-ba .before {
-            background: #eae6dd;
-        }
-
-        [data-theme="dark"] .editorial-ba .before {
-            background: rgba(255, 255, 255, 0.06);
+            background: var(--card);
+            border: 2px solid var(--ba-before-border);
         }
 
         .editorial-ba .after {
             background: var(--card);
-            box-shadow: var(--shadow);
+            border: 2px solid var(--ba-after-border);
         }
 
         .editorial-ba .badge {
@@ -2343,37 +2660,46 @@
         }
 
         .editorial-ba .before .badge {
-            background: #ddd8cd;
-            color: #857b6c;
+            background: var(--ba-before-pill-bg);
+            color: var(--ba-before-pill-text);
         }
 
         .editorial-ba .after .badge {
-            background: var(--accent-soft);
-            color: var(--accent-deep);
+            background: var(--ba-after-pill-bg);
+            color: var(--ba-after-pill-text);
         }
 
         .editorial-ba .before .mock-title {
             font-family: var(--font-display);
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 700;
+            font-size: 1.13rem;
+            line-height: 1.15;
             margin-bottom: 10px;
-            color: #6a6557;
+            color: var(--accent-deep);
         }
 
         .editorial-ba .before ul {
             margin: 0;
             padding-left: 18px;
-            color: #7d776a;
+            color: var(--muted);
             font-size: 0.93rem;
+        }
+
+        .editorial-ba .before .wall {
+            margin: 0;
+            font-size: 0.93rem;
+            line-height: 1.5;
+            color: var(--muted);
         }
 
         .editorial-ba .before li {
             margin-bottom: 5px;
         }
 
-        .editorial-ba .before .done {
+        .editorial-ba .before .done,
+        .editorial-ba .after .done {
             font-size: 0.71rem;
-            color: #9d978a;
+            color: var(--muted);
             margin-top: 13px;
             display: block;
         }
@@ -2399,6 +2725,46 @@
             font-size: 0.94rem;
             margin-bottom: 13px;
             color: var(--text-2);
+        }
+
+        .editorial-ba .after .steps {
+            margin: 0 0 14px;
+            padding-left: 18px;
+            font-size: 0.92rem;
+            color: var(--text-2);
+        }
+
+        .editorial-ba .after .steps li {
+            margin-bottom: 5px;
+        }
+
+        .editorial-ba .after .done-when {
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid var(--line);
+            font-size: 0.92rem;
+            color: var(--text);
+        }
+
+        .editorial-ba .after .done-when::before {
+            content: '✓';
+            margin-right: 8px;
+            font-weight: 700;
+            color: var(--ba-after-accent);
+        }
+
+        .editorial-ba .after .tip {
+            margin-top: 4px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: var(--accent-soft);
+            font-size: 0.92rem;
+            color: var(--text-2);
+        }
+
+        .editorial-ba .after .tip .sub {
+            color: var(--text);
+            font-weight: 700;
         }
 
         .editorial-ba .after .sub {
@@ -2456,6 +2822,61 @@
             margin: 0;
             font-size: 1rem;
             color: var(--text-2);
+        }
+
+        .editorial-flow-item.has-thumb {
+            grid-template-columns: 42px 1fr 200px;
+        }
+
+        .editorial-flow-thumb img {
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .editorial-flow-item.no-num {
+            grid-template-columns: 1fr;
+        }
+
+        .editorial-flow-item.no-num.has-thumb {
+            grid-template-columns: 1fr 200px;
+        }
+
+        .editorial-flow-thumb .thumb-align-right img {
+            object-position: right top;
+        }
+
+        .editorial-flow-thumb-ph {
+            aspect-ratio: 4 / 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.72rem;
+            color: var(--muted);
+            background: var(--bg);
+            border: 1px dashed var(--line-2);
+            border-radius: 12px;
+        }
+
+        @media (max-width: 640px) {
+            .editorial-flow-item.has-thumb {
+                grid-template-columns: 42px 1fr;
+            }
+
+            .editorial-flow-thumb {
+                grid-column: 2;
+                max-width: 320px;
+            }
+
+            .editorial-flow-item.no-num.has-thumb {
+                grid-template-columns: 1fr;
+            }
+
+            .editorial-flow-item.no-num .editorial-flow-thumb {
+                grid-column: 1;
+            }
         }
 
         .editorial-stats {
@@ -2553,6 +2974,76 @@
         .editorial-pull strong {
             font-weight: 650;
             color: var(--text);
+        }
+
+        .editorial-quotes {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 28px 0;
+            padding: 28px 24px;
+            background: var(--accent-soft);
+            border-radius: var(--radius-lg);
+        }
+
+        .editorial-quotes-label {
+            text-align: center;
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .editorial-quote {
+            margin: 0;
+            width: 82%;
+            align-self: center;
+        }
+
+        .editorial-quote-bubble {
+            margin: 0;
+            padding: 14px 18px;
+            background: var(--card);
+            border-radius: 18px 18px 18px 4px;
+            box-shadow: var(--shadow);
+            font-size: 1rem;
+            line-height: 1.55;
+            color: var(--text);
+        }
+
+        .editorial-quote-cite {
+            margin-top: 6px;
+            padding: 0 6px;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .editorial-quote-cite strong {
+            font-weight: 600;
+            color: var(--text-2);
+        }
+
+        @media (max-width: 640px) {
+            .editorial-quotes {
+                padding: 20px 14px;
+            }
+
+            .editorial-quote {
+                width: 100%;
+            }
+        }
+
+        .editorial-pull-lead {
+            display: block;
+            font-weight: 650;
+        }
+
+        .editorial-pull-cite {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: var(--muted);
         }
 
         .editorial-questions {
@@ -4228,7 +4719,7 @@
                     ]
                 }
             },
-            'settlekit1': {
+            'settlekit': {
                 title: 'SettleKit',
                 subtitle: 'Product & UX',
                 description: 'A personalized guide that walks immigrants through building a life in the U.S. — banking, Social Security, housing, healthcare — tailored to exactly where they are in the journey.',
@@ -4240,27 +4731,32 @@
                 video: null,
                 editorialCaseStudy: {
                     pill: 'Featured work',
-                    lead: 'A personalized guide that walks immigrants through building a life in the U.S. — banking, Social Security, housing, healthcare — tailored to exactly where they are in the journey.',
+                    lead: 'SettleKit is an AI-powered web app that helps new immigrants set up their lives in the U.S. (banking, SSN, housing, healthcare) with guidance tailored to their visa, state, country of origin, and stage of their journey. I helped turn a powerful but confusing engine into guidance people actually finish.',
                     tldr: {
                         label: 'Summary',
                         items: [
-                            'Reframed the product from rigid “steps” to living “guides” without a backend rebuild',
-                            'Wrote context-first content so immigrants always know why a task matters',
-                            'Helped grow from essentially no users to hundreds of early visitors'
+                            '<strong>Shifted the product’s approach</strong> from bare to-do lists to explanatory guides that lead with why each step matters and what “done” looks like, increasing completion by 50%.',
+                            '<strong>Authored the source documents, guardrails and examples behind our AI-generated guidance,</strong> keeping every personalized path accurate and on-voice.',
+                            '<strong>Redesigned the end-to-end flow around progressive disclosure,</strong> so people get enough context to act without being overwhelmed.',
+                            '<strong>Designed handoffs to banks and partners,</strong> with comparisons, previews and tips so people know what to expect. This experience helped win our first bank partnerships.'
                         ]
                     },
                     meta: [
                         { label: 'Role', value: 'Product design & UX writing' },
                         { label: 'Company', value: 'SettleKit' },
-                        { label: 'Timeline', value: '2024 – present' }
+                        { label: 'Timeline', value: '2026–present' }
                     ],
                     rail: [
                         { id: 'overview', num: '1', label: 'Overview' },
-                        { id: 'problem', num: '2', label: 'The problem' },
-                        { id: 'guides', num: '3', label: 'Steps → Guides' },
-                        { id: 'writing', num: '4', label: 'The writing' },
-                        { id: 'wayfinding', num: '5', label: 'Right info, right moment' },
-                        { id: 'impact', num: '6', label: 'Impact' }
+                        { id: 'challenge', num: '2', label: 'The need for SettleKit' },
+                        { id: 'problem', num: '3', label: 'The problem' },
+                        { id: 'role', num: '4', label: 'My role' },
+                        { id: 'guides', num: '5', label: 'The core reframe' },
+                        { id: 'writing', num: '6', label: 'The writing system' },
+                        { id: 'wayfinding', num: '7', label: 'Progressive disclosure' },
+                        { id: 'handoffs', num: '8', label: 'Provider handoffs' },
+                        { id: 'impact', num: '9', label: 'Impact' },
+                        { id: 'learned', num: '10', label: 'What I learned' }
                     ],
                     sections: [
                         {
@@ -4269,135 +4765,288 @@
                             blocks: [
                                 {
                                     type: 'asset',
-                                    src: 'images/case_studies/settlekit/hero-dashboard.png',
-                                    caption: 'Fig. 01 / The product as it stands today'
+                                    src: 'images/case_studies/settlekit/landing-page.png',
+                                    caption: 'The SettleKit landing page'
                                 }
+                            ]
+                        },
+                        {
+                            id: 'challenge',
+                            eyebrow: '2. The need for SettleKit',
+                            heading: 'Setting up a life in the U.S. is a maze',
+                            blocks: [
+                                { type: 'p', text: 'Arriving in the U.S. on a visa means facing a maze of bureaucratic steps that are often hard to navigate by yourself, such as opening a bank account, qualifying for an apartment and navigating healthcare. Each of these has its own rules, and each depends on your specific situation.' },
+                                { type: 'p', text: 'People struggle to know what to do, who to go to and how to choose between their options. Many rely on friends or random threads online, which can be out of date or not apply to them. Others turn to WhatsApp groups, where some people take advantage of them, or pay for professionals, which can get expensive.' },
+                                { type: 'p', text: 'We’ve conducted over 50 user interviews, asking people what they struggled with most during their move to the U.S. Housing and healthcare were the two biggest, and both depend on other steps people sometimes didn’t even know they needed. Several people had gone months without health coverage, one of them for seven months, because they were overwhelmed and didn’t know what to choose.' }
                             ]
                         },
                         {
                             id: 'problem',
-                            eyebrow: '2. The problem',
-                            heading: 'A powerful engine, wrapped in a confusing experience',
+                            eyebrow: '3. The problem',
+                            heading: 'A powerful engine with a confusing experience',
                             blocks: [
-                                { type: 'p', text: 'Arriving in the U.S. on a visa means facing a maze of bureaucratic setup tasks — opening a bank account, getting a Social Security number, qualifying for an apartment, navigating healthcare — each with its own rules, and each dependent on your specific situation.' },
-                                { type: 'p', text: 'SettleKit\'s underlying personalization is genuinely powerful: depending on your visa, what you\'ve already completed, and your circumstances, the tool can branch into <strong>millions of tailored paths</strong>. But when I joined, that power was trapped behind a thin experience — a basic landing page and a dashboard that surfaced one recommended action at a time, driven by a short set of unexplained questions.' },
-                                { type: 'p', text: 'There were only about five "blocks," the wording often didn\'t feel relevant, and people were dropped straight into questions with no sense of <em>why</em> they were answering them or <em>where</em> the journey was headed. The intelligence was there. The orientation wasn\'t.' },
+                                { type: 'p', text: 'SettleKit\'s underlying personalization is very powerful, combining your country of origin, state and visa type into tens of thousands of starting paths, which then diverge based on what you’ve already done. When I joined, though, the experience didn’t do it justice. A lot of it felt incomplete, and many people weren’t using it:' },
+                                {
+                                    type: 'ul',
+                                    items: [
+                                        'There were only about five topics (called “blocks” in the app)',
+                                        'The landing page wasn’t clear about what SettleKit offers or how it would help',
+                                        'The dashboard surfaced one recommended action at a time, driven by a short set of unexplained questions',
+                                        'People were dropped straight into questions with no sense of <em>why</em> they were answering them or <em>where</em> the journey was headed',
+                                        'The wording often didn’t feel relevant to people’s situations',
+                                        'The information was there, but the steps weren’t packaged in a way that was easy to take in, so people were still overwhelmed'
+                                    ]
+                                },
                                 {
                                     type: 'asset',
                                     src: 'images/case_studies/settlekit/before-dashboard.png',
-                                    caption: 'Fig. 02 / Where it started — the original dashboard'
-                                },
-                                {
-                                    type: 'band',
-                                    eyebrow: 'My role',
-                                    heading: 'The voice of the user — at the speed of a small team',
-                                    text: 'I own the user experience and the words: research synthesis, flows, wireframes, and the spec docs that justify each decision with pros, cons, and alternatives. I work most closely with the founder, alongside engineers, sales, and marketing. To keep pace, I run an <strong>AI-in-the-loop workflow</strong> — I wireframe a screen, write an intent spec for how it should behave, generate a first pass (mostly Claude, sometimes Gemini), then test, give feedback, and help carry it into implementation.'
+                                    caption: 'The original dashboard: one topic at a time, starting with a question and no explanation of why it’s being asked'
                                 }
+                            ]
+                        },
+                        {
+                            id: 'role',
+                            eyebrow: '4. My role',
+                            heading: 'Product design and UX writing on a small team',
+                            blocks: [
+                                { type: 'p', text: 'I own the user experience and the words, working closely with the founder, a small team of engineers, and sales and marketing.' },
+                                {
+                                    type: 'ul',
+                                    items: [
+                                        'Synthesize research into clear product direction',
+                                        'Design flows and wireframes across the core experience',
+                                        'Write spec docs that justify each decision with pros, cons, and alternatives',
+                                        'Write the product\'s content, from guides to microcopy',
+                                        'Explain what SettleKit does on the landing page and social channels'
+                                    ]
+                                },
+                                { type: 'p', text: 'I also use AI in my workflow, mostly Claude and sometimes Gemini, to get first versions of copy and mockups down quickly, which I then refine alongside the wireframing I do in Figma. From there I present them to the team and work with the engineers to carry them into implementation.' }
                             ]
                         },
                         {
                             id: 'guides',
-                            eyebrow: '3. The core reframe',
-                            heading: 'From rigid "steps" to living "guides"',
+                            eyebrow: '5. The core reframe',
+                            heading: 'From a rigid checklist to explanatory guides',
                             blocks: [
-                                { type: 'lead', text: 'The biggest unlock wasn\'t a feature. It was noticing that the entire content model was fighting the way people actually learn.' },
-                                { type: 'p', text: 'Everything in SettleKit had been forced into a strict, one-to-one <strong>step</strong> format, where users had to mark each item "done." That works for a physical action — <em>open the account</em> — but it broke down completely for informational tasks. Asking someone to check off "understand how U.S. healthcare works" left them genuinely confused: <em>Did I finish that? Does "done" mean I understand it now, or just that I read it?</em>' },
-                                { type: 'p', text: 'I recognized that not everything is an action. Sometimes the real task is simply to <strong>learn, absorb, and understand</strong> — so I shifted the core philosophy from steps toward <strong>guides</strong>: living resources people can return to and reference as they move through their journey, rather than a checklist to mindlessly click through.' },
-                                { type: 'p', text: 'Crucially, this didn\'t change SettleKit\'s promise. It\'s still the personalized hub tailored to each individual — just with the breathing room people need to actually digest what they\'re reading. And because it was mostly a <strong>framing</strong> change rather than a backend rebuild, it gave us far more freedom in how we deliver information without compromising structure. That leverage — a small shift in framing unlocking a big change in experience — is the heart of what I bring as a UX writer.' },
+                                { type: 'p', text: 'When we interviewed users and looked at how they moved through the product, the same pattern kept coming up. People were given a list of steps but had no real sense of why each one mattered or how it connected to the next. Without the “why,” they had little motivation to start and no mental model of how the pieces fit together. Many left topics half-finished, because they were confused and overwhelmed.' },
+                                { type: 'p', text: 'The big issue I noticed was the format itself. Everything in SettleKit had been forced into strict, one-to-one steps that users marked “done.” On paper, that would seem like the right approach, where it’s concrete and concise. It worked for more familiar and straightforward actions like getting a driver’s license, but not as well for anything that was more nuanced and complex like healthcare in the U.S. Asking someone to check off “understand how U.S. healthcare works” left them wondering: <em>Did I finish that? Does “done” mean I understand it, or just that I read it?</em>' },
+                                { type: 'p', text: 'So I reframed the product’s approach from a checklist to explanatory guides. Each guide leads with context (why this matters, what’s at stake, and what “done” actually looks like) before getting into the actions. And because not everything is a step to check off, guides became resources people can return to as their situation changes, rather than a checklist to click through.' },
+                                { type: 'p', text: 'For example, here’s one step from our guide to getting through US immigration, first as it used to look and then as it looks now. This version is for someone on an H-1B visa, and people on other visas see the documents that apply to them.' },
                                 {
-                                    type: 'asset',
-                                    tag: 'Fig. 03 — add asset',
-                                    kind: 'Before / after — a "step" vs. the same content as a "guide"',
-                                    dims: 'Suggested: two panels side by side, 1200 × 800 each',
-                                    desc: 'The clearest possible proof: the same healthcare (or similar informational) topic shown first as a forced checklist step, then re-cast as a referenceable guide. A two-panel comparison or a short before/after clip works well.',
-                                    caption: 'Fig. 03 / The reframe, made visible'
-                                }
+                                    type: 'ba',
+                                    before: {
+                                        badge: 'Before (task-first)',
+                                        title: 'Gather your entry documents',
+                                        text: 'Bring your valid passport, your valid H-1B visa (unless exempt), your Form I-797 Notice of Action (Approval Notice), your job offer letter or recent employment verification letter, your recent paystubs (if already employed), a copy of your Form I-129 and Labor Condition Application (LCA), your DS-160 confirmation page, and your employer contact information. Keep these documents in your carry-on bag, not checked luggage, so they are accessible at the booth. If you are carrying a sealed packet from the consulate, do not open it.',
+                                        tip: '<strong>SettleKit tip:</strong> The officer may ask about your employer, job title, work location, and primary job duties; ensure your answers match the details on your Form I-129 and Labor Condition Application (LCA).',
+                                        done: '☐ Mark as done',
+                                        notes: {
+                                            title: 'Reads like a task to check off, with no reason to do it',
+                                            text: 'Every document is crammed into one sentence, with nothing to show which ones really matter',
+                                            tip: 'Mentions the I-129 and LCA without explaining what they are'
+                                        }
+                                    },
+                                    after: {
+                                        badge: 'After (context-first)',
+                                        heading: 'Documents you’ll need to cross the border',
+                                        text: [
+                                            'At the border, your documents provide the legal proof of your intent. Having them organized and physically accessible prevents the officer from doubting your eligibility and avoids a denial of entry if your checked luggage is lost or delayed.',
+                                            'Gather the following items into a dedicated folder to be kept in your carry-on bag:'
+                                        ],
+                                        textNotes: ['Starts with why these documents matter at the border'],
+                                        groups: [
+                                            {
+                                                label: 'Required',
+                                                note: 'Puts what you can’t travel without first',
+                                                items: [
+                                                    '<strong>Valid passport</strong> with your <strong>H-1B visa stamp</strong>.',
+                                                    'Original <strong>Form I-797 (Approval Notice)</strong>. This is the proof that the government has already vetted your petition.',
+                                                    'Signed <strong>job offer letter</strong> or a recent <strong>employment verification letter</strong>.'
+                                                ]
+                                            },
+                                            {
+                                                label: 'Good to have',
+                                                note: 'Explains each form in plain language',
+                                                items: [
+                                                    'Copy of your <strong>Form I-129</strong>. This is the petition your employer filed to prove that the job is a “specialty occupation” and that you have the specific degree or experience to do it.',
+                                                    '<strong>Labor Condition Application (LCA)</strong>. This is the document where your employer promises the government they will pay you the fair market wage for your specific role and location.'
+                                                ]
+                                            }
+                                        ],
+                                        rows: [
+                                            { sub: 'SettleKit tip', tip: true, row: 'If the consulate gave you a <strong>sealed manila envelope</strong>, do not open it! Only the Customs and Border Protection (CBP) officer is allowed to break that seal. If you open it, you’re looking at a long delay in “Secondary Inspection” while they verify the contents.' }
+                                        ],
+                                        markDone: '☐ Mark as done'
+                                    },
+                                    caption: 'It’s longer than the old version, but every addition answers a question people were already asking.'
+                                },
+                                { type: 'p', text: 'I wrote this version by hand, and it became one of the examples the AI learns from when it writes guides for everyone else. Because the change was in framing and writing, not the personalization engine, it needed no backend work. That made it fast and cheap to ship, and topic completions rose by about 50%.' }
                             ]
                         },
                         {
                             id: 'writing',
-                            eyebrow: '4. Context-first UX writing',
-                            heading: 'Establish the "why" before the "what"',
+                            eyebrow: '6. The writing system',
+                            heading: 'Writing the rules behind every personalized path',
                             blocks: [
-                                { type: 'p', text: 'The old content jumped straight into tasks and questions with no motivation. So I moved to a <strong>context-first</strong> approach: anchor every topic in the big picture first, so it has immediate purpose — then give the actual steps a clean, skimmable structure that breaks complex actions into bite-sized pieces, so users always know exactly where they are and what to do next.' },
-                                { type: 'p', text: 'It also has to be written for the audience: clear, direct, and engaging language for immigrants to the U.S. — no jargon, no uncommon idioms, and no clickbait — that still works across many different backgrounds.' },
-                                { type: 'annot', text: '↓ Illustrative example — replace with your real before/after copy from the product.' },
+                                { type: 'p', text: 'SettleKit generates guidance for each person’s situation, so there was no way to write every path by hand. Instead, I authored the source documents, guardrails and examples our AI-generated guidance is built from. They set how each guide is structured, what it needs to cover and how it should sound, so every path stays accurate and sounds like SettleKit. Because these guidelines run at build time, they shape every path generated for each person’s situation, not just a single screen.' },
+                                { type: 'p', text: 'The rules are written for the audience: immigrants from many different backgrounds, often reading in their second or third language and dealing with a lot at once. They cover every layer of the product, from the steps inside each guide to the short descriptions and outcomes people see before they start one.' },
+                                { type: 'h3', text: 'Example rules for the sidebar preview' },
+                                { type: 'p', text: 'The sidebar is what people see before they commit to starting a topic. Each rule comes with an example of what to avoid and what to write instead, so both people and the AI can apply it the same way.' },
                                 {
-                                    type: 'ba',
-                                    before: {
-                                        badge: 'Before — task-first',
-                                        title: 'Apply for a Social Security Number',
-                                        items: [
-                                            'Gather your documents.',
-                                            'Go to your local SSA office.',
-                                            'Submit Form SS-5.',
-                                            'Wait for your card to arrive.'
-                                        ],
-                                        done: '☐ Mark as done'
-                                    },
-                                    after: {
-                                        badge: 'After — context-first',
-                                        why: 'Why this matters',
-                                        heading: 'Your SSN is the key that unlocks almost everything.',
-                                        text: 'Before you can get paid, open most bank accounts, or rent many apartments, you\'ll need a Social Security number. It\'s a nine-digit number you\'ll keep for life — so it\'s worth getting right, early.',
-                                        rows: [
-                                            { sub: 'What you\'ll need', row: 'Passport & visa, plus proof of your U.S. address' },
-                                            { sub: 'Good to know', row: 'Most offices don\'t take appointments — go early to skip the longest lines.' }
-                                        ]
-                                    }
+                                    type: 'asset',
+                                    src: 'images/case_studies/settlekit/sidebar-preview-credit-card.jpg',
+                                    caption: 'The sidebar preview people see before starting a topic'
                                 },
-                                { type: 'p', text: 'The same task, reframed: the "after" version tells someone <em>why they\'re here</em> before <em>what to do</em>, then makes the doing easy to skim. These guidelines run at <strong>build time</strong> — they shape how every personalized path is generated for each person\'s situation, not how a single screen renders at run time.' }
+                                {
+                                    type: 'rules',
+                                    caption: 'Excerpts from the guidelines, as written',
+                                    items: [
+                                        {
+                                            title: 'Motivate with facts, not fear',
+                                            rule: 'Explain why it matters by describing how things actually work in the US, in a way that motivates without fear-mongering. The reader should think “ah, that’s why this matters,” not “oh no, I’d better not mess up.”',
+                                            avoid: '“You’ll lose the apartment if you’re not ready.”',
+                                            use: '“Apartments go within a day or two.”'
+                                        },
+                                        {
+                                            title: 'Be honest about what SettleKit delivers',
+                                            rule: 'SettleKit provides knowledge, frameworks and tools, and the user does the work. Credit the user’s new capability or knowledge, and don’t promise outcomes SettleKit doesn’t directly produce.',
+                                            avoid: '“Protection from scams”',
+                                            use: '“The know-how to spot scams”'
+                                        },
+                                        {
+                                            title: 'Use universal language',
+                                            rule: 'Avoid metaphors and idioms that may not translate clearly for non-native English speakers (foothold, master key, foundation). Prefer concrete, widely understood phrasing.',
+                                            avoid: '“A permanent master key for U.S. paperwork”',
+                                            use: '“The number most U.S. paperwork asks for”'
+                                        },
+                                        {
+                                            title: 'The “Now I can” test',
+                                            rule: 'Every outcome must complete the sentence “By finishing this, I now have the ability to…” or “I now own…” If it describes an action the user must take, like “Apply for,” it belongs in the process, not the outcomes.',
+                                            avoid: '“Apply for a US credit card”',
+                                            use: '“Build your first US credit score”'
+                                        }
+                                    ]
+                                },
+                                { type: 'p', text: 'The outcome guidelines end with a short checklist anyone can run before publishing, such as whether each point is under eight words and whether a non-native speaker would read it the way it’s intended. With these guidelines in place, producing a new topic went from weeks to days. Drafts came out much closer to what we wanted and were accurate from the start, so they needed far less revision. The same documents now power SettleKit’s in-app chat, which answers with each person’s situation in mind.' },
                             ]
                         },
                         {
                             id: 'wayfinding',
-                            eyebrow: '5. The right information, at the right moment',
-                            heading: 'Two kinds of people walk in the door',
+                            eyebrow: '7. Progressive disclosure',
+                            heading: 'Revealing information in stages',
                             blocks: [
-                                { type: 'p', text: 'Some users just want to be told what to do, in order. Others want to explore first — to get a feel for what\'s even possible. Someone might arrive determined to get a driver\'s license without realizing it depends on having insurance, which depends on an address. A lot of my work was making sure both kinds of people get <strong>enough context to understand each stage</strong> before they commit to it.' },
+                                { type: 'p', text: 'I redesigned the end-to-end flow around progressive disclosure. People shouldn’t be dropped somewhere without the context they need, but they also shouldn’t be buried in information before they need it. The goal is to show the right amount at each stage, so they always know enough to take the next step.' },
+                                { type: 'h3', text: 'Ways to navigate the tool' },
+                                { type: 'p', text: 'People need the right information at the right time, and a way to drill down when they want more. That has to work for two kinds of people, so there are two ways in:' },
+                                {
+                                    type: 'mediaPair',
+                                    equal: true,
+                                    items: [
+                                        {
+                                            type: 'asset',
+                                            badge: 'Guided',
+                                            src: 'images/case_studies/settlekit/hero-dashboard.png',
+                                            alt: 'The SettleKit dashboard recommending what to do next',
+                                            note: '<strong>For people who want to be told what to do, in order.</strong> The dashboard recommends what to do next, based on each person’s situation and progress.'
+                                        },
+                                        {
+                                            type: 'asset',
+                                            badge: 'Explore',
+                                            src: 'images/case_studies/settlekit/explore-blocks.jpg',
+                                            alt: 'The Explore page showing every topic, grouped by stage',
+                                            note: '<strong>For people who want to explore first.</strong> The Explore page shows every topic, grouped by stage, so people can see how topics connect.'
+                                        }
+                                    ]
+                                },
+                                { type: 'p', text: 'I proposed and designed the Explore page because topics depend on each other in ways people don’t expect. Someone might arrive set on getting a driver’s license without realizing it depends on having insurance, which depends on an address. The two work together: about 75% of people looked through the Explore page before starting their first topic, even when they then started it from the dashboard.' },
+                                { type: 'p', text: 'Whichever way people pick a topic, the information then opens up in stages:' },
                                 {
                                     type: 'flow',
                                     items: [
-                                        { num: 'A', title: 'An Explore page for the browsers', text: 'I proposed and wireframed a way to browse what\'s available and see how things connect — so someone chasing one goal discovers the real path to it, and how it interlocks with the guided dashboard.' },
-                                        { num: 'B', title: 'A "cart, then checkout" before any questions', text: 'Clicking a block opens a sidebar preview — outcomes, a short description, dependencies — like a cart. A dedicated overview page then acts as the checkout. Nobody gets blindsided by questions; they get a primer and choose to begin.' },
-                                        { num: 'C', title: 'A table of contents you can roam', text: 'I added the ability to jump around steps to see what exists, even before completing anything. Because paths are tailored up front, the steps don\'t shift mid-journey — so freedom to look ahead never breaks the personalization.' },
-                                        { num: 'D', title: 'Mission control for hand-offs', text: 'When a guide hands off to a commercial partner — say, a banking app — I designed a place that preps people for what to expect and gives them a clear marker for "done," so they return knowing they finished it properly.' },
-                                        { num: 'E', title: 'Provider matching, in our own format', text: 'Users set preferences and get matched with the best-fit provider, with our own signals layered in (recommended, SettleKit-verified). A standardized details page gives the key bullets — eligibility, features and benefits, things to watch out for — without sending them to a sales page.' }
+                                        { num: '1', title: 'Previewing a topic before committing', text: 'I proposed a sidebar (the same one shown with the writing rules above) that opens when someone clicks a topic card, like reviewing your cart before checkout, so people can decide whether a topic is worth starting. Before, people often started topics just to see what was inside, rushing through questions that shape their whole path. Now 90% preview more than one topic in their first session, and once they start one, they usually stick with it.', thumb: { src: 'images/case_studies/settlekit/sidebar-preview-credit-card.jpg', align: 'right', caption: 'The sidebar preview for a topic' } },
+                                        { num: '2', title: 'A personalized overview before the steps', text: 'Once people start a topic, an overview shows their personalized plan before the first step: what about their situation matters for this topic and what we built for them because of it. That way people understand why their steps look the way they do before they get into them.', thumb: { src: 'images/case_studies/settlekit/topic-overview-thumb.jpg', full: 'images/case_studies/settlekit/topic-overview.jpg', caption: 'A topic’s overview page: the person’s situation and what we built for them' } },
+                                        { num: '3', title: 'A table of contents you can roam', text: 'People can jump between steps to see what’s ahead, even before completing anything. Because paths are tailored up front, the steps don’t shift mid-journey, so looking ahead never breaks the personalization.', thumb: { src: 'images/case_studies/settlekit/guide-table-of-contents-thumb.jpg', full: 'images/case_studies/settlekit/guide-table-of-contents.jpg', caption: 'A guide’s table of contents, with steps people can jump between' } }
                                     ]
                                 },
-                                { type: 'pull', text: '"We\'re holding their hand through the process — having them spend an afternoon with a stranger. The job is to set expectations and make sure that experience is a good one."' },
+                                { type: 'p', text: 'Deciding how much to show, and how much control to give, was one of the hardest parts. Some people want the tool to suggest what’s next, while others want more control, like marking things as done or snoozing them for later. We chose to start with more options and more explanation, because the system is confusing enough that over-explaining is safer than under-explaining. Since then, we’ve looked at what people actually use, along with conversations with them, to decide what to simplify.' },
+                                { type: 'h3', text: 'Progressive disclosure in onboarding' },
+                                { type: 'p', text: 'Onboarding taught us that timing matters as much as the message. In the first version, people answered a few basic questions and then went straight to the dashboard, where a series of pop-ups explained how the tool worked. Over 80% of people closed them without reading, since pop-ups are something we’ve all learned to dismiss, and these felt like noise on top of what people actually wanted to use.' },
+                                {
+                                    type: 'mediaPair',
+                                    equal: true,
+                                    items: [
+                                        {
+                                            type: 'asset',
+                                            tone: 'before',
+                                            badge: 'Before',
+                                            src: 'images/case_studies/settlekit/onboarding-before-popups.jpg',
+                                            caption: 'Before: pop-ups explaining SettleKit over the dashboard'
+                                        },
+                                        {
+                                            type: 'asset',
+                                            tone: 'after',
+                                            badge: 'After',
+                                            src: 'images/case_studies/settlekit/onboarding-after-roadmap.jpg',
+                                            caption: 'After: a roadmap built from their answers, shown before the dashboard'
+                                        }
+                                    ]
+                                },
+                                { type: 'p', text: 'The information was still worth getting across, so we moved it into the onboarding itself. Rather than describing the tool in general terms, the onboarding now asks a few more detailed questions, including what people have already done, and uses their answers to build a roadmap before they ever see the dashboard. Seeing their own path first gives people a sense of where they are and what’s left, so when they land on the dashboard they understand what it’s for and are ready to start working through their topics. Before the change, about 60% of people rushed through onboarding, looked at a couple of topics and then left, which suggested they didn’t really understand the tool or feel invested in it. With the new onboarding, that dropped to about 40%.' }
+
+                            ]
+                        },
+                        {
+                            id: 'handoffs',
+                            eyebrow: '8. Provider handoffs',
+                            heading: 'Handoffs to commercial providers',
+                            blocks: [
+                                { type: 'p', text: 'Most of what SettleKit helps with doesn’t actually happen in SettleKit. Opening a bank account, getting insurance or applying for a Social Security number all happen somewhere else, so a big part of guiding people is getting them to the right place with the right information. Some of those handoffs are straightforward. For a Social Security number there’s one government agency and one process, so we explain what to expect and send people there.' },
+                                { type: 'pull', lead: 'The way I describe it to the team:', text: 'We act like a parent, holding their hand through everything. Then we tell them to go spend the afternoon with a stranger. So we have to set them up for it.' },
+                                { type: 'p', text: 'Commercial providers are harder, because the person has to make a choice. As a newcomer you often don’t know what’s out there, which options are open to you without a U.S. credit history, or what you’d need to do to qualify for the ones that aren’t. That’s usually when people go looking for advice, so I designed a comparison experience that gives them the full lay of the land in one place. Instead of simple filters, people mark how much each factor matters to them, from “don’t care” to “dealbreaker,” and the banks are ranked to match. Someone without an SSN yet can rule out every bank that requires one, while someone else might care most about monthly fees or a joining bonus.' },
                                 {
                                     type: 'asset',
-                                    tall: true,
-                                    tag: 'Fig. 04 — add asset',
-                                    kind: 'Wireframes / spec flows for this section',
-                                    dims: 'Suggested: 2–4 wireframes or one flow diagram, ~1200px wide',
-                                    desc: 'This is where your structural thinking shows, so feature the artifacts: the Explore-page wireframe, the sidebar→overview "cart→checkout" flow, and the provider list + details screens. Pairing a clean flow diagram with real wireframes signals product range, not just visual polish.',
-                                    caption: 'Fig. 04 / Designing for understanding at each stage'
-                                }
+                                    src: 'images/case_studies/settlekit/provider-comparison-banks.jpg',
+                                    caption: 'Banks ranked by what matters most to each person'
+                                },
+                                { type: 'p', text: 'Every bank has the same standardized details page covering eligibility, benefits and things to watch out for, so people can compare options fairly instead of reading each company’s sales page.' },
+                                {
+                                    type: 'asset',
+                                    src: 'images/case_studies/settlekit/provider-details-zolve.jpg',
+                                    full: 'images/case_studies/settlekit/provider-details-zolve-full.jpg',
+                                    caption: 'The same details page for every bank, starting with SettleKit’s take. Click to see the full page.'
+                                },
+                                { type: 'p', text: 'That details page also prepares people for the handoff itself. Before they choose a bank and leave SettleKit, it explains how the process works, what they’ll need to apply and what to watch out for, like a delay in getting routing numbers after signing up from abroad. That way people show up prepared instead of figuring it out on the spot. The whole handoff experience also helped us win our first bank partnerships.' }
                             ]
                         },
                         {
                             id: 'impact',
-                            eyebrow: '6. Impact & what I learned',
-                            heading: 'From an empty room to a real product',
+                            eyebrow: '9. Impact',
+                            heading: 'Results so far',
                             blocks: [
+                                { type: 'p', text: 'Two changes made the clearest difference. Moving to guides raised the share of started topics people finished by about 50%, and the new onboarding cut the share of people who left after a quick look from about 60% to 40%. People also became more deliberate about what they started, with 90% previewing more than one topic in their first session before choosing. Over the same period, SettleKit grew from fewer than 10 weekly users to around 200, and the principles I pushed for, like progressive disclosure and the writing guidelines, became how the team builds new features.' },
+                                { type: 'h3', text: 'How SettleKit has helped people' },
                                 {
-                                    type: 'stats',
+                                    type: 'quotes',
                                     items: [
-                                        { big: '0 → 100s', lbl: 'Grew from essentially no users to hundreds of early visitors' },
-                                        { big: 'Banks +', lbl: 'Partnerships with banks and affiliate providers' },
-                                        { big: '5 → many', lbl: 'Expanded from a handful of topics to broad coverage' }
+                                        { text: 'So much of moving here is rules and conventions nobody mentions unless you get them wrong. SettleKit tells you about them up front.', name: 'Remi', from: 'France → New York' },
+                                        { text: 'In France there’s one health plan. Here your employer hands you pages of them and wishes you luck. SettleKit compared them in words I could actually use.', name: 'Valentin', from: 'France → New York' },
+                                        { text: 'I got rejected for internet as a ‘high-risk consumer’ a week after landing. SettleKit explained why, and what to do about it.', name: 'Nadine', from: 'South Africa → New York' }
                                     ]
                                 },
-                                { type: 'annot', text: 'Confirm exact figures before publishing — swap in real numbers (users, partners, topics) wherever you\'re comfortable.' },
-                                { type: 'h3', text: 'What I took away' },
+                                { type: 'p', text: 'We’re now deepening the healthcare topic. It’s one of the most complex and most important, because the US system is so different from what most people are used to back home.' }
+                            ]
+                        },
+                        {
+                            id: 'learned',
+                            eyebrow: '10. What I learned',
+                            heading: 'Lessons from building SettleKit',
+                            blocks: [
                                 {
                                     type: 'ul',
                                     items: [
-                                        '<strong>Framing is leverage.</strong> The steps-to-guides shift changed the whole experience without a backend rebuild — the highest-impact thing I did was a content-model decision, not a visual one.',
-                                        '<strong>Design for the overwhelmed.</strong> Writing for immigrants in a stressful, unfamiliar system made clarity and reassurance the real success metric.',
-                                        '<strong>AI moves you faster only if you steer.</strong> An AI-in-the-loop workflow let a tiny team ship quickly — but the judgment about what\'s right for the user still has to be mine.'
+                                        '<strong>People rarely start from zero.</strong> Early on, we built SettleKit as if it were a tool people found at the beginning of their journey. In reality, most had already gotten help from a lawyer or a friend, done things out of order, or made mistakes (like signing a long-term lease before arriving). Now, during our onboarding, we make sure to capture what people have already done. The tool helps them check whether it was done right and helps them recover if it wasn’t.',
+                                        '<strong>We are no longer just writing for humans.</strong> Since SettleKit starts from tens of thousands of different paths, we can’t write guides for everyone. Instead, we write rules and guidelines for our tools to follow. Those rules and examples can quietly contradict each other, and a rule that looks clear on paper may still not work until you reword it. You have to spell out edge cases, say which rules win when they conflict, and check that every new piece fits what’s already there.',
+                                        '<strong>We need to know the process better than our partners’ docs.</strong> Since SettleKit is a guidance tool instead of the place where actions are done, our handoffs to partners are so important. In many cases, those partner guides go out of date, confuse people, or link to broken pages, and that’s exactly where people get stuck and give up. We have to know each process ourselves and spot when their docs aren’t good enough. When they aren’t, we point out the pitfalls and anything that’s out of date or broken, so people know what to watch out for before they run into it.'
                                     ]
                                 }
                             ]
@@ -4876,13 +5525,14 @@
 
         // Project order for navigation (loops back to the start after the last)
         const projectOrder = [
+            'settlekit',
             'lexir',
-            'course-enrollment',
-            'pedal-patrol'
+            'course-enrollment'
         ];
 
         // Case studies linked from the homepage — everything else stays noindex while draft/unlisted
         const indexedProjectIds = new Set([
+            'settlekit',
             'lexir',
             'course-enrollment',
             'pedal-patrol',
@@ -4907,7 +5557,7 @@
         function caseStudyImageHTML(img, extraClass = '') {
             const classes = extraClass ? `case-study-image-wrap ${extraClass}` : 'case-study-image-wrap';
             return `
-                <div class="${classes}" data-image="${img.src}" data-caption="${img.caption}">
+                <div class="${classes}" data-image="${img.full || img.src}" data-caption="${img.caption}">
                     <img src="${img.src}" alt="${img.caption}" />
                 </div>
             `;
@@ -5178,8 +5828,20 @@
                     }).join('')}
                         </div>
                     `;
+                case 'quotes':
+                    return `
+                        <div class="editorial-quotes">
+                            ${block.label ? `<div class="editorial-quotes-label">${block.label}</div>` : ''}
+                            ${block.items.map(q => `
+                                <figure class="editorial-quote">
+                                    <blockquote class="editorial-quote-bubble">“${q.text}”</blockquote>
+                                    <figcaption class="editorial-quote-cite"><strong>${q.name}</strong> · ${q.from}</figcaption>
+                                </figure>
+                            `).join('')}
+                        </div>
+                    `;
                 case 'pull':
-                    return `<div class="editorial-pull">${block.text}</div>`;
+                    return `<div class="editorial-pull">${block.lead ? `<span class="editorial-pull-lead">${block.lead}</span>` : ''}${block.text}${block.cite ? `<span class="editorial-pull-cite">${block.cite}</span>` : ''}</div>`;
                 case 'questions':
                     return `
                         <div class="editorial-questions">
@@ -5213,9 +5875,10 @@
                 case 'asset':
                     if (block.src) {
                         return `
-                            <figure class="editorial-asset${block.tall ? ' tall' : ''}">
-                                <div class="case-study-image-wrap" data-image="${block.src}" data-caption="${block.caption || ''}">
-                                    <img src="${block.src}" alt="${block.caption || block.kind || ''}" />
+                            <figure class="editorial-asset${block.tall ? ' tall' : ''}${block.badge ? ' has-badge' : ''}${block.tone ? ` tone-${block.tone}` : ''}">
+                                ${block.badge ? `<span class="editorial-asset-badge">${block.badge}</span>` : ''}
+                                <div class="case-study-image-wrap" data-image="${block.full || block.src}" data-caption="${block.caption || ''}">
+                                    <img src="${block.src}" alt="${block.alt || block.caption || block.kind || ''}" />
                                 </div>
                                 ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ''}
                             </figure>
@@ -5224,6 +5887,7 @@
                     return `
                         <figure class="editorial-asset${block.tall ? ' tall' : ''}">
                             <div class="frame">
+                                ${block.badge ? `<span class="editorial-asset-badge is-inline">${block.badge}</span>` : ''}
                                 <span class="ftag">${block.tag}</span>
                                 <div class="kind">${block.kind}</div>
                                 <div class="dims">${block.dims}</div>
@@ -5232,37 +5896,97 @@
                             ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ''}
                         </figure>
                     `;
-                case 'ba':
+                case 'ba': {
+                    const bn = block.before.notes || {};
+                    const an = block.after.textNotes || [];
+                    const annotated = !!(block.before.notes || block.after.textNotes || (block.after.groups || []).some(g => g.note));
+                    let noteList = [];
+                    const hl = (inner, note) => {
+                        if (!note) return inner;
+                        noteList.push(note);
+                        return `<div class="ba-hl"><span class="ba-num" aria-hidden="true">${noteList.length}</span><span class="ba-note">${note}</span>${inner}</div>`;
+                    };
+                    const mobileNotes = (tone) => {
+                        const out = noteList.length ? `<ol class="ba-notes-mobile is-${tone}">${noteList.map((n, i) => `<li><span class="ba-num">${i + 1}</span><span>${n}</span></li>`).join('')}</ol>` : '';
+                        noteList = [];
+                        return out;
+                    };
                     return `
-                        <div class="editorial-ba">
+                        <figure class="editorial-ba${annotated ? ' is-annotated' : ''}">
                             <div class="card before">
                                 <span class="badge">${block.before.badge}</span>
-                                <div class="mock-title">${block.before.title}</div>
-                                <ul>${block.before.items.map(item => `<li>${item}</li>`).join('')}</ul>
+                                ${hl(`<div class="mock-title">${block.before.title}</div>`, bn.title)}
+                                ${block.before.items ? `<ul>${block.before.items.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
+                                ${block.before.text ? hl(`<p class="wall">${block.before.text}</p>`, bn.text) : ''}
+                                ${block.before.tip ? hl(`<p class="wall">${block.before.tip}</p>`, bn.tip) : ''}
                                 <span class="done">${block.before.done}</span>
                             </div>
+                            ${mobileNotes('before')}
                             <div class="card after">
                                 <span class="badge">${block.after.badge}</span>
-                                <div class="why">${block.after.why}</div>
                                 <h4>${block.after.heading}</h4>
-                                <p>${block.after.text}</p>
-                                ${block.after.rows.map(row => `
+                                ${block.after.why ? `<div class="why">${block.after.why}</div>` : ''}
+                                ${[].concat(block.after.text).map((t, i) => hl(`<p>${t}</p>`, an[i])).join('')}
+                                ${block.after.items ? `<ul class="steps">${block.after.items.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
+                                ${(block.after.groups || []).map(g => hl(`
+                                    <div class="sub">${g.label}</div>
+                                    <ul class="steps">${g.items.map(item => `<li>${item}</li>`).join('')}</ul>
+                                `, g.note)).join('')}
+                                ${block.after.rows.map(row => row.tip ? `
+                                    <div class="tip">
+                                        <div class="sub">${row.sub}</div>
+                                        <div>${row.row}</div>
+                                    </div>
+                                ` : `
                                     <div class="sub"${row.sub === 'Good to know' ? ' style="margin-top:12px"' : ''}>${row.sub}</div>
                                     <div class="row">${row.row}</div>
                                 `).join('')}
+                                ${block.after.done ? `<div class="done-when">${block.after.done}</div>` : ''}
+                                ${block.after.markDone ? `<span class="done">${block.after.markDone}</span>` : ''}
                             </div>
-                        </div>
+                            ${mobileNotes('after')}
+                            ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ''}
+                        </figure>
+                    `;
+                }
+                case 'rules':
+                    return `
+                        <figure class="editorial-rules">
+                            <div class="editorial-rules-grid">
+                                ${block.items.map(r => `
+                                    <div class="editorial-rule">
+                                        ${r.where ? `<span class="editorial-rule-where">${r.where}</span>` : ''}
+                                        <h4>${r.title}</h4>
+                                        <p>${r.rule}</p>
+                                        <div class="editorial-rule-pair">
+                                            <span class="lbl avoid">✕ Avoid</span>
+                                            <span class="txt avoid">${r.avoid}</span>
+                                            <span class="lbl use">✓ Use</span>
+                                            <span class="txt use">${r.use}</span>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ''}
+                        </figure>
                     `;
                 case 'flow':
                     return `
                         <div class="editorial-flow">
                             ${block.items.map(item => `
-                                <div class="editorial-flow-item">
-                                    <div class="editorial-flow-num">${item.num}</div>
+                                <div class="editorial-flow-item${item.thumb ? ' has-thumb' : ''}${item.num ? '' : ' no-num'}">
+                                    ${item.num ? `<div class="editorial-flow-num">${item.num}</div>` : ''}
                                     <div>
                                         <h3>${item.title}</h3>
                                         <p>${item.text}</p>
                                     </div>
+                                    ${item.thumb ? `
+                                        <div class="editorial-flow-thumb">
+                                            ${item.thumb.src
+                                ? caseStudyImageHTML({ src: item.thumb.src, full: item.thumb.full, caption: item.thumb.caption || item.title }, item.thumb.align ? `thumb-align-${item.thumb.align}` : '')
+                                : `<div class="editorial-flow-thumb-ph">${item.thumb.placeholder || 'Add image'}</div>`}
+                                        </div>
+                                    ` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -5446,7 +6170,7 @@
                 case 'mediaPair':
                     return `
                         <div class="editorial-media-pair${block.equal ? ' is-equal' : ''}">
-                            ${block.items.map(item => `<div>${renderEditorialBlock(item)}</div>`).join('')}
+                            ${block.items.map(item => `<div${item.note ? ' class="has-note"' : ''}>${renderEditorialBlock(item)}${item.note ? `<p class="editorial-pair-note">${item.note}</p>` : ''}</div>`).join('')}
                         </div>
                     `;
                 case 'personas':
