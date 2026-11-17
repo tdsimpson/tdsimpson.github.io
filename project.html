@@ -1828,6 +1828,13 @@
             text-decoration-thickness: 2px;
         }
 
+        /* Links back up the page get an arrow so it's clear where they go */
+        .editorial-content p a[href="#promo-video"]::after {
+            content: "\00a0↑";
+            text-decoration: none;
+            display: inline-block;
+        }
+
         .editorial-content {
             max-width: 730px;
             min-width: 0;
@@ -3189,7 +3196,17 @@
             max-width: 62ch;
         }
 
+        .editorial-video figcaption {
+            border-top: 1px solid var(--line);
+            padding: 12px 30px;
+            font-size: 0.7rem;
+            letter-spacing: 0.03em;
+            color: var(--muted);
+            background: var(--bg);
+        }
+
         .editorial-video {
+            scroll-margin-top: 96px;
             position: relative;
             margin: 28px 0 36px;
             border-radius: var(--radius-lg);
@@ -5200,7 +5217,7 @@
                 video: 'https://www.youtube.com/watch?v=eVyj5ISX45Q',
                 editorialCaseStudy: {
                     pill: 'Product Manager · 2020–2023',
-                    lead: 'A B2B platform that helps craft wine and spirits brands launch and grow in Europe without a traditional distributor. Brands stay in control of their stock, set their own prices, and keep much higher margins.',
+                    lead: 'A B2B platform that helps craft wine and spirits brands launch and grow in Europe without a traditional distributor. I owned the product and how we explained it, turning a new distribution model into something brands could trust and use.',
                     tldr: {
                         label: 'Summary',
                         items: [
@@ -5222,7 +5239,7 @@
                         { id: 'decision', num: '4', label: 'Key decision' },
                         { id: 'gtm', num: '5', label: 'Go-to-market' },
                         { id: 'clients', num: '6', label: 'Supporting brands' },
-                        { id: 'takeaway', num: '7', label: 'Takeaways' }
+                        { id: 'learned', num: '7', label: 'What I learned' }
                     ],
                     sections: [
                         {
@@ -5230,9 +5247,11 @@
                             isHero: true,
                             blocks: [
                                 {
-                                    type: 'asset',
-                                    src: 'images/case_studies/lexir/store.png',
-                                    caption: 'The buyer storefront. Import, warehousing, analytics, and delivery sat behind it.'
+                                    type: 'video',
+                                    url: 'https://www.youtube.com/watch?v=eVyj5ISX45Q',
+                                    title: 'Lexir homepage explainer video',
+                                    id: 'promo-video',
+                                    caption: 'Lexir’s promo video. I wrote the script, recorded the voiceover, made the music and storyboarded it.'
                                 }
                             ]
                         },
@@ -5311,7 +5330,7 @@
                         {
                             id: 'decision',
                             eyebrow: '4. Key decision',
-                            heading: 'Shipping faster with no-code',
+                            heading: 'Shipping faster with no-code tools',
                             blocks: [
                                 { type: 'p', text: 'One of the highest-impact changes I drove at Lexir was transitioning us from building everything custom to utilizing no-code/low-code tools instead. It significantly impacted the course of the company, especially as a small one where being able to move fast and test is so important.' },
                                 { type: 'p', text: 'Before I joined, they were building basically everything custom. When I came on, I helped with those builds too, but it became clear we were solving problems that already had mature solutions (cart/checkout in our shop being the clearest example). The same pattern showed up across other aspects of the business too including the brand dashboard being over-built for the stage we were at.' },
@@ -5329,11 +5348,11 @@
                                 { type: 'p', text: 'One thing that became clear to me working on Lexir was that having a good product isn’t enough to grow. A big part of the job is also to make sure people understand it, which is especially true in an industry where most people are used to doing things the old way.' },
                                 { type: 'p', text: 'Early on, prospects often assumed we were just another distributor, so a real part of the work was making sure we were positioned and framed the right way before anyone got on a call with us. A lot of what I did at Lexir was product marketing as much as it was product management for exactly that reason, working across video, email, social, ads, events, etc. to close that gap early.' },
                                 { type: 'h3', text: 'Example content I produced for Lexir' },
-                                { type: 'p', text: 'One of the most important pieces was our promo video. I wrote the script, recorded the voiceover, produced the music, and put together the storyboard. For a lot of prospects, it was their first real taste of what Lexir was, before they ever talked to us directly.' },
+                                { type: 'p', text: 'One of the most important pieces was <a href="#promo-video">the promo video at the top of this page</a>. I wrote the script, recorded the voiceover, produced the music, and put together the storyboard. For a lot of prospects, it was their first real taste of what Lexir was, before they ever talked to us directly.' },
                                 {
-                                    type: 'video',
-                                    url: 'https://www.youtube.com/watch?v=eVyj5ISX45Q',
-                                    title: 'Lexir homepage explainer video'
+                                    type: 'asset',
+                                    src: 'images/case_studies/lexir/storyboard.jpg',
+                                    caption: 'The full storyboard for the promo video. Voiceover in black, animation direction in red. Click to enlarge.'
                                 },
                                 { type: 'p', text: 'I also ran our Instagram account, which became one of our biggest channels for connecting to brands. I noticed sending a DM often felt more like an invitation rather than a chore the way a cold email did to a lot of brands, so I spent time shaping posts and outreach around what got people to engage.' },
                                 {
@@ -5382,9 +5401,9 @@
                             ]
                         },
                         {
-                            id: 'takeaway',
-                            eyebrow: '7. Takeaways',
-                            heading: 'What this work taught me',
+                            id: 'learned',
+                            eyebrow: '7. What I learned',
+                            heading: 'Lessons from building Lexir',
                             blocks: [
                                 {
                                     type: 'lessons',
@@ -6032,11 +6051,12 @@
                 case 'video':
                     return `
                         ${block.note ? `<p class="editorial-video-note">${block.note}</p>` : ''}
-                        <div class="editorial-video">
+                        <figure class="editorial-video"${block.id ? ` id="${block.id}"` : ''}>
                             <div class="ratio">
                                 <iframe src="${youtubeToEmbed(block.url)}" title="${block.title || 'Video'}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
-                        </div>
+                            ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ''}
+                        </figure>
                     `;
                 case 'photos':
                     if (block.layout === 'gallery') {
