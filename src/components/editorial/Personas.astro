@@ -1,0 +1,60 @@
+---
+// Persona cards. layout="cards" for the compact cards with a "View persona" button.
+interface Persona {
+    name: string;
+    tag: string;
+    summary?: string;
+    image?: string;
+    avatar?: string;
+    fields?: { label: string; text: string }[];
+    quote?: string;
+}
+interface Props {
+    layout?: 'cards';
+    items: Persona[];
+}
+const { layout, items } = Astro.props;
+---
+
+{layout === 'cards' ? (
+    <div class="editorial-personas">
+        {items.map((persona) => (
+            <div class="editorial-persona-card">
+                <div class="editorial-persona-avatar" aria-hidden="true">
+                    <img src={persona.avatar || persona.image} alt="" />
+                </div>
+                <div class="editorial-persona-body">
+                    <div class="editorial-persona-head">
+                        <div class="pname">{persona.name}</div>
+                        <span class="editorial-persona-pill">{persona.tag}</span>
+                    </div>
+                    <p class="editorial-persona-summary" set:html={persona.summary} />
+                </div>
+                <button type="button" class="editorial-persona-view case-study-image-wrap" data-image={persona.image} data-caption={`${persona.name} — Persona`}>
+                    View persona <span class="editorial-persona-view-icon" aria-hidden="true">↗</span>
+                </button>
+            </div>
+        ))}
+    </div>
+) : (
+    <div class="editorial-personas legacy-grid">
+        {items.map((persona) => (
+            <div class="editorial-persona">
+                {persona.image && (
+                    <div class="persona-image-wrap case-study-image-wrap" data-image={persona.image} data-caption={persona.name}>
+                        <img src={persona.image} alt={persona.name} />
+                    </div>
+                )}
+                <div class="pname">{persona.name}</div>
+                <div class="ptag">{persona.tag}</div>
+                {(persona.fields || []).map((field) => (
+                    <Fragment>
+                        <div class="plabel">{field.label}</div>
+                        <p set:html={field.text} />
+                    </Fragment>
+                ))}
+                {persona.quote && <p class="pquote" set:html={persona.quote} />}
+            </div>
+        ))}
+    </div>
+)}

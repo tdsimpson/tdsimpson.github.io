@@ -1,0 +1,92 @@
+---
+// MyndJournal uses the original (pre-editorial) case study layout.
+// It's unlisted: not linked from the homepage and hidden from search engines.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const project = {
+    title: 'Mental Health Journaling & Insights',
+    subtitle: 'Web App',
+    link: 'https://devpost.com/software/myndjournal-0ky6t5',
+    description: 'Hackathon finalist: Visualizes mental health data from sentiment analysis of journal entries.',
+    client: 'Hack the 6ix',
+    role: ['Full-Stack Development'],
+    tools: ['React', 'Sentiment Analysis API', 'Data Visualization'],
+    image: '/images/project_cards/square-myndjournal.png',
+    sections: [
+        {
+            id: 'problem-definition-section',
+            eyebrow: 'The problem',
+            heading: 'Problem Definition',
+            textId: 'project-problem',
+            text: 'People struggle to track and understand patterns in their mental health over time, making it difficult to identify triggers and improvements.',
+        },
+        {
+            id: 'product-goal-section',
+            eyebrow: 'Goals',
+            heading: 'Product Goal',
+            textId: 'project-goal',
+            text: 'Create a journaling application that uses sentiment analysis to help users visualize their emotional patterns and gain insights into their mental health trends.',
+        },
+        {
+            id: 'default-outcome-section',
+            eyebrow: 'Outcome',
+            heading: 'Outcome',
+            textId: 'project-outcome',
+            text: 'The application demonstrates how technology can support mental health awareness, providing users with valuable insights into their emotional patterns while maintaining privacy.',
+        },
+    ],
+};
+---
+
+<BaseLayout title={`${project.title} | Taylor Simpson`} description={project.description} noindex>
+    <article class="project-header">
+        <h1 class="project-title" id="project-title">{project.title}</h1>
+        <p class="project-subtitle">
+            <span id="project-subtitle">{project.subtitle}</span>
+            <a href={project.link} id="project-subtitle-link" class="project-subtitle-link" target="_blank" rel="noopener" style="display: inline-flex;">
+                <span>View Project</span>
+                <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+            </a>
+        </p>
+        <p class="project-description" id="project-description">{project.description}</p>
+        <div class="project-meta">
+            <div class="meta-item">
+                <div class="meta-label">Client</div>
+                <div class="meta-value" id="project-client">{project.client}</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Role</div>
+                <div class="meta-value" id="project-type">{project.role.map((item) => <span class="meta-value-item">{item}</span>)}</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Tools</div>
+                <div class="meta-value" id="project-tools">{project.tools.map((item) => <span class="meta-value-item">{item}</span>)}</div>
+            </div>
+        </div>
+    </article>
+
+    <div class="project-media"><img id="project-image" src={project.image} alt={project.title} /></div>
+
+    <div id="default-case-study-sections">
+        {project.sections.map((section) => (
+            <div class="project-section" id={section.id}>
+                <span class="editorial-eyebrow">{section.eyebrow}</span><h2>{section.heading}</h2>
+                <p id={section.textId}>{section.text}</p>
+            </div>
+        ))}
+    </div>
+
+    <div class="project-navigation">
+        <div class="nav-left"></div>
+        <div class="nav-center">
+            <a href="/" class="btn btn-outline">Back to Portfolio</a>
+        </div>
+        <div class="nav-right">
+            <a href="/projects/settlekit/" class="btn btn-primary" id="next-project-btn">Next Project →</a>
+        </div>
+    </div>
+</BaseLayout>

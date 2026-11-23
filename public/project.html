@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting… | Taylor Simpson</title>
+    <!--
+        Case studies used to live at project.html?id=<name>. They now have their own
+        pages at /projects/<name>/. This page forwards old links (from LinkedIn, résumés,
+        bookmarks) to the new address. Unknown or missing ids go to the homepage.
+    -->
+    <script>
+        (function () {
+            var id = new URLSearchParams(window.location.search).get('id') || '';
+            var target = /^[a-z0-9-]+$/.test(id) ? '/projects/' + id + '/' : '/';
+            window.location.replace(target + window.location.hash);
+        })();
+    </script>
+    <noscript><meta http-equiv="refresh" content="0; url=/" /></noscript>
+</head>
+<body>
+    <p><a href="/">Continue to taylorsimpson.ca</a></p>
+</body>
+</html>

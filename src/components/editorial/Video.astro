@@ -1,0 +1,25 @@
+---
+// An embedded YouTube or Vimeo video.
+import { youtubeToEmbed } from '../../lib/video';
+
+interface Props {
+    url: string;
+    title?: string;
+    id?: string;
+    caption?: string;
+    note?: string;
+}
+const { url, title = 'Video', id, caption, note } = Astro.props;
+---
+
+{note && <p class="editorial-video-note">{note}</p>}
+<figure class="editorial-video" id={id}>
+    <div class="ratio">
+        <iframe
+            src={youtubeToEmbed(url)}
+            title={title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+    {caption && <figcaption>{caption}</figcaption>}
+</figure>

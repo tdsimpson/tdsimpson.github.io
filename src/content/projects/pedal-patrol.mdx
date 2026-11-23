@@ -1,0 +1,213 @@
+---
+title: Pedal Patrol
+description: A mobile app that helps cyclists recover their stolen bikes through crowdsourcing. Built with Frontenac Cycle as a working prototype for the local bike community.
+lead: A mobile app that helps cyclists recover their stolen bikes through crowdsourcing. I led product on a five-person team, turning a local bike shop’s idea into a working app they could demo and test.
+meta:
+  - label: Role
+    value: Product management · Mobile development
+  - label: Client
+    value: Frontenac Cycle & Sport
+  - label: Timeline
+    value: "8-month capstone"
+summary:
+  - "Led product for a 5-person team as the client’s main point of contact"
+  - "Built a cross-platform app in React Native for iOS and Android"
+  - "Handed off a working prototype to a Vancouver org for continued development"
+rail:
+  - { id: overview, label: Overview }
+  - { id: problem, label: The problem }
+  - { id: role, label: My role }
+  - { id: users, label: Users & goal }
+  - { id: product, label: The product }
+  - { id: decisions, label: Key decisions }
+  - { id: outcome, label: Outcome }
+  - { id: learned, label: What I learned }
+---
+
+<Overview {...frontmatter}>
+
+<Video url="https://www.youtube.com/watch?v=T4QwC_nw_eg" title="Pedal Patrol demo" />
+
+</Overview>
+
+<Section
+  id="problem"
+  eyebrow="2. The problem"
+  heading="Most stolen bikes are never returned"
+>
+
+Bike theft is a growing problem across North America, affecting over two million riders. In Kingston alone, hundreds of bikes are reported stolen every year.
+
+Police recover a portion of them (roughly 250 a year), but **fewer than 5% are ultimately returned to their owners.** The reason is almost always the same: missing ownership information, most commonly the bike's serial number. Recovered bikes sit in storage with no way to trace them back to the person they belong to.
+
+Currently, when a bike is stolen, riders try to:
+
+1. Post on social media (but it often gets lost in the feed)
+1. Contact police (but often don’t have enough proof to establish that the bike is theirs)
+
+<Photos
+  layout="gallery"
+  note="Photos I took around Kingston"
+  items={[
+    {
+      src: '/images/case_studies/pedal_patrol/bike-division-union.jpg',
+      caption: 'A note left for the thief (Division & Union St)',
+    },
+    {
+      src: '/images/case_studies/pedal_patrol/bike-division-johnson.jpg',
+      caption: 'Chained up, but the wheel still got stolen (Division & Johnson St)',
+    },
+    {
+      src: '/images/case_studies/pedal_patrol/kingston-police-photo.jpg',
+      caption: 'Recovered bikes waiting to be traced to an owner (Kingston Police)',
+    },
+  ]}
+/>
+
+</Section>
+
+<Section
+  id="role"
+  eyebrow="3. My role"
+  heading="Product lead and the client's main point of contact"
+>
+
+Working in a team of five, I took the lead on product management and was the main point of contact with Frontenac Cycle.
+
+- Ran client check-ins and turned feedback into what we built next
+- Led UX direction across the core flows
+- Worked with the team to keep designs feasible to build
+- Built features in React Native alongside the rest of the team
+
+</Section>
+
+<Section id="users" eyebrow="4. Users & goal" heading="Built for the everyday commuter">
+
+Our core users are people who depend on their bikes for commuting and errands. They park in vulnerable spots like public bike racks and face a real financial hit if their bike is stolen. For many of them, biking isn't just a hobby, but rather their primary form of transportation.
+
+<Pull>Cyclists are motivated by solutions that protect their investment and lean on community support to get their bikes back.</Pull>
+
+Working with Frontenac Cycle, we defined the key requirements around that audience. The product needed to give riders a single place to:
+
+- Register their bikes with serial numbers and photos before anything happens
+- Report a bike as lost or found
+- Get notified when someone spots a bike in their area
+
+For this eight-month capstone project, Frontenac Cycle wanted a working prototype they could demo and test locally as a proof of concept.
+
+</Section>
+
+<Section id="product" eyebrow="5. The product" heading="What we built">
+
+We built an iOS and Android app in React Native and Firebase. The product is built around crowdsourcing: riders can report a bike lost or found, and the local community becomes the extra set of eyes helping get it back.
+
+<Features
+  phone
+  items={[
+    {
+      num: '1',
+      title: 'Map & feed',
+      text: 'Browse lost bikes on a live map and feed. Search by location and filter by when a bike was reported.',
+      srcs: [
+        {
+          src: '/images/case_studies/pedal_patrol/feature-map.png',
+          shotFile: 'feature-map.png',
+          alt: 'Map view with lost bike pins',
+        },
+        {
+          src: '/images/case_studies/pedal_patrol/feature-feed.png',
+          shotFile: 'feature-feed.png',
+          alt: 'Lost bikes feed',
+        },
+      ],
+    },
+    {
+      num: '2',
+      title: 'Register your bike',
+      text: 'Add and manage your bike(s) with photos, serial numbers, and identifying details to help tie them back to you before they go missing.',
+      src: '/images/case_studies/pedal_patrol/feature-register.png',
+      shotFile: 'feature-register.png',
+    },
+    {
+      num: '3',
+      title: 'Report a lost bike',
+      text: 'Drop a pin on the map, select your bike, and describe what happened, including where you last saw it and what to look for.',
+      srcs: [
+        {
+          src: '/images/case_studies/pedal_patrol/feature-report-lost-1.png',
+          shotFile: 'feature-report-lost-1.png',
+          alt: 'Pin a lost bike on the map',
+        },
+        {
+          src: '/images/case_studies/pedal_patrol/feature-report-lost-2.png',
+          shotFile: 'feature-report-lost-2.png',
+          alt: 'Describe what happened',
+        },
+      ],
+    },
+    {
+      num: '4',
+      title: 'Notification radius',
+      text: 'Set a circle anywhere on the map and get notified when a bike is reported lost inside it.',
+      src: '/images/case_studies/pedal_patrol/feature-notification-radius.png',
+      shotFile: 'feature-notification-radius.png',
+    },
+    {
+      num: '5',
+      title: 'Report a found bike',
+      text: 'When you spot a bike that might be stolen, pin where you saw it and leave a short note that is sent to the owner.',
+      src: '/images/case_studies/pedal_patrol/feature-report-found.png',
+      shotFile: 'feature-report-found.png',
+    },
+  ]}
+/>
+
+</Section>
+
+<Section
+  id="decisions"
+  eyebrow="6. Key decisions"
+  heading="Key decisions that shape the product"
+>
+
+<Decision
+  heading="1. Building for the user group instead of the clients themselves"
+  approach="Frontenac Cycle wanted an iPhone app, so their own team could use it."
+  decision="Our research indicated that our core users were commuters who often rode because a car was out of their budget, with many of their phones being older, cheaper Android devices. I made the case to build cross-platform with React Native, so we could meet the client's needs without excluding the riders the app was actually built for."
+/>
+
+<Decision
+  heading="2. Positioning the app as a proactive ownership tool"
+  approach="Our first instinct was to create a reporting tool for riders to use after their bike was already gone."
+  decision="Recovery mostly fails because owners can't prove ownership once a bike turns up, and by the time it's stolen, it's too late to fix that. So we repositioned the app around protecting a bike before it happens, where registration got its own “My Bikes” tab in the main navigation. Other people cannot register your bike again, so it functioned as a real record of ownership."
+/>
+
+</Section>
+
+<Section id="outcome" eyebrow="7. Outcome" heading="What we delivered">
+
+We delivered a functional prototype that met Frontenac Cycle's requirements and validated a community-driven approach to bike-theft recovery. The client was satisfied with the implemented features, and the project was **handed off to a Vancouver-based organization for continued development**.
+
+</Section>
+
+<Section
+  id="learned"
+  eyebrow="8. What I learned"
+  heading="Lessons from building Pedal Patrol"
+>
+
+### What I'd do differently
+
+- I would better prioritize the core features. Partway through we went pretty deep on in-app chat, researching things related to moderation, attachments, formatting, etc. It was easy to get excited about all the things we could do, but we spent longer than we should've on that. The main goal was just a proof of concept for the basic actions like adding and reporting bikes.
+- Test with a real community sooner. It's hard to validate a theft-recovery app through a demo alone, since the app only proves itself when something bad actually happens to someone. I'd release something smaller and more informational first, and use that to learn how riders think about registering a bike before anything happens.
+- Plan the handoff earlier by talking with the next team about their questions, conventions, and any tools or preferences they already use, so the transition is easier.
+
+### Where it could go next
+
+- Integration with police databases to match recovered bikes automatically.
+- A fuller in-app chat system.
+- Moderation for inappropriate or false reports.
+- Bike-theft statistics to help riders park smarter.
+- Sharing to social media to widen each search.
+
+</Section>

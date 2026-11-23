@@ -1,0 +1,27 @@
+---
+// Writing rules, each with an "Avoid" and "Use" example.
+interface Props {
+    caption?: string;
+    items: { where?: string; title: string; rule: string; avoid: string; use: string }[];
+}
+const { caption, items } = Astro.props;
+---
+
+<figure class="editorial-rules">
+    <div class="editorial-rules-grid">
+        {items.map((r) => (
+            <div class="editorial-rule">
+                {r.where && <span class="editorial-rule-where">{r.where}</span>}
+                <h4 set:html={r.title} />
+                <p set:html={r.rule} />
+                <div class="editorial-rule-pair">
+                    <span class="lbl avoid">✕ Avoid</span>
+                    <span class="txt avoid" set:html={r.avoid} />
+                    <span class="lbl use">✓ Use</span>
+                    <span class="txt use" set:html={r.use} />
+                </div>
+            </div>
+        ))}
+    </div>
+    {caption && <figcaption set:html={caption} />}
+</figure>

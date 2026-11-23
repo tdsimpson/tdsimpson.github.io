@@ -1,0 +1,17 @@
+---
+interface Props {
+    label?: string;
+    items: { text: string; name: string; from: string }[];
+}
+const { label, items } = Astro.props;
+---
+
+<div class="editorial-quotes">
+    {label && <div class="editorial-quotes-label" set:html={label} />}
+    {items.map((q) => (
+        <figure class="editorial-quote">
+            <blockquote class="editorial-quote-bubble" set:html={`“${q.text}”`} />
+            <figcaption class="editorial-quote-cite"><strong set:html={q.name} /> · <Fragment set:html={q.from} /></figcaption>
+        </figure>
+    ))}
+</div>

@@ -1,0 +1,14 @@
+---
+// Clickable image used inside many blocks (opens in the lightbox).
+interface Props {
+    src: string;
+    full?: string;
+    caption?: string;
+    class?: string;
+}
+const { src, full, caption = '', class: extra } = Astro.props;
+---
+
+<div class:list={['case-study-image-wrap', extra]} data-image={full || src} data-caption={caption}>
+    <img src={src} alt={caption} />
+</div>

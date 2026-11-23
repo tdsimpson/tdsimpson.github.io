@@ -1,0 +1,333 @@
+---
+title: Oracle Course Enrollment Prototype
+description: A redesign of Oracle’s PeopleSoft enrollment software used by thousands of university students across North America, so they can search, plan, and enroll without leaving the system.
+lead: A redesign of Oracle’s PeopleSoft enrollment software used by thousands of university students across North America, so they can search, plan, and enroll without leaving the system. I turned a system built around database logic into one built around how students think.
+meta:
+  - label: Role
+    value: UX research & UI design
+  - label: Context
+    value: BrainStation UX course
+  - label: Timeline
+    value: ~2 months
+metaNote: Concept project. Not commissioned by or affiliated with Oracle.
+summary:
+  - "BrainStation UX course project over ~2 months: audited the existing enrollment tools and interviewed students about how they actually register"
+  - "Moved through the full process: personas, IA, flows, sketches, and wireframes into a clickable Figma prototype"
+  - "Presented the work to UX designers from Amazon and EA"
+rail:
+  - { id: overview, label: Overview }
+  - { id: problem, label: The problem }
+  - { id: research, label: Research }
+  - { id: personas, label: Personas }
+  - { id: approach, label: Example flow }
+  - { id: decisions, label: Design improvements }
+  - { id: solution, label: Prototype }
+  - { id: feedback, label: Expert feedback }
+  - { id: learned, label: What I learned }
+---
+
+<Overview {...frontmatter}>
+
+<Buttons
+  items={[
+    {
+      label: 'View prototype →',
+      href: 'https://www.figma.com/proto/JkTyz0qaw085uvEcBuZDBD/BrainStation-Final-Project?node-id=109-7014&starting-point-node-id=109%3A7014',
+      external: true,
+    },
+  ]}
+/>
+
+<Figure
+  src="/images/case_studies/course_enrollment/solution-1-calendar.png"
+  caption="The redesigned portal"
+/>
+
+</Overview>
+
+<Section
+  id="problem"
+  eyebrow="2. The problem"
+  heading="Missing the context students need"
+>
+
+Oracle's enrollment platform exposes the raw logic of its database, but it's missing a layer of context that matches how students actually search, plan, and decide. The core enrollment mechanics are there, but little else is done to help students make sense of a course before they commit. That means they have to fill in the gaps themselves during one of the most stressful parts of the academic year.
+
+<Insights
+  layout="list"
+  items={[
+    {
+      title: 'Students have to leave the system to get basic info',
+      text: 'Program requirements, schedule views, and course details all live in other tools, so students are constantly jumping out of the enrollment flow just to find what they need.',
+    },
+    {
+      title: 'Search assumes you already know what you want',
+      text: "You can't browse courses or search by name. If you don't already know the exact course code, you're stuck before you even start.",
+    },
+    {
+      title: 'No visibility into your schedule before you commit',
+      text: "There's no way to preview your schedule before committing. Conflicts only surface after you've already clicked “enroll,” so fixing a mistake means undoing the whole registration.",
+    },
+  ]}
+/>
+
+</Section>
+
+<Section id="research" eyebrow="3. Research" heading="What students told me">
+
+I interviewed six people, five with direct experience using Oracle's enrollment software. The questions covered their most recent registration experience, where they go for requirements and course info, their biggest frustrations, and what external tools they lean on to get through the process.
+
+Almost everyone described the same pattern. To finish enrollment, they had to leave the platform and piece things together themselves:
+
+- Opening a program requirements flowchart on a separate site
+- Leaving the tool to look up what a course actually is, since there's no real way to browse or explore courses inside enrollment
+- Checking a personal calendar or third-party schedule builder in another tab for conflicts
+
+<ExternalTools
+  label="External tools students relied on"
+  tools={[
+    {
+      src: '/images/case_studies/course_enrollment/user-interviews-insights-external-resource-1.jpg',
+      caption: 'Degree audit PDF',
+    },
+    {
+      src: '/images/case_studies/course_enrollment/user-interviews-insights-external-resource-2.png',
+      caption: 'External course catalog',
+    },
+    {
+      src: '/images/case_studies/course_enrollment/user-interviews-insights-external-resource-3.png',
+      caption: 'Third-party schedule builder',
+    },
+  ]}
+/>
+
+None of that work happened inside the enrollment tool itself.
+
+</Section>
+
+<Section id="personas" eyebrow="4. Personas" heading="Who I was designing for">
+
+The interviews pointed me toward two personas I based the design on: a first-year student who's anxious about getting it wrong, and an experienced student who just wants to move fast.
+
+<Personas
+  layout="cards"
+  items={[
+    {
+      avatar: '/images/case_studies/course_enrollment/persona-2-john-avatar.png',
+      image: '/images/case_studies/course_enrollment/persona-2-john.png',
+      name: 'John Williams',
+      tag: '1st year · Fanshawe · Business',
+      summary: '<strong>First-time enrollee.</strong> Anxious about mistakes, unsure which electives to pick or where to find good info.',
+    },
+    {
+      avatar: '/images/case_studies/course_enrollment/persona-1-maya-avatar.png',
+      image: '/images/case_studies/course_enrollment/persona-1-maya.png',
+      name: 'Maya Crawford',
+      tag: '4th year · UofT · Health Sciences',
+      summary: '<strong>Experienced, time-pressed.</strong> Wants to enroll quickly and see her schedule before committing.',
+    },
+  ]}
+/>
+
+</Section>
+
+<Section
+  id="approach"
+  eyebrow="5. Example flow"
+  heading="Example flow: Finding a history elective that fits"
+>
+
+Throughout the design process, I worked through the usual stages (user flows, sketches, then wireframes) for the key paths in the product. Here's one example end to end: searching for a history elective, dealing with conflicts, previewing the schedule, and enrolling.
+
+### User flow
+
+Mapping the path end to end, including branches for conflicts and availability, surfaced edge cases that shaped the wireframes.
+
+<Figure
+  src="/images/case_studies/course_enrollment/user-flow-2.png"
+  caption="User flow: finding and adding a history elective"
+/>
+
+### Sketches
+
+From there, I moved to paper sketches and then mid-fidelity wireframes, working out the layout of each screen before introducing any visual design.
+
+<Figure
+  src="/images/case_studies/course_enrollment/task-2-sketches-add-history-elective-to-calendar.jpg"
+  caption="Paper sketches"
+/>
+
+### Wireframes
+
+<Figure
+  src="/images/case_studies/course_enrollment/wireframes-add-history-elective-to-calendar.png"
+  caption="Mid-fidelity wireframes"
+/>
+
+</Section>
+
+<Section id="decisions" eyebrow="6. Design improvements" heading="Design improvements">
+
+Earlier I outlined three places students got stuck. For each one below, you'll see the before and after, and how better UX changed those screens.
+
+<DesignDecision
+  num="1."
+  heading="Everything in one place"
+  addresses="Students have to leave the system to get basic info."
+  paragraphs={[
+    'Students had to leave the system entirely to find basic information. Program requirements, course descriptions, and a visual schedule all lived somewhere else. The redesign brings all three inside the portal, so enrollment can actually happen in one place.',
+  ]}
+  asset={{
+    src: '/images/case_studies/course_enrollment/information-architecture.png',
+    caption: 'Restructured information architecture: requirements, search, schedule, and enrollment in one portal',
+  }}
+  beforeAfter={{
+    before: {
+      caption: 'Students relied on external tools to visualize their schedule and track degree requirements, then returned to Oracle to actually enroll.',
+      layout: 'single',
+      images: [
+        {
+          src: '/images/case_studies/course_enrollment/user-interviews-insights-common-complaint-3.png',
+          caption: 'Original Oracle enrollment screen – no schedule view, no degree tracking',
+        },
+      ],
+    },
+    after: {
+      caption: 'A built-in calendar and requirements tracker replace the need for any external tools – everything lives in one place.',
+      layout: 'stack',
+      images: [
+        {
+          src: '/images/case_studies/course_enrollment/solution-1-calendar.png',
+          caption: 'Built-in calendar view – schedule visualization inside the system',
+        },
+        {
+          src: '/images/case_studies/course_enrollment/solution-1-requirements.png',
+          caption: 'Requirements tracker – degree progress built in',
+        },
+      ],
+    },
+  }}
+/>
+
+<DesignDecision
+  num="2."
+  heading="Search that actually works"
+  addresses="Search assumes you already know what you want."
+  paragraphs={[
+    'The original search required an exact course code: no browsing, no course-name search, nothing. The redesign replaces it with a browsable faculty grid, a keyword search bar, and a rich filter set (term, level, course type, days & times, open-only) so students can find courses the way they actually think about them.',
+  ]}
+  beforeAfter={{
+    before: {
+      caption: 'The original search offered no way to filter by availability, forcing students to manually cross-reference every result against their schedule.',
+      layout: 'stack',
+      images: [
+        {
+          src: '/images/case_studies/course_enrollment/user-interviews-insights-common-complaint-1.png',
+          caption: 'Original Oracle search – basic keyword only, no meaningful filters',
+        },
+        {
+          src: '/images/case_studies/course_enrollment/user-interviews-insights-common-complaint-2-detailed-search.png',
+          caption: 'Dense results with no way to filter by day or time – students cross-reference manually',
+        },
+      ],
+    },
+    after: {
+      caption: 'Filters for day, time range, location, and instruction mode mean students find what fits – not just what exists.',
+      images: [
+        {
+          src: '/images/case_studies/course_enrollment/solution-2-days-time-filter.png',
+          caption: 'Days & Time filter open – Friday unchecked, time ranges set per day',
+        },
+      ],
+    },
+  }}
+/>
+
+<DesignDecision
+  num="3."
+  heading="Plan before you commit"
+  addresses="No visibility into your schedule before you commit."
+  paragraphs={[
+    "The old system's two biggest blindspots were really the same problem: students had no visibility before the moment of enrollment. They couldn't see how their week would look, and they couldn't know about schedule conflicts until they'd already tried to enroll. The redesign addresses both together: a visual calendar to plan and preview, and a conflict detection system (denoted with the “⚠️” tooltip) before you commit.",
+  ]}
+  beforeAfter={{
+    before: {
+      caption: 'Conflicts only surfaced after enrollment was attempted, causing frustration and wasted time at the worst possible moment.',
+      layout: 'single',
+      images: [
+        {
+          src: '/images/case_studies/course_enrollment/user-interviews-insights-common-complaint-4.png',
+          caption: 'Original Oracle enrollment – no conflict warning at point of decision',
+        },
+      ],
+    },
+    after: {
+      caption: 'The warning triangle flags the conflict inline on the section card – students know before they commit, not after.',
+      images: [
+        {
+          src: '/images/case_studies/course_enrollment/solution-3-conflict-warning.png',
+          caption: 'HIST 101 section cards – conflict warning triangle visible before enrollment',
+        },
+      ],
+    },
+  }}
+/>
+
+</Section>
+
+<Section id="solution" eyebrow="7. Prototype" heading="Try the redesign" variant="dark">
+
+The clickable prototype walks through the full enrollment flow end to end: browsing and searching for courses, checking requirements, building a visual schedule, catching conflicts early, and enrolling, all without leaving the platform.
+
+<Buttons
+  items={[
+    {
+      label: 'Open clickable prototype in Figma →',
+      href: 'https://www.figma.com/proto/JkTyz0qaw085uvEcBuZDBD/BrainStation-Final-Project?node-id=109-7014&starting-point-node-id=109%3A7014',
+      external: true,
+    },
+  ]}
+/>
+
+<Annot variant="tip">In Figma, scroll up and down on the page to move through the flow, since some interactions sit below the fold. If you miss a hotspot, Figma will highlight what you can click.</Annot>
+
+</Section>
+
+<Section
+  id="feedback"
+  eyebrow="8. Expert feedback"
+  heading="Feedback from Amazon and EA"
+>
+
+I presented the prototype to UX designers from Amazon and EA. The overall response was strong, with their main suggestion being to pre-add required courses onto a student's schedule so they wouldn't have to add those themselves.
+
+I personally pushed back on that because:
+
+- Required courses often have several sections, so auto-adding one means guessing which lecture or tutorial someone wants.
+- It assumes they want that course this term. Plenty of students run a lighter load, spread requirements across semesters, or skip a course on purpose.
+
+A softer suggestion or default could be worth exploring later, but forcing those courses onto the schedule felt like the wrong default to me.
+
+</Section>
+
+<Section
+  id="learned"
+  eyebrow="9. What I learned"
+  heading="Lessons from the enrollment redesign"
+>
+
+### What I'd do differently
+
+- Early interviews were harder than they needed to be. I tried to facilitate and take notes at the same time, and I missed follow-ups. Once I started recording sessions, I could stay in the conversation and pull the detail afterward.
+- Mid-project I kept rebuilding the same UI pieces because I hadn't set up reusable components. A light design system earlier would have saved a lot of time.
+- On accessibility, I initially treated hover tooltips as enough. Making key ones clickable mattered for anyone not using a mouse.
+
+### Where I'd take it next
+
+- Interview a wider and more varied audience.
+- Build a more defined, documented design system.
+- Test the prototype with more students and iterate on the findings.
+- Extend it to the school's administrative side.
+- Revisit calendar course-editing (the tooltip modal) and add an availability-icon legend.
+
+</Section>

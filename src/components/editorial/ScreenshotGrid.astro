@@ -1,0 +1,17 @@
+---
+interface Props {
+    items: { src: string; label: string }[];
+}
+const { items } = Astro.props;
+---
+
+<div class="editorial-screenshot-grid">
+    {items.map((item) => (
+        <figure class="editorial-screenshot-item">
+            <div class="case-study-image-wrap" data-image={item.src} data-caption={item.label}>
+                <img src={item.src} alt={item.label} />
+            </div>
+            <figcaption><span class="screenshot-label" set:html={item.label} /></figcaption>
+        </figure>
+    ))}
+</div>

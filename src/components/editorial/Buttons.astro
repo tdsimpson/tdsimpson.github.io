@@ -1,0 +1,18 @@
+---
+interface Props {
+    items: { label: string; href: string; ghost?: boolean; external?: boolean }[];
+}
+const { items } = Astro.props;
+---
+
+<div class="editorial-btnrow">
+    {items.map((btn) => (
+        <a
+            class:list={['editorial-btn', { ghost: btn.ghost }]}
+            href={btn.href}
+            target={btn.external ? '_blank' : undefined}
+            rel={btn.external ? 'noopener' : undefined}
+            set:html={btn.label}
+        />
+    ))}
+</div>

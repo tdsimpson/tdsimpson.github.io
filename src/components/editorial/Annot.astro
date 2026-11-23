@@ -1,0 +1,9 @@
+---
+// A small boxed note. variant="tip" for the tip style.
+interface Props {
+    variant?: 'tip';
+}
+const { variant } = Astro.props;
+---
+
+<div class:list={['editorial-annot', { 'is-tip': variant === 'tip' }]}><slot /></div>

@@ -1,0 +1,13 @@
+---
+// Side-by-side "before" and "after" mock cards with numbered annotations.
+import { renderBeforeAfter, isAnnotated } from '../../lib/before-after';
+
+interface Props {
+    before: any;
+    after: any;
+    caption?: string;
+}
+const { before, after, caption } = Astro.props;
+---
+
+<figure class:list={['editorial-ba', { 'is-annotated': isAnnotated(before, after) }]} set:html={renderBeforeAfter(before, after, caption)} />

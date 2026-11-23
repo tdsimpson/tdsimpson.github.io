@@ -1,0 +1,30 @@
+---
+// Research insights as a grid of tagged cards, or layout="list" for a numbered list.
+interface Props {
+    layout?: 'list';
+    columns?: number;
+    items: { tag?: string; title: string; text: string }[];
+}
+const { layout, columns, items } = Astro.props;
+---
+
+{layout === 'list' ? (
+    <ol class="editorial-insight-list">
+        {items.map((item) => (
+            <li>
+                <h3 set:html={item.title} />
+                <p set:html={item.text} />
+            </li>
+        ))}
+    </ol>
+) : (
+    <div class:list={['editorial-insight-grid', { 'cols-3': columns === 3 }]}>
+        {items.map((item) => (
+            <div class="editorial-insight">
+                <div class="itag">{item.tag}</div>
+                <h3 set:html={item.title} />
+                <p set:html={item.text} />
+            </div>
+        ))}
+    </div>
+)}

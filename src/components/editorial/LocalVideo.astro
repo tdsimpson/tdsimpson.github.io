@@ -1,0 +1,22 @@
+---
+// A video file hosted on the site, with the centred play/pause button.
+interface Props {
+    src: string;
+    mime?: string;
+    poster?: string;
+    vertical?: boolean;
+    caption?: string;
+}
+const { src, mime = 'video/mp4', poster, vertical, caption } = Astro.props;
+---
+
+<div class:list={['editorial-video is-local has-center-play', { 'is-vertical': vertical }]}>
+    <video playsinline preload="metadata" poster={poster}>
+        <source src={src} type={mime} />
+    </video>
+    <button type="button" class="editorial-video-toggle" aria-label="Play video">
+        <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"></path></svg>
+        <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 5h4v14H6zm8 0h4v14h-4z"></path></svg>
+    </button>
+</div>
+{caption && <p class="editorial-video-note">{caption}</p>}

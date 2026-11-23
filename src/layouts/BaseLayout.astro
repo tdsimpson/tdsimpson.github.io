@@ -1,0 +1,121 @@
+---
+import '../styles/project.css';
+
+interface Props {
+    title: string;
+    description: string;
+    socialImage?: string;
+    containerClass?: string;
+    // Keep the page out of search results (for unlisted projects).
+    noindex?: boolean;
+}
+
+const { title, description, socialImage = '/images/og-image.png', containerClass = '', noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const imageUrl = new URL(socialImage, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script is:inline>
+            (function () {
+                try {
+                    var theme = localStorage.getItem('theme');
+                    if (!theme) {
+                        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                    }
+                    document.documentElement.setAttribute('data-theme', theme);
+                } catch (e) { }
+            })();
+        </script>
+        <style is:global>
+            html {
+                background: #f8f8f8;
+                color: #1a1f1c;
+            }
+
+            html[data-theme="dark"] {
+                background: #0f1412;
+                color: #e8ede9;
+            }
+        </style>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        {noindex && <meta name="robots" content="noindex" />}
+        <link rel="canonical" href={canonical} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={imageUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={imageUrl} />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Schibsted+Grotesk:wght@400..900&display=swap"
+            rel="stylesheet"
+        />
+        <meta name="theme-color" content="#f8f8f8" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
+
+        {/* Analytics only load on the built site, so local previews don't count as visits. */}
+        {import.meta.env.PROD && (
+            <Fragment>
+                <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-WE6GB68X32"></script>
+                <script is:inline>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag() { dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-WE6GB68X32');
+                </script>
+                <script is:inline>
+                    (function (h, o, t, j, a, r) {
+                        h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+                        h._hjSettings = { hjid: 3731645, hjsv: 6 };
+                        a = o.getElementsByTagName('head')[0];
+                        r = o.createElement('script'); r.async = 1;
+                        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                        a.appendChild(r);
+                    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+                </script>
+            </Fragment>
+        )}
+    </head>
+
+    <body>
+        <div class:list={['container', containerClass]}>
+            <header>
+                <a href="/" class="logo">Taylor Simpson</a>
+                <div class="header-actions">
+                    <a href="/" class="back-link">← Back to Portfolio</a>
+                    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">🌓</button>
+                </div>
+            </header>
+
+            <main>
+                <slot />
+            </main>
+        </div>
+
+        <slot name="after-container" />
+
+        <script>
+            const toggle = document.getElementById('themeToggle');
+            const root = document.documentElement;
+            toggle?.addEventListener('click', () => {
+                const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                root.setAttribute('data-theme', next);
+                try { localStorage.setItem('theme', next); } catch (e) { }
+            });
+        </script>
+    </body>
+</html>

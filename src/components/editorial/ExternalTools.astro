@@ -1,0 +1,26 @@
+---
+import ImageWrap from './ImageWrap.astro';
+
+interface Tool { src?: string; full?: string; caption: string; placeholder?: string }
+interface Props {
+    label: string;
+    tools: Tool[];
+}
+const { label, tools } = Astro.props;
+---
+
+<div class="external-tools-block external-tools-block--standalone">
+    <span class="external-tools-label">{label}</span>
+    <div class="external-tools-grid">
+        {tools.map((tool) => (
+            <div class="external-tool-item">
+                {tool.src ? (
+                    <ImageWrap src={tool.src} full={tool.full} caption={tool.caption} class="external-tool-thumb" />
+                ) : (
+                    <div class="external-tool-thumb-static"><span class="external-tool-placeholder">{tool.placeholder || 'Placeholder'}</span></div>
+                )}
+                <p class="external-tool-caption" set:html={tool.caption} />
+            </div>
+        ))}
+    </div>
+</div>

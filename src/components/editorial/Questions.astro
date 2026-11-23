@@ -1,0 +1,12 @@
+---
+// A labelled box around a Markdown list.
+interface Props {
+    label?: string;
+}
+const { label } = Astro.props;
+---
+
+<div class="editorial-questions">
+    {label && <div class="editorial-questions-label">{label}</div>}
+    <slot />
+</div>

@@ -1,0 +1,40 @@
+---
+// The opening section: title, intro, role/company/timeline and summary.
+// Pass it the page's frontmatter: <Overview {...frontmatter}>…</Overview>
+import { inlineMarkdown } from '../../lib/video';
+
+interface Props {
+    title: string;
+    lead: string;
+    meta: { label: string; value: string }[];
+    metaNote?: string;
+    summary?: string[];
+    summaryLabel?: string;
+}
+const { title, lead, meta, metaNote, summary, summaryLabel = 'Summary' } = Astro.props;
+---
+
+<section class="editorial-section" id="overview">
+    <h1 class="editorial-hero-title">{title}</h1>
+    <p class="editorial-lead" set:html={inlineMarkdown(lead)} />
+    <div class="editorial-meta">
+        <dl class="editorial-meta-items">
+            {meta.map((item) => (
+                <div>
+                    <dt>{item.label}</dt>
+                    <dd set:html={item.value} />
+                </div>
+            ))}
+        </dl>
+        {metaNote && <p class="editorial-meta-note" set:html={inlineMarkdown(metaNote)} />}
+    </div>
+    {summary && (
+        <div class="case-tldr">
+            <span class="case-tldr-label">{summaryLabel}</span>
+            <ul>
+                {summary.map((item) => <li set:html={inlineMarkdown(item)} />)}
+            </ul>
+        </div>
+    )}
+    <slot />
+</section>
