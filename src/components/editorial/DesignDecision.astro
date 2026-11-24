@@ -1,0 +1,42 @@
+---
+// A numbered design decision: heading, the problem it addresses, paragraphs,
+// and optionally an image or a before/after comparison.
+import BaColumn from './BaColumn.astro';
+
+interface Props {
+    num: string | number;
+    heading: string;
+    tag?: string;
+    addresses?: string;
+    paragraphs: string[];
+    asset?: { src: string; caption?: string };
+    beforeAfter?: { before: any; after: any };
+    annot?: string;
+}
+const { num, heading, tag, addresses, paragraphs, asset, beforeAfter, annot } = Astro.props;
+---
+
+<div class="editorial-design-decision">
+    <div class="editorial-decision-head">
+        <span class="editorial-decision-num">{num}</span>
+        <h3 set:html={heading} />
+        {tag && <span class="editorial-decision-tag">{tag}</span>}
+    </div>
+    {addresses && <div class="editorial-annot"><strong>Problem addressed:</strong> <Fragment set:html={addresses} /></div>}
+    {paragraphs.map((p) => <p set:html={p} />)}
+    {asset?.src && (
+        <figure class="editorial-asset">
+            <div class="case-study-image-wrap" data-image={asset.src} data-caption={asset.caption || ''}>
+                <img src={asset.src} alt={asset.caption || ''} />
+            </div>
+            {asset.caption && <figcaption set:html={asset.caption} />}
+        </figure>
+    )}
+    {beforeAfter && (
+        <div class="before-after">
+            <BaColumn side="before" {...beforeAfter.before} />
+            <BaColumn side="after" {...beforeAfter.after} />
+        </div>
+    )}
+    {annot && <div class="editorial-annot" set:html={annot} />}
+</div>

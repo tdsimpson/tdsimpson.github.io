@@ -396,7 +396,7 @@
 
         const projectId = new URLSearchParams(window.location.search).get('id');
         if (projectId === 'expense-tracker' || projectId === 'song-analysis') {
-            window.location.replace(`../project.html?id=${encodeURIComponent(projectId)}`);
+            window.location.replace(`/projects/${encodeURIComponent(projectId)}/`);
         }
         const project = projectId ? labProjects[projectId] : null;
 

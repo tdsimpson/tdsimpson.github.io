@@ -7,4 +7,12 @@ effects-demo.html
 home-preview.html
 side-projects-lab-style.html
 lexir-draft*.html
-images/case_studies/lexir/bonhomie-event-vertical.mov
+public/images/case_studies/lexir/bonhomie-event-vertical.mov
+
+# Astro
+node_modules/
+dist/
+.astro/
+
+# Old project.html kept locally for reference (not deployed)
+_legacy/

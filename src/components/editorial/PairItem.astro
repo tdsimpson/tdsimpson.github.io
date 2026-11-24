@@ -1,0 +1,9 @@
+---
+// One side of a <MediaPair>. Optional note appears underneath.
+interface Props {
+    note?: string;
+}
+const { note } = Astro.props;
+---
+
+<div class={note ? 'has-note' : undefined}><slot />{note && <p class="editorial-pair-note" set:html={note} />}</div>

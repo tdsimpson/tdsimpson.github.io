@@ -1,0 +1,49 @@
+---
+// One side of a design decision's before/after comparison.
+import ImageWrap from './ImageWrap.astro';
+import ExternalTools from './ExternalTools.astro';
+
+interface Img { src: string; full?: string; caption: string }
+interface Props {
+    side: 'before' | 'after';
+    layout?: string;
+    images: Img[];
+    caption: string;
+    externalTools?: { label: string; tools: any[] };
+}
+const { side, layout, images, caption, externalTools } = Astro.props;
+const fragmented = side === 'before' && layout === 'single-with-external' && images.length >= 1;
+const stack = layout === 'stack' && images.length >= 2;
+const stacked = side === 'before' && layout === 'stacked' && images.length >= 3;
+const pair = side === 'after' && layout === 'pair' && images.length >= 2;
+---
+
+<div class:list={['ba-col', { 'ba-col-before-fragmented': fragmented }, `ba-panel ba-panel--${side}`]}>
+    <span class={`ba-pill ba-pill--${side}`}>{side === 'before' ? 'Before' : 'After'}</span>
+    <div class="ba-panel-content">
+        {fragmented ? (
+            <Fragment>
+                <div class="ba-main-image"><ImageWrap {...images[0]} /></div>
+                {externalTools && <ExternalTools {...externalTools} />}
+            </Fragment>
+        ) : stack ? (
+            <div class="after-stack">{images.map((img) => <ImageWrap {...img} />)}</div>
+        ) : stacked ? (
+            <Fragment>
+                <div class="before-stack-grid">
+                    <ImageWrap {...images[0]} />
+                    <ImageWrap {...images[1]} />
+                </div>
+                <div class="before-stack-single"><ImageWrap {...images[2]} /></div>
+            </Fragment>
+        ) : pair ? (
+            <div class="after-pair">
+                <ImageWrap {...images[0]} />
+                <ImageWrap {...images[1]} />
+            </div>
+        ) : (
+            images.map((img) => <ImageWrap {...img} />)
+        )}
+    </div>
+    <p class="ba-caption" set:html={caption} />
+</div>

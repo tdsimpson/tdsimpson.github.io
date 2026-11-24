@@ -1,0 +1,14 @@
+---
+// One "What I learned" lesson. Put the general point first,
+// then the Lexir-specific example inside <Example>.
+interface Props {
+    num: string | number;
+    title: string;
+}
+const { num, title } = Astro.props;
+---
+
+<div class="editorial-lesson">
+    <h3 class="editorial-lesson-title"><span class="editorial-lesson-num">{num}.</span>{title}</h3>
+    <slot />
+</div>

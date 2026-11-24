@@ -1,0 +1,10 @@
+---
+// A highlighted pull quote. Write the text as the content.
+interface Props {
+    lead?: string;
+    cite?: string;
+}
+const { lead, cite } = Astro.props;
+---
+
+<div class="editorial-pull">{lead && <span class="editorial-pull-lead" set:html={lead} />}<slot />{cite && <span class="editorial-pull-cite" set:html={cite} />}</div>

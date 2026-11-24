@@ -1,0 +1,145 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import * as editorial from '../../components/editorial';
+
+export async function getStaticPaths() {
+    const projects = await getCollection('projects');
+    return projects.map((project) => ({ params: { id: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const data = project.data;
+
+// Order for the Previous / Next buttons. Projects not listed here show no
+// Previous button, and Next goes to the first project.
+const projectOrder = ['settlekit', 'lexir', 'course-enrollment'];
+const hrefFor = (id: string) => `/projects/${id}/`;
+
+const index = projectOrder.indexOf(project.id);
+const prevId = index > 0 ? projectOrder[index - 1] : null;
+const nextId = projectOrder[(index + 1) % projectOrder.length];
+---
+
+<BaseLayout
+    title={`${data.title} | Taylor Simpson`}
+    description={data.description}
+    socialImage={data.socialImage}
+    containerClass={data.compact ? 'editorial-compact' : 'editorial-wide'}
+    noindex={data.noindex}
+>
+    <div id="editorial-case-study" class="active" aria-hidden="false">
+        <div class:list={['editorial-grid', { compact: data.compact }]}>
+            <nav class="editorial-rail" aria-label="Section index">
+                <ol id="editorial-rail-list">
+                    {!data.compact && data.rail.map((item, i) => (
+                        <li data-target={item.id}>
+                            <a href={`#${item.id}`}>
+                                <span class="num">{i + 1}</span>
+                                <span>{item.label}</span>
+                            </a>
+                        </li>
+                    ))}
+                </ol>
+            </nav>
+            <div class="editorial-content" id="editorial-content">
+                <Content components={editorial} />
+            </div>
+        </div>
+    </div>
+
+    <div class="project-navigation">
+        <div class="nav-left">
+            {prevId && <a href={hrefFor(prevId)} class="btn btn-outline" id="prev-project-btn" style="display: inline-flex;">← Previous</a>}
+        </div>
+        <div class="nav-center">
+            <a href="/" class="btn btn-outline">Back to Portfolio</a>
+        </div>
+        <div class="nav-right">
+            <a href={hrefFor(nextId)} class="btn btn-primary" id="next-project-btn">Next Project →</a>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" slot="after-container">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">×</button>
+        <div class="lightbox-content">
+            <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+        </div>
+    </div>
+</BaseLayout>
+
+<script>
+    // Highlight the current section in the left-hand index while scrolling.
+    const railItems = [...document.querySelectorAll<HTMLLIElement>('#editorial-rail-list li')];
+    if (railItems.length) {
+        const map = new Map(railItems.map((li) => [li.dataset.target, li]));
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        railItems.forEach((item) => item.classList.remove('active'));
+                        map.get(entry.target.id)?.classList.add('active');
+                    }
+                });
+            },
+            { rootMargin: '-45% 0px -50% 0px', threshold: 0 },
+        );
+        document.querySelectorAll('#editorial-content section[id]').forEach((s) => observer.observe(s));
+    }
+
+    // Centred play/pause button on hosted videos.
+    document.querySelectorAll('.editorial-video.has-center-play').forEach((wrap) => {
+        const video = wrap.querySelector('video');
+        const button = wrap.querySelector('.editorial-video-toggle');
+        if (!video || !button) return;
+        const sync = () => {
+            const playing = !video.paused && !video.ended;
+            wrap.classList.toggle('is-playing', playing);
+            button.setAttribute('aria-label', playing ? 'Pause video' : 'Play video');
+        };
+        const toggle = (event: Event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            if (video.paused || video.ended) video.play();
+            else video.pause();
+        };
+        button.addEventListener('click', toggle);
+        wrap.addEventListener('click', toggle);
+        video.addEventListener('play', sync);
+        video.addEventListener('pause', sync);
+        video.addEventListener('ended', sync);
+        sync();
+    });
+
+    // Click an image to open it larger.
+    const lightbox = document.getElementById('lightbox')!;
+    const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
+    const lightboxCaption = document.getElementById('lightbox-caption')!;
+
+    function openLightbox(src: string, caption: string) {
+        lightboxImage.src = src;
+        lightboxImage.alt = caption;
+        lightboxCaption.textContent = caption;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll<HTMLElement>('#editorial-case-study .case-study-image-wrap').forEach((wrapper) => {
+        wrapper.addEventListener('click', () =>
+            openLightbox(wrapper.dataset.image || '', wrapper.dataset.caption || ''),
+        );
+    });
+    document.getElementById('lightbox-close')!.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    });
+</script>

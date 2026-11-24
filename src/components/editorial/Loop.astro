@@ -1,0 +1,52 @@
+---
+// "Stuck loop" diagram, with an optional numbered way out.
+interface Node { title: string; text: string }
+interface Props {
+    label: string;
+    nodes: [Node, Node];
+    stuck?: string;
+    path?: { label: string; steps: Node[] };
+}
+const { label, nodes, stuck = 'Stuck', path } = Astro.props;
+---
+
+<figure class="editorial-loop">
+    <div class="loop-panel is-stuck">
+        <p class="loop-label" set:html={label} />
+        <div class="loop-cycle">
+            <div class="loop-node">
+                <p class="loop-node-title" set:html={nodes[0].title} />
+                <p class="loop-node-text" set:html={nodes[0].text} />
+            </div>
+            <div class="loop-mid" aria-hidden="true">
+                <svg viewBox="0 0 80 60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 22 C 26 6, 54 6, 70 22"></path>
+                    <path d="M62 21 L70 22 L68 14"></path>
+                    <path d="M70 38 C 54 54, 26 54, 10 38"></path>
+                    <path d="M18 39 L10 38 L12 46"></path>
+                </svg>
+                <span>{stuck}</span>
+            </div>
+            <div class="loop-node">
+                <p class="loop-node-title" set:html={nodes[1].title} />
+                <p class="loop-node-text" set:html={nodes[1].text} />
+            </div>
+        </div>
+    </div>
+    {path && (
+        <div class="loop-panel is-path">
+            <p class="loop-label" set:html={path.label} />
+            <ol class="loop-steps">
+                {path.steps.map((step, i) => (
+                    <li>
+                        <span class="loop-step-num">{i + 1}</span>
+                        <div>
+                            <p class="loop-node-title" set:html={step.title} />
+                            <p class="loop-node-text" set:html={step.text} />
+                        </div>
+                    </li>
+                ))}
+            </ol>
+        </div>
+    )}
+</figure>

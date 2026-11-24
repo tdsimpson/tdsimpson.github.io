@@ -1,0 +1,36 @@
+---
+// A row of photos. layout="gallery" for the captioned photo gallery.
+interface Props {
+    layout?: 'gallery';
+    note?: string;
+    items: { src: string; caption: string }[];
+}
+const { layout, note, items } = Astro.props;
+---
+
+{layout === 'gallery' ? (
+    <Fragment>
+        {note && <p class="editorial-video-note" set:html={note} />}
+        <div class="editorial-photos-gallery">
+            {items.map((item) => (
+                <div class="editorial-photo-item">
+                    <div class="problem-image-wrapper case-study-image-wrap" data-image={item.src} data-caption={item.caption}>
+                        <img src={item.src} alt={item.caption} />
+                    </div>
+                    <p class="problem-image-caption" set:html={item.caption} />
+                </div>
+            ))}
+        </div>
+    </Fragment>
+) : (
+    <div class="editorial-photos">
+        {items.map((item) => (
+            <figure class="editorial-photo">
+                <div class="case-study-image-wrap" data-image={item.src} data-caption={item.caption}>
+                    <img src={item.src} alt={item.caption} />
+                </div>
+                <figcaption class="cap" set:html={item.caption} />
+            </figure>
+        ))}
+    </div>
+)}

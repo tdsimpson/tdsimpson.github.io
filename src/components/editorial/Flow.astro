@@ -1,0 +1,40 @@
+---
+// A numbered sequence of steps, each optionally with a thumbnail.
+import ImageWrap from './ImageWrap.astro';
+
+interface Props {
+    items: {
+        num?: string | number;
+        title: string;
+        text: string;
+        thumb?: { src?: string; full?: string; caption?: string; align?: string; placeholder?: string };
+    }[];
+}
+const { items } = Astro.props;
+---
+
+<div class="editorial-flow">
+    {items.map((item) => (
+        <div class:list={['editorial-flow-item', { 'has-thumb': item.thumb, 'no-num': !item.num }]}>
+            {item.num && <div class="editorial-flow-num">{item.num}</div>}
+            <div>
+                <h3 set:html={item.title} />
+                <p set:html={item.text} />
+            </div>
+            {item.thumb && (
+                <div class="editorial-flow-thumb">
+                    {item.thumb.src ? (
+                        <ImageWrap
+                            src={item.thumb.src}
+                            full={item.thumb.full}
+                            caption={item.thumb.caption || item.title}
+                            class={item.thumb.align ? `thumb-align-${item.thumb.align}` : undefined}
+                        />
+                    ) : (
+                        <div class="editorial-flow-thumb-ph">{item.thumb.placeholder || 'Add image'}</div>
+                    )}
+                </div>
+            )}
+        </div>
+    ))}
+</div>

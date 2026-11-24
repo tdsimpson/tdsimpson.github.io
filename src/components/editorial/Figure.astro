@@ -1,0 +1,21 @@
+---
+// An image with an optional caption. Click opens it in the lightbox.
+interface Props {
+    src: string;
+    caption?: string;
+    alt?: string;
+    full?: string; // larger version for the lightbox
+    tall?: boolean;
+    badge?: string;
+    tone?: string;
+}
+const { src, caption = '', alt, full, tall, badge, tone } = Astro.props;
+---
+
+<figure class:list={['editorial-asset', { tall, 'has-badge': badge }, tone && `tone-${tone}`]}>
+    {badge && <span class="editorial-asset-badge" set:html={badge} />}
+    <div class="case-study-image-wrap" data-image={full || src} data-caption={caption}>
+        <img src={src} alt={alt || caption} />
+    </div>
+    {caption && <figcaption set:html={caption} />}
+</figure>

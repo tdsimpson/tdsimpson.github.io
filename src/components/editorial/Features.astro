@@ -1,0 +1,44 @@
+---
+// Numbered feature cards, optionally with phone screenshots.
+interface Shot { src: string; shotFile?: string; alt?: string }
+interface Props {
+    phone?: boolean;
+    textOnly?: boolean;
+    items: { num: string; title: string; text: string; src?: string; shotFile?: string; srcs?: Shot[] }[];
+}
+const { phone, textOnly, items } = Astro.props;
+const missing = "this.closest('.editorial-feature-shot-inner').classList.add('is-missing')";
+---
+
+<div class:list={['editorial-feature-grid', { 'text-only': textOnly, 'phone-features': phone }]}>
+    {items.map((item) => {
+        const shots: { shot: Shot; caption: string }[] = item.srcs?.length
+            ? item.srcs.map((shot) => ({ shot, caption: shot.alt || item.title }))
+            : item.src
+              ? [{ shot: { src: item.src, shotFile: item.shotFile, alt: item.title }, caption: item.title }]
+              : [];
+        return (
+            <div class="editorial-feature-card">
+                {!textOnly && shots.length > 0 && (
+                    <div class:list={['editorial-feature-shot editorial-feature-shot--phone', { 'editorial-feature-shot--pair': !!item.srcs?.length }]}>
+                        {shots.map(({ shot, caption }) => (
+                            <div class="editorial-feature-phone">
+                                <div class="editorial-feature-shot-inner">
+                                    <div class="case-study-image-wrap" data-image={shot.src} data-caption={caption}>
+                                        <img src={shot.src} alt={shot.alt || caption} onerror={missing} />
+                                    </div>
+                                    <span class="editorial-feature-shot-fallback"><strong>{shot.shotFile}</strong>Drop screenshot here</span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
+                <div class="editorial-feature-body">
+                    <div class="fnum">{item.num}</div>
+                    <h3 set:html={item.title} />
+                    <p set:html={item.text} />
+                </div>
+            </div>
+        );
+    })}
+</div>

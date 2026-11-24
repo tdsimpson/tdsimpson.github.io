@@ -1,0 +1,33 @@
+---
+// Either "approach → decision" rows, or a labelled box with paragraphs.
+interface Props {
+    heading: string;
+    approach?: string;
+    decision?: string;
+    approachLabel?: string;
+    decisionLabel?: string;
+    label?: string;
+    paragraphs?: string[];
+}
+const { heading, approach, decision, approachLabel = 'Original approach', decisionLabel = 'Key decision', label, paragraphs = [] } = Astro.props;
+---
+
+{approach != null && decision != null ? (
+    <div class="editorial-decision-pair">
+        <h3 set:html={heading} />
+        <div class="editorial-decision-row">
+            <span class="dlabel">{approachLabel}</span>
+            <p set:html={approach} />
+        </div>
+        <div class="editorial-decision-row">
+            <span class="dlabel">{decisionLabel}</span>
+            <p set:html={decision} />
+        </div>
+    </div>
+) : (
+    <div class="editorial-decision">
+        <div class="dlabel">{label}</div>
+        <h3 set:html={heading} />
+        {paragraphs.map((p) => <p set:html={p} />)}
+    </div>
+)}

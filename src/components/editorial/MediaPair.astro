@@ -1,0 +1,11 @@
+---
+// Two items side by side. Wrap each item in <PairItem>.
+interface Props {
+    equal?: boolean;
+}
+const { equal } = Astro.props;
+---
+
+<div class:list={['editorial-media-pair', { 'is-equal': equal }]}>
+    <slot />
+</div>

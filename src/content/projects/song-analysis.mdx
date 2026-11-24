@@ -1,0 +1,52 @@
+---
+title: Spotify Song Analysis
+description: A web app that connects to your Spotify account to show extra metadata for whatever song you’re currently listening to.
+lead: A web app that connects to your Spotify account to show extra metadata for whatever song you’re currently listening to.
+meta:
+  - label: Role
+    value: Design & full-stack build
+  - label: Context
+    value: Personal project
+compact: true
+---
+
+<Overview {...frontmatter}>
+
+<Buttons
+  items={[
+    {
+      label: 'Watch demo →',
+      href: 'https://www.youtube.com/watch?v=O5B2sth-wxs',
+      external: true,
+    },
+    {
+      label: 'View on GitHub',
+      href: 'https://github.com/tdsimpson/Song-Analysis',
+      external: true,
+      ghost: true,
+    },
+  ]}
+/>
+
+<Video
+  url="https://www.youtube.com/watch?v=O5B2sth-wxs"
+  title="Spotify Song Analysis demo"
+/>
+
+<Annot>The demo has no audio. Text overlays narrate the walkthrough.</Annot>
+
+</Overview>
+
+<Section id="what" heading="What I made">
+
+I built a web app that displays additional information about the song you’re listening to on Spotify. It includes info about the song’s key, BPM, and release date, alongside a short **“about the artist”** bio pulled from the Wikipedia API. The UI also recolours itself to match each song’s album art.
+
+To use it, you log in with your Spotify account. Once it’s connected, the app shows whatever you’re playing, even if the music is actually coming from your phone rather than the browser. It’s built with the Spotify API, the Wikipedia API, React, and SCSS for the styles.
+
+</Section>
+
+<Section id="why" heading="Why I built it">
+
+As someone who plays guitar, I often like to play along with songs I like on Spotify. I always wished there was a quick way to see what key the song was in without spending the first bit of the song figuring it out. Spotify actually stores this information for each song, but just doesn’t display it on its normal player. So I wanted to create a tool that could show me this, along with other info I found interesting.
+
+</Section>

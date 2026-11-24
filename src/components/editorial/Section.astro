@@ -1,0 +1,15 @@
+---
+interface Props {
+    id: string;
+    eyebrow?: string;
+    heading?: string;
+    variant?: 'dark';
+}
+const { id, eyebrow, heading, variant } = Astro.props;
+---
+
+<section class:list={['editorial-section', { 'is-dark': variant === 'dark' }]} id={id}>
+    {eyebrow && <span class="editorial-eyebrow">{eyebrow}</span>}
+    {heading && <h2>{heading}</h2>}
+    <slot />
+</section>

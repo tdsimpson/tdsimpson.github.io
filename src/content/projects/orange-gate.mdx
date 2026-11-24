@@ -1,0 +1,99 @@
+---
+title: Orange Gate
+description: Building Android apps for consumer robots — conversational experiences that let a robot act as a customer service rep, product specialist, or marketing presence, for enterprise clients including BMO and General Motors.
+lead: Building Android apps for consumer robots — conversational experiences that let a robot act as a customer service rep, product specialist, or marketing presence, for enterprise clients including BMO and General Motors.
+meta:
+  - label: Role
+    value: Software Developer
+  - label: Company
+    value: Orange Gate Consulting
+  - label: Timeline
+    value: "2018"
+summary:
+  - "Designed and built Android apps for Sanbot robots used by BMO and GM"
+  - "Made the case for DialogFlow as the conversation layer behind the product"
+  - "Presented the work in person to C-suite executives in Toronto and Detroit"
+rail:
+  - { id: overview, label: Overview }
+  - { id: work, label: The work }
+  - { id: key-decision, label: Key decision }
+  - { id: my-part, label: My part }
+  - { id: learned, label: What I learned }
+# Unlisted for now: not linked anywhere and kept out of search results.
+# Remove this line when the homepage card goes back in.
+noindex: true
+---
+
+<Overview {...frontmatter}>
+
+<MediaPair>
+  <PairItem>
+    <LocalVideo
+      src="/images/case_studies/orange_gate/robot-moving.mp4"
+      poster="/images/case_studies/orange_gate/robot-moving-poster.jpg"
+      vertical
+      caption="One of the robots moving around our office"
+    />
+  </PairItem>
+  <PairItem>
+    <Figure
+      src="/images/case_studies/orange_gate/bmo-robot.jpg"
+      caption="Robots at a BMO event, running our app"
+    />
+  </PairItem>
+</MediaPair>
+
+</Overview>
+
+<Section id="work" eyebrow="The work" heading="Apps that run on robots">
+
+Orange Gate is a Toronto consultancy that had mostly done motion graphics for clients like BMO. I joined as an intern on a two-person team building out their innovation lab, a new bet on humanoid robots that ended up reshaping the company's focus.
+
+We built on Sanbot, a humanoid robot, designing conversational experiences that flexed depending on the client's need: a **product specialist** in a GM showroom answering questions about specific cars and pointing people toward them, a **marketing presence** at BMO events drawing people in simply because it was something new to interact with, or a **customer service rep** greeting visitors, checking them in, and connecting them to staff. Same robot, same platform — different job depending on the room it was in.
+
+</Section>
+
+<Section
+  id="key-decision"
+  eyebrow="A key decision"
+  heading="Picking the tool the conversations ran on"
+>
+
+Early on, we needed a way for the robot to actually understand and respond to natural language. The team was leaning toward a Microsoft conversational AI tool, mostly out of familiarity. I'd used Google's DialogFlow before and made the case for it instead, since these were Android-based robots and I expected the integration to be smoother on Google's own stack.
+
+We tested both, and DialogFlow held up — it became the conversation layer behind everything we built afterward, including the BMO and GM work. A small, well-timed call, made early, that a lot of the later work ended up depending on.
+
+</Section>
+
+<Section id="my-part" eyebrow="My part" heading="From wireframes to a talking robot">
+
+I designed the **wireframes, user flows, and prototypes**, then built the Android apps behind them (Java, Kotlin, and XML), with DialogFlow driving the conversation. Designing for an interface that talks back and moves meant learning unfamiliar technology fast, and thinking about interaction very differently than on a screen.
+
+I also presented this work **in person to C-suite executives** at client sites in Toronto and Detroit, leaning most on the automotive project for General Motors. Being one of two people driving the practice meant I touched the whole thing — research, design, build, and the client room.
+
+<MediaPair>
+  <PairItem>
+    <Figure
+      src="/images/case_studies/orange_gate/robot-back-panel.jpg"
+      caption="One of the robots with its back panel open"
+    />
+  </PairItem>
+  <PairItem>
+    <Figure
+      src="/images/case_studies/orange_gate/kanban-board.jpg"
+      caption="Our feature board for the robot app, from ideas to what we’d shipped"
+    />
+  </PairItem>
+</MediaPair>
+
+</Section>
+
+<Section
+  id="learned"
+  eyebrow="What I learned"
+  heading="Lessons from building at Orange Gate"
+>
+
+<Pull>A new medium, an unfamiliar tech stack, and a small team meant every decision counted for more than usual — including a tooling call I pushed for early, which quietly became the foundation for everything we shipped after.</Pull>
+
+</Section>
