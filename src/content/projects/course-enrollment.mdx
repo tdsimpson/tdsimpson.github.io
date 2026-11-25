@@ -51,7 +51,7 @@ rail:
   heading="Missing the context students need"
 >
 
-Oracle's enrollment platform exposes the raw logic of its database, but it's missing a layer of context that matches how students actually search, plan, and decide. The core enrollment mechanics are there, but little else is done to help students make sense of a course before they commit. That means they have to fill in the gaps themselves during one of the most stressful parts of the academic year.
+Oracle’s enrollment platform exposes the raw logic of its database, but it’s missing a layer of context that matches how students actually search, plan, and decide. The core enrollment mechanics are there, but little else is done to help students make sense of a course before they commit. That means they have to fill in the gaps themselves during one of the most stressful parts of the academic year.
 
 <Insights
   layout="list"
@@ -62,11 +62,11 @@ Oracle's enrollment platform exposes the raw logic of its database, but it's mis
     },
     {
       title: 'Search assumes you already know what you want',
-      text: "You can't browse courses or search by name. If you don't already know the exact course code, you're stuck before you even start.",
+      text: "You can’t browse courses or search by name. If you don’t already know the exact course code, you’re stuck before you even start.",
     },
     {
       title: 'No visibility into your schedule before you commit',
-      text: "There's no way to preview your schedule before committing. Conflicts only surface after you've already clicked “enroll,” so fixing a mistake means undoing the whole registration.",
+      text: "There’s no way to preview your schedule before committing. Conflicts only surface after you’ve already clicked “enroll,” so fixing a mistake means undoing the whole registration.",
     },
   ]}
 />
@@ -75,12 +75,12 @@ Oracle's enrollment platform exposes the raw logic of its database, but it's mis
 
 <Section id="research" eyebrow="3. Research" heading="What students told me">
 
-I interviewed six people, five with direct experience using Oracle's enrollment software. The questions covered their most recent registration experience, where they go for requirements and course info, their biggest frustrations, and what external tools they lean on to get through the process.
+I interviewed six people, five with direct experience using Oracle’s enrollment software. The questions covered their most recent registration experience, where they go for requirements and course info, their biggest frustrations, and what external tools they lean on to get through the process.
 
 Almost everyone described the same pattern. To finish enrollment, they had to leave the platform and piece things together themselves:
 
 - Opening a program requirements flowchart on a separate site
-- Leaving the tool to look up what a course actually is, since there's no real way to browse or explore courses inside enrollment
+- Leaving the tool to look up what a course actually is, since there’s no real way to browse or explore courses inside enrollment
 - Checking a personal calendar or third-party schedule builder in another tab for conflicts
 
 <ExternalTools
@@ -107,7 +107,7 @@ None of that work happened inside the enrollment tool itself.
 
 <Section id="personas" eyebrow="4. Personas" heading="Who I was designing for">
 
-The interviews pointed me toward two personas I based the design on: a first-year student who's anxious about getting it wrong, and an experienced student who just wants to move fast.
+The interviews pointed me toward two personas I based the design on: a first-year student who’s anxious about getting it wrong, and an experienced student who just wants to move fast.
 
 <Personas
   layout="cards"
@@ -137,7 +137,7 @@ The interviews pointed me toward two personas I based the design on: a first-yea
   heading="Example flow: Finding a history elective that fits"
 >
 
-Throughout the design process, I worked through the usual stages (user flows, sketches, then wireframes) for the key paths in the product. Here's one example end to end: searching for a history elective, dealing with conflicts, previewing the schedule, and enrolling.
+Throughout the design process, I worked through the usual stages (user flows, sketches, then wireframes) for the key paths in the product. Here’s one example end to end: searching for a history elective, dealing with conflicts, previewing the schedule, and enrolling.
 
 ### User flow
 
@@ -168,7 +168,7 @@ From there, I moved to paper sketches and then mid-fidelity wireframes, working 
 
 <Section id="decisions" eyebrow="6. Design improvements" heading="Design improvements">
 
-Earlier I outlined three places students got stuck. For each one below, you'll see the before and after, and how better UX changed those screens.
+Earlier I outlined three places students got stuck. For each one below, you’ll see the before and after, and how better UX changed those screens.
 
 <DesignDecision
   num="1."
@@ -248,7 +248,7 @@ Earlier I outlined three places students got stuck. For each one below, you'll s
   heading="Plan before you commit"
   addresses="No visibility into your schedule before you commit."
   paragraphs={[
-    "The old system's two biggest blindspots were really the same problem: students had no visibility before the moment of enrollment. They couldn't see how their week would look, and they couldn't know about schedule conflicts until they'd already tried to enroll. The redesign addresses both together: a visual calendar to plan and preview, and a conflict detection system (denoted with the “⚠️” tooltip) before you commit.",
+    "The old system’s two biggest blindspots were really the same problem: students had no visibility before the moment of enrollment. They couldn’t see how their week would look, and they couldn’t know about schedule conflicts until they’d already tried to enroll. The redesign addresses both together: a visual calendar to plan and preview, and a conflict detection system (denoted with the “⚠️” tooltip) before you commit.",
   ]}
   beforeAfter={{
     before: {
@@ -299,7 +299,7 @@ The clickable prototype walks through the full enrollment flow end to end: brows
   heading="Feedback from Amazon and EA"
 >
 
-I presented the prototype to UX designers from Amazon and EA. The overall response was strong, with their main suggestion being to pre-add required courses onto a student's schedule so they wouldn't have to add those themselves.
+I presented the prototype to UX designers from Amazon and EA. The overall response was strong, with their main suggestion being to pre-add required courses onto a student’s schedule so they wouldn’t have to add those themselves.
 
 I personally pushed back on that because:
 
@@ -316,18 +316,18 @@ A softer suggestion or default could be worth exploring later, but forcing those
   heading="Lessons from the enrollment redesign"
 >
 
-### What I'd do differently
+### What I’d do differently
 
 - Early interviews were harder than they needed to be. I tried to facilitate and take notes at the same time, and I missed follow-ups. Once I started recording sessions, I could stay in the conversation and pull the detail afterward.
-- Mid-project I kept rebuilding the same UI pieces because I hadn't set up reusable components. A light design system earlier would have saved a lot of time.
+- Mid-project I kept rebuilding the same UI pieces because I hadn’t set up reusable components. A light design system earlier would have saved a lot of time.
 - On accessibility, I initially treated hover tooltips as enough. Making key ones clickable mattered for anyone not using a mouse.
 
-### Where I'd take it next
+### Where I’d take it next
 
 - Interview a wider and more varied audience.
 - Build a more defined, documented design system.
 - Test the prototype with more students and iterate on the findings.
-- Extend it to the school's administrative side.
+- Extend it to the school’s administrative side.
 - Revisit calendar course-editing (the tooltip modal) and add an availability-icon legend.
 
 </Section>

@@ -1,52 +1,41 @@
 ---
-// "Stuck loop" diagram, with an optional numbered way out.
-interface Node { title: string; text: string }
+// A loop of three steps, each needing the next, drawn as a triangle with curved
+// arrows. Order matters: top, bottom right, bottom left (arrows run in that order
+// and close back to the top). Stacks vertically with a return arrow on narrow screens.
+interface Node { image: string; title: string; text: string }
 interface Props {
-    label: string;
-    nodes: [Node, Node];
-    stuck?: string;
-    path?: { label: string; steps: Node[] };
+    nodes: [Node, Node, Node];
+    caption?: string;
 }
-const { label, nodes, stuck = 'Stuck', path } = Astro.props;
+const { nodes, caption = '' } = Astro.props;
 ---
 
-<figure class="editorial-loop">
-    <div class="loop-panel is-stuck">
-        <p class="loop-label" set:html={label} />
-        <div class="loop-cycle">
-            <div class="loop-node">
-                <p class="loop-node-title" set:html={nodes[0].title} />
-                <p class="loop-node-text" set:html={nodes[0].text} />
-            </div>
-            <div class="loop-mid" aria-hidden="true">
-                <svg viewBox="0 0 80 60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M10 22 C 26 6, 54 6, 70 22"></path>
-                    <path d="M62 21 L70 22 L68 14"></path>
-                    <path d="M70 38 C 54 54, 26 54, 10 38"></path>
-                    <path d="M18 39 L10 38 L12 46"></path>
-                </svg>
-                <span>{stuck}</span>
-            </div>
-            <div class="loop-node">
-                <p class="loop-node-title" set:html={nodes[1].title} />
-                <p class="loop-node-text" set:html={nodes[1].text} />
-            </div>
-        </div>
-    </div>
-    {path && (
-        <div class="loop-panel is-path">
-            <p class="loop-label" set:html={path.label} />
-            <ol class="loop-steps">
-                {path.steps.map((step, i) => (
-                    <li>
-                        <span class="loop-step-num">{i + 1}</span>
+<figure class="editorial-asset editorial-loop">
+    <div class="loop-stage">
+        <div class="loop-map">
+            <svg class="loop-arrows" viewBox="0 0 640 460" fill="none" aria-hidden="true">
+                <defs>
+                    <marker id="loop-arrowhead" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto">
+                        <path d="M2 1.5 L10 6 L2 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </marker>
+                </defs>
+                <path d="M384 62 C 470 58, 524 120, 520 222" marker-end="url(#loop-arrowhead)" />
+                <path d="M458 300 C 390 352, 250 352, 184 300" marker-end="url(#loop-arrowhead)" />
+                <path d="M120 224 C 116 130, 170 70, 254 66" marker-end="url(#loop-arrowhead)" />
+            </svg>
+            <ol class="loop-nodes">
+                {nodes.map((node) => (
+                    <li class="loop-node">
+                        <img src={node.image} alt="" />
                         <div>
-                            <p class="loop-node-title" set:html={step.title} />
-                            <p class="loop-node-text" set:html={step.text} />
+                            <p class="loop-node-title" set:html={node.title} />
+                            <p class="loop-node-text" set:html={node.text} />
                         </div>
                     </li>
                 ))}
             </ol>
+            <span class="loop-return" aria-hidden="true"></span>
         </div>
-    )}
+    </div>
+    {caption && <figcaption set:html={caption} />}
 </figure>
