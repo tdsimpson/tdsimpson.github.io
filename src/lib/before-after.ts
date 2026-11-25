@@ -29,7 +29,7 @@ export function renderBeforeAfter(before: any, after: any, caption?: string): st
         ${mobileNotes('before')}
         <div class="card after">
             <span class="badge">${after.badge}</span>
-            <h4>${after.heading}</h4>
+            ${hl(`<h4>${after.heading}</h4>`, after.headingNote)}
             ${after.why ? `<div class="why">${after.why}</div>` : ''}
             ${[].concat(after.text).map((t, i) => hl(`<p>${t}</p>`, an[i])).join('')}
             ${after.items ? `<ul class="steps">${after.items.map((item: string) => `<li>${item}</li>`).join('')}</ul>` : ''}
@@ -55,5 +55,5 @@ export function renderBeforeAfter(before: any, after: any, caption?: string): st
 }
 
 export function isAnnotated(before: any, after: any): boolean {
-    return !!(before.notes || after.textNotes || (after.groups || []).some((g: any) => g.note));
+    return !!(before.notes || after.headingNote || after.textNotes || (after.groups || []).some((g: any) => g.note));
 }

@@ -1638,6 +1638,7 @@ header>.header-actions {
 }
 
 .ba-hl > .mock-title,
+.ba-hl > h4,
 .ba-hl > .wall {
     margin-bottom: 6px;
 }
