@@ -2921,6 +2921,10 @@ header>.header-actions {
     color: var(--text-2);
 }
 
+.editorial-flow-item p + p {
+    margin-top: 0.8em;
+}
+
 .editorial-flow-item.has-thumb {
     grid-template-columns: 42px 1fr 200px;
 }

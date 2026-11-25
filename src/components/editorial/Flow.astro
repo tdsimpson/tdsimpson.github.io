@@ -6,7 +6,7 @@ interface Props {
     items: {
         num?: string | number;
         title: string;
-        text: string;
+        text: string | string[]; // an array gives one paragraph per item
         thumb?: { src?: string; full?: string; caption?: string; align?: string; placeholder?: string };
     }[];
 }
@@ -19,7 +19,7 @@ const { items } = Astro.props;
             {item.num && <div class="editorial-flow-num">{item.num}</div>}
             <div>
                 <h3 set:html={item.title} />
-                <p set:html={item.text} />
+                {[].concat(item.text).map((t) => <p set:html={t} />)}
             </div>
             {item.thumb && (
                 <div class="editorial-flow-thumb">
