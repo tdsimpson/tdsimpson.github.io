@@ -3073,6 +3073,16 @@ header>.header-actions {
     margin: 24px 0;
 }
 
+/* Multi-line quotes render as paragraphs; match the look of a single-line quote. */
+.editorial-pull > p {
+    margin: 0;
+    line-height: inherit;
+}
+
+.editorial-pull > p + p {
+    margin-top: 0.8em;
+}
+
 .editorial-pull strong {
     font-weight: 650;
     color: var(--text);
