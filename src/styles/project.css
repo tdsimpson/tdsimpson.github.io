@@ -1675,7 +1675,7 @@ header>.header-actions {
 
 .editorial-ba figcaption {
     margin-top: -12px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     letter-spacing: 0.03em;
     color: var(--muted);
 }
@@ -2375,7 +2375,7 @@ header>.header-actions {
 
 .editorial-rules figcaption {
     margin-top: 12px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     letter-spacing: 0.03em;
     color: var(--muted);
 }
@@ -2483,7 +2483,7 @@ header>.header-actions {
 .editorial-asset figcaption {
     border-top: 1px solid var(--line);
     padding: 12px 30px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     letter-spacing: 0.03em;
     color: var(--muted);
     background: var(--bg);
@@ -3294,7 +3294,7 @@ header>.header-actions {
 .editorial-video figcaption {
     border-top: 1px solid var(--line);
     padding: 12px 30px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     letter-spacing: 0.03em;
     color: var(--muted);
     background: var(--bg);
