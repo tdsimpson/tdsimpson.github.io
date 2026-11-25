@@ -86,7 +86,7 @@ SettleKit’s underlying personalization is very powerful, combining your countr
 - There were only about five topics (called “blocks” in the app)
 - The landing page wasn’t clear about what SettleKit offers or how it would help
 - The dashboard surfaced one recommended action at a time, driven by a short set of unexplained questions
-- People were dropped straight into questions with no sense of *why* they were answering them or *where* the journey was headed
+- People were dropped straight into questions with no sense of _why_ they were answering them or _where_ the journey was headed
 - The wording often didn’t feel relevant to people’s situations
 - The information was there, but the steps weren’t packaged in a way that was easy to take in, so people were still overwhelmed
 
@@ -123,7 +123,7 @@ I also use AI in my workflow, mostly Claude and sometimes Gemini, to get first v
 
 When we interviewed users and looked at how they moved through the product, the same pattern kept coming up. People were given a list of steps but had no real sense of why each one mattered or how it connected to the next. Without the “why,” they had little motivation to start and no mental model of how the pieces fit together. Many left topics half-finished, because they were confused and overwhelmed.
 
-The big issue I noticed was the format itself. Everything in SettleKit had been forced into strict, one-to-one steps that users marked “done.” On paper, that would seem like the right approach, where it’s concrete and concise. It worked for more familiar and straightforward actions like getting a driver’s license, but not as well for anything that was more nuanced and complex like healthcare in the U.S. Asking someone to check off “understand how U.S. healthcare works” left them wondering: *Did I finish that? Does “done” mean I understand it, or just that I read it?*
+The big issue I noticed was the format itself. Everything in SettleKit had been forced into strict, one-to-one steps that users marked “done.” On paper, that would seem like the right approach, where it’s concrete and concise. It worked for more familiar and straightforward actions like getting a driver’s license, but not as well for anything that was more nuanced and complex like healthcare in the U.S. Asking someone to check off “understand how U.S. healthcare works” left them wondering: _Did I finish that? Does “done” mean I understand it, or just that I read it?_
 
 So I reframed the product’s approach from a checklist to explanatory guides. Each guide leads with context (why this matters, what’s at stake, and what “done” actually looks like) before getting into the actions. And because not everything is a step to check off, guides became resources people can return to as their situation changes, rather than a checklist to click through.
 
@@ -131,52 +131,52 @@ For example, here’s one step from our guide to getting through US immigration,
 
 <BeforeAfter
   before={{
-    badge: 'Before (task-first)',
-    title: 'Gather your entry documents',
-    text: 'Bring your valid passport, your valid H-1B visa (unless exempt), your Form I-797 Notice of Action (Approval Notice), your job offer letter or recent employment verification letter, your recent paystubs (if already employed), a copy of your Form I-129 and Labor Condition Application (LCA), your DS-160 confirmation page, and your employer contact information. Keep these documents in your carry-on bag, not checked luggage, so they are accessible at the booth. If you are carrying a sealed packet from the consulate, do not open it.',
-    tip: '<strong>SettleKit tip:</strong> The officer may ask about your employer, job title, work location, and primary job duties; ensure your answers match the details on your Form I-129 and Labor Condition Application (LCA).',
-    done: '☐ Mark as done',
+    badge: "Before (task-first)",
+    title: "Gather your entry documents",
+    text: "Bring your valid passport, your valid H-1B visa (unless exempt), your Form I-797 Notice of Action (Approval Notice), your job offer letter or recent employment verification letter, your recent paystubs (if already employed), a copy of your Form I-129 and Labor Condition Application (LCA), your DS-160 confirmation page, and your employer contact information. Keep these documents in your carry-on bag, not checked luggage, so they are accessible at the booth. If you are carrying a sealed packet from the consulate, do not open it.",
+    tip: "<strong>SettleKit tip:</strong> The officer may ask about your employer, job title, work location, and primary job duties; ensure your answers match the details on your Form I-129 and Labor Condition Application (LCA).",
+    done: "☐ Mark as done",
     notes: {
-      title: 'Reads like a task to check off, with no reason to do it',
-      text: 'Every document is crammed into one sentence, with nothing to show which ones really matter',
-      tip: 'Mentions the I-129 and LCA without explaining what they are',
+      title: "Reads like a task to check off, with no reason to do it",
+      text: "Every document is crammed into one sentence, with nothing to show which ones really matter",
+      tip: "Mentions the I-129 and LCA without explaining what they are",
     },
   }}
   after={{
-    badge: 'After (context-first)',
-    heading: 'Documents you’ll need to cross the border',
+    badge: "After (context-first)",
+    heading: "Documents you’ll need to cross the border",
     text: [
-      'At the border, your documents provide the legal proof of your intent. Having them organized and physically accessible prevents the officer from doubting your eligibility and avoids a denial of entry if your checked luggage is lost or delayed.',
-      'Gather the following items into a dedicated folder to be kept in your carry-on bag:',
+      "At the border, your documents provide the legal proof of your intent. Having them organized and physically accessible prevents the officer from doubting your eligibility and avoids a denial of entry if your checked luggage is lost or delayed.",
+      "Gather the following items into a dedicated folder to be kept in your carry-on bag:",
     ],
-    textNotes: ['Starts with why these documents matter at the border'],
+    textNotes: ["Starts with why these documents matter at the border"],
     groups: [
       {
-        label: 'Required',
-        note: 'Puts what you can’t travel without first',
+        label: "Required",
+        note: "Puts what you can’t travel without first",
         items: [
-          '<strong>Valid passport</strong> with your <strong>H-1B visa stamp</strong>.',
-          'Original <strong>Form I-797 (Approval Notice)</strong>. This is the proof that the government has already vetted your petition.',
-          'Signed <strong>job offer letter</strong> or a recent <strong>employment verification letter</strong>.',
+          "<strong>Valid passport</strong> with your <strong>H-1B visa stamp</strong>.",
+          "Original <strong>Form I-797 (Approval Notice)</strong>. This is the proof that the government has already vetted your petition.",
+          "Signed <strong>job offer letter</strong> or a recent <strong>employment verification letter</strong>.",
         ],
       },
       {
-        label: 'Good to have',
-        note: 'Explains each form in plain language',
+        label: "Good to have",
+        note: "Explains each form in plain language",
         items: [
-          'Copy of your <strong>Form I-129</strong>. This is the petition your employer filed to prove that the job is a “specialty occupation” and that you have the specific degree or experience to do it.',
-          '<strong>Labor Condition Application (LCA)</strong>. This is the document where your employer promises the government they will pay you the fair market wage for your specific role and location.',
+          "Copy of your <strong>Form I-129</strong>. This is the petition your employer filed to prove that the job is a “specialty occupation” and that you have the specific degree or experience to do it.",
+          "<strong>Labor Condition Application (LCA)</strong>. This is the document where your employer promises the government they will pay you the fair market wage for your specific role and location.",
         ],
       },
     ],
     rows: [
       {
-        sub: 'SettleKit tip',
+        sub: "SettleKit tip",
         tip: true,
-        row: 'If the consulate gave you a <strong>sealed manila envelope</strong>, do not open it! Only the Customs and Border Protection (CBP) officer is allowed to break that seal. If you open it, you’re looking at a long delay in “Secondary Inspection” while they verify the contents.',
+        row: "If the consulate gave you a <strong>sealed manila envelope</strong>, do not open it! Only the Customs and Border Protection (CBP) officer is allowed to break that seal. If you open it, you’re looking at a long delay in “Secondary Inspection” while they verify the contents.",
       },
     ],
-    markDone: '☐ Mark as done',
+    markDone: "☐ Mark as done",
   }}
   caption="It’s longer than the old version, but every addition answers a question people were already asking."
 />
@@ -208,28 +208,28 @@ The sidebar is what people see before they commit to starting a topic. Each rule
   caption="Excerpts from the guidelines, as written"
   items={[
     {
-      title: 'Motivate with facts, not fear',
-      rule: 'Explain why it matters by describing how things actually work in the US, in a way that motivates without fear-mongering. The reader should think “ah, that’s why this matters,” not “oh no, I’d better not mess up.”',
-      avoid: '“You’ll lose the apartment if you’re not ready.”',
-      use: '“Apartments go within a day or two.”',
+      title: "Motivate with facts, not fear",
+      rule: "Explain why it matters by describing how things actually work in the US, in a way that motivates without fear-mongering. The reader should think “ah, that’s why this matters,” not “oh no, I’d better not mess up.”",
+      avoid: "“You’ll lose the apartment if you’re not ready.”",
+      use: "“Apartments go within a day or two.”",
     },
     {
-      title: 'Be honest about what SettleKit delivers',
-      rule: 'SettleKit provides knowledge, frameworks and tools, and the user does the work. Credit the user’s new capability or knowledge, and don’t promise outcomes SettleKit doesn’t directly produce.',
-      avoid: '“Protection from scams”',
-      use: '“The know-how to spot scams”',
+      title: "Be honest about what SettleKit delivers",
+      rule: "SettleKit provides knowledge, frameworks and tools, and the user does the work. Credit the user’s new capability or knowledge, and don’t promise outcomes SettleKit doesn’t directly produce.",
+      avoid: "“Protection from scams”",
+      use: "“The know-how to spot scams”",
     },
     {
-      title: 'Use universal language',
-      rule: 'Avoid metaphors and idioms that may not translate clearly for non-native English speakers (foothold, master key, foundation). Prefer concrete, widely understood phrasing.',
-      avoid: '“A permanent master key for U.S. paperwork”',
-      use: '“The number most U.S. paperwork asks for”',
+      title: "Use universal language",
+      rule: "Avoid metaphors and idioms that may not translate clearly for non-native English speakers (foothold, master key, foundation). Prefer concrete, widely understood phrasing.",
+      avoid: "“A permanent master key for U.S. paperwork”",
+      use: "“The number most U.S. paperwork asks for”",
     },
     {
-      title: 'The “Now I can” test',
-      rule: 'Every outcome must complete the sentence “By finishing this, I now have the ability to…” or “I now own…” If it describes an action the user must take, like “Apply for,” it belongs in the process, not the outcomes.',
-      avoid: '“Apply for a US credit card”',
-      use: '“Build your first US credit score”',
+      title: "The “Now I can” test",
+      rule: "Every outcome must complete the sentence “By finishing this, I now have the ability to…” or “I now own…” If it describes an action the user must take, like “Apply for,” it belongs in the process, not the outcomes.",
+      avoid: "“Apply for a US credit card”",
+      use: "“Build your first US credit score”",
     },
   ]}
 />
@@ -251,18 +251,14 @@ I redesigned the end-to-end flow around progressive disclosure. People shouldn�
 People need the right information at the right time, and a way to drill down when they want more. That has to work for two kinds of people, so there are two ways in:
 
 <MediaPair equal>
-  <PairItem
-    note="<strong>For people who want to be told what to do, in order.</strong> The dashboard recommends what to do next, based on each person’s situation and progress."
-  >
+  <PairItem note="<strong>For people who want to be told what to do, in order.</strong> The dashboard recommends what to do next, based on each person’s situation and progress.">
     <Figure
       src="/images/case_studies/settlekit/hero-dashboard.png"
       alt="The SettleKit dashboard recommending what to do next"
       badge="Guided"
     />
   </PairItem>
-  <PairItem
-    note="<strong>For people who want to explore first.</strong> The Explore page shows every topic, grouped by stage, so people can see how topics connect."
-  >
+  <PairItem note="<strong>For people who want to explore first.</strong> The Explore page shows every topic, grouped by stage, so people can see how topics connect.">
     <Figure
       src="/images/case_studies/settlekit/explore-blocks.jpg"
       alt="The Explore page showing every topic, grouped by stage"
@@ -278,33 +274,35 @@ Whichever way people pick a topic, the information then opens up in stages:
 <Flow
   items={[
     {
-      num: '1',
-      title: 'Previewing a topic before committing',
-      text: 'I proposed a sidebar (the same one shown with the writing rules above) that opens when someone clicks a topic card, like reviewing your cart before checkout, so people can decide whether a topic is worth starting. Before, people often started topics just to see what was inside, rushing through questions that shape their whole path. Now 90% preview more than one topic in their first session, and once they start one, they usually stick with it.',
+      num: "1",
+      title: "Previewing a topic before committing",
+      text: "I proposed a sidebar (the same one shown with the writing rules above) that opens when someone clicks a topic card, like reviewing your cart before checkout, so people can decide whether a topic is worth starting. Before, people often started topics just to see what was inside, rushing through questions that shape their whole path. Now 90% preview more than one topic in their first session, and once they start one, they usually stick with it.",
       thumb: {
-        src: '/images/case_studies/settlekit/sidebar-preview-credit-card.jpg',
-        align: 'right',
-        caption: 'The sidebar preview for a topic',
+        src: "/images/case_studies/settlekit/sidebar-preview-credit-card.jpg",
+        align: "right",
+        caption: "The sidebar preview for a topic",
       },
     },
     {
-      num: '2',
-      title: 'A personalized overview before the steps',
-      text: 'Once people start a topic, an overview shows their personalized plan before the first step: what about their situation matters for this topic and what we built for them because of it. That way people understand why their steps look the way they do before they get into them.',
+      num: "2",
+      title: "A personalized overview before the steps",
+      text: "Once people start a topic, an overview shows their personalized plan before the first step: what about their situation matters for this topic and what we built for them because of it. That way people understand why their steps look the way they do before they get into them.",
       thumb: {
-        src: '/images/case_studies/settlekit/topic-overview-thumb.jpg',
-        full: '/images/case_studies/settlekit/topic-overview.jpg',
-        caption: 'A topic’s overview page: the person’s situation and what we built for them',
+        src: "/images/case_studies/settlekit/topic-overview-thumb.jpg",
+        full: "/images/case_studies/settlekit/topic-overview.jpg",
+        caption:
+          "A topic’s overview page: the person’s situation and what we built for them",
       },
     },
     {
-      num: '3',
-      title: 'A table of contents you can roam',
-      text: 'People can jump between steps to see what’s ahead, even before completing anything. Because paths are tailored up front, the steps don’t shift mid-journey, so looking ahead never breaks the personalization.',
+      num: "3",
+      title: "A table of contents you can roam",
+      text: "People can jump between steps to see what’s ahead, even before completing anything. Because paths are tailored up front, the steps don’t shift mid-journey, so looking ahead never breaks the personalization.",
       thumb: {
-        src: '/images/case_studies/settlekit/guide-table-of-contents-thumb.jpg',
-        full: '/images/case_studies/settlekit/guide-table-of-contents.jpg',
-        caption: 'A guide’s table of contents, with steps people can jump between',
+        src: "/images/case_studies/settlekit/guide-table-of-contents-thumb.jpg",
+        full: "/images/case_studies/settlekit/guide-table-of-contents.jpg",
+        caption:
+          "A guide’s table of contents, with steps people can jump between",
       },
     },
   ]}
@@ -347,7 +345,10 @@ The information was still worth getting across, so we moved it into the onboardi
 
 Most of what SettleKit helps with doesn’t actually happen in SettleKit. Opening a bank account, getting insurance or applying for a Social Security number all happen somewhere else, so a big part of guiding people is getting them to the right place with the right information. Some of those handoffs are straightforward. For a Social Security number there’s one government agency and one process, so we explain what to expect and send people there.
 
-<Pull lead="The way I describe it to the team:">We act like a parent, holding their hand through everything. Then we tell them to go spend the afternoon with a stranger. So we have to set them up for it.</Pull>
+<Pull lead="The way I describe it to the team:">
+  We act like a parent, holding their hand through everything. Then we tell them
+  to go spend the afternoon with a stranger. So we have to set them up for it.
+</Pull>
 
 Commercial providers are harder, because the person has to make a choice. As a newcomer you often don’t know what’s out there, which options are open to you without a U.S. credit history, or what you’d need to do to qualify for the ones that aren’t. That’s usually when people go looking for advice, so I designed a comparison experience that gives them the full lay of the land in one place. Instead of simple filters, people mark how much each factor matters to them, from “don’t care” to “dealbreaker,” and the banks are ranked to match. Someone without an SSN yet can rule out every bank that requires one, while someone else might care most about monthly fees or a joining bonus.
 
@@ -377,19 +378,19 @@ Two changes made the clearest difference. Moving to guides raised the share of s
 <Quotes
   items={[
     {
-      text: 'So much of moving here is rules and conventions nobody mentions unless you get them wrong. SettleKit tells you about them up front.',
-      name: 'Remi',
-      from: 'France → New York',
+      text: "So much of moving here is rules and conventions nobody mentions unless you get them wrong. SettleKit tells you about them up front.",
+      name: "Remi",
+      from: "France → New York",
     },
     {
-      text: 'In France there’s one health plan. Here your employer hands you pages of them and wishes you luck. SettleKit compared them in words I could actually use.',
-      name: 'Valentin',
-      from: 'France → New York',
+      text: "In France there’s one health plan. Here your employer hands you pages of them and wishes you luck. SettleKit compared them in words I could actually use.",
+      name: "Valentin",
+      from: "France → New York",
     },
     {
-      text: 'I got rejected for internet as a ‘high-risk consumer’ a week after landing. SettleKit explained why, and what to do about it.',
-      name: 'Nadine',
-      from: 'South Africa → New York',
+      text: "I got rejected for internet as a ‘high-risk consumer’ a week after landing. SettleKit explained why, and what to do about it.",
+      name: "Nadine",
+      from: "South Africa → New York",
     },
   ]}
 />
