@@ -2719,134 +2719,164 @@ header>.header-actions {
     border-top: 1px solid var(--line);
 }
 
+/* Loop figure (three steps that each need the next). Uses the editorial-asset frame. */
 .editorial-loop {
-    margin: 28px 0 8px;
-    display: grid;
-    gap: 14px;
+    --loop-bg: #fbeee0;
+    --loop-glow: #f8dcc0;
+    --loop-arrow: #e2795b;
+    --loop-shadow: rgba(170, 100, 60, 0.18);
 }
 
-.loop-panel {
-    border-radius: var(--radius);
-    padding: 20px 22px 22px;
-    background: var(--card);
+[data-theme="dark"] .editorial-loop {
+    --loop-bg: #211a16;
+    --loop-glow: #2f221a;
+    --loop-arrow: #ec9479;
+    --loop-shadow: rgba(0, 0, 0, 0.35);
 }
 
-.loop-panel.is-stuck {
-    border: 1.5px dashed var(--ba-before-border);
+.loop-stage {
+    padding: 32px 28px 28px;
+    background:
+        radial-gradient(circle at 50% 58%, var(--loop-glow) 0 34%, transparent 34.2%),
+        var(--loop-bg);
 }
 
-.loop-panel.is-path {
-    border: 1px solid var(--line);
+.loop-map {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    aspect-ratio: 640 / 460;
 }
 
-.loop-label {
-    margin: 0 0 14px;
-    font-size: 0.8rem;
-    font-weight: 650;
-    letter-spacing: 0.02em;
+.loop-arrows {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--loop-arrow);
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
 }
 
-.is-stuck .loop-label {
-    color: var(--ba-before-pill-text);
+.loop-nodes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.is-path .loop-label {
-    color: var(--ba-after-pill-text);
-}
-
-.loop-cycle {
-    display: grid;
-    grid-template-columns: 1fr 96px 1fr;
-    align-items: center;
-    gap: 8px;
-}
-
+/* Positions match the 640 x 460 arrow drawing: top, bottom right, bottom left. */
 .loop-node {
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 14px 16px;
+    position: absolute;
+    width: 31.25%;
     text-align: center;
 }
 
-.loop-node-title {
+.loop-node:nth-child(1) { left: 34.375%; top: 3.48%; }
+.loop-node:nth-child(2) { left: 65.625%; top: 51.3%; }
+.loop-node:nth-child(3) { left: 3.125%; top: 51.3%; }
+
+.loop-node img {
+    display: block;
+    width: 52%;
+    aspect-ratio: 1;
+    margin: 0 auto 8px;
+    filter: drop-shadow(0 10px 12px var(--loop-shadow));
+}
+
+.editorial-loop .loop-node-title {
     margin: 0;
     font-family: var(--font-display);
     font-weight: 650;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.3;
     color: var(--text);
 }
 
-.loop-node-text {
-    margin: 4px 0 0;
-    font-size: 0.9rem;
+.editorial-loop .loop-node-text {
+    margin: 2px 0 0;
+    font-size: 0.85rem;
     line-height: 1.4;
     color: var(--text-2);
 }
 
-.loop-mid {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--ba-before-border);
+.loop-return {
+    display: none;
 }
 
-.loop-mid svg {
-    width: 80px;
-    height: 60px;
-}
-
-.loop-mid span {
-    position: absolute;
-    font-size: 0.75rem;
-    font-weight: 650;
-    color: var(--ba-before-pill-text);
-}
-
-.loop-steps {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-
-.loop-steps li {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-}
-
-.loop-step-num {
-    flex: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: var(--ba-after-pill-bg);
-    color: var(--ba-after-pill-text);
-    font-size: 0.8rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-@media (max-width: 640px) {
-    .loop-cycle {
-        grid-template-columns: 1fr;
+/* Narrow screens: a vertical list with down arrows and a return arrow on the right. */
+@media (max-width: 720px) {
+    .loop-stage {
+        padding: 24px 20px;
+        background: var(--loop-bg);
     }
 
-    .loop-mid {
-        height: 72px;
+    .loop-map {
+        aspect-ratio: auto;
+        padding-right: 44px;
     }
 
-    .loop-mid svg {
-        transform: rotate(90deg);
+    .loop-arrows {
+        display: none;
     }
 
-    .loop-steps {
-        grid-template-columns: 1fr;
+    .loop-nodes {
+        display: grid;
+        gap: 34px;
+    }
+
+    .loop-node {
+        position: relative;
+        left: auto !important;
+        top: auto !important;
+        width: auto;
+        display: grid;
+        grid-template-columns: 72px 1fr;
+        gap: 16px;
+        align-items: center;
+        text-align: left;
+    }
+
+    .loop-node img {
+        width: 72px;
+        margin: 0;
+    }
+
+    .loop-node:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        left: 28px;
+        top: calc(100% + 5px);
+        width: 16px;
+        height: 24px;
+        background: var(--loop-arrow);
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2v19M3 16l5 5 5-5'/%3E%3C/svg%3E") center / contain no-repeat;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2v19M3 16l5 5 5-5'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+
+    /* Runs from the last step back up to the first. */
+    .loop-return {
+        display: block;
+        position: absolute;
+        right: 6px;
+        top: 36px;
+        bottom: 36px;
+        width: 26px;
+        border: 2px solid var(--loop-arrow);
+        border-left: none;
+        border-radius: 0 16px 16px 0;
+    }
+
+    .loop-return::before {
+        content: '';
+        position: absolute;
+        left: -3px;
+        top: -8px;
+        width: 9px;
+        height: 14px;
+        background: var(--loop-arrow);
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 14' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 1L2 7l6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 14' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 1L2 7l6 6'/%3E%3C/svg%3E") center / contain no-repeat;
     }
 }
 

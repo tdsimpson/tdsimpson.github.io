@@ -39,30 +39,38 @@ rail:
 <Section
   id="challenge"
   eyebrow="2. The need for SettleKit"
-  heading="Setting up a life in the U.S. is a maze"
+  heading="Where newcomers to the U.S. get stuck"
 >
 
-Being a newcomer in the U.S. means facing a maze of bureaucratic steps that are often hard to navigate by yourself (e.g., opening a bank account, qualifying for an apartment and getting health insurance). Each of these has its own rules and depends on your specific situation.
+Moving to the U.S. comes with a lot of bureaucracy all at once that’s hard to figure out on your own, like opening a bank account, qualifying for an apartment and getting health insurance. Each has its own set of rules, and the right answer depends on your visa, your state and what you’ve already done.
 
-We’ve conducted over 50 user interviews, asking people what they struggled with most during their move to the U.S. Most people struggle to know where to start, where to get accurate information, and how to choose between options they’ve never had to think about before. Many of them currently get outdated, irrelevant or confusing information from friends, online threads or WhatsApp groups, where some people try to take advantage of them. Hiring a professional isn’t always an option, since it can be expensive.
+We’ve conducted over 50 user interviews, asking people what they struggled with most during their move to the U.S. Most people struggle to know where to start, where to get accurate information, and how to choose between options they’ve never had to think about before.
 
-Healthcare and housing were two of the biggest struggles. With healthcare, several people had gone months without coverage, one of them for seven months, because they were overwhelmed and didn’t know what to choose. With housing, many people get confused about the order of things. To apply for a Social Security number you need a mailing address, but to rent an apartment you often need a Social Security number. People end up signing leases on apartments they’ve never seen, or can’t work out why they keep getting turned down.
+Many of them currently get outdated, irrelevant or confusing information from friends, online threads or WhatsApp groups, where some people try to take advantage of them. Hiring a professional isn’t always an option, since it can be expensive.
+
+Healthcare and housing came up most. With healthcare, several people had gone months without coverage, one of them for seven months, because the options were overwhelming and they didn’t know what to choose.
+
+With housing, the problem is often the order of things. Each step seems to depend on another, so people end up signing leases on apartments they’ve never seen, or can’t work out why they keep getting turned down. Here’s a loop many of them describe:
 
 <Loop
-  label="The loop people get stuck in"
   nodes={[
-    { title: 'Social Security number', text: 'Needs a mailing address' },
-    { title: 'Apartment', text: 'Often needs a Social Security number' },
+    {
+      image: "/images/case_studies/settlekit/block-ssn.webp",
+      title: "Social Security number",
+      text: "Needs a U.S. address",
+    },
+    {
+      image: "/images/case_studies/settlekit/block-apartment.webp",
+      title: "Apartment",
+      text: "Usually needs credit history",
+    },
+    {
+      image: "/images/case_studies/settlekit/block-credit.webp",
+      title: "Credit history",
+      text: "Usually needs an SSN",
+    },
   ]}
-  stuck="Stuck"
-  path={{
-    label: 'The order SettleKit suggests',
-    steps: [
-      { title: 'Temporary housing', text: 'Gives you a mailing address, with no SSN needed' },
-      { title: 'Social Security number', text: 'Apply using that address' },
-      { title: 'Apartment', text: 'Apply with your SSN, after seeing it in person' },
-    ],
-  }}
+  caption="The loop many newcomers get stuck in. There are ways out, like guarantors or landlords who don’t check credit, but most newcomers don’t know about them yet."
 />
 
 </Section>
